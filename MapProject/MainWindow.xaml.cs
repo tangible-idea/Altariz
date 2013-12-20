@@ -20,26 +20,27 @@ namespace ManipulationModeDemo
         {
             InitializeComponent();
 
+            currentMode = ManipulationModes.Scale | ManipulationModes.Translate;
             // Build list of radio buttons
-            foreach (ManipulationModes mode in Enum.GetValues(typeof(ManipulationModes)))
-            {
-                RadioButton radio = new RadioButton
-                {
-                    Content = mode,
-                    IsChecked = mode == currentMode,
-                };
-                radio.Checked += new RoutedEventHandler(OnRadioChecked);
-                modeList.Children.Add(radio);
-            }
+            //foreach (ManipulationModes mode in Enum.GetValues(typeof(ManipulationModes)))
+            //{
+            //    RadioButton radio = new RadioButton
+            //    {
+            //        Content = mode,
+            //        IsChecked = mode == currentMode,
+            //    };
+            //    radio.Checked += new RoutedEventHandler(OnRadioChecked);
+            //    modeList.Children.Add(radio);
+            //}
         }
         #endregion 
 
-        #region void OnRadioChecked
-        void OnRadioChecked(object sender, RoutedEventArgs args)
-        {
-            currentMode = (ManipulationModes)(sender as RadioButton).Content;
-        }
-        #endregion 
+        //#region void OnRadioChecked
+        //void OnRadioChecked(object sender, RoutedEventArgs args)
+        //{
+        //    currentMode = (ManipulationModes)(sender as RadioButton).Content;
+        //}
+        //#endregion 
 
         #region protected override void OnManipulationStarting
         protected override void OnManipulationStarting(ManipulationStartingEventArgs args)
@@ -160,89 +161,89 @@ namespace ManipulationModeDemo
         }
         #endregion 
 
-        #region private void Button_Click
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-          foreach (UIElement el in Wrap.Children)
-          {
-            if (el.GetType().ToString() == "System.Windows.Controls.Image")
-            {
-              if ((el as Image).Tag != null)
-              {
-                string tag = (el as Image).Tag as string;
-                //MessageBox.Show(tag);
-                string[] tags = tag.Split('_');
+        //#region private void Button_Click
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
+        //  foreach (UIElement el in Wrap.Children)
+        //  {
+        //    if (el.GetType().ToString() == "System.Windows.Controls.Image")
+        //    {
+        //      if ((el as Image).Tag != null)
+        //      {
+        //        string tag = (el as Image).Tag as string;
+        //        //MessageBox.Show(tag);
+        //        string[] tags = tag.Split('_');
 
-                if(tags[0].Equals("1"))
-                {
-                  //MessageBox.Show(tags[1]+"/"+tags[2]);
-                  string [] sFrom = tags[1].Split('x');
-                  string [] sTo = tags[2].Split('x');
-                  Point pFrom = new Point(Convert.ToInt32(sFrom[0]), Convert.ToInt32(sFrom[1]));
-                  Point pTo = new Point(Convert.ToInt32(sTo[0]), Convert.ToInt32(sTo[1]));
+        //        if(tags[0].Equals("1"))
+        //        {
+        //          //MessageBox.Show(tags[1]+"/"+tags[2]);
+        //          string [] sFrom = tags[1].Split('x');
+        //          string [] sTo = tags[2].Split('x');
+        //          Point pFrom = new Point(Convert.ToInt32(sFrom[0]), Convert.ToInt32(sFrom[1]));
+        //          Point pTo = new Point(Convert.ToInt32(sTo[0]), Convert.ToInt32(sTo[1]));
 
-                  #region 내리기
-                  MatrixTransform xform = el.RenderTransform as MatrixTransform;
-                  Matrix matrix = xform.Matrix;
-                  Matrix from = matrix;
-                  matrix.OffsetX = pFrom.X;
-                  matrix.OffsetY = pFrom.Y;
-                  matrix.M11 = 0.5;
-                  matrix.M12 = matrix.M21 = 0;
-                  matrix.M22 = 0.5;
-                  Matrix to = matrix;
+        //          #region 내리기
+        //          MatrixTransform xform = el.RenderTransform as MatrixTransform;
+        //          Matrix matrix = xform.Matrix;
+        //          Matrix from = matrix;
+        //          matrix.OffsetX = pFrom.X;
+        //          matrix.OffsetY = pFrom.Y;
+        //          matrix.M11 = 0.5;
+        //          matrix.M12 = matrix.M21 = 0;
+        //          matrix.M22 = 0.5;
+        //          Matrix to = matrix;
                   
-                  MatrixAnimation b = new MatrixAnimation()
-                  {
-                    From = from,
-                    To = to,
-                    Duration = TimeSpan.FromMilliseconds(100),
-                    FillBehavior = FillBehavior.HoldEnd
-                  };                  
-                  (el.RenderTransform as MatrixTransform).BeginAnimation(MatrixTransform.MatrixProperty, b);
-                  //LinearMatrixAnimation a = new LinearMatrixAnimation(from, to, TimeSpan.FromMilliseconds(1000));
-                  //(el.RenderTransform as MatrixTransform).BeginAnimation(MatrixTransform.MatrixProperty, a);
+        //          MatrixAnimation b = new MatrixAnimation()
+        //          {
+        //            From = from,
+        //            To = to,
+        //            Duration = TimeSpan.FromMilliseconds(100),
+        //            FillBehavior = FillBehavior.HoldEnd
+        //          };                  
+        //          (el.RenderTransform as MatrixTransform).BeginAnimation(MatrixTransform.MatrixProperty, b);
+        //          //LinearMatrixAnimation a = new LinearMatrixAnimation(from, to, TimeSpan.FromMilliseconds(1000));
+        //          //(el.RenderTransform as MatrixTransform).BeginAnimation(MatrixTransform.MatrixProperty, a);
 
-                  #endregion 
+        //          #endregion 
 
                   
-                  DispatcherTimer timer = new DispatcherTimer(); 
-                  timer.Interval = TimeSpan.FromMilliseconds(300);
-                  EventHandler eh = null;
-                  eh = (s, ex) =>
-                  {
-                    timer.Tick -= eh;
+        //          DispatcherTimer timer = new DispatcherTimer(); 
+        //          timer.Interval = TimeSpan.FromMilliseconds(300);
+        //          EventHandler eh = null;
+        //          eh = (s, ex) =>
+        //          {
+        //            timer.Tick -= eh;
 
-                    #region 원래자리로 복귀
-                    Matrix origin = matrix;
-                    origin.OffsetX = pTo.X;//Convert.ToInt32(sTo[0]);
-                    origin.OffsetY = pTo.Y;//Convert.ToInt32(sTo[1]);
-                    MatrixAnimation c = new MatrixAnimation()
-                    {
-                      From = to,
-                      To = origin,
-                      Duration = TimeSpan.FromMilliseconds(100),
-                      FillBehavior = FillBehavior.HoldEnd
-                    };
-                    (el.RenderTransform as MatrixTransform).BeginAnimation(MatrixTransform.MatrixProperty, c);
-                    #endregion 
+        //            #region 원래자리로 복귀
+        //            Matrix origin = matrix;
+        //            origin.OffsetX = pTo.X;//Convert.ToInt32(sTo[0]);
+        //            origin.OffsetY = pTo.Y;//Convert.ToInt32(sTo[1]);
+        //            MatrixAnimation c = new MatrixAnimation()
+        //            {
+        //              From = to,
+        //              To = origin,
+        //              Duration = TimeSpan.FromMilliseconds(100),
+        //              FillBehavior = FillBehavior.HoldEnd
+        //            };
+        //            (el.RenderTransform as MatrixTransform).BeginAnimation(MatrixTransform.MatrixProperty, c);
+        //            #endregion 
                     
-                    timer.Stop();
-                  };
-                  timer.Tick += eh;
-                  timer.Start();
+        //            timer.Stop();
+        //          };
+        //          timer.Tick += eh;
+        //          timer.Start();
 
 
 
 
 
-                }
+        //        }
 
-              }
-            }
-          }
-        }
-        #endregion 
+        //      }
+        //    }
+        //  }
+        //}
+        //#endregion 
 
 
     }
