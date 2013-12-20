@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapProject", "MapProject.csproj", "{0A5E8AE2-F7AC-40E9-806C-E39BFA6D83A6}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ManipulationModeDemo.csproj
+		SccLocalPath1 = .
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A5E8AE2-F7AC-40E9-806C-E39BFA6D83A6}.Debug|x86.ActiveCfg = Debug|x86
+		{0A5E8AE2-F7AC-40E9-806C-E39BFA6D83A6}.Debug|x86.Build.0 = Debug|x86
+		{0A5E8AE2-F7AC-40E9-806C-E39BFA6D83A6}.Release|x86.ActiveCfg = Release|x86
+		{0A5E8AE2-F7AC-40E9-806C-E39BFA6D83A6}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
