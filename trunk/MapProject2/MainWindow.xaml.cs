@@ -166,6 +166,77 @@ namespace ManipulationModeDemo
         }
         #endregion 
 
+        private void onTouchImage1(object sender, TouchEventArgs e)
+        {
+            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+        }
+
+        private void onTouchImage2(object sender, TouchEventArgs e)
+        {
+            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+        }
+        private void onTouchImage3(object sender, TouchEventArgs e)
+        {
+            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+        }
+        private void onTouchImage4(object sender, TouchEventArgs e)
+        {
+            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+        }
+        private void onTouchImage5(object sender, TouchEventArgs e)
+        {
+            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+        }
+        private void onTouchImage6(object sender, TouchEventArgs e)
+        {
+            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+        }
+        private void onTouchImage7(object sender, TouchEventArgs e)
+        {
+            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+        }
+        private void onTouchImage8(object sender, TouchEventArgs e)
+        {
+            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+        }
+        private void onTouchImage9(object sender, TouchEventArgs e)
+        {
+            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+        }
+        private void onTouchImage10(object sender, TouchEventArgs e)
+        {
+            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+        }
+        private void onTouchImage11(object sender, TouchEventArgs e)
+        {
+            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+        }
+        private void onTouchImage12(object sender, TouchEventArgs e)
+        {
+            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+        }
+        private void onTouchImage13(object sender, TouchEventArgs e)
+        {
+            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+        }
+        private void onTouchImage14(object sender, TouchEventArgs e)
+        {
+            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+        }
+        private void onTouchImage15(object sender, TouchEventArgs e)
+        {
+            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+        }
+        private void onTouchImage16(object sender, TouchEventArgs e)
+        {
+            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+        }
+        private void onTouchImage17(object sender, TouchEventArgs e)
+        {
+            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+        }
+
+
         //#region private void Button_Click
         //private void Button_Click(object sender, RoutedEventArgs e)
         //{
