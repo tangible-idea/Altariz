@@ -168,75 +168,88 @@ namespace ManipulationModeDemo
 
         private void onTouchImage1(object sender, TouchEventArgs e)
         {
-            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+            TouchContentMethod();
         }
 
         private void onTouchImage2(object sender, TouchEventArgs e)
         {
-            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+            TouchContentMethod();
         }
         private void onTouchImage3(object sender, TouchEventArgs e)
         {
-            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+            TouchContentMethod();
         }
         private void onTouchImage4(object sender, TouchEventArgs e)
         {
-            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+            TouchContentMethod();
         }
         private void onTouchImage5(object sender, TouchEventArgs e)
         {
-            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+            TouchContentMethod();
         }
         private void onTouchImage6(object sender, TouchEventArgs e)
         {
-            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+            TouchContentMethod();
         }
         private void onTouchImage7(object sender, TouchEventArgs e)
         {
-            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+            TouchContentMethod();
         }
         private void onTouchImage8(object sender, TouchEventArgs e)
         {
-            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+            TouchContentMethod();
         }
         private void onTouchImage9(object sender, TouchEventArgs e)
         {
-            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+            TouchContentMethod();
         }
         private void onTouchImage10(object sender, TouchEventArgs e)
         {
-            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+            TouchContentMethod();
         }
         private void onTouchImage11(object sender, TouchEventArgs e)
         {
-            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+            TouchContentMethod();
         }
         private void onTouchImage12(object sender, TouchEventArgs e)
         {
-            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+            TouchContentMethod();
         }
         private void onTouchImage13(object sender, TouchEventArgs e)
         {
-            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+            TouchContentMethod();
         }
         private void onTouchImage14(object sender, TouchEventArgs e)
         {
-            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+            TouchContentMethod();
+
         }
         private void onTouchImage15(object sender, TouchEventArgs e)
         {
-            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+            TouchContentMethod();
         }
         private void onTouchImage16(object sender, TouchEventArgs e)
         {
-            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+            TouchContentMethod();
         }
         private void onTouchImage17(object sender, TouchEventArgs e)
         {
-            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+            TouchContentMethod();            
+        }
+
+        private void onTouchFadeRect(object sender, TouchEventArgs e)
+        {
+            rct_fadeout.Visibility = Visibility.Hidden;
+            popup_contents.Visibility = Visibility.Hidden;
         }
 
 
+        private void TouchContentMethod()
+        {
+            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+            popup_contents.Visibility = Visibility.Visible;
+            rct_fadeout.Visibility = Visibility.Visible;
+        }
         //#region private void Button_Click
         //private void Button_Click(object sender, RoutedEventArgs e)
         //{

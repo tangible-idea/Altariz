@@ -113,12 +113,6 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\112-1283_IMG.JPG" />
-    <Resource Include="Images\139-3926_IMG.JPG" />
-    <Resource Include="Images\IMG_0972.JPG" />
-    <Resource Include="Images\IMG_4675.JPG" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4 Client Profile%28x86 및 x64%29</ProductName>
@@ -141,24 +135,43 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\icon1.png" />
-    <Resource Include="Images\icon10.png" />
-    <Resource Include="Images\icon11.png" />
-    <Resource Include="Images\icon12.png" />
-    <Resource Include="Images\icon13.png" />
-    <Resource Include="Images\icon14.png" />
-    <Resource Include="Images\icon15.png" />
-    <Resource Include="Images\icon16.png" />
-    <Resource Include="Images\icon17.png" />
-    <Resource Include="Images\icon2.png" />
-    <Resource Include="Images\icon3.png" />
-    <Resource Include="Images\icon4.png" />
-    <Resource Include="Images\icon5.png" />
-    <Resource Include="Images\icon6.png" />
-    <Resource Include="Images\icon7.png" />
-    <Resource Include="Images\icon8.png" />
-    <Resource Include="Images\icon9.png" />
+    <Resource Include="Images\Icons\icon1.png" />
+    <Resource Include="Images\Icons\icon10.png" />
+    <Resource Include="Images\Icons\icon11.png" />
+    <Resource Include="Images\Icons\icon12.png" />
+    <Resource Include="Images\Icons\icon13.png" />
+    <Resource Include="Images\Icons\icon14.png" />
+    <Resource Include="Images\Icons\icon15.png" />
+    <Resource Include="Images\Icons\icon16.png" />
+    <Resource Include="Images\Icons\icon17.png" />
+    <Resource Include="Images\Icons\icon2.png" />
+    <Resource Include="Images\Icons\icon3.png" />
+    <Resource Include="Images\Icons\icon4.png" />
+    <Resource Include="Images\Icons\icon5.png" />
+    <Resource Include="Images\Icons\icon6.png" />
+    <Resource Include="Images\Icons\icon7.png" />
+    <Resource Include="Images\Icons\icon8.png" />
+    <Resource Include="Images\Icons\icon9.png" />
     <Resource Include="Images\map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\popup2\map_0000_지천년.jpg" />
+    <Resource Include="Images\popup2\map_0001_염색.jpg" />
+    <Resource Include="Images\popup2\map_0002_백운예술제.jpg" />
+    <Resource Include="Images\popup2\map_0003_기차축제.jpg" />
+    <Resource Include="Images\popup2\map_0004_13하우현.jpg" />
+    <Resource Include="Images\popup2\map_0005_12청계사.jpg" />
+    <Resource Include="Images\popup2\map_0006_11백운계곡.jpg" />
+    <Resource Include="Images\popup2\map_0007_10맑은숲공원.jpg" />
+    <Resource Include="Images\popup2\map_0008_9갈미.jpg" />
+    <Resource Include="Images\popup2\map_0009_8모락산.jpg" />
+    <Resource Include="Images\popup2\map_0010_7백운산.jpg" />
+    <Resource Include="Images\popup2\map_0011_6청계산.jpg" />
+    <Resource Include="Images\popup2\map_0012_5조류생태.jpg" />
+    <Resource Include="Images\popup2\map_0013_4철도박물관.jpg" />
+    <Resource Include="Images\popup2\map_0014_3자연학습공원.jpg" />
+    <Resource Include="Images\popup2\map_0015_2왕송호수.jpg" />
+    <Resource Include="Images\popup2\map_0016_백운호수.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
