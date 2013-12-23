@@ -240,14 +240,15 @@ namespace ManipulationModeDemo
         private void onTouchFadeRect(object sender, TouchEventArgs e)
         {
             rct_fadeout.Visibility = Visibility.Hidden;
-            popup_contents.Visibility = Visibility.Hidden;
+            popup_image.Visibility = Visibility.Hidden;
         }
 
 
         private void TouchContentMethod()
         {
-            MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
-            popup_contents.Visibility = Visibility.Visible;
+            //MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
+            //popup_contents.
+            popup_image.Visibility = Visibility.Visible;
             rct_fadeout.Visibility = Visibility.Visible;
         }
         //#region private void Button_Click
