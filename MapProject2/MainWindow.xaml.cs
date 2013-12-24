@@ -6,6 +6,8 @@ using System.Windows.Media;
 using System.Windows.Media.Effects;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
+using System.Windows.Media.Imaging;
+using System.Windows.Media.Animation;
 
 
 /**
@@ -26,17 +28,9 @@ namespace ManipulationModeDemo
             InitializeComponent();
 
             currentMode = ManipulationModes.Scale | ManipulationModes.Translate;
-            // Build list of radio buttons
-            //foreach (ManipulationModes mode in Enum.GetValues(typeof(ManipulationModes)))
-            //{
-            //    RadioButton radio = new RadioButton
-            //    {
-            //        Content = mode,
-            //        IsChecked = mode == currentMode,
-            //    };
-            //    radio.Checked += new RoutedEventHandler(OnRadioChecked);
-            //    modeList.Children.Add(radio);
-            //}
+
+            
+            
         }
         #endregion 
 
@@ -74,14 +68,7 @@ namespace ManipulationModeDemo
             Matrix matrix = xform.Matrix;
             ManipulationDelta delta = args.DeltaManipulation;
             Point center = args.ManipulationOrigin;
-            /*
-            matrix.Translate(-center.X, -center.Y);
-            matrix.Scale(delta.Scale.X, delta.Scale.Y);
-            matrix.Rotate(delta.Rotation);
-            matrix.Translate(center.X, center.Y);
-            matrix.Translate(delta.Translation.X, delta.Translation.Y);           
-            xform.Matrix = matrix;
-            */
+
             Matrix to = matrix;
             to.Translate(-center.X, -center.Y);
             to.Scale(delta.Scale.X, delta.Scale.Y);
@@ -143,6 +130,8 @@ namespace ManipulationModeDemo
         #region private void Grid_Loaded
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
+            Play_StoryBoard("fadeout");
+            Play_StoryBoard("hide");
         }
         #endregion 
 
@@ -168,175 +157,205 @@ namespace ManipulationModeDemo
 
         private void onTouchImage1(object sender, TouchEventArgs e)
         {
+            var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0000_지천년.jpg", UriKind.Relative);
+            popup_image.Source = new BitmapImage(uriSource);  
             TouchContentMethod();
-        }
+        }   
 
         private void onTouchImage2(object sender, TouchEventArgs e)
         {
+            var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0001_염색.jpg", UriKind.Relative);
+            popup_image.Source = new BitmapImage(uriSource);
             TouchContentMethod();
         }
         private void onTouchImage3(object sender, TouchEventArgs e)
         {
+            var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0002_백운예술제.jpg", UriKind.Relative);
+            popup_image.Source = new BitmapImage(uriSource);
             TouchContentMethod();
         }
         private void onTouchImage4(object sender, TouchEventArgs e)
         {
+            var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0003_기차축제.jpg", UriKind.Relative);
+            popup_image.Source = new BitmapImage(uriSource);
             TouchContentMethod();
         }
         private void onTouchImage5(object sender, TouchEventArgs e)
         {
+            var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0004_13하우현.jpg", UriKind.Relative);
+            popup_image.Source = new BitmapImage(uriSource);
             TouchContentMethod();
         }
         private void onTouchImage6(object sender, TouchEventArgs e)
         {
+            var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0005_12청계사.jpg", UriKind.Relative);
+            popup_image.Source = new BitmapImage(uriSource);
             TouchContentMethod();
         }
         private void onTouchImage7(object sender, TouchEventArgs e)
         {
+            var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0006_11백운계곡.jpg", UriKind.Relative);
+            popup_image.Source = new BitmapImage(uriSource);
             TouchContentMethod();
         }
         private void onTouchImage8(object sender, TouchEventArgs e)
         {
+            var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0007_10맑은숲공원.jpg", UriKind.Relative);
+            popup_image.Source = new BitmapImage(uriSource);
             TouchContentMethod();
         }
         private void onTouchImage9(object sender, TouchEventArgs e)
         {
+            var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0008_9갈미.jpg", UriKind.Relative);
+            popup_image.Source = new BitmapImage(uriSource);
             TouchContentMethod();
         }
         private void onTouchImage10(object sender, TouchEventArgs e)
         {
+            var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0009_8모락산.jpg", UriKind.Relative);
+            popup_image.Source = new BitmapImage(uriSource);
             TouchContentMethod();
         }
         private void onTouchImage11(object sender, TouchEventArgs e)
         {
+            var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0010_7백운산.jpg", UriKind.Relative);
+            popup_image.Source = new BitmapImage(uriSource);
             TouchContentMethod();
         }
         private void onTouchImage12(object sender, TouchEventArgs e)
         {
+            var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0011_6청계산.jpg", UriKind.Relative);
+            popup_image.Source = new BitmapImage(uriSource);
             TouchContentMethod();
         }
         private void onTouchImage13(object sender, TouchEventArgs e)
         {
+            var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0012_5조류생태.jpg", UriKind.Relative);
+            popup_image.Source = new BitmapImage(uriSource);
             TouchContentMethod();
         }
         private void onTouchImage14(object sender, TouchEventArgs e)
         {
+            var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0013_4철도박물관.jpg", UriKind.Relative);
+            popup_image.Source = new BitmapImage(uriSource);
             TouchContentMethod();
 
         }
         private void onTouchImage15(object sender, TouchEventArgs e)
         {
+            var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0014_3자연학습공원.jpg", UriKind.Relative);
+            popup_image.Source = new BitmapImage(uriSource);
             TouchContentMethod();
         }
         private void onTouchImage16(object sender, TouchEventArgs e)
         {
+            var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0015_2왕송호수.jpg", UriKind.Relative);
+            popup_image.Source = new BitmapImage(uriSource);
             TouchContentMethod();
         }
         private void onTouchImage17(object sender, TouchEventArgs e)
         {
+            var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0016_백운호수.jpg", UriKind.Relative);
+            popup_image.Source = new BitmapImage(uriSource);
             TouchContentMethod();            
         }
 
+        // 바깥 터치시 종료 애니메이션 [12/24/2013 Mark]
         private void onTouchFadeRect(object sender, TouchEventArgs e)
         {
-            rct_fadeout.Visibility = Visibility.Hidden;
-            popup_image.Visibility = Visibility.Hidden;
+            //rct_fadeout.Visibility = Visibility.Hidden;
+            //popup_image.Visibility = Visibility.Hidden;
+
+            Play_StoryBoard("hide");
+            Play_StoryBoard("fadeout");
         }
 
-
+        // 터치하면 이미지 애니메이션으로 띄움. [12/24/2013 Mark]
         private void TouchContentMethod()
         {
             //MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
             //popup_contents.
-            popup_image.Visibility = Visibility.Visible;
-            rct_fadeout.Visibility = Visibility.Visible;
+            //popup_image.Visibility = Visibility.Visible;
+            //rct_fadeout.Visibility = Visibility.Visible;
+
+            Play_StoryBoard("fadein");
+            Play_StoryBoard("show");
         }
-        //#region private void Button_Click
-        //private void Button_Click(object sender, RoutedEventArgs e)
-        //{
-        //  foreach (UIElement el in Wrap.Children)
-        //  {
-        //    if (el.GetType().ToString() == "System.Windows.Controls.Image")
-        //    {
-        //      if ((el as Image).Tag != null)
-        //      {
-        //        string tag = (el as Image).Tag as string;
-        //        //MessageBox.Show(tag);
-        //        string[] tags = tag.Split('_');
 
-        //        if(tags[0].Equals("1"))
-        //        {
-        //          //MessageBox.Show(tags[1]+"/"+tags[2]);
-        //          string [] sFrom = tags[1].Split('x');
-        //          string [] sTo = tags[2].Split('x');
-        //          Point pFrom = new Point(Convert.ToInt32(sFrom[0]), Convert.ToInt32(sFrom[1]));
-        //          Point pTo = new Point(Convert.ToInt32(sTo[0]), Convert.ToInt32(sTo[1]));
+        private void Play_StoryBoard(string strKey)
+        {
+            var stybd = this.Resources[strKey] as Storyboard;
+            if (stybd != null)
+                stybd.Begin();
+        }
 
-        //          #region 내리기
-        //          MatrixTransform xform = el.RenderTransform as MatrixTransform;
-        //          Matrix matrix = xform.Matrix;
-        //          Matrix from = matrix;
-        //          matrix.OffsetX = pFrom.X;
-        //          matrix.OffsetY = pFrom.Y;
-        //          matrix.M11 = 0.5;
-        //          matrix.M12 = matrix.M21 = 0;
-        //          matrix.M22 = 0.5;
-        //          Matrix to = matrix;
-                  
-        //          MatrixAnimation b = new MatrixAnimation()
-        //          {
-        //            From = from,
-        //            To = to,
-        //            Duration = TimeSpan.FromMilliseconds(100),
-        //            FillBehavior = FillBehavior.HoldEnd
-        //          };                  
-        //          (el.RenderTransform as MatrixTransform).BeginAnimation(MatrixTransform.MatrixProperty, b);
-        //          //LinearMatrixAnimation a = new LinearMatrixAnimation(from, to, TimeSpan.FromMilliseconds(1000));
-        //          //(el.RenderTransform as MatrixTransform).BeginAnimation(MatrixTransform.MatrixProperty, a);
+        private void onMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            //MatrixTransform xform = imgMap.RenderTransform as MatrixTransform;
+            //Matrix matrix = xform.Matrix;
 
-        //          #endregion 
+            //Matrix to = matrix;
+            //to.Translate(-1000, -5000);
 
-                  
-        //          DispatcherTimer timer = new DispatcherTimer(); 
-        //          timer.Interval = TimeSpan.FromMilliseconds(300);
-        //          EventHandler eh = null;
-        //          eh = (s, ex) =>
-        //          {
-        //            timer.Tick -= eh;
+            //MatrixAnimation b = new MatrixAnimation()
+            //{
+            //    From = matrix,
+            //    To = to,
+            //    Duration = TimeSpan.FromMilliseconds(0),
+            //    FillBehavior = FillBehavior.HoldEnd
+            //};
+            //xform.BeginAnimation(MatrixTransform.MatrixProperty, b);
+        }
 
-        //            #region 원래자리로 복귀
-        //            Matrix origin = matrix;
-        //            origin.OffsetX = pTo.X;//Convert.ToInt32(sTo[0]);
-        //            origin.OffsetY = pTo.Y;//Convert.ToInt32(sTo[1]);
-        //            MatrixAnimation c = new MatrixAnimation()
-        //            {
-        //              From = to,
-        //              To = origin,
-        //              Duration = TimeSpan.FromMilliseconds(100),
-        //              FillBehavior = FillBehavior.HoldEnd
-        //            };
-        //            (el.RenderTransform as MatrixTransform).BeginAnimation(MatrixTransform.MatrixProperty, c);
-        //            #endregion 
-                    
-        //            timer.Stop();
-        //          };
-        //          timer.Tick += eh;
-        //          timer.Start();
+        //delegate void DelegateMethod();
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            //System.Threading.Tasks.Task.Factory.StartNew(Run); 
+            //DelegateMethod d;
+            if (e.Key == Key.F2)
+            {
+                var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0000_지천년.jpg", UriKind.Relative);
+                popup_image.Source = new BitmapImage(uriSource);  
+                TouchContentMethod();
+            }
+            if (e.Key == Key.F3)
+            {
+                var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0001_염색.jpg", UriKind.Relative);
+                popup_image.Source = new BitmapImage(uriSource);
+                TouchContentMethod();
+                
+            }
+
+            if (e.Key == Key.F5)
+            {
+                Play_StoryBoard("show");
+            }
+
+            if (e.Key == Key.F6)
+            {
+                Play_StoryBoard("hide");
+            }
+            
+
+            if (e.Key == Key.Escape)
+            {
+                //rct_fadeout.Visibility = Visibility.Hidden;
+                //popup_image.Visibility = Visibility.Hidden;
+
+                Play_StoryBoard("hide");
+                Play_StoryBoard("fadeout");
+            }
+
+        }
 
 
 
 
-
-        //        }
-
-        //      }
-        //    }
-        //  }
-        //}
-        //#endregion 
 
 
     }
+
+    
 
     #region public class MatrixAnimation
     public class MatrixAnimation : MatrixAnimationBase
