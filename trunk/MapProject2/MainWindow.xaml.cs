@@ -129,9 +129,10 @@ namespace ManipulationModeDemo
 
         #region private void Grid_Loaded
         private void Grid_Loaded(object sender, RoutedEventArgs e)
-        {
+        {            
             Play_StoryBoard("fadeout");
             Play_StoryBoard("hide");
+            Play_StoryBoard("moveinit");
         }
         #endregion 
 
