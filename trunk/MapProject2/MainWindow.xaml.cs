@@ -7,6 +7,7 @@ using System.Windows.Media.Effects;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
 using System.Windows.Media.Imaging;
+using System.IO;
 
 /**
  * 
@@ -176,110 +177,84 @@ namespace ManipulationModeDemo
                 stybd.Begin();
         }
 
+        private void SetPopupURI(String strPath, String strName)
+        {
+            var path = Path.Combine(Environment.CurrentDirectory, strPath, strName);
+            var uri = new Uri(path);
+            popup_image.Source = new BitmapImage(uri);
+
+            TouchContentMethod();
+        }
 
         private void onTouchImage1(object sender, TouchEventArgs e)
         {
-            var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0000_지천년.jpg", UriKind.Relative);
-            popup_image.Source = new BitmapImage(uriSource);
-            TouchContentMethod();
+            SetPopupURI("popup3", "01_백운호수.png");
         }
 
         private void onTouchImage2(object sender, TouchEventArgs e)
         {
-            var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0001_염색.jpg", UriKind.Relative);
-            popup_image.Source = new BitmapImage(uriSource);
-            TouchContentMethod();
+            SetPopupURI("popup3", "02_왕송호수.png");
         }
         private void onTouchImage3(object sender, TouchEventArgs e)
         {
-            var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0002_백운예술제.jpg", UriKind.Relative);
-            popup_image.Source = new BitmapImage(uriSource);
-            TouchContentMethod();
+            SetPopupURI("popup3", "03_자연학습공원.png");
         }
         private void onTouchImage4(object sender, TouchEventArgs e)
         {
-            var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0003_기차축제.jpg", UriKind.Relative);
-            popup_image.Source = new BitmapImage(uriSource);
-            TouchContentMethod();
+            SetPopupURI("popup3", "04_철도박물관.png");
         }
         private void onTouchImage5(object sender, TouchEventArgs e)
         {
-            var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0004_13하우현.jpg", UriKind.Relative);
-            popup_image.Source = new BitmapImage(uriSource);
-            TouchContentMethod();
+            SetPopupURI("popup3", "05_조류생태과학관.png");
         }
         private void onTouchImage6(object sender, TouchEventArgs e)
         {
-            var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0005_12청계사.jpg", UriKind.Relative);
-            popup_image.Source = new BitmapImage(uriSource);
-            TouchContentMethod();
+            SetPopupURI("popup3", "06_청계산.png");
         }
         private void onTouchImage7(object sender, TouchEventArgs e)
         {
-            var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0006_11백운계곡.jpg", UriKind.Relative);
-            popup_image.Source = new BitmapImage(uriSource);
-            TouchContentMethod();
+            SetPopupURI("popup3", "07_백운산.png");
         }
         private void onTouchImage8(object sender, TouchEventArgs e)
         {
-            var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0007_10맑은숲공원.jpg", UriKind.Relative);
-            popup_image.Source = new BitmapImage(uriSource);
-            TouchContentMethod();
+            SetPopupURI("popup3", "08_모락산.png");
         }
         private void onTouchImage9(object sender, TouchEventArgs e)
         {
-            var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0008_9갈미.jpg", UriKind.Relative);
-            popup_image.Source = new BitmapImage(uriSource);
-            TouchContentMethod();
+            SetPopupURI("popup3", "09_갈미한글공원.png");
         }
         private void onTouchImage10(object sender, TouchEventArgs e)
         {
-            var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0009_8모락산.jpg", UriKind.Relative);
-            popup_image.Source = new BitmapImage(uriSource);
-            TouchContentMethod();
+            SetPopupURI("popup3", "10_맑은숲공원.png");
         }
         private void onTouchImage11(object sender, TouchEventArgs e)
         {
-            var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0010_7백운산.jpg", UriKind.Relative);
-            popup_image.Source = new BitmapImage(uriSource);
-            TouchContentMethod();
+            SetPopupURI("popup3", "11_청계사.png");
         }
         private void onTouchImage12(object sender, TouchEventArgs e)
         {
-            var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0011_6청계산.jpg", UriKind.Relative);
-            popup_image.Source = new BitmapImage(uriSource);
-            TouchContentMethod();
+            SetPopupURI("popup3", "12_하우현성당.png");
         }
         private void onTouchImage13(object sender, TouchEventArgs e)
         {
-            var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0012_5조류생태.jpg", UriKind.Relative);
-            popup_image.Source = new BitmapImage(uriSource);
-            TouchContentMethod();
+            SetPopupURI("popup3", "13_기차축제.png");
         }
         private void onTouchImage14(object sender, TouchEventArgs e)
         {
-            var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0013_4철도박물관.jpg", UriKind.Relative);
-            popup_image.Source = new BitmapImage(uriSource);
-            TouchContentMethod();
+            SetPopupURI("popup3", "14_백운예술제.png");
 
         }
         private void onTouchImage15(object sender, TouchEventArgs e)
         {
-            var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0014_3자연학습공원.jpg", UriKind.Relative);
-            popup_image.Source = new BitmapImage(uriSource);
-            TouchContentMethod();
+            SetPopupURI("popup3", "15_천연염색학습장.png");
         }
         private void onTouchImage16(object sender, TouchEventArgs e)
         {
-            var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0015_2왕송호수.jpg", UriKind.Relative);
-            popup_image.Source = new BitmapImage(uriSource);
-            TouchContentMethod();
+            SetPopupURI("popup3", "16_지천년예가.png");
         }
         private void onTouchImage17(object sender, TouchEventArgs e)
         {
-            var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0016_백운호수.jpg", UriKind.Relative);
-            popup_image.Source = new BitmapImage(uriSource);
-            TouchContentMethod();
+            SetPopupURI("popup3", "16_지천년예가.png");
         }
 
         // 바깥 터치시 종료 애니메이션 [12/24/2013 Mark]
