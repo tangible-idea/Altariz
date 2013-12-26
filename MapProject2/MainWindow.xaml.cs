@@ -27,26 +27,9 @@ namespace ManipulationModeDemo
             InitializeComponent();
 
             currentMode = ManipulationModes.Scale | ManipulationModes.Translate;
-            // Build list of radio buttons
-            //foreach (ManipulationModes mode in Enum.GetValues(typeof(ManipulationModes)))
-            //{
-            //    RadioButton radio = new RadioButton
-            //    {
-            //        Content = mode,
-            //        IsChecked = mode == currentMode,
-            //    };
-            //    radio.Checked += new RoutedEventHandler(OnRadioChecked);
-            //    modeList.Children.Add(radio);
-            //}
         }
         #endregion 
 
-        //#region void OnRadioChecked
-        //void OnRadioChecked(object sender, RoutedEventArgs args)
-        //{
-        //    currentMode = (ManipulationModes)(sender as RadioButton).Content;
-        //}
-        //#endregion 
 
         #region protected override void OnManipulationStarting
         protected override void OnManipulationStarting(ManipulationStartingEventArgs args)
