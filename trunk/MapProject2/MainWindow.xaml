@@ -103,7 +103,7 @@
     
     <Window.Resources >
 
-        <Storyboard x:Key="moveinit">
+        <Storyboard x:Key="moveinit" Completed="StoryInitCompleted">
             <ThicknessAnimation
                 Storyboard.TargetName="imgMap"
                 Storyboard.TargetProperty="Margin"
@@ -157,7 +157,7 @@
             </DoubleAnimation>
         </Storyboard>
 
-        <Storyboard x:Key="hide">
+        <Storyboard x:Key="hide" Completed="StoryHideCompleted">
             <DoubleAnimation To="0" Duration="0:0:0.5"
                              Storyboard.TargetName="popup_image"
                              Storyboard.TargetProperty="Width"

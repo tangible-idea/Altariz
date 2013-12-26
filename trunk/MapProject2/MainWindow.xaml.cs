@@ -264,9 +264,6 @@ namespace ManipulationModeDemo
         // 바깥 터치시 종료 애니메이션 [12/24/2013 Mark]
         private void onTouchFadeRect(object sender, TouchEventArgs e)
         {
-            //rct_fadeout.Visibility = Visibility.Hidden;
-            //popup_image.Visibility = Visibility.Hidden;
-
             Play_StoryBoard("hide");
             Play_StoryBoard("fadeout");
         }
@@ -274,10 +271,8 @@ namespace ManipulationModeDemo
         // 터치하면 이미지 애니메이션으로 띄움. [12/24/2013 Mark]
         private void TouchContentMethod()
         {
-            //MessageBox.Show(System.Reflection.MethodBase.GetCurrentMethod().Name);
-            //popup_contents.
-            //popup_image.Visibility = Visibility.Visible;
-            //rct_fadeout.Visibility = Visibility.Visible;
+            popup_image.Visibility = Visibility.Visible;
+            rct_fadeout.Visibility = Visibility.Visible;
 
             Play_StoryBoard("fadein");
             Play_StoryBoard("show");
@@ -290,23 +285,6 @@ namespace ManipulationModeDemo
                 stybd.Begin();
         }
 
-        private void onMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            //MatrixTransform xform = imgMap.RenderTransform as MatrixTransform;
-            //Matrix matrix = xform.Matrix;
-
-            //Matrix to = matrix;
-            //to.Translate(-1000, -5000);
-
-            //MatrixAnimation b = new MatrixAnimation()
-            //{
-            //    From = matrix,
-            //    To = to,
-            //    Duration = TimeSpan.FromMilliseconds(0),
-            //    FillBehavior = FillBehavior.HoldEnd
-            //};
-            //xform.BeginAnimation(MatrixTransform.MatrixProperty, b);
-        }
 
         //delegate void DelegateMethod();
         private void Window_KeyDown(object sender, KeyEventArgs e)
@@ -347,6 +325,19 @@ namespace ManipulationModeDemo
                 Play_StoryBoard("fadeout");
             }
 
+        }
+
+        // 맵 좌표 초기화가 끝나면
+        private void StoryInitCompleted(object sender, EventArgs e)
+        {
+            rct_fadeout.Visibility = Visibility.Hidden;
+            popup_image.Visibility = Visibility.Hidden;
+        }
+
+        private void StoryHideCompleted(object sender, EventArgs e)
+        {
+            rct_fadeout.Visibility = Visibility.Hidden;
+            popup_image.Visibility = Visibility.Hidden;
         }
 
 
