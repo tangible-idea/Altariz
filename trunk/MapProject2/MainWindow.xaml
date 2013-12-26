@@ -7,22 +7,11 @@
     <Grid Loaded="Grid_Loaded" Name="Wrap" 
           HorizontalAlignment="Left" VerticalAlignment="Top" 
           >
- <!--
-        <Border BorderThickness="0" Width="auto" Height="auto"
-                IsManipulationEnabled="True"
-               ClipToBounds="False"
-               RenderTransform="1.0 0 0 1.0 0 0"
-               VerticalAlignment="Top"
-                HorizontalAlignment="Left"
-               Margin="0">
-        
-        <Image Source="Images/map.png" Width="400" Height="537" VerticalAlignment="Top" HorizontalAlignment="Left"
-               />
-        </Border>
-        -->
+
         
         
         <ScrollViewer 
+            Background="Yellow"
             Width="768" Height="1366"
             ScrollViewer.VerticalScrollBarVisibility="Hidden" 
             ScrollViewer.HorizontalScrollBarVisibility="Hidden" >
@@ -60,10 +49,35 @@
             </Grid>
             
         </ScrollViewer>
-        
-        <TextBlock Name="tbTranslate" HorizontalAlignment="Left" Margin="0,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-        <TextBlock Name="tbCompleted" HorizontalAlignment="Left" Margin="350,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
 
+
+        <!-- 카테고리 선택 부분-->
+        <Image
+            Name="btnCategory1"
+            Source="Images/category/category1.jpg"
+            Width="150" Height="100" 
+            HorizontalAlignment="Left" VerticalAlignment="Top"
+            Margin="10,10,0,0">
+        </Image>
+
+        <Image
+            Name="btnCategory2"
+            Source="Images/category/category2.jpg"
+            Width="150" Height="100" 
+            HorizontalAlignment="Left" VerticalAlignment="Top"
+            Margin="170,10,0,0">
+        </Image>
+
+        <Image
+            Name="btnCategory3"
+            Source="Images/category/category3.jpg"
+            Width="150" Height="100" 
+            HorizontalAlignment="Left" VerticalAlignment="Top"
+            Margin="330,10,0,0">
+        </Image>
+
+
+        <!-- 팝업 컨텐츠 ㅂ-->
         <Rectangle
             Opacity="0.5"
             Canvas.Left="0" Canvas.Top="0"
@@ -77,12 +91,19 @@
         <Image
             Name="popup_image" 
             VerticalAlignment="Center" HorizontalAlignment="Center"
-            Width="700" Height="1253"
+            Width="426" Height="756"
             Visibility="Hidden"/>
-        
+
+
+
+        <TextBlock Name="tbTranslate" HorizontalAlignment="Left" Margin="0,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <TextBlock Name="tbCompleted" HorizontalAlignment="Left" Margin="350,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+
+
     </Grid>
 
 
+    
 
 
     <Window.Resources >
@@ -91,8 +112,8 @@
             <ThicknessAnimation
                 Storyboard.TargetName="grid_images"
                 Storyboard.TargetProperty="Margin"
-                Duration="0:0:5" 
-                To="-250,-1200,0,0">
+                Duration="0:0:2" 
+                To="-50,-1650,0,0">
                 <ThicknessAnimation.EasingFunction>
                     <ExponentialEase EasingMode="EaseOut"/>
                 </ThicknessAnimation.EasingFunction>
