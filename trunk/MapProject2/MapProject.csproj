@@ -173,6 +173,24 @@
     <Resource Include="Images\popup2\map_0015_2왕송호수.jpg" />
     <Resource Include="Images\popup2\map_0016_백운호수.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\popup3\01_백운호수.png" />
+    <Resource Include="Images\popup3\02_왕송호수.png" />
+    <Resource Include="Images\popup3\03_자연학습공원.png" />
+    <Resource Include="Images\popup3\04_철도박물관.png" />
+    <Resource Include="Images\popup3\05_조류생태과학관.png" />
+    <Resource Include="Images\popup3\06_청계산.png" />
+    <Resource Include="Images\popup3\07_백운산.png" />
+    <Resource Include="Images\popup3\08_모락산.png" />
+    <Resource Include="Images\popup3\09_갈미한글공원.png" />
+    <Resource Include="Images\popup3\10_맑은숲공원.png" />
+    <Resource Include="Images\popup3\11_청계사.png" />
+    <Resource Include="Images\popup3\12_하우현성당.png" />
+    <Resource Include="Images\popup3\13_기차축제.png" />
+    <Resource Include="Images\popup3\14_백운예술제.png" />
+    <Resource Include="Images\popup3\15_천연염색학습장.png" />
+    <Resource Include="Images\popup3\16_지천년예가.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
