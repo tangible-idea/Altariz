@@ -7,8 +7,6 @@ using System.Windows.Media.Effects;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
 using System.Windows.Media.Imaging;
-using System.Windows.Media.Animation;
-
 
 /**
  * 
@@ -28,9 +26,17 @@ namespace ManipulationModeDemo
             InitializeComponent();
 
             currentMode = ManipulationModes.Scale | ManipulationModes.Translate;
-
-            
-            
+            // Build list of radio buttons
+            //foreach (ManipulationModes mode in Enum.GetValues(typeof(ManipulationModes)))
+            //{
+            //    RadioButton radio = new RadioButton
+            //    {
+            //        Content = mode,
+            //        IsChecked = mode == currentMode,
+            //    };
+            //    radio.Checked += new RoutedEventHandler(OnRadioChecked);
+            //    modeList.Children.Add(radio);
+            //}
         }
         #endregion 
 
@@ -68,7 +74,14 @@ namespace ManipulationModeDemo
             Matrix matrix = xform.Matrix;
             ManipulationDelta delta = args.DeltaManipulation;
             Point center = args.ManipulationOrigin;
-
+            /*
+            matrix.Translate(-center.X, -center.Y);
+            matrix.Scale(delta.Scale.X, delta.Scale.Y);
+            matrix.Rotate(delta.Rotation);
+            matrix.Translate(center.X, center.Y);
+            matrix.Translate(delta.Translation.X, delta.Translation.Y);           
+            xform.Matrix = matrix;
+            */
             Matrix to = matrix;
             to.Translate(-center.X, -center.Y);
             to.Scale(delta.Scale.X, delta.Scale.Y);
@@ -129,7 +142,7 @@ namespace ManipulationModeDemo
 
         #region private void Grid_Loaded
         private void Grid_Loaded(object sender, RoutedEventArgs e)
-        {            
+        {
             Play_StoryBoard("fadeout");
             Play_StoryBoard("hide");
             Play_StoryBoard("moveinit");
@@ -156,12 +169,20 @@ namespace ManipulationModeDemo
         }
         #endregion 
 
+        private void Play_StoryBoard(string strKey)
+        {
+            var stybd = this.Resources[strKey] as Storyboard;
+            if (stybd != null)
+                stybd.Begin();
+        }
+
+
         private void onTouchImage1(object sender, TouchEventArgs e)
         {
             var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0000_지천년.jpg", UriKind.Relative);
-            popup_image.Source = new BitmapImage(uriSource);  
+            popup_image.Source = new BitmapImage(uriSource);
             TouchContentMethod();
-        }   
+        }
 
         private void onTouchImage2(object sender, TouchEventArgs e)
         {
@@ -258,7 +279,7 @@ namespace ManipulationModeDemo
         {
             var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0016_백운호수.jpg", UriKind.Relative);
             popup_image.Source = new BitmapImage(uriSource);
-            TouchContentMethod();            
+            TouchContentMethod();
         }
 
         // 바깥 터치시 종료 애니메이션 [12/24/2013 Mark]
@@ -278,60 +299,12 @@ namespace ManipulationModeDemo
             Play_StoryBoard("show");
         }
 
-        private void Play_StoryBoard(string strKey)
-        {
-            var stybd = this.Resources[strKey] as Storyboard;
-            if (stybd != null)
-                stybd.Begin();
-        }
 
 
-        //delegate void DelegateMethod();
-        private void Window_KeyDown(object sender, KeyEventArgs e)
-        {
-            //System.Threading.Tasks.Task.Factory.StartNew(Run); 
-            //DelegateMethod d;
-            if (e.Key == Key.F2)
-            {
-                var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0000_지천년.jpg", UriKind.Relative);
-                popup_image.Source = new BitmapImage(uriSource);  
-                TouchContentMethod();
-            }
-            if (e.Key == Key.F3)
-            {
-                var uriSource = new Uri(@"/MapProject;component/Images/popup2/map_0001_염색.jpg", UriKind.Relative);
-                popup_image.Source = new BitmapImage(uriSource);
-                TouchContentMethod();
-                
-            }
 
-            if (e.Key == Key.F5)
-            {
-                Play_StoryBoard("show");
-            }
-
-            if (e.Key == Key.F6)
-            {
-                Play_StoryBoard("hide");
-            }
-            
-
-            if (e.Key == Key.Escape)
-            {
-                //rct_fadeout.Visibility = Visibility.Hidden;
-                //popup_image.Visibility = Visibility.Hidden;
-
-                Play_StoryBoard("hide");
-                Play_StoryBoard("fadeout");
-            }
-
-        }
-
-        // 맵 좌표 초기화가 끝나면
         private void StoryInitCompleted(object sender, EventArgs e)
         {
-            rct_fadeout.Visibility = Visibility.Hidden;
-            popup_image.Visibility = Visibility.Hidden;
+            //rct_fadeout.Visibility = Visibility.Hidden;
         }
 
         private void StoryHideCompleted(object sender, EventArgs e)
@@ -341,13 +314,7 @@ namespace ManipulationModeDemo
         }
 
 
-
-
-
-
     }
-
-    
 
     #region public class MatrixAnimation
     public class MatrixAnimation : MatrixAnimationBase
