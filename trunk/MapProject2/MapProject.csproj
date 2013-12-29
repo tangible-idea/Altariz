@@ -192,9 +192,7 @@
     <Resource Include="Images\popup3\16_지천년예가.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\category\category1.jpg" />
-    <Resource Include="Images\category\category2.jpg" />
-    <Resource Include="Images\category\category3.jpg" />
+    <Folder Include="Images\category\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -162,82 +162,92 @@ namespace ManipulationModeDemo
 
         private void SetPopupURI(String strPath, String strName)
         {
-            var path = Path.Combine(Environment.CurrentDirectory, strPath, strName);
-            var uri = new Uri(path);
-            popup_image.Source = new BitmapImage(uri);
+            var strURI = "";
+            
+            try
+            {
+                strURI = Path.Combine(Environment.CurrentDirectory, strPath, strName);
+                var uri = new Uri(strURI);
+                popup_image.Source = new BitmapImage(uri);
 
-            TouchContentMethod();
+                TouchContentMethod();
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("Cannot find current Image.\n["+strURI+" ]");
+            }
+            
         }
 
         private void onTouchImage1(object sender, TouchEventArgs e)
         {
-            SetPopupURI("popup3", "01_백운호수.png");
+            SetPopupURI("popup4", "T_01.png");
         }
 
         private void onTouchImage2(object sender, TouchEventArgs e)
         {
-            SetPopupURI("popup3", "02_왕송호수.png");
+            SetPopupURI("popup4", "T_02.png");
         }
         private void onTouchImage3(object sender, TouchEventArgs e)
         {
-            SetPopupURI("popup3", "03_자연학습공원.png");
+            SetPopupURI("popup4", "T_03.png");
         }
         private void onTouchImage4(object sender, TouchEventArgs e)
         {
-            SetPopupURI("popup3", "04_철도박물관.png");
+            SetPopupURI("popup4", "T_04.png");
         }
         private void onTouchImage5(object sender, TouchEventArgs e)
         {
-            SetPopupURI("popup3", "05_조류생태과학관.png");
+            SetPopupURI("popup4", "T_05.png");
         }
         private void onTouchImage6(object sender, TouchEventArgs e)
         {
-            SetPopupURI("popup3", "06_청계산.png");
+            SetPopupURI("popup4", "T_06.png");
         }
         private void onTouchImage7(object sender, TouchEventArgs e)
         {
-            SetPopupURI("popup3", "07_백운산.png");
+            SetPopupURI("popup4", "T_07.png");
         }
         private void onTouchImage8(object sender, TouchEventArgs e)
         {
-            SetPopupURI("popup3", "08_모락산.png");
+            SetPopupURI("popup4", "T_08.png");
         }
         private void onTouchImage9(object sender, TouchEventArgs e)
         {
-            SetPopupURI("popup3", "09_갈미한글공원.png");
+            SetPopupURI("popup4", "T_09.png");
         }
         private void onTouchImage10(object sender, TouchEventArgs e)
         {
-            SetPopupURI("popup3", "10_맑은숲공원.png");
+            SetPopupURI("popup4", "T_10.png");
         }
         private void onTouchImage11(object sender, TouchEventArgs e)
         {
-            SetPopupURI("popup3", "11_청계사.png");
+            SetPopupURI("popup4", "T_11.png");
         }
         private void onTouchImage12(object sender, TouchEventArgs e)
         {
-            SetPopupURI("popup3", "12_하우현성당.png");
+            SetPopupURI("popup4", "T_12.png");
         }
         private void onTouchImage13(object sender, TouchEventArgs e)
         {
-            SetPopupURI("popup3", "13_기차축제.png");
+            SetPopupURI("popup4", "T_13.png");
         }
         private void onTouchImage14(object sender, TouchEventArgs e)
         {
-            SetPopupURI("popup3", "14_백운예술제.png");
+            SetPopupURI("popup4", "T_14.png");
 
         }
         private void onTouchImage15(object sender, TouchEventArgs e)
         {
-            SetPopupURI("popup3", "15_천연염색학습장.png");
+            SetPopupURI("popup4", "T_15.png");
         }
         private void onTouchImage16(object sender, TouchEventArgs e)
         {
-            SetPopupURI("popup3", "16_지천년예가.png");
+            SetPopupURI("popup4", "T_16.png");
         }
         private void onTouchImage17(object sender, TouchEventArgs e)
         {
-            SetPopupURI("popup3", "16_지천년예가.png");
+            SetPopupURI("popup4", "T_16.png");
         }
 
         // 바깥 터치시 종료 애니메이션 [12/24/2013 Mark]
