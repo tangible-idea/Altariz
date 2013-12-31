@@ -155,44 +155,30 @@
     <Resource Include="Images\map.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\popup2\map_0000_지천년.jpg" />
-    <Resource Include="Images\popup2\map_0001_염색.jpg" />
-    <Resource Include="Images\popup2\map_0002_백운예술제.jpg" />
-    <Resource Include="Images\popup2\map_0003_기차축제.jpg" />
-    <Resource Include="Images\popup2\map_0004_13하우현.jpg" />
-    <Resource Include="Images\popup2\map_0005_12청계사.jpg" />
-    <Resource Include="Images\popup2\map_0006_11백운계곡.jpg" />
-    <Resource Include="Images\popup2\map_0007_10맑은숲공원.jpg" />
-    <Resource Include="Images\popup2\map_0008_9갈미.jpg" />
-    <Resource Include="Images\popup2\map_0009_8모락산.jpg" />
-    <Resource Include="Images\popup2\map_0010_7백운산.jpg" />
-    <Resource Include="Images\popup2\map_0011_6청계산.jpg" />
-    <Resource Include="Images\popup2\map_0012_5조류생태.jpg" />
-    <Resource Include="Images\popup2\map_0013_4철도박물관.jpg" />
-    <Resource Include="Images\popup2\map_0014_3자연학습공원.jpg" />
-    <Resource Include="Images\popup2\map_0015_2왕송호수.jpg" />
-    <Resource Include="Images\popup2\map_0016_백운호수.jpg" />
+    <Resource Include="Images\popup_spot\T_01.png" />
+    <Resource Include="Images\popup_spot\T_02.png" />
+    <Resource Include="Images\popup_spot\T_03.png" />
+    <Resource Include="Images\popup_spot\T_04.png" />
+    <Resource Include="Images\popup_spot\T_05.png" />
+    <Resource Include="Images\popup_spot\T_06.png" />
+    <Resource Include="Images\popup_spot\T_07.png" />
+    <Resource Include="Images\popup_spot\T_08.png" />
+    <Resource Include="Images\popup_spot\T_09.png" />
+    <Resource Include="Images\popup_spot\T_10.png" />
+    <Resource Include="Images\popup_spot\T_11.png" />
+    <Resource Include="Images\popup_spot\T_12.png" />
+    <Resource Include="Images\popup_spot\T_13.png" />
+    <Resource Include="Images\popup_spot\T_14.png" />
+    <Resource Include="Images\popup_spot\T_15.png" />
+    <Resource Include="Images\popup_spot\T_16.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\popup3\01_백운호수.png" />
-    <Resource Include="Images\popup3\02_왕송호수.png" />
-    <Resource Include="Images\popup3\03_자연학습공원.png" />
-    <Resource Include="Images\popup3\04_철도박물관.png" />
-    <Resource Include="Images\popup3\05_조류생태과학관.png" />
-    <Resource Include="Images\popup3\06_청계산.png" />
-    <Resource Include="Images\popup3\07_백운산.png" />
-    <Resource Include="Images\popup3\08_모락산.png" />
-    <Resource Include="Images\popup3\09_갈미한글공원.png" />
-    <Resource Include="Images\popup3\10_맑은숲공원.png" />
-    <Resource Include="Images\popup3\11_청계사.png" />
-    <Resource Include="Images\popup3\12_하우현성당.png" />
-    <Resource Include="Images\popup3\13_기차축제.png" />
-    <Resource Include="Images\popup3\14_백운예술제.png" />
-    <Resource Include="Images\popup3\15_천연염색학습장.png" />
-    <Resource Include="Images\popup3\16_지천년예가.png" />
+    <Resource Include="Images\category\category1.jpg" />
+    <Resource Include="Images\category\category2.jpg" />
+    <Resource Include="Images\category\category3.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Images\category\" />
+    <Resource Include="Images\Icons\foodicon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
