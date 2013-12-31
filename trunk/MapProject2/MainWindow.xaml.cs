@@ -60,6 +60,8 @@ namespace ManipulationModeDemo
         #region protected override void OnManipulationDelta
         protected override void OnManipulationDelta(ManipulationDeltaEventArgs args)
         {
+            popup_image_food.Visibility = Visibility.Hidden;    // 맵 트랜스폼 델타 시에는 팝업을 닫는다.
+
             UIElement element = args.Source as UIElement;
             MatrixTransform xform = element.RenderTransform as MatrixTransform;
             Matrix matrix = xform.Matrix;
@@ -137,6 +139,9 @@ namespace ManipulationModeDemo
             Play_StoryBoard("fadeout");
             Play_StoryBoard("hide");
             Play_StoryBoard("moveinit");
+
+            grid_group_spot.Visibility = Visibility.Visible;
+            grid_group_food.Visibility = Visibility.Hidden;
         }
         #endregion 
 
@@ -353,49 +358,70 @@ namespace ManipulationModeDemo
 
         private void ControlAnimaion(Image imgTaget, double dBeginTime, Point pStart, Point pEnd)
         {
-            Storyboard sbReturn = new Storyboard();
+            {
+                Storyboard sbReturn = new Storyboard();
 
-            EasingDoubleKeyFrame kf = null;
+                EasingDoubleKeyFrame kf = null;
 
-            DoubleAnimationUsingKeyFrames daX = null;
-            DoubleAnimationUsingKeyFrames daY = null;
+                DoubleAnimationUsingKeyFrames daX = null;
+                DoubleAnimationUsingKeyFrames daY = null;
 
-            daX = new DoubleAnimationUsingKeyFrames();
-            daY = new DoubleAnimationUsingKeyFrames();
+                daX = new DoubleAnimationUsingKeyFrames();
+                daY = new DoubleAnimationUsingKeyFrames();
 
-            imgTaget.RenderTransform = new TranslateTransform();
+                imgTaget.RenderTransform = new TranslateTransform();
 
-            Storyboard.SetTarget(daX, imgTaget);
-            Storyboard.SetTargetProperty(daX, new PropertyPath("(UIElement.RenderTransform).(TranslateTransform.X)"));
-            sbReturn.Children.Add(daX);
-            Storyboard.SetTarget(daY, imgTaget);
-            Storyboard.SetTargetProperty(daY, new PropertyPath("(UIElement.RenderTransform).(TranslateTransform.Y)"));
-            sbReturn.Children.Add(daY);
+                Storyboard.SetTarget(daX, imgTaget);
+                Storyboard.SetTargetProperty(daX, new PropertyPath("(UIElement.RenderTransform).(TranslateTransform.X)"));
+                sbReturn.Children.Add(daX);
+                Storyboard.SetTarget(daY, imgTaget);
+                Storyboard.SetTargetProperty(daY, new PropertyPath("(UIElement.RenderTransform).(TranslateTransform.Y)"));
+                sbReturn.Children.Add(daY);
 
-            sbReturn.BeginTime = TimeSpan.FromSeconds(dBeginTime);
+                sbReturn.BeginTime = TimeSpan.FromSeconds(dBeginTime);
 
-            //1.시작위치로 변경
-            kf = new EasingDoubleKeyFrame();
-            kf.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0));
-            kf.Value = pStart.X;
-            daX.KeyFrames.Add(kf);
-            kf = new EasingDoubleKeyFrame();
-            kf.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0));
-            kf.Value = pStart.Y;
-            daY.KeyFrames.Add(kf);
+                //1.시작위치로 변경
+                kf = new EasingDoubleKeyFrame();
+                kf.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0));
+                kf.Value = pStart.X;
+                daX.KeyFrames.Add(kf);
+                kf = new EasingDoubleKeyFrame();
+                kf.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0));
+                kf.Value = pStart.Y;
+                daY.KeyFrames.Add(kf);
 
-            //2.목적지 지정
-            kf = new EasingDoubleKeyFrame();
-            kf.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.5));
-            kf.Value = pEnd.X;
-            daX.KeyFrames.Add(kf);
-            kf = new EasingDoubleKeyFrame();
-            kf.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.5));
-            kf.Value = pEnd.Y;
-            daY.KeyFrames.Add(kf);
+                //2.목적지 지정
+                kf = new EasingDoubleKeyFrame();
+                kf.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.5));
+                kf.Value = pEnd.X;
+                daX.KeyFrames.Add(kf);
+                kf = new EasingDoubleKeyFrame();
+                kf.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.5));
+                kf.Value = pEnd.Y;
+                daY.KeyFrames.Add(kf);
 
-            //애니메이션 시작
-            sbReturn.Begin();
+                //애니메이션 시작
+                sbReturn.Begin();
+            }
+            
+
+            {
+                Storyboard sb = new Storyboard(); // 스토리보드 할당
+                DoubleAnimation da = new DoubleAnimation(); // 에니매이션 제작
+
+                da.Duration = new Duration(new TimeSpan(0, 0, 0, 0, 500)); // 재생될 시간 0,0,0,1 == 1초
+                da.From = 0; // 변환될 값의 시작값
+                da.To = 1; // 종료값 --> 현제 애니메이션은 객체의 투명도를 조정하는것이므로 0~1 까지 조절
+                //da.AutoReverse = true;  // 자동으로 반대로 재생할것인지를 뭇는것!
+
+                Storyboard.SetTargetName(da, imgTaget.Name); // 애니메이션과 객체를 연결한다
+
+                Storyboard.SetTargetProperty(da, new PropertyPath(Image.OpacityProperty)); // 애니메이션의 변환할 속성을 설정  
+                sb.Children.Add(da); // 스토리보드에 에니메이션 추가
+                //sb.RepeatBehavior = RepeatBehavior.Forever; // 영원히 반복
+                sb.Begin(imgTaget); // 애니메이션 시작명령
+            }
+
         }
 
         private void onMouseMoveInWindow(object sender, MouseEventArgs e)
