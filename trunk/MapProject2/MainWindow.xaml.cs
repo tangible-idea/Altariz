@@ -5,6 +5,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
 using System.Windows.Media.Animation;
+
 using System.Windows.Threading;
 using System.Windows.Media.Imaging;
 using System.IO;
@@ -18,7 +19,8 @@ namespace ManipulationModeDemo
     public partial class MainWindow : Window
     {
         #region Instance Definition
-        ManipulationModes currentMode = ManipulationModes.All;
+            ManipulationModes currentMode = ManipulationModes.All;
+            Point m_ptMouse = new Point();
         #endregion 
 
         #region public MainWindow
@@ -27,8 +29,13 @@ namespace ManipulationModeDemo
             InitializeComponent();
 
             currentMode = ManipulationModes.Scale | ManipulationModes.Translate;
+
+            //this.MouseMove += new MouseEventHandler(MyPage_MouseMove);
         }
+
+
         #endregion 
+
 
 
         #region protected override void OnManipulationStarting
@@ -160,6 +167,9 @@ namespace ManipulationModeDemo
                 stybd.Begin();
         }
 
+
+
+        // 중앙 팝업 방식으로 해당 그림 띄움.
         private void SetPopupURI(String strPath, String strName)
         {
             var strURI = "";
@@ -168,15 +178,51 @@ namespace ManipulationModeDemo
             {
                 strURI = Path.Combine(Environment.CurrentDirectory, strPath, strName);
                 var uri = new Uri(strURI);
-                popup_image.Source = new BitmapImage(uri);
+                popup_image_spot.Source = new BitmapImage(uri);
 
                 TouchContentMethod();
             }
             catch(Exception e)
             {
                 MessageBox.Show("Cannot find current Image.\n["+strURI+" ]");
+            }            
+        }
+
+        // 우측 상단 팝업 방식으로 해당 그림 띄움.
+        private void SetPopupURI2(String strPath, String strName, Image selectedIcon)
+        {
+            var strURI = "";
+
+            try
+            {
+                strURI = Path.Combine(Environment.CurrentDirectory, strPath, strName);
+                var uri = new Uri(strURI);
+                popup_image_food.Source = new BitmapImage(uri);
+                popup_image_food.Visibility = Visibility.Visible;
             }
-            
+            catch (Exception e)
+            {
+                MessageBox.Show("Cannot find current Image.\n[" + strURI + " ]");
+            }
+            try
+
+            {
+                //int nX = (int)selectedIcon.Margin.Left;
+                //int nY = (int)selectedIcon.Margin.Top;
+                int nX = (int)m_ptMouse.X;
+                int nY = (int)m_ptMouse.Y - (int)popup_image_food.Height;
+                ControlAnimaion(popup_image_food, 0f, new Point(nX, nY+15), new Point(nX, nY));
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("food popup animation begin error.\n"+ e.ToString());
+            }
+        }
+
+        private void onTouchFood1(object sender, TouchEventArgs e)
+        {
+            Image imgSelectedIcon = sender as Image;            
+            SetPopupURI2("popup_food", "FOOD01.png", imgSelectedIcon);
         }
 
         private void onTouchImage1(object sender, TouchEventArgs e)
@@ -260,7 +306,7 @@ namespace ManipulationModeDemo
         // 터치하면 이미지 애니메이션으로 띄움. [12/24/2013 Mark]
         private void TouchContentMethod()
         {
-            popup_image.Visibility = Visibility.Visible;
+            popup_image_spot.Visibility = Visibility.Visible;
             rct_fadeout.Visibility = Visibility.Visible;
 
             Play_StoryBoard("fadein");
@@ -278,7 +324,7 @@ namespace ManipulationModeDemo
         private void StoryHideCompleted(object sender, EventArgs e)
         {
             rct_fadeout.Visibility = Visibility.Hidden;
-            popup_image.Visibility = Visibility.Hidden;
+            popup_image_spot.Visibility = Visibility.Hidden;
         }
 
         private void Image_TouchDown(object sender, TouchEventArgs e)
@@ -304,6 +350,58 @@ namespace ManipulationModeDemo
             grid_group_food.Visibility = Visibility.Visible;
         }
 
+
+        private void ControlAnimaion(Image imgTaget, double dBeginTime, Point pStart, Point pEnd)
+        {
+            Storyboard sbReturn = new Storyboard();
+
+            EasingDoubleKeyFrame kf = null;
+
+            DoubleAnimationUsingKeyFrames daX = null;
+            DoubleAnimationUsingKeyFrames daY = null;
+
+            daX = new DoubleAnimationUsingKeyFrames();
+            daY = new DoubleAnimationUsingKeyFrames();
+
+            imgTaget.RenderTransform = new TranslateTransform();
+
+            Storyboard.SetTarget(daX, imgTaget);
+            Storyboard.SetTargetProperty(daX, new PropertyPath("(UIElement.RenderTransform).(TranslateTransform.X)"));
+            sbReturn.Children.Add(daX);
+            Storyboard.SetTarget(daY, imgTaget);
+            Storyboard.SetTargetProperty(daY, new PropertyPath("(UIElement.RenderTransform).(TranslateTransform.Y)"));
+            sbReturn.Children.Add(daY);
+
+            sbReturn.BeginTime = TimeSpan.FromSeconds(dBeginTime);
+
+            //1.시작위치로 변경
+            kf = new EasingDoubleKeyFrame();
+            kf.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0));
+            kf.Value = pStart.X;
+            daX.KeyFrames.Add(kf);
+            kf = new EasingDoubleKeyFrame();
+            kf.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0));
+            kf.Value = pStart.Y;
+            daY.KeyFrames.Add(kf);
+
+            //2.목적지 지정
+            kf = new EasingDoubleKeyFrame();
+            kf.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.5));
+            kf.Value = pEnd.X;
+            daX.KeyFrames.Add(kf);
+            kf = new EasingDoubleKeyFrame();
+            kf.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.5));
+            kf.Value = pEnd.Y;
+            daY.KeyFrames.Add(kf);
+
+            //애니메이션 시작
+            sbReturn.Begin();
+        }
+
+        private void onMouseMoveInWindow(object sender, MouseEventArgs e)
+        {
+            m_ptMouse = e.GetPosition(null);
+        }
 
     }
 
