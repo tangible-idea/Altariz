@@ -23,12 +23,48 @@
                 RenderTransform="1.0 0 0 1.0 0 0"
                 VerticalAlignment="Top"
                 HorizontalAlignment="Left">
+                
                 <Image
                     Name="imgMap"
                     Source="Images/map.png"  Margin="0" Width="2000" Height="2683" VerticalAlignment="Top" HorizontalAlignment="Left"
                />
 
-                <Image Source="Images/Icons/icon1.png" Margin="79,2019,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"   TouchDown="onTouchImage1" />
+
+                <Grid
+                Name="grid_group_food"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left">
+                    <Image Source="Images/Icons/foodicon.png" Margin="436,1641,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="16,2256,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="156,2248,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="326,1860,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="427,1884,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="427,1908,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="320,2093,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="576,2127,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="471,2127,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="397,2099,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="326,2197,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="523,2232,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="352,2248,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="527,2336,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="476,2418,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="558,2449,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="405,2511,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="291,2480,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="281,2382,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="281,2353,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="344,2370,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    
+                    
+                </Grid>
+
+                    <Grid
+                Name="grid_group_spot"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left">
+
+                    <Image Source="Images/Icons/icon1.png" Margin="79,2019,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"   TouchDown="onTouchImage1" />
                 <Image Source="Images/Icons/icon2.png" Margin="28,2196,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"   TouchDown="onTouchImage2"/>
                 <Image Source="Images/Icons/icon3.png" Margin="182,2276,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"  TouchDown="onTouchImage3"/>
                 <Image Source="Images/Icons/icon4.png" Margin="72,2345,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"   TouchDown="onTouchImage4"/>
@@ -45,6 +81,8 @@
                 <Image Source="Images/Icons/icon15.png" Margin="1356,474,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left" TouchDown="onTouchImage15" />
                 <Image Source="Images/Icons/icon16.png" Margin="1238,535,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left" TouchDown="onTouchImage16" />
                 <Image Source="Images/Icons/icon17.png" Margin="1190,908,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left" TouchDown="onTouchImage17" />
+
+                </Grid>
                 
             </Grid>
             
@@ -57,7 +95,7 @@
             Source="Images/category/category1.jpg"
             Width="150" Height="100" 
             HorizontalAlignment="Left" VerticalAlignment="Top"
-            Margin="10,10,0,0">
+            Margin="10,10,0,0" TouchDown="onTouchCategory1">
         </Image>
 
         <Image
@@ -65,7 +103,7 @@
             Source="Images/category/category2.jpg"
             Width="150" Height="100" 
             HorizontalAlignment="Left" VerticalAlignment="Top"
-            Margin="170,10,0,0">
+            Margin="170,10,0,0" TouchDown="onTouchCategory2">
         </Image>
 
         <Image
@@ -73,7 +111,7 @@
             Source="Images/category/category3.jpg"
             Width="150" Height="100" 
             HorizontalAlignment="Left" VerticalAlignment="Top"
-            Margin="330,10,0,0">
+            Margin="330,10,0,0" TouchDown="onTouchCategory3">
         </Image>
 
 

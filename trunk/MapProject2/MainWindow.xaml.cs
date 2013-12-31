@@ -281,6 +281,29 @@ namespace ManipulationModeDemo
             popup_image.Visibility = Visibility.Hidden;
         }
 
+        private void Image_TouchDown(object sender, TouchEventArgs e)
+        {
+
+        }
+
+        private void onTouchCategory1(object sender, TouchEventArgs e)
+        {
+            grid_group_spot.Visibility = Visibility.Hidden;
+            grid_group_food.Visibility = Visibility.Hidden;
+        }
+
+        private void onTouchCategory2(object sender, TouchEventArgs e)
+        {
+            grid_group_spot.Visibility = Visibility.Visible;
+            grid_group_food.Visibility = Visibility.Hidden;
+        }
+
+        private void onTouchCategory3(object sender, TouchEventArgs e)
+        {
+            grid_group_spot.Visibility = Visibility.Hidden;
+            grid_group_food.Visibility = Visibility.Visible;
+        }
+
 
     }
 
