@@ -92,7 +92,7 @@
         <!-- 카테고리 선택 부분-->
         <Image
             Name="btnCategory1"
-            Source="Images/category/category1.jpg"
+            Source="Images/category/tour.png"
             Width="150" Height="100" 
             HorizontalAlignment="Left" VerticalAlignment="Top"
             Margin="10,10,0,0" TouchDown="onTouchCategory1">
@@ -100,7 +100,7 @@
 
         <Image
             Name="btnCategory2"
-            Source="Images/category/category2.jpg"
+            Source="Images/category/rail.png"
             Width="150" Height="100" 
             HorizontalAlignment="Left" VerticalAlignment="Top"
             Margin="170,10,0,0" TouchDown="onTouchCategory2">
@@ -108,7 +108,7 @@
 
         <Image
             Name="btnCategory3"
-            Source="Images/category/category3.jpg"
+            Source="Images/category/food.png"
             Width="150" Height="100" 
             HorizontalAlignment="Left" VerticalAlignment="Top"
             Margin="330,10,0,0" TouchDown="onTouchCategory3">
