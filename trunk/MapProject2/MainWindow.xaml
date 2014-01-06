@@ -35,26 +35,26 @@
                 VerticalAlignment="Top"
                 HorizontalAlignment="Left">
                     <Image Source="Images/Icons/foodicon.png" Margin="436,1641,0,0" TouchDown="onTouchFood1" VerticalAlignment="Top" HorizontalAlignment="Left"  />
-                    <Image Source="Images/Icons/foodicon.png" Margin="16,2256,0,0"  TouchDown="onTouchFood1" VerticalAlignment="Top" HorizontalAlignment="Left"  />
-                    <Image Source="Images/Icons/foodicon.png" Margin="156,2248,0,0" TouchDown="onTouchFood1"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
-                    <Image Source="Images/Icons/foodicon.png" Margin="326,1860,0,0" TouchDown="onTouchFood1"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
-                    <Image Source="Images/Icons/foodicon.png" Margin="427,1884,0,0" TouchDown="onTouchFood1"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
-                    <Image Source="Images/Icons/foodicon.png" Margin="427,1908,0,0" TouchDown="onTouchFood1"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
-                    <Image Source="Images/Icons/foodicon.png" Margin="320,2093,0,0" TouchDown="onTouchFood1"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
-                    <Image Source="Images/Icons/foodicon.png" Margin="576,2127,0,0" TouchDown="onTouchFood1"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
-                    <Image Source="Images/Icons/foodicon.png" Margin="471,2127,0,0" TouchDown="onTouchFood1"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
-                    <Image Source="Images/Icons/foodicon.png" Margin="397,2099,0,0" TouchDown="onTouchFood1"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
-                    <Image Source="Images/Icons/foodicon.png" Margin="326,2197,0,0" TouchDown="onTouchFood1"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
-                    <Image Source="Images/Icons/foodicon.png" Margin="523,2232,0,0" TouchDown="onTouchFood1"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
-                    <Image Source="Images/Icons/foodicon.png" Margin="352,2248,0,0" TouchDown="onTouchFood1"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
-                    <Image Source="Images/Icons/foodicon.png" Margin="527,2336,0,0" TouchDown="onTouchFood1"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
-                    <Image Source="Images/Icons/foodicon.png" Margin="476,2418,0,0" TouchDown="onTouchFood1"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
-                    <Image Source="Images/Icons/foodicon.png" Margin="558,2449,0,0" TouchDown="onTouchFood1"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
-                    <Image Source="Images/Icons/foodicon.png" Margin="405,2511,0,0" TouchDown="onTouchFood1"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
-                    <Image Source="Images/Icons/foodicon.png" Margin="291,2480,0,0" TouchDown="onTouchFood1"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
-                    <Image Source="Images/Icons/foodicon.png" Margin="281,2382,0,0" TouchDown="onTouchFood1"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
-                    <Image Source="Images/Icons/foodicon.png" Margin="281,2353,0,0" TouchDown="onTouchFood1"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
-                    <Image Source="Images/Icons/foodicon.png" Margin="344,2370,0,0" TouchDown="onTouchFood1"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="16,2256,0,0"  TouchDown="onTouchFood2" VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="156,2248,0,0" TouchDown="onTouchFood3"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="326,1860,0,0" TouchDown="onTouchFood4"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="427,1884,0,0" TouchDown="onTouchFood5"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="427,1908,0,0" TouchDown="onTouchFood6"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="320,2093,0,0" TouchDown="onTouchFood7"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="576,2127,0,0" TouchDown="onTouchFood8"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="471,2127,0,0" TouchDown="onTouchFood9"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="397,2099,0,0" TouchDown="onTouchFood10"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="326,2197,0,0" TouchDown="onTouchFood11"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="523,2232,0,0" TouchDown="onTouchFood12"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="352,2248,0,0" TouchDown="onTouchFood13"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="527,2336,0,0" TouchDown="onTouchFood14"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="476,2418,0,0" TouchDown="onTouchFood15"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="558,2449,0,0" TouchDown="onTouchFood16"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="405,2511,0,0" TouchDown="onTouchFood17"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="291,2480,0,0" TouchDown="onTouchFood18"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="281,2382,0,0" TouchDown="onTouchFood19"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="281,2353,0,0" TouchDown="onTouchFood20"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="344,2370,0,0" TouchDown="onTouchFood21"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
                     
                     
                 </Grid>
