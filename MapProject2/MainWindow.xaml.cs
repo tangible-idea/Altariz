@@ -194,6 +194,25 @@ namespace ManipulationModeDemo
             }            
         }
 
+        // 중앙 팝업 방식으로 해당 그림 띄움.
+        private void SetPopupURI3(String strPath, String strName)
+        {
+            var strURI = "";
+
+            try
+            {
+                strURI = Path.Combine(Environment.CurrentDirectory, strPath, strName);
+                var uri = new Uri(strURI);
+                popup_image_rail.Source = new BitmapImage(uri);
+
+                TouchContentMethod_Rail();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Cannot find current Image.\n[" + strURI + " ]");
+            }
+        }
+
         // 우측 상단 팝업 방식으로 해당 그림 띄움.
         private void SetPopupURI2(String strPath, List<String> lstName, Image selectedIcon)
         {
@@ -231,6 +250,13 @@ namespace ManipulationModeDemo
             
             
         }
+
+        // 철도 팝업 [1/6/2014 Mark]
+        private void onTouchRail(object sender, TouchEventArgs e)
+        {
+            SetPopupURI3("popup_rail", "rail_info.png");
+        }
+
 
         // 여기부터 맛집 [1/6/2014 Mark]
         private void onTouchFood1(object sender, TouchEventArgs e)
@@ -467,6 +493,8 @@ namespace ManipulationModeDemo
         private void onTouchFadeRect(object sender, TouchEventArgs e)
         {
             Play_StoryBoard("hide");
+            Play_StoryBoard("hide_rail");
+
             Play_StoryBoard("fadeout");
         }
 
@@ -478,6 +506,15 @@ namespace ManipulationModeDemo
 
             Play_StoryBoard("fadein");
             Play_StoryBoard("show");
+        }
+
+        private void TouchContentMethod_Rail()
+        {
+            popup_image_rail.Visibility = Visibility.Visible;
+            rct_fadeout.Visibility = Visibility.Visible;
+
+            Play_StoryBoard("fadein");
+            Play_StoryBoard("show_rail");
         }
 
 
@@ -493,6 +530,14 @@ namespace ManipulationModeDemo
             rct_fadeout.Visibility = Visibility.Hidden;
             popup_image_spot.Visibility = Visibility.Hidden;
         }
+
+        private void RailStoryHideCompleted(object sender, EventArgs e)
+        {
+            rct_fadeout.Visibility = Visibility.Hidden;
+            popup_image_rail.Visibility = Visibility.Hidden;
+        }
+
+        
 
         private void Image_TouchDown(object sender, TouchEventArgs e)
         {

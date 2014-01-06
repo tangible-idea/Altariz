@@ -64,7 +64,7 @@
                 VerticalAlignment="Top"
                 HorizontalAlignment="Left">
 
-                    <Image Source="Images/Icons/icon1.png" Margin="79,2019,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"   TouchDown="onTouchImage1" />
+                <Image Source="Images/Icons/icon1.png" Margin="79,2019,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"   TouchDown="onTouchImage1" />
                 <Image Source="Images/Icons/icon2.png" Margin="28,2196,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"   TouchDown="onTouchImage2"/>
                 <Image Source="Images/Icons/icon3.png" Margin="182,2276,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"  TouchDown="onTouchImage3"/>
                 <Image Source="Images/Icons/icon4.png" Margin="72,2345,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"   TouchDown="onTouchImage4"/>
@@ -83,6 +83,7 @@
                 <Image Source="Images/Icons/icon17.png" Margin="1190,908,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left" TouchDown="onTouchImage17" />
 
                 </Grid>
+                
                 
             </Grid>
             
@@ -125,6 +126,12 @@
             Visibility="Hidden">            
         </Rectangle>
 
+
+        <Image
+            Name="popup_image_rail" 
+            VerticalAlignment="Center" HorizontalAlignment="Center"
+            Width="700" Height="530"
+            Visibility="Hidden"/>
 
         <Image
             Name="popup_image_spot" 
@@ -207,6 +214,32 @@
         </Storyboard>
 
         <Storyboard x:Key="hide" Completed="StoryHideCompleted">
+            <DoubleAnimation To="0" Duration="0:0:0.5"
+                             Storyboard.TargetName="popup_image_spot"
+                             Storyboard.TargetProperty="Width"
+                             >
+                <DoubleAnimation.EasingFunction>
+                    <ExponentialEase EasingMode="EaseIn"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+
+        </Storyboard>
+
+
+
+        <Storyboard x:Key="show_rail">
+            <DoubleAnimation To="300" Duration="0:0:0.5"
+                             Storyboard.TargetName="popup_image_spot"
+                             Storyboard.TargetProperty="Width"
+                             >
+                <DoubleAnimation.EasingFunction>
+                    <!--<ElasticEase Oscillations="2" EasingMode="EaseOut"/>-->
+                    <ExponentialEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+
+        <Storyboard x:Key="hide_rail" Completed="RailStoryHideCompleted">
             <DoubleAnimation To="0" Duration="0:0:0.5"
                              Storyboard.TargetName="popup_image_spot"
                              Storyboard.TargetProperty="Width"
