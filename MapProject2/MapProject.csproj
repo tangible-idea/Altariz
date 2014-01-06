@@ -89,6 +89,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PopupInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -179,6 +180,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Icons\foodicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\category\food.png" />
+    <Resource Include="Images\category\rail.png" />
+    <Resource Include="Images\category\tour.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

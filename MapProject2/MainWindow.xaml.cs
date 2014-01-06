@@ -9,6 +9,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Threading;
 using System.Windows.Media.Imaging;
 using System.IO;
+using System.Collections.Generic;
 
 /**
  * 
@@ -194,40 +195,49 @@ namespace ManipulationModeDemo
         }
 
         // 우측 상단 팝업 방식으로 해당 그림 띄움.
-        private void SetPopupURI2(String strPath, String strName, Image selectedIcon)
+        private void SetPopupURI2(String strPath, List<String> lstName, Image selectedIcon)
         {
             var strURI = "";
 
-            try
+            //foreach(String strName in lstName)
+            for (int i = 0; i<lstName.Count; ++i )
             {
-                strURI = Path.Combine(Environment.CurrentDirectory, strPath, strName);
-                var uri = new Uri(strURI);
-                popup_image_food.Source = new BitmapImage(uri);
-                popup_image_food.Visibility = Visibility.Visible;
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Cannot find current Image.\n[" + strURI + " ]");
-            }
-            try
+                try
+                {
+                    strURI = Path.Combine(Environment.CurrentDirectory, strPath, lstName[i]);
+                    var uri = new Uri(strURI);
+                    popup_image_food.Source = new BitmapImage(uri);
+                    popup_image_food.Visibility = Visibility.Visible;
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Cannot find current Image.\n[" + strURI + " ]");
+                }
 
-            {
-                //int nX = (int)selectedIcon.Margin.Left;
-                //int nY = (int)selectedIcon.Margin.Top;
-                int nX = (int)m_ptMouse.X;
-                int nY = (int)m_ptMouse.Y - (int)popup_image_food.Height;
-                ControlAnimaion(popup_image_food, 0f, new Point(nX, nY+15), new Point(nX, nY));
+                try
+                {
+                    //int nX = (int)selectedIcon.Margin.Left;
+                    //int nY = (int)selectedIcon.Margin.Top;
+                    int nX = (int)m_ptMouse.X;
+                    int nY = (int)m_ptMouse.Y - (int)popup_image_food.Height;
+                    ControlAnimaion(popup_image_food, 0f, new Point(nX, nY + (i*85)+15), new Point(nX, nY));
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("food popup animation begin error.\n" + e.ToString());
+                }
             }
-            catch (Exception e)
-            {
-                MessageBox.Show("food popup animation begin error.\n"+ e.ToString());
-            }
+
+            
+            
         }
 
         private void onTouchFood1(object sender, TouchEventArgs e)
         {
-            Image imgSelectedIcon = sender as Image;            
-            SetPopupURI2("popup_food", "FOOD01.png", imgSelectedIcon);
+            Image imgSelectedIcon = sender as Image;
+            List<String> listName = new List<String>();
+            listName.Add("FOOD01.png");
+            SetPopupURI2("popup_food", listName, imgSelectedIcon);
         }
 
         private void onTouchImage1(object sender, TouchEventArgs e)
