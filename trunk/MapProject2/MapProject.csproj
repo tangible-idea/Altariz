@@ -186,6 +186,9 @@
     <Resource Include="Images\category\rail.png" />
     <Resource Include="Images\category\tour.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\popup_rail\rail_info.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
