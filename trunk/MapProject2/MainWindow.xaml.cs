@@ -540,15 +540,15 @@ namespace ManipulationModeDemo
 
         private void onTouchCategory1(object sender, TouchEventArgs e)
         {
-            grid_group_spot.Visibility = Visibility.Hidden;
+            grid_group_spot.Visibility = Visibility.Visible;
             grid_group_food.Visibility = Visibility.Hidden;
-            SetPopupURI3("popup_rail", "rail_info.png");
         }
 
         private void onTouchCategory2(object sender, TouchEventArgs e)
         {
-            grid_group_spot.Visibility = Visibility.Visible;
+            grid_group_spot.Visibility = Visibility.Hidden;
             grid_group_food.Visibility = Visibility.Hidden;
+            SetPopupURI3("popup_rail", "rail_info.png");
         }
 
         private void onTouchCategory3(object sender, TouchEventArgs e)
