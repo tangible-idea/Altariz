@@ -141,7 +141,7 @@ namespace ManipulationModeDemo
             Play_StoryBoard("hide");
             Play_StoryBoard("moveinit");
 
-            grid_group_spot.Visibility = Visibility.Visible;
+            grid_group_spot.Visibility = Visibility.Hidden;
             grid_group_food.Visibility = Visibility.Hidden;
         }
         #endregion 
@@ -249,12 +249,6 @@ namespace ManipulationModeDemo
 
             
             
-        }
-
-        // 철도 팝업 [1/6/2014 Mark]
-        private void onTouchRail(object sender, TouchEventArgs e)
-        {
-            SetPopupURI3("popup_rail", "rail_info.png");
         }
 
 
@@ -548,6 +542,7 @@ namespace ManipulationModeDemo
         {
             grid_group_spot.Visibility = Visibility.Hidden;
             grid_group_food.Visibility = Visibility.Hidden;
+            SetPopupURI3("popup_rail", "rail_info.png");
         }
 
         private void onTouchCategory2(object sender, TouchEventArgs e)
