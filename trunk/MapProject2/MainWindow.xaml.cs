@@ -137,8 +137,10 @@ namespace ManipulationModeDemo
         #region private void Grid_Loaded
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
+            Play_StoryBoard("hide_rail");
             Play_StoryBoard("fadeout");
-            Play_StoryBoard("hide");
+            Play_StoryBoard("hide");            
+
             Play_StoryBoard("moveinit");
 
             grid_group_spot.Visibility = Visibility.Hidden;
@@ -176,7 +178,7 @@ namespace ManipulationModeDemo
 
 
         // 중앙 팝업 방식으로 해당 그림 띄움.
-        private void SetPopupURI(String strPath, String strName)
+        private void SetPopupURI_Spot(String strPath, String strName)
         {
             var strURI = "";
             
@@ -195,7 +197,7 @@ namespace ManipulationModeDemo
         }
 
         // 중앙 팝업 방식으로 해당 그림 띄움.
-        private void SetPopupURI3(String strPath, String strName)
+        private void SetPopupURI_Rail(String strPath, String strName)
         {
             var strURI = "";
 
@@ -214,7 +216,7 @@ namespace ManipulationModeDemo
         }
 
         // 우측 상단 팝업 방식으로 해당 그림 띄움.
-        private void SetPopupURI2(String strPath, List<String> lstName, Image selectedIcon)
+        private void SetPopupURI_Food(String strPath, List<String> lstName, Image selectedIcon)
         {
             var strURI = "";
 
@@ -258,7 +260,7 @@ namespace ManipulationModeDemo
             Image imgSelectedIcon = sender as Image;
             List<String> listName = new List<String>();
             listName.Add("FOOD01.png");
-            SetPopupURI2("popup_food", listName, imgSelectedIcon);
+            SetPopupURI_Food("popup_food", listName, imgSelectedIcon);
         }
         private void onTouchFood2(object sender, TouchEventArgs e)
         {
@@ -266,7 +268,7 @@ namespace ManipulationModeDemo
             List<String> listName = new List<String>();
             listName.Add("FOOD02.png");
             listName.Add("FOOD03.png");
-            SetPopupURI2("popup_food", listName, imgSelectedIcon);
+            SetPopupURI_Food("popup_food", listName, imgSelectedIcon);
         }
         private void onTouchFood3(object sender, TouchEventArgs e)
         {
@@ -274,7 +276,7 @@ namespace ManipulationModeDemo
             List<String> listName = new List<String>();
             listName.Add("FOOD04.png");
             listName.Add("FOOD05.png");
-            SetPopupURI2("popup_food", listName, imgSelectedIcon);
+            SetPopupURI_Food("popup_food", listName, imgSelectedIcon);
         }
         private void onTouchFood4(object sender, TouchEventArgs e)
         {
@@ -282,42 +284,42 @@ namespace ManipulationModeDemo
             List<String> listName = new List<String>();
             listName.Add("FOOD06.png");
             listName.Add("FOOD07.png");
-            SetPopupURI2("popup_food", listName, imgSelectedIcon);
+            SetPopupURI_Food("popup_food", listName, imgSelectedIcon);
         }
         private void onTouchFood5(object sender, TouchEventArgs e)
         {
             Image imgSelectedIcon = sender as Image;
             List<String> listName = new List<String>();
             listName.Add("FOOD08.png");
-            SetPopupURI2("popup_food", listName, imgSelectedIcon);
+            SetPopupURI_Food("popup_food", listName, imgSelectedIcon);
         }
         private void onTouchFood6(object sender, TouchEventArgs e)
         {
             Image imgSelectedIcon = sender as Image;
             List<String> listName = new List<String>();
             listName.Add("FOOD09.png");
-            SetPopupURI2("popup_food", listName, imgSelectedIcon);
+            SetPopupURI_Food("popup_food", listName, imgSelectedIcon);
         }
         private void onTouchFood7(object sender, TouchEventArgs e)
         {
             Image imgSelectedIcon = sender as Image;
             List<String> listName = new List<String>();
             listName.Add("FOOD10.png");
-            SetPopupURI2("popup_food", listName, imgSelectedIcon);
+            SetPopupURI_Food("popup_food", listName, imgSelectedIcon);
         }
         private void onTouchFood8(object sender, TouchEventArgs e)
         {
             Image imgSelectedIcon = sender as Image;
             List<String> listName = new List<String>();
             listName.Add("FOOD11.png");
-            SetPopupURI2("popup_food", listName, imgSelectedIcon);
+            SetPopupURI_Food("popup_food", listName, imgSelectedIcon);
         }
         private void onTouchFood9(object sender, TouchEventArgs e)
         {
             Image imgSelectedIcon = sender as Image;
             List<String> listName = new List<String>();
             listName.Add("FOOD12.png");
-            SetPopupURI2("popup_food", listName, imgSelectedIcon);
+            SetPopupURI_Food("popup_food", listName, imgSelectedIcon);
         }
         private void onTouchFood10(object sender, TouchEventArgs e)
         {
@@ -327,7 +329,7 @@ namespace ManipulationModeDemo
             listName.Add("FOOD14.png");
             listName.Add("FOOD15.png");
             listName.Add("FOOD16.png");
-            SetPopupURI2("popup_food", listName, imgSelectedIcon);
+            SetPopupURI_Food("popup_food", listName, imgSelectedIcon);
         }
         private void onTouchFood11(object sender, TouchEventArgs e)
         {
@@ -335,42 +337,42 @@ namespace ManipulationModeDemo
             List<String> listName = new List<String>();
             listName.Add("FOOD17.png");
             listName.Add("FOOD18.png");
-            SetPopupURI2("popup_food", listName, imgSelectedIcon);
+            SetPopupURI_Food("popup_food", listName, imgSelectedIcon);
         }
         private void onTouchFood12(object sender, TouchEventArgs e)
         {
             Image imgSelectedIcon = sender as Image;
             List<String> listName = new List<String>();
             listName.Add("FOOD19.png");
-            SetPopupURI2("popup_food", listName, imgSelectedIcon);
+            SetPopupURI_Food("popup_food", listName, imgSelectedIcon);
         }
         private void onTouchFood13(object sender, TouchEventArgs e)
         {
             Image imgSelectedIcon = sender as Image;
             List<String> listName = new List<String>();
             listName.Add("FOOD20.png");
-            SetPopupURI2("popup_food", listName, imgSelectedIcon);
+            SetPopupURI_Food("popup_food", listName, imgSelectedIcon);
         }
         private void onTouchFood14(object sender, TouchEventArgs e)
         {
             Image imgSelectedIcon = sender as Image;
             List<String> listName = new List<String>();
             listName.Add("FOOD21.png");
-            SetPopupURI2("popup_food", listName, imgSelectedIcon);
+            SetPopupURI_Food("popup_food", listName, imgSelectedIcon);
         }
         private void onTouchFood15(object sender, TouchEventArgs e)
         {
             Image imgSelectedIcon = sender as Image;
             List<String> listName = new List<String>();
             listName.Add("FOOD22.png");
-            SetPopupURI2("popup_food", listName, imgSelectedIcon);
+            SetPopupURI_Food("popup_food", listName, imgSelectedIcon);
         }
         private void onTouchFood16(object sender, TouchEventArgs e)
         {
             Image imgSelectedIcon = sender as Image;
             List<String> listName = new List<String>();
             listName.Add("FOOD23.png");
-            SetPopupURI2("popup_food", listName, imgSelectedIcon);
+            SetPopupURI_Food("popup_food", listName, imgSelectedIcon);
         }
         private void onTouchFood17(object sender, TouchEventArgs e)
         {
@@ -378,14 +380,14 @@ namespace ManipulationModeDemo
             List<String> listName = new List<String>();
             listName.Add("FOOD24.png");
             listName.Add("FOOD25.png");
-            SetPopupURI2("popup_food", listName, imgSelectedIcon);
+            SetPopupURI_Food("popup_food", listName, imgSelectedIcon);
         }
         private void onTouchFood18(object sender, TouchEventArgs e)
         {
             Image imgSelectedIcon = sender as Image;
             List<String> listName = new List<String>();
             listName.Add("FOOD26.png");
-            SetPopupURI2("popup_food", listName, imgSelectedIcon);
+            SetPopupURI_Food("popup_food", listName, imgSelectedIcon);
         }
         private void onTouchFood19(object sender, TouchEventArgs e)
         {
@@ -393,94 +395,94 @@ namespace ManipulationModeDemo
             List<String> listName = new List<String>();
             listName.Add("FOOD27.png");
             listName.Add("FOOD28.png");
-            SetPopupURI2("popup_food", listName, imgSelectedIcon);
+            SetPopupURI_Food("popup_food", listName, imgSelectedIcon);
         }
         private void onTouchFood20(object sender, TouchEventArgs e)
         {
             Image imgSelectedIcon = sender as Image;
             List<String> listName = new List<String>();
             listName.Add("FOOD29.png");
-            SetPopupURI2("popup_food", listName, imgSelectedIcon);
+            SetPopupURI_Food("popup_food", listName, imgSelectedIcon);
         }
         private void onTouchFood21(object sender, TouchEventArgs e)
         {
             Image imgSelectedIcon = sender as Image;
             List<String> listName = new List<String>();
             listName.Add("FOOD30.png");
-            SetPopupURI2("popup_food", listName, imgSelectedIcon);
+            SetPopupURI_Food("popup_food", listName, imgSelectedIcon);
         }
 
 
         // 여기부터 관광 [1/6/2014 Mark]
         private void onTouchImage1(object sender, TouchEventArgs e)
         {
-            SetPopupURI("popup4", "T_01.png");
+            SetPopupURI_Spot("popup_spot", "T_01.png");
         }
 
         private void onTouchImage2(object sender, TouchEventArgs e)
         {
-            SetPopupURI("popup4", "T_02.png");
+            SetPopupURI_Spot("popup_spot", "T_02.png");
         }
         private void onTouchImage3(object sender, TouchEventArgs e)
         {
-            SetPopupURI("popup4", "T_03.png");
+            SetPopupURI_Spot("popup_spot", "T_03.png");
         }
         private void onTouchImage4(object sender, TouchEventArgs e)
         {
-            SetPopupURI("popup4", "T_04.png");
+            SetPopupURI_Spot("popup_spot", "T_04.png");
         }
         private void onTouchImage5(object sender, TouchEventArgs e)
         {
-            SetPopupURI("popup4", "T_05.png");
+            SetPopupURI_Spot("popup_spot", "T_05.png");
         }
         private void onTouchImage6(object sender, TouchEventArgs e)
         {
-            SetPopupURI("popup4", "T_06.png");
+            SetPopupURI_Spot("popup_spot", "T_06.png");
         }
         private void onTouchImage7(object sender, TouchEventArgs e)
         {
-            SetPopupURI("popup4", "T_07.png");
+            SetPopupURI_Spot("popup_spot", "T_07.png");
         }
         private void onTouchImage8(object sender, TouchEventArgs e)
         {
-            SetPopupURI("popup4", "T_08.png");
+            SetPopupURI_Spot("popup_spot", "T_08.png");
         }
         private void onTouchImage9(object sender, TouchEventArgs e)
         {
-            SetPopupURI("popup4", "T_09.png");
+            SetPopupURI_Spot("popup_spot", "T_09.png");
         }
         private void onTouchImage10(object sender, TouchEventArgs e)
         {
-            SetPopupURI("popup4", "T_10.png");
+            SetPopupURI_Spot("popup_spot", "T_10.png");
         }
         private void onTouchImage11(object sender, TouchEventArgs e)
         {
-            SetPopupURI("popup4", "T_11.png");
+            SetPopupURI_Spot("popup_spot", "T_11.png");
         }
         private void onTouchImage12(object sender, TouchEventArgs e)
         {
-            SetPopupURI("popup4", "T_12.png");
+            SetPopupURI_Spot("popup_spot", "T_12.png");
         }
         private void onTouchImage13(object sender, TouchEventArgs e)
         {
-            SetPopupURI("popup4", "T_13.png");
+            SetPopupURI_Spot("popup_spot", "T_13.png");
         }
         private void onTouchImage14(object sender, TouchEventArgs e)
         {
-            SetPopupURI("popup4", "T_14.png");
+            SetPopupURI_Spot("popup_spot", "T_14.png");
 
         }
         private void onTouchImage15(object sender, TouchEventArgs e)
         {
-            SetPopupURI("popup4", "T_15.png");
+            SetPopupURI_Spot("popup_spot", "T_15.png");
         }
         private void onTouchImage16(object sender, TouchEventArgs e)
         {
-            SetPopupURI("popup4", "T_16.png");
+            SetPopupURI_Spot("popup_spot", "T_16.png");
         }
         private void onTouchImage17(object sender, TouchEventArgs e)
         {
-            SetPopupURI("popup4", "T_16.png");
+            SetPopupURI_Spot("popup_spot", "T_16.png");
         }
 
         // 바깥 터치시 종료 애니메이션 [12/24/2013 Mark]
@@ -548,7 +550,7 @@ namespace ManipulationModeDemo
         {
             grid_group_spot.Visibility = Visibility.Hidden;
             grid_group_food.Visibility = Visibility.Hidden;
-            SetPopupURI3("popup_rail", "rail_info.png");
+            SetPopupURI_Rail("popup_rail", "rail_info.png");
         }
 
         private void onTouchCategory3(object sender, TouchEventArgs e)
