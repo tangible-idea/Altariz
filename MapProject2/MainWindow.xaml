@@ -229,7 +229,7 @@
 
         <Storyboard x:Key="show_rail">
             <DoubleAnimation To="300" Duration="0:0:0.5"
-                             Storyboard.TargetName="popup_image_spot"
+                             Storyboard.TargetName="popup_image_rail"
                              Storyboard.TargetProperty="Width"
                              >
                 <DoubleAnimation.EasingFunction>
@@ -241,7 +241,7 @@
 
         <Storyboard x:Key="hide_rail" Completed="RailStoryHideCompleted">
             <DoubleAnimation To="0" Duration="0:0:0.5"
-                             Storyboard.TargetName="popup_image_spot"
+                             Storyboard.TargetName="popup_image_rail"
                              Storyboard.TargetProperty="Width"
                              >
                 <DoubleAnimation.EasingFunction>

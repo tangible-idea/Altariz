@@ -156,24 +156,6 @@
     <Resource Include="Images\map.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\popup_spot\T_01.png" />
-    <Resource Include="Images\popup_spot\T_02.png" />
-    <Resource Include="Images\popup_spot\T_03.png" />
-    <Resource Include="Images\popup_spot\T_04.png" />
-    <Resource Include="Images\popup_spot\T_05.png" />
-    <Resource Include="Images\popup_spot\T_06.png" />
-    <Resource Include="Images\popup_spot\T_07.png" />
-    <Resource Include="Images\popup_spot\T_08.png" />
-    <Resource Include="Images\popup_spot\T_09.png" />
-    <Resource Include="Images\popup_spot\T_10.png" />
-    <Resource Include="Images\popup_spot\T_11.png" />
-    <Resource Include="Images\popup_spot\T_12.png" />
-    <Resource Include="Images\popup_spot\T_13.png" />
-    <Resource Include="Images\popup_spot\T_14.png" />
-    <Resource Include="Images\popup_spot\T_15.png" />
-    <Resource Include="Images\popup_spot\T_16.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\category\category1.jpg" />
     <Resource Include="Images\category\category2.jpg" />
     <Resource Include="Images\category\category3.jpg" />
