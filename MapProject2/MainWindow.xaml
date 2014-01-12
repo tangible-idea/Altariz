@@ -3,7 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Map Demo"
         Name="root_window"
-        Width="768" Height="1366" MouseMove="onMouseMoveInWindow">
+        Width="768" Height="1366" MouseMove="onMouseMoveInWindow"
+         WindowStyle="None" ResizeMode="NoResize" WindowState="Maximized"
+AllowsTransparency="True" ShowInTaskbar="False" BorderThickness="0,0,0,0">
 
     <Grid Loaded="Grid_Loaded" Name="Wrap" 
           HorizontalAlignment="Left" VerticalAlignment="Top" 
@@ -27,7 +29,7 @@
                 
                 <Image
                     Name="imgMap"
-                    Source="Images/map.png"  Margin="0" Width="2000" Height="2683" VerticalAlignment="Top" HorizontalAlignment="Left"
+                    Source="Images/map.png" Width="2000" Height="2683" VerticalAlignment="Top" HorizontalAlignment="Left"
                />
 
 
