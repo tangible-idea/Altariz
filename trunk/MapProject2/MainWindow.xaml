@@ -2,6 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Map Demo"
+        Name="root_window"
         Width="768" Height="1366" MouseMove="onMouseMoveInWindow">
 
     <Grid Loaded="Grid_Loaded" Name="Wrap" 
@@ -36,9 +37,9 @@
                 HorizontalAlignment="Left">
                     <Image Source="Images/Icons/foodicon.png" Margin="436,1641,0,0" TouchDown="onTouchFood1" VerticalAlignment="Top" HorizontalAlignment="Left"  />
                     <Image Source="Images/Icons/foodicon.png" Margin="16,2256,0,0"  TouchDown="onTouchFood2" VerticalAlignment="Top" HorizontalAlignment="Left"  />
-                    <Image Source="Images/Icons/foodicon.png" Margin="156,2248,0,0" TouchDown="onTouchFood3"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
-                    <Image Source="Images/Icons/foodicon.png" Margin="326,1860,0,0" TouchDown="onTouchFood4"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
-                    <Image Source="Images/Icons/foodicon.png" Margin="427,1884,0,0" TouchDown="onTouchFood5"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="156,2248,0,0" TouchDown="onTouchFood3"  VerticalAlignment="Top" HorizontalAlignment="Left" />
+                    <Image Source="Images/Icons/foodicon.png" Margin="326,1860,0,0" TouchDown="onTouchFood4"  VerticalAlignment="Top" HorizontalAlignment="Left" />
+                    <Image Source="Images/Icons/foodicon.png" Margin="427,1884,0,0" TouchDown="onTouchFood5"  VerticalAlignment="Top" HorizontalAlignment="Left" />
                     <Image Source="Images/Icons/foodicon.png" Margin="427,1908,0,0" TouchDown="onTouchFood6"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
                     <Image Source="Images/Icons/foodicon.png" Margin="320,2093,0,0" TouchDown="onTouchFood7"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
                     <Image Source="Images/Icons/foodicon.png" Margin="576,2127,0,0" TouchDown="onTouchFood8"  VerticalAlignment="Top" HorizontalAlignment="Left"  />
@@ -64,7 +65,7 @@
                 VerticalAlignment="Top"
                 HorizontalAlignment="Left">
 
-                <Image Source="Images/Icons/icon1.png" Margin="79,2019,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"   TouchDown="onTouchImage1" />
+                    <Image Source="Images/Icons/icon1.png" Margin="79,2019,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"   TouchDown="onTouchImage1"/>
                 <Image Source="Images/Icons/icon2.png" Margin="28,2196,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"   TouchDown="onTouchImage2"/>
                 <Image Source="Images/Icons/icon3.png" Margin="182,2276,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"  TouchDown="onTouchImage3"/>
                 <Image Source="Images/Icons/icon4.png" Margin="72,2345,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"   TouchDown="onTouchImage4"/>
@@ -96,7 +97,7 @@
             Source="Images/category/tour.png"
             Width="150" Height="100" 
             HorizontalAlignment="Left" VerticalAlignment="Top"
-            Margin="10,10,0,0" TouchDown="onTouchCategory1">
+            Margin="10,10,0,0" TouchDown="onTouchCategory1" MouseDown="onClickCategory1">
         </Image>
 
         <Image
@@ -104,7 +105,7 @@
             Source="Images/category/rail.png"
             Width="150" Height="100" 
             HorizontalAlignment="Left" VerticalAlignment="Top"
-            Margin="170,10,0,0" TouchDown="onTouchCategory2">
+            Margin="170,10,0,0" TouchDown="onTouchCategory2" MouseDown="onClickCategory2">
         </Image>
 
         <Image
@@ -112,7 +113,7 @@
             Source="Images/category/food.png"
             Width="150" Height="100" 
             HorizontalAlignment="Left" VerticalAlignment="Top"
-            Margin="330,10,0,0" TouchDown="onTouchCategory3">
+            Margin="330,10,0,0" TouchDown="onTouchCategory3" MouseDown="onClickCategory3">
         </Image>
 
 
@@ -123,7 +124,7 @@
             Name="rct_fadeout"
             Fill="Black"
             TouchDown="onTouchFadeRect"
-            Visibility="Hidden">            
+            Visibility="Hidden" MouseDown="onClickMouseFadeRect">            
         </Rectangle>
 
 
@@ -136,19 +137,37 @@
         <Image
             Name="popup_image_spot" 
             VerticalAlignment="Center" HorizontalAlignment="Center"
-            Width="426" Height="756"
+            Width="699" Height="1242"
             Visibility="Hidden"/>
 
 
         <Image
-            Name="popup_image_food" 
+            Name="popup_image_food1" 
+            HorizontalAlignment="Left" VerticalAlignment="Top"
+            Width="500" Height="274"
+            Visibility="Hidden"/>
+
+        <Image
+            Name="popup_image_food2" 
+            HorizontalAlignment="Left" VerticalAlignment="Top"
+            Width="500" Height="274"
+            Visibility="Hidden"/>
+
+        <Image
+            Name="popup_image_food3" 
+            HorizontalAlignment="Left" VerticalAlignment="Top"
+            Width="500" Height="274"
+            Visibility="Hidden"/>
+
+        <Image
+            Name="popup_image_food4" 
             HorizontalAlignment="Left" VerticalAlignment="Top"
             Width="500" Height="274"
             Visibility="Hidden"/>
 
 
-        <TextBlock Name="tbTranslate" HorizontalAlignment="Left" Margin="0,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-        <TextBlock Name="tbCompleted" HorizontalAlignment="Left" Margin="350,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <TextBlock Name="tbTranslate" HorizontalAlignment="Left" Margin="0,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Visibility="Hidden"/>
+        <TextBlock Name="tbCompleted" HorizontalAlignment="Left" Margin="350,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Visibility="Hidden"/>
 
 
     </Grid>
@@ -202,7 +221,7 @@
         </Storyboard>
 
         <Storyboard x:Key="show">
-            <DoubleAnimation To="300" Duration="0:0:0.5"
+            <DoubleAnimation To="600" Duration="0:0:0.5"
                              Storyboard.TargetName="popup_image_spot"
                              Storyboard.TargetProperty="Width"
                              >
@@ -228,7 +247,7 @@
 
 
         <Storyboard x:Key="show_rail">
-            <DoubleAnimation To="300" Duration="0:0:0.5"
+            <DoubleAnimation To="700" Duration="0:0:0.5"
                              Storyboard.TargetName="popup_image_rail"
                              Storyboard.TargetProperty="Width"
                              >
