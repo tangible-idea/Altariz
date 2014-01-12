@@ -17,6 +17,8 @@ using System.Collections.Generic;
  */
 namespace ManipulationModeDemo
 {
+   
+
     public partial class MainWindow : Window
     {
         #region Instance Definition
@@ -61,7 +63,11 @@ namespace ManipulationModeDemo
         #region protected override void OnManipulationDelta
         protected override void OnManipulationDelta(ManipulationDeltaEventArgs args)
         {
-            popup_image_food.Visibility = Visibility.Hidden;    // 맵 트랜스폼 델타 시에는 팝업을 닫는다.
+            popup_image_food1.Visibility = Visibility.Hidden;    // 맵 트랜스폼 델타 시에는 팝업을 닫는다.
+            popup_image_food2.Visibility = Visibility.Hidden;    // 맵 트랜스폼 델타 시에는 팝업을 닫는다.
+            popup_image_food3.Visibility = Visibility.Hidden;    // 맵 트랜스폼 델타 시에는 팝업을 닫는다.
+            popup_image_food4.Visibility = Visibility.Hidden;    // 맵 트랜스폼 델타 시에는 팝업을 닫는다.
+            
 
             UIElement element = args.Source as UIElement;
             MatrixTransform xform = element.RenderTransform as MatrixTransform;
@@ -143,8 +149,24 @@ namespace ManipulationModeDemo
 
             Play_StoryBoard("moveinit");
 
-            grid_group_spot.Visibility = Visibility.Hidden;
+            grid_group_spot.Visibility = Visibility.Visible;
             grid_group_food.Visibility = Visibility.Hidden;
+
+            // 이미지 리스트 초기화
+            //lstImage_Food.Add(new Image());
+            //lstImage_Food.Add(new Image());
+            //lstImage_Food.Add(new Image());
+            //lstImage_Food.Add(new Image());
+
+            //int nCount = 0;
+            //foreach (Image img in lstImage_Food)
+            //{
+            //    img.Name = "img_popup_food_" + (++nCount);
+            //    img.Width = 500;
+            //    img.Height = 274;
+            //    img.HorizontalAlignment = HorizontalAlignment.Left;
+            //    img.VerticalAlignment = VerticalAlignment.Top;
+            //}
         }
         #endregion 
 
@@ -176,7 +198,7 @@ namespace ManipulationModeDemo
         }
 
 
-
+         
         // 중앙 팝업 방식으로 해당 그림 띄움.
         private void SetPopupURI_Spot(String strPath, String strName)
         {
@@ -223,12 +245,31 @@ namespace ManipulationModeDemo
             //foreach(String strName in lstName)
             for (int i = 0; i<lstName.Count; ++i )
             {
+                Image popup_curr = new Image();
+                switch(i)
+                {
+                    case 0:
+                    popup_curr = popup_image_food1;
+                    break;
+                    case 1:
+                    popup_curr = popup_image_food2;
+                    break;
+                    case 2:
+                    popup_curr = popup_image_food3;
+                    break;
+                    case 3:
+                    popup_curr = popup_image_food4;
+                    break;
+                }
+
                 try
                 {
                     strURI = Path.Combine(Environment.CurrentDirectory, strPath, lstName[i]);
                     var uri = new Uri(strURI);
-                    popup_image_food.Source = new BitmapImage(uri);
-                    popup_image_food.Visibility = Visibility.Visible;
+                    popup_curr.Source = new BitmapImage(uri);
+                    popup_curr.Visibility = Visibility.Visible;                    
+
+                    //lstImage_Food[i].TranslatePoint()
                 }
                 catch (Exception e)
                 {
@@ -237,11 +278,40 @@ namespace ManipulationModeDemo
 
                 try
                 {
+
                     //int nX = (int)selectedIcon.Margin.Left;
                     //int nY = (int)selectedIcon.Margin.Top;
                     int nX = (int)m_ptMouse.X;
-                    int nY = (int)m_ptMouse.Y - (int)popup_image_food.Height;
-                    ControlAnimaion(popup_image_food, 0f, new Point(nX, nY + (i*85)+15), new Point(nX, nY));
+                    int nY = (int)m_ptMouse.Y - (int)popup_curr.Height;
+                    if ((lstName.Count == 3) || (lstName.Count == 4))
+                    {
+                        nX = 400;
+                        nY = -33;
+                    }
+
+                    Point nStart= new Point(nX, nY + (i * 255)-15);
+                    Point nEnd= new Point(nX, nY + (i * 255));
+
+
+                    if (nX+500 > root_window.Width) // 오른쪽으로 벗어나면
+                    {
+                        int nComposeX = nX + 520 - (int)root_window.Width;
+                        nStart.X -= nComposeX;
+                        nEnd.X -= nComposeX;
+                    }
+                    if (nY < 0) // 오른쪽으로 벗어나면
+                    {
+                        int nComposeY = nY + (int)root_window.Height;
+                        nStart.Y -= nY;
+                        nEnd.Y -= nY;
+                    }
+
+
+                    ControlTranspercyAnimation(popup_curr, 0, 1);
+                    ControlTranslateAnimaion(popup_curr, 0f, nStart, nEnd);
+
+
+                    //ControlTranslateAnimaion(grid_images, 0f, new Point(imgMap.RenderTransformOrigin.X, imgMap.RenderTransformOrigin.Y), new Point(nX-150, nY-500));
                 }
                 catch (Exception e)
                 {
@@ -485,6 +555,14 @@ namespace ManipulationModeDemo
             SetPopupURI_Spot("popup_spot", "T_16.png");
         }
 
+        private void onClickImage1(object sender, MouseButtonEventArgs e)
+        {
+            SetPopupURI_Spot("popup_spot", "T_01.png");
+        }
+
+
+
+
         // 바깥 터치시 종료 애니메이션 [12/24/2013 Mark]
         private void onTouchFadeRect(object sender, TouchEventArgs e)
         {
@@ -493,6 +571,14 @@ namespace ManipulationModeDemo
 
             Play_StoryBoard("fadeout");
         }
+        private void onClickMouseFadeRect(object sender, MouseButtonEventArgs e)
+        {
+            Play_StoryBoard("hide");
+            Play_StoryBoard("hide_rail");
+
+            Play_StoryBoard("fadeout");
+        }
+
 
         // 터치하면 이미지 애니메이션으로 띄움. [12/24/2013 Mark]
         private void TouchContentMethod()
@@ -540,10 +626,17 @@ namespace ManipulationModeDemo
 
         }
 
+
+        // 카테고리 클릭 부분.
         private void onTouchCategory1(object sender, TouchEventArgs e)
         {
             grid_group_spot.Visibility = Visibility.Visible;
             grid_group_food.Visibility = Visibility.Hidden;
+
+            popup_image_food1.Visibility = Visibility.Hidden;
+            popup_image_food2.Visibility = Visibility.Hidden;
+            popup_image_food3.Visibility = Visibility.Hidden;
+            popup_image_food4.Visibility = Visibility.Hidden;
         }
 
         private void onTouchCategory2(object sender, TouchEventArgs e)
@@ -551,87 +644,183 @@ namespace ManipulationModeDemo
             grid_group_spot.Visibility = Visibility.Hidden;
             grid_group_food.Visibility = Visibility.Hidden;
             SetPopupURI_Rail("popup_rail", "rail_info.png");
+
+            popup_image_food1.Visibility = Visibility.Hidden;
+            popup_image_food2.Visibility = Visibility.Hidden;
+            popup_image_food3.Visibility = Visibility.Hidden;
+            popup_image_food4.Visibility = Visibility.Hidden;
         }
 
         private void onTouchCategory3(object sender, TouchEventArgs e)
         {
             grid_group_spot.Visibility = Visibility.Hidden;
             grid_group_food.Visibility = Visibility.Visible;
+
+            popup_image_food1.Visibility = Visibility.Hidden;
+            popup_image_food2.Visibility = Visibility.Hidden;
+            popup_image_food3.Visibility = Visibility.Hidden;
+            popup_image_food4.Visibility = Visibility.Hidden;
         }
 
 
-        private void ControlAnimaion(Image imgTaget, double dBeginTime, Point pStart, Point pEnd)
+        private void onClickCategory1(object sender, MouseButtonEventArgs e)
         {
-            {
-                Storyboard sbReturn = new Storyboard();
+            grid_group_spot.Visibility = Visibility.Visible;
+            grid_group_food.Visibility = Visibility.Hidden;
 
-                EasingDoubleKeyFrame kf = null;
+            popup_image_food1.Visibility = Visibility.Hidden;
+            popup_image_food2.Visibility = Visibility.Hidden;
+            popup_image_food3.Visibility = Visibility.Hidden;
+            popup_image_food4.Visibility = Visibility.Hidden;
+        }
+        private void onClickCategory2(object sender, MouseButtonEventArgs e)
+        {
+            grid_group_spot.Visibility = Visibility.Hidden;
+            grid_group_food.Visibility = Visibility.Hidden;
+            SetPopupURI_Rail("popup_rail", "rail_info.png");
 
-                DoubleAnimationUsingKeyFrames daX = null;
-                DoubleAnimationUsingKeyFrames daY = null;
+            popup_image_food1.Visibility = Visibility.Hidden;
+            popup_image_food2.Visibility = Visibility.Hidden;
+            popup_image_food3.Visibility = Visibility.Hidden;
+            popup_image_food4.Visibility = Visibility.Hidden;
+        }
 
-                daX = new DoubleAnimationUsingKeyFrames();
-                daY = new DoubleAnimationUsingKeyFrames();
+        private void onClickCategory3(object sender, MouseButtonEventArgs e)
+        {
+            grid_group_spot.Visibility = Visibility.Hidden;
+            grid_group_food.Visibility = Visibility.Visible;
 
-                imgTaget.RenderTransform = new TranslateTransform();
+            popup_image_food1.Visibility = Visibility.Hidden;
+            popup_image_food2.Visibility = Visibility.Hidden;
+            popup_image_food3.Visibility = Visibility.Hidden;
+            popup_image_food4.Visibility = Visibility.Hidden;
+        }
 
-                Storyboard.SetTarget(daX, imgTaget);
-                Storyboard.SetTargetProperty(daX, new PropertyPath("(UIElement.RenderTransform).(TranslateTransform.X)"));
-                sbReturn.Children.Add(daX);
-                Storyboard.SetTarget(daY, imgTaget);
-                Storyboard.SetTargetProperty(daY, new PropertyPath("(UIElement.RenderTransform).(TranslateTransform.Y)"));
-                sbReturn.Children.Add(daY);
-
-                sbReturn.BeginTime = TimeSpan.FromSeconds(dBeginTime);
-
-                //1.시작위치로 변경
-                kf = new EasingDoubleKeyFrame();
-                kf.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0));
-                kf.Value = pStart.X;
-                daX.KeyFrames.Add(kf);
-                kf = new EasingDoubleKeyFrame();
-                kf.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0));
-                kf.Value = pStart.Y;
-                daY.KeyFrames.Add(kf);
-
-                //2.목적지 지정
-                kf = new EasingDoubleKeyFrame();
-                kf.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.5));
-                kf.Value = pEnd.X;
-                daX.KeyFrames.Add(kf);
-                kf = new EasingDoubleKeyFrame();
-                kf.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.5));
-                kf.Value = pEnd.Y;
-                daY.KeyFrames.Add(kf);
-
-                //애니메이션 시작
-                sbReturn.Begin();
-            }
-            
-
+        private void ControlTranspercyAnimation(Image imgTaget, double lfStartTranspercy, double lfEndTranspercy)
+        {
             {
                 Storyboard sb = new Storyboard(); // 스토리보드 할당
                 DoubleAnimation da = new DoubleAnimation(); // 에니매이션 제작
 
                 da.Duration = new Duration(new TimeSpan(0, 0, 0, 0, 500)); // 재생될 시간 0,0,0,1 == 1초
-                da.From = 0; // 변환될 값의 시작값
-                da.To = 1; // 종료값 --> 현제 애니메이션은 객체의 투명도를 조정하는것이므로 0~1 까지 조절
+                da.From = lfStartTranspercy; // 변환될 값의 시작값
+                da.To = lfEndTranspercy; // 종료값 --> 현제 애니메이션은 객체의 투명도를 조정하는것이므로 0~1 까지 조절
                 //da.AutoReverse = true;  // 자동으로 반대로 재생할것인지를 뭇는것!
 
-                Storyboard.SetTargetName(da, imgTaget.Name); // 애니메이션과 객체를 연결한다
+                //Storyboard.SetTargetName(da, imgTaget.Name); // 애니메이션과 객체를 연결한다
+                Storyboard.SetTarget(da, imgTaget); // 애니메이션과 객체를 연결한다
 
                 Storyboard.SetTargetProperty(da, new PropertyPath(Image.OpacityProperty)); // 애니메이션의 변환할 속성을 설정  
                 sb.Children.Add(da); // 스토리보드에 에니메이션 추가
                 //sb.RepeatBehavior = RepeatBehavior.Forever; // 영원히 반복
                 sb.Begin(imgTaget); // 애니메이션 시작명령
             }
+        }
 
+        private void ControlTranslateAnimaion(Grid objTarget, double dBeginTime, Point pStart, Point pEnd)
+        {
+            Storyboard sbReturn = new Storyboard();
+
+            EasingDoubleKeyFrame kf = null;
+
+            DoubleAnimationUsingKeyFrames daX = null;
+            DoubleAnimationUsingKeyFrames daY = null;
+
+            daX = new DoubleAnimationUsingKeyFrames();
+            daY = new DoubleAnimationUsingKeyFrames();
+
+            //if (objTarget.RenderTransform == null)
+                objTarget.RenderTransform = new TranslateTransform();
+
+            Storyboard.SetTarget(daX, objTarget);
+            Storyboard.SetTargetProperty(daX, new PropertyPath("(UIElement.RenderTransform).(TranslateTransform.X)"));
+            sbReturn.Children.Add(daX);
+            Storyboard.SetTarget(daY, objTarget);
+            Storyboard.SetTargetProperty(daY, new PropertyPath("(UIElement.RenderTransform).(TranslateTransform.Y)"));
+            sbReturn.Children.Add(daY);
+
+            sbReturn.BeginTime = TimeSpan.FromSeconds(dBeginTime);
+
+
+            //1.시작위치로 변경
+            kf = new EasingDoubleKeyFrame();
+            kf.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0));
+            kf.Value = pStart.X;
+            daX.KeyFrames.Add(kf);
+            kf = new EasingDoubleKeyFrame();
+            kf.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0));
+            kf.Value = pStart.Y;
+            daY.KeyFrames.Add(kf);
+
+            //2.목적지 지정
+            kf = new EasingDoubleKeyFrame();
+            kf.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.5));
+            kf.Value = pEnd.X;
+            daX.KeyFrames.Add(kf);
+            kf = new EasingDoubleKeyFrame();
+            kf.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.5));
+            kf.Value = pEnd.Y;
+            daY.KeyFrames.Add(kf);
+
+            //애니메이션 시작
+            sbReturn.Begin();
+        }
+
+        private void ControlTranslateAnimaion(Image imgTaget, double dBeginTime, Point pStart, Point pEnd)
+        {
+            Storyboard sbReturn = new Storyboard();
+
+            EasingDoubleKeyFrame kf = null;
+
+            DoubleAnimationUsingKeyFrames daX = null;
+            DoubleAnimationUsingKeyFrames daY = null;
+
+            daX = new DoubleAnimationUsingKeyFrames();
+            daY = new DoubleAnimationUsingKeyFrames();
+
+            imgTaget.RenderTransform = new TranslateTransform();
+
+            Storyboard.SetTarget(daX, imgTaget);
+            Storyboard.SetTargetProperty(daX, new PropertyPath("(UIElement.RenderTransform).(TranslateTransform.X)"));
+            sbReturn.Children.Add(daX);
+            Storyboard.SetTarget(daY, imgTaget);
+            Storyboard.SetTargetProperty(daY, new PropertyPath("(UIElement.RenderTransform).(TranslateTransform.Y)"));
+            sbReturn.Children.Add(daY);
+
+            sbReturn.BeginTime = TimeSpan.FromSeconds(dBeginTime);
+
+
+            //1.시작위치로 변경
+            kf = new EasingDoubleKeyFrame();
+            kf.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0));
+            kf.Value = pStart.X;
+            daX.KeyFrames.Add(kf);
+            kf = new EasingDoubleKeyFrame();
+            kf.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0));
+            kf.Value = pStart.Y;
+            daY.KeyFrames.Add(kf);
+
+            //2.목적지 지정
+            kf = new EasingDoubleKeyFrame();
+            kf.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.5));
+            kf.Value = pEnd.X;
+            daX.KeyFrames.Add(kf);
+            kf = new EasingDoubleKeyFrame();
+            kf.KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.5));
+            kf.Value = pEnd.Y;
+            daY.KeyFrames.Add(kf);
+
+            //애니메이션 시작
+            sbReturn.Begin();
         }
 
         private void onMouseMoveInWindow(object sender, MouseEventArgs e)
         {
             m_ptMouse = e.GetPosition(null);
         }
+
+
+
 
     }
 
