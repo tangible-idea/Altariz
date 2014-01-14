@@ -242,6 +242,11 @@ namespace ManipulationModeDemo
         {
             var strURI = "";
 
+            popup_image_food1.Visibility = Visibility.Hidden;
+            popup_image_food2.Visibility = Visibility.Hidden;
+            popup_image_food3.Visibility = Visibility.Hidden;
+            popup_image_food4.Visibility = Visibility.Hidden;
+
             //foreach(String strName in lstName)
             for (int i = 0; i<lstName.Count; ++i )
             {
