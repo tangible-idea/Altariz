@@ -100,8 +100,8 @@ namespace ManipulationModeDemo
 
 
 
-            tbTranslate.Text = string.Format("Translation: {0}, {1}", delta.Translation.X, delta.Translation.Y);
-            tbTranslate.Text += string.Format("\r\nTotal Translation: {0}, {1}", args.CumulativeManipulation.Translation.X, args.CumulativeManipulation.Translation.Y);
+            //tbTranslate.Text = string.Format("Translation: {0}, {1}", delta.Translation.X, delta.Translation.Y);
+            //tbTranslate.Text += string.Format("\r\nTotal Translation: {0}, {1}", args.CumulativeManipulation.Translation.X, args.CumulativeManipulation.Translation.Y);
           
             args.Handled = true;
             base.OnManipulationDelta(args);
@@ -112,8 +112,9 @@ namespace ManipulationModeDemo
         protected override void OnManipulationCompleted(ManipulationCompletedEventArgs e)
         {
           
-          tbCompleted.Text = string.Format("{0}", e.FinalVelocities.LinearVelocity);
-          tbCompleted.Text += string.Format("\r\n{0}", e.TotalManipulation.Translation);
+          //tbCompleted.Text = string.Format("{0}", e.FinalVelocities.LinearVelocity);
+         // tbCompleted.Text += string.Format("\r\n{0}", e.TotalManipulation.Translation);
+
           //UIElement el = e.Source as UIElement;
           //el.Effect = new BlurEffect() { Radius= 10.0};
 
@@ -545,7 +546,6 @@ namespace ManipulationModeDemo
         private void onTouchImage14(object sender, TouchEventArgs e)
         {
             SetPopupURI_Spot("popup_spot", "T_14.png");
-
         }
         private void onTouchImage15(object sender, TouchEventArgs e)
         {
@@ -555,10 +555,10 @@ namespace ManipulationModeDemo
         {
             SetPopupURI_Spot("popup_spot", "T_16.png");
         }
-        private void onTouchImage17(object sender, TouchEventArgs e)
-        {
-            SetPopupURI_Spot("popup_spot", "T_16.png");
-        }
+        //private void onTouchImage17(object sender, TouchEventArgs e)
+        //{
+        //    SetPopupURI_Spot("popup_spot", "T_16.png");
+        //}
 
         private void onClickImage1(object sender, MouseButtonEventArgs e)
         {
