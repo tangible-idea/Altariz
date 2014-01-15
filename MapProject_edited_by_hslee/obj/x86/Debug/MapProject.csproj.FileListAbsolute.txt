@@ -1,0 +1,12 @@
+C:\vs.net\MapProject\bin\Debug\MapProject.exe
+C:\vs.net\MapProject\bin\Debug\MapProject.pdb
+C:\vs.net\MapProject\obj\x86\Debug\MapProject.csprojResolveAssemblyReference.cache
+C:\vs.net\MapProject\obj\x86\Debug\MainWindow.baml
+C:\vs.net\MapProject\obj\x86\Debug\MainWindow.g.cs
+C:\vs.net\MapProject\obj\x86\Debug\App.g.cs
+C:\vs.net\MapProject\obj\x86\Debug\MapProject_MarkupCompile.cache
+C:\vs.net\MapProject\obj\x86\Debug\MapProject.g.resources
+C:\vs.net\MapProject\obj\x86\Debug\MapProject.Properties.Resources.resources
+C:\vs.net\MapProject\obj\x86\Debug\MapProject.csproj.GenerateResource.Cache
+C:\vs.net\MapProject\obj\x86\Debug\MapProject.exe
+C:\vs.net\MapProject\obj\x86\Debug\MapProject.pdb
