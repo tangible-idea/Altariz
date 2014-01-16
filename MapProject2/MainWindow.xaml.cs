@@ -73,7 +73,11 @@ namespace ManipulationModeDemo
             MatrixTransform xform = element.RenderTransform as MatrixTransform;
             Matrix matrix = xform.Matrix;
             ManipulationDelta delta = args.DeltaManipulation;
-            Point center = args.ManipulationOrigin;
+
+            Point center_precalc = args.ManipulationOrigin;
+            Point center = new Point();
+            center.X = center_precalc.X + 50;
+            center.Y = center_precalc.Y + 1650; // offset 추가 (moveinit 애니메이션 때문에)
             /*
             matrix.Translate(-center.X, -center.Y);
             matrix.Scale(delta.Scale.X, delta.Scale.Y);
