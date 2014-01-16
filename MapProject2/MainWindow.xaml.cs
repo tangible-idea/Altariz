@@ -24,6 +24,7 @@ namespace ManipulationModeDemo
         #region Instance Definition
             ManipulationModes currentMode = ManipulationModes.All;
             Point m_ptMouse = new Point();
+            int nBeforeState = 0;
         #endregion 
 
         #region public MainWindow
@@ -626,6 +627,23 @@ namespace ManipulationModeDemo
         {
             rct_fadeout.Visibility = Visibility.Hidden;
             popup_image_rail.Visibility = Visibility.Hidden;
+
+            if(nBeforeState==1) // 1:spot
+            {
+                grid_group_spot.Visibility = Visibility.Visible;
+                grid_group_food.Visibility = Visibility.Hidden;
+            }
+            else if (nBeforeState == 2) // 2:food
+            {
+                grid_group_spot.Visibility = Visibility.Hidden;
+                grid_group_food.Visibility = Visibility.Visible;
+            }
+                
+
+            popup_image_food1.Visibility = Visibility.Hidden;
+            popup_image_food2.Visibility = Visibility.Hidden;
+            popup_image_food3.Visibility = Visibility.Hidden;
+            popup_image_food4.Visibility = Visibility.Hidden;
         }
 
         
@@ -650,8 +668,18 @@ namespace ManipulationModeDemo
 
         private void onTouchCategory2(object sender, TouchEventArgs e)
         {
+            if (grid_group_spot.Visibility == Visibility.Visible)    // spot이 켜진 상태이면...
+            {
+                nBeforeState = 1;
+            }
+            else if (grid_group_food.Visibility == Visibility.Visible)    // food가 켜진 상태이면...
+            {
+                nBeforeState = 2;
+            }
+
             grid_group_spot.Visibility = Visibility.Hidden;
             grid_group_food.Visibility = Visibility.Hidden;
+
             SetPopupURI_Rail("popup_rail", "rail_info.png");
 
             popup_image_food1.Visibility = Visibility.Hidden;
