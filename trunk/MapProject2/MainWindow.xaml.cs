@@ -10,6 +10,7 @@ using System.Windows.Threading;
 using System.Windows.Media.Imaging;
 using System.IO;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 /**
  * 
@@ -87,9 +88,34 @@ namespace ManipulationModeDemo
             matrix.Translate(delta.Translation.X, delta.Translation.Y);           
             xform.Matrix = matrix;
             */
+
+            //Debug.WriteLine("Manipulation Scale.X : " + delta.Scale.X);
+            Debug.WriteLine("M11: " + matrix.M11.ToString() + "/ M12: " + matrix.M12.ToString() + "/ M21: " + matrix.M21.ToString() + "/ M22: " + matrix.M22.ToString());
+
+            int nScaleStat = 0;
+            if (delta.Scale.X == 1) // deltaX가 0이면 크기 아무 변화없음
+                nScaleStat = 0;
+            else if (delta.Scale.X > 1) // deltaX가 1보다 크면..
+                nScaleStat = 1;
+            else if (delta.Scale.X < 1)
+                nScaleStat = -1;
+
             Matrix to = matrix;
             to.Translate(-center.X, -center.Y);
-            to.Scale(delta.Scale.X, delta.Scale.Y);
+            
+            if( (nScaleStat==1) && (matrix.M11 > 1.2) )
+            {
+            }
+            else if ((nScaleStat == -1) && (matrix.M11 < 0.4))
+            {
+                //nScaleStat = 0;
+            }
+            else
+            {
+                to.Scale(delta.Scale.X, delta.Scale.Y);
+            }
+                
+
             to.Rotate(delta.Rotation);
             to.Translate(center.X, center.Y);
             to.Translate(delta.Translation.X, delta.Translation.Y);
@@ -292,6 +318,8 @@ namespace ManipulationModeDemo
 
                     //int nX = (int)selectedIcon.Margin.Left;
                     //int nY = (int)selectedIcon.Margin.Top;
+
+
                     int nX = (int)m_ptMouse.X;
                     int nY = (int)m_ptMouse.Y - (int)popup_curr.Height;
                     if ((lstName.Count == 3) || (lstName.Count == 4))
