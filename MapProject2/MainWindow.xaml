@@ -4,8 +4,9 @@
         Title="Map Demo"
         Name="root_window"
         Width="768" Height="1366" MouseMove="onMouseMoveInWindow"
-         WindowStyle="None" ResizeMode="NoResize" WindowState="Maximized"
-AllowsTransparency="True" ShowInTaskbar="False" BorderThickness="0,0,0,0">
+        WindowStyle="None" ResizeMode="NoResize" WindowState="Maximized"
+AllowsTransparency="True" ShowInTaskbar="False" BorderThickness="0,0,0,0"
+         >
 
     <Grid Loaded="Grid_Loaded" Name="Wrap" 
           HorizontalAlignment="Left" VerticalAlignment="Top" 
@@ -30,6 +31,7 @@ AllowsTransparency="True" ShowInTaskbar="False" BorderThickness="0,0,0,0">
                 <Image
                     Name="imgMap"
                     Source="Images/map.png" Width="2000" Height="2683" VerticalAlignment="Top" HorizontalAlignment="Left"
+                    Visibility="Visible"
                />
 
 
@@ -37,7 +39,7 @@ AllowsTransparency="True" ShowInTaskbar="False" BorderThickness="0,0,0,0">
                 Name="grid_group_food"
                 VerticalAlignment="Top"
                 HorizontalAlignment="Left">
-                    <Image Source="Images/Icons/foodicon.png" Margin="436,1641,0,0" TouchDown="onTouchFood1" VerticalAlignment="Top" HorizontalAlignment="Left"  />
+                    <Image Source="Images/Icons/foodicon.png" Margin="436,1641,0,0" TouchDown="onTouchFood1" VerticalAlignment="Top" HorizontalAlignment="Left"/>
                     <Image Source="Images/Icons/foodicon.png" Margin="16,2256,0,0"  TouchDown="onTouchFood2" VerticalAlignment="Top" HorizontalAlignment="Left"  />
                     <Image Source="Images/Icons/foodicon.png" Margin="156,2248,0,0" TouchDown="onTouchFood3"  VerticalAlignment="Top" HorizontalAlignment="Left" />
                     <Image Source="Images/Icons/foodicon.png" Margin="326,1860,0,0" TouchDown="onTouchFood4"  VerticalAlignment="Top" HorizontalAlignment="Left" />
@@ -215,7 +217,7 @@ AllowsTransparency="True" ShowInTaskbar="False" BorderThickness="0,0,0,0">
             </ColorAnimation.EasingFunction>-->
         </Storyboard>
 
-        <Storyboard x:Key="fadeout">
+        <Storyboard x:Key="fadeout" Completed="StoryBGRectHide">
             <ColorAnimation Storyboard.TargetName="rct_fadeout"
                             Storyboard.TargetProperty="Fill.Color"
                             To="Transparent"

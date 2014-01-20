@@ -65,12 +65,6 @@ namespace ManipulationModeDemo
         #region protected override void OnManipulationDelta
         protected override void OnManipulationDelta(ManipulationDeltaEventArgs args)
         {
-            popup_image_food1.Visibility = Visibility.Hidden;    // 맵 트랜스폼 델타 시에는 팝업을 닫는다.
-            popup_image_food2.Visibility = Visibility.Hidden;    // 맵 트랜스폼 델타 시에는 팝업을 닫는다.
-            popup_image_food3.Visibility = Visibility.Hidden;    // 맵 트랜스폼 델타 시에는 팝업을 닫는다.
-            popup_image_food4.Visibility = Visibility.Hidden;    // 맵 트랜스폼 델타 시에는 팝업을 닫는다.
-            
-
             UIElement element = args.Source as UIElement;
             MatrixTransform xform = element.RenderTransform as MatrixTransform;
             Matrix matrix = xform.Matrix;
@@ -320,35 +314,58 @@ namespace ManipulationModeDemo
                     //int nY = (int)selectedIcon.Margin.Top;
 
 
-                    int nX = (int)m_ptMouse.X;
-                    int nY = (int)m_ptMouse.Y - (int)popup_curr.Height;
-                    if ((lstName.Count == 3) || (lstName.Count == 4))
+                    //int nX = (int)m_ptMouse.X;
+                    //int nY = (int)m_ptMouse.Y - (int)popup_curr.Height;
+                    //if ((lstName.Count == 3) || (lstName.Count == 4))
+                    //{
+                    //    nX = 400;
+                    //    nY = -33;
+                    //}
+
+                    //Point ptStart= new Point(nX, nY + (i * 255)-15);
+                    //Point ptEnd= new Point(nX, nY + (i * 255));
+
+
+                    //if (nX+500 > root_window.Width) // 오른쪽으로 벗어나면
+                    //{
+                    //    int nComposeX = nX + 520 - (int)root_window.Width;
+                    //    ptStart.X -= nComposeX;
+                    //    ptEnd.X -= nComposeX;
+                    //}
+                    //if (nY < 0) // 오른쪽으로 벗어나면
+                    //{
+                    //    int nComposeY = nY + (int)root_window.Height;
+                    //    ptStart.Y -= nY;
+                    //    ptEnd.Y -= nY;
+                    //}
+
+                    Point ptStart, ptEnd;
+                    int nX = 125, nY = 561; // 초기 시작 x,y 설정. [1/20/2014 Mark]
+                    if (lstName.Count == 1)
                     {
-                        nX = 400;
-                        nY = -33;
+                        nY = 561;
+                    }
+                    else if (lstName.Count == 2)
+                    {
+                        nY = 433;
+                    }
+                    else if (lstName.Count == 3)
+                    {
+                        nY = 255;
+                    }
+                    else if (lstName.Count == 4)
+                    {
+                        nY = 0;
                     }
 
-                    Point nStart= new Point(nX, nY + (i * 255)-15);
-                    Point nEnd= new Point(nX, nY + (i * 255));
-
-
-                    if (nX+500 > root_window.Width) // 오른쪽으로 벗어나면
-                    {
-                        int nComposeX = nX + 520 - (int)root_window.Width;
-                        nStart.X -= nComposeX;
-                        nEnd.X -= nComposeX;
-                    }
-                    if (nY < 0) // 오른쪽으로 벗어나면
-                    {
-                        int nComposeY = nY + (int)root_window.Height;
-                        nStart.Y -= nY;
-                        nEnd.Y -= nY;
-                    }
-
+                    ptStart = new Point(nX, nY + (i * 255));
+                    ptEnd = new Point(nX, nY + (i * 255));
 
                     ControlTranspercyAnimation(popup_curr, 0, 1);
-                    ControlTranslateAnimaion(popup_curr, 0f, nStart, nEnd);
+                    ControlTranslateAnimaion(popup_curr, 0f, ptStart, ptEnd);
 
+                    rct_fadeout.Visibility = Visibility.Visible;
+                    Play_StoryBoard("fadein");
 
                     //ControlTranslateAnimaion(grid_images, 0f, new Point(imgMap.RenderTransformOrigin.X, imgMap.RenderTransformOrigin.Y), new Point(nX-150, nY-500));
                 }
@@ -522,7 +539,27 @@ namespace ManipulationModeDemo
         }
 
 
+        // 터치메소드 몇 가지 테스트
+        private void onClickFood1(object sender, MouseEventArgs e)
+        {
+            Image imgSelectedIcon = sender as Image;
+            List<String> listName = new List<String>();
+            listName.Add("FOOD29.png");
+            listName.Add("FOOD30.png");
+            SetPopupURI_Food("popup_food", listName, imgSelectedIcon);
+        }
+
+        private void onClickImage1(object sender, MouseEventArgs e)
+        {
+            SetPopupURI_Spot("popup_spot", "T_01.png");
+        }
+
+
+
+
         // 여기부터 관광 [1/6/2014 Mark]
+
+
         private void onTouchImage1(object sender, TouchEventArgs e)
         {
             SetPopupURI_Spot("popup_spot", "T_01.png");
@@ -593,10 +630,10 @@ namespace ManipulationModeDemo
         //    SetPopupURI_Spot("popup_spot", "T_16.png");
         //}
 
-        private void onClickImage1(object sender, MouseButtonEventArgs e)
-        {
-            SetPopupURI_Spot("popup_spot", "T_01.png");
-        }
+        //private void onClickImage1(object sender, MouseButtonEventArgs e)
+        //{
+        //    SetPopupURI_Spot("popup_spot", "T_01.png");
+        //}
 
 
 
@@ -608,6 +645,11 @@ namespace ManipulationModeDemo
             Play_StoryBoard("hide_rail");
 
             Play_StoryBoard("fadeout");
+
+            popup_image_food1.Visibility = Visibility.Hidden;    // 팝업을 닫는다.
+            popup_image_food2.Visibility = Visibility.Hidden;    // 팝업을 닫는다.
+            popup_image_food3.Visibility = Visibility.Hidden;    // 팝업을 닫는다.
+            popup_image_food4.Visibility = Visibility.Hidden;    // 팝업을 닫는다.
         }
         private void onClickMouseFadeRect(object sender, MouseButtonEventArgs e)
         {
@@ -637,9 +679,6 @@ namespace ManipulationModeDemo
             Play_StoryBoard("show_rail");
         }
 
-
-
-
         private void StoryInitCompleted(object sender, EventArgs e)
         {
             //rct_fadeout.Visibility = Visibility.Hidden;
@@ -647,13 +686,18 @@ namespace ManipulationModeDemo
 
         private void StoryHideCompleted(object sender, EventArgs e)
         {
-            rct_fadeout.Visibility = Visibility.Hidden;
+//            rct_fadeout.Visibility = Visibility.Hidden;
             popup_image_spot.Visibility = Visibility.Hidden;
+        }
+
+        private void StoryBGRectHide(object sender, EventArgs e)
+        {
+            rct_fadeout.Visibility = Visibility.Hidden;
         }
 
         private void RailStoryHideCompleted(object sender, EventArgs e)
         {
-            rct_fadeout.Visibility = Visibility.Hidden;
+            //rct_fadeout.Visibility = Visibility.Hidden;
             popup_image_rail.Visibility = Visibility.Hidden;
 
             if(nBeforeState==1) // 1:spot
@@ -666,7 +710,6 @@ namespace ManipulationModeDemo
                 grid_group_spot.Visibility = Visibility.Hidden;
                 grid_group_food.Visibility = Visibility.Visible;
             }
-                
 
             popup_image_food1.Visibility = Visibility.Hidden;
             popup_image_food2.Visibility = Visibility.Hidden;
