@@ -79,7 +79,7 @@ AllowsTransparency="True" ShowInTaskbar="False" BorderThickness="0,0,0,0"
                 <Image Source="Images/Icons/icon7.png" Margin="1052,1367,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left" TouchDown="onTouchImage7" />
                 <Image Source="Images/Icons/icon8.png" Margin="163,2477,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"  TouchDown="onTouchImage8"/>
                 <Image Source="Images/Icons/icon9.png" Margin="793,1082,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left" TouchDown="onTouchImage9" />
-                <Image Source="Images/Icons/icon10.png" Margin="901,861,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"  TouchDown="onTouchImage10"/>
+                <Image Source="Images/Icons/icon10.png" Margin="905,850,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"  TouchDown="onTouchImage10"/>
                 <Image Source="Images/Icons/icon11.png" Margin="1637,194,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left" TouchDown="onTouchImage11" />
                 <Image Source="Images/Icons/icon12.png" Margin="1544,275,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left" TouchDown="onTouchImage12" />
                 <Image Source="Images/Icons/icon13.png" Margin="1434,382,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left" TouchDown="onTouchImage13" />
@@ -170,8 +170,8 @@ AllowsTransparency="True" ShowInTaskbar="False" BorderThickness="0,0,0,0"
             Visibility="Hidden"/>
 
 
-        <TextBlock Name="tbTranslate" HorizontalAlignment="Left" Margin="0,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Visibility="Hidden"/>
-        <TextBlock Name="tbCompleted" HorizontalAlignment="Left" Margin="350,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Visibility="Hidden"/>
+        <TextBlock Name="tbTranslate" HorizontalAlignment="Left" Margin="0,120,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Visibility="Visible"/>
+        <TextBlock Name="tbCompleted" HorizontalAlignment="Left" Margin="350,120,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Visibility="Visible"/>
 
 
     </Grid>

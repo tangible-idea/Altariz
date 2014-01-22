@@ -26,6 +26,7 @@ namespace ManipulationModeDemo
             ManipulationModes currentMode = ManipulationModes.All;
             Point m_ptMouse = new Point();
             int nBeforeState = 0;
+            Point m_ptTranslate = new Point();  // total translate
         #endregion 
 
         #region public MainWindow
@@ -65,6 +66,10 @@ namespace ManipulationModeDemo
         #region protected override void OnManipulationDelta
         protected override void OnManipulationDelta(ManipulationDeltaEventArgs args)
         {
+            if (rct_fadeout.Visibility == Visibility.Visible)
+                return;
+
+
             UIElement element = args.Source as UIElement;
             MatrixTransform xform = element.RenderTransform as MatrixTransform;
             Matrix matrix = xform.Matrix;
@@ -108,7 +113,17 @@ namespace ManipulationModeDemo
             {
                 to.Scale(delta.Scale.X, delta.Scale.Y);
             }
-                
+
+
+
+            tbTranslate.Text = string.Format("Translation: {0}, {1}", delta.Translation.X, delta.Translation.Y);
+            tbTranslate.Text += string.Format("\r\nTotal Translation: {0}, {1}", args.CumulativeManipulation.Translation.X, args.CumulativeManipulation.Translation.Y);
+
+            //double currTransX= m_ptTranslate.X + args.CumulativeManipulation.Translation.X;
+            //if (currTransX > 1000)
+            //{
+            //    return;
+            //}
 
             to.Rotate(delta.Rotation);
             to.Translate(center.X, center.Y);
@@ -125,9 +140,6 @@ namespace ManipulationModeDemo
 
 
 
-            //tbTranslate.Text = string.Format("Translation: {0}, {1}", delta.Translation.X, delta.Translation.Y);
-            //tbTranslate.Text += string.Format("\r\nTotal Translation: {0}, {1}", args.CumulativeManipulation.Translation.X, args.CumulativeManipulation.Translation.Y);
-          
             args.Handled = true;
             base.OnManipulationDelta(args);
         }
@@ -136,9 +148,14 @@ namespace ManipulationModeDemo
         #region protected override void OnManipulationCompleted
         protected override void OnManipulationCompleted(ManipulationCompletedEventArgs e)
         {
-          
-          //tbCompleted.Text = string.Format("{0}", e.FinalVelocities.LinearVelocity);
-         // tbCompleted.Text += string.Format("\r\n{0}", e.TotalManipulation.Translation);
+
+            m_ptTranslate += e.TotalManipulation.Translation;
+
+            tbCompleted.Text = string.Format("{0}", e.TotalManipulation.Translation);
+            tbCompleted.Text += string.Format("\r\n{0}", m_ptTranslate);
+
+          //m_ptTranslate.X += e.TotalManipulation.Translation.X;
+          //m_ptTranslate.Y += e.TotalManipulation.Translation.Y;
 
           //UIElement el = e.Source as UIElement;
           //el.Effect = new BlurEffect() { Radius= 10.0};
@@ -355,11 +372,11 @@ namespace ManipulationModeDemo
                     }
                     else if (lstName.Count == 4)
                     {
-                        nY = 0;
+                        nY = 127;
                     }
 
-                    ptStart = new Point(nX, nY + (i * 255));
-                    ptEnd = new Point(nX, nY + (i * 255));
+                    ptStart = new Point(nX, nY + (i * 265));
+                    ptEnd = new Point(nX, nY + (i * 265));
 
                     ControlTranspercyAnimation(popup_curr, 0, 1);
                     ControlTranslateAnimaion(popup_curr, 0f, ptStart, ptEnd);
