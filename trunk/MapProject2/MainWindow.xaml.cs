@@ -26,7 +26,7 @@ namespace ManipulationModeDemo
             ManipulationModes currentMode = ManipulationModes.All;
             Point m_ptMouse = new Point();
             int nBeforeState = 0;
-            Point m_ptTranslate = new Point();  // total translate
+            //Point m_ptTranslate = new Point();  // total translate
         #endregion 
 
         #region public MainWindow
@@ -105,7 +105,7 @@ namespace ManipulationModeDemo
             if( (nScaleStat==1) && (matrix.M11 > 1.2) )
             {
             }
-            else if ((nScaleStat == -1) && (matrix.M11 < 0.4))
+            else if ((nScaleStat == -1) && (matrix.M11 < 0.5))
             {
                 //nScaleStat = 0;
             }
@@ -139,7 +139,6 @@ namespace ManipulationModeDemo
             (element.RenderTransform as MatrixTransform).BeginAnimation(MatrixTransform.MatrixProperty, b);
 
 
-
             args.Handled = true;
             base.OnManipulationDelta(args);
         }
@@ -148,11 +147,70 @@ namespace ManipulationModeDemo
         #region protected override void OnManipulationCompleted
         protected override void OnManipulationCompleted(ManipulationCompletedEventArgs e)
         {
+            UIElement el = e.Source as UIElement;
+            MatrixTransform xform = el.RenderTransform as MatrixTransform;
+            Matrix matrix = xform.Matrix;
 
-            m_ptTranslate += e.TotalManipulation.Translation;
+            //m_ptTranslate += e.TotalManipulation.Translation;
 
             tbCompleted.Text = string.Format("{0}", e.TotalManipulation.Translation);
-            tbCompleted.Text += string.Format("\r\n{0}", m_ptTranslate);
+            tbCompleted.Text += string.Format("\r\nX: {0}, Y: {1}", matrix.OffsetX, matrix.OffsetY);
+
+
+
+            bool bOutBound = false;
+            double nOutBoundX = 0.0f;
+            double nOutBoundY = 0.0f;
+
+            double nDownBound = 2700.0f - (matrix.M11 * 2500);
+            double nUpperBound = 1600.0f;
+            double nRightBound = 850 - (matrix.M11 * 2000);
+            double nLeftBound = 50.0f;// *matrix.M11;
+
+            if (matrix.OffsetY < nDownBound) // 최종 목적지 : 위
+            {
+                double nOutBound = matrix.OffsetY - nDownBound;
+                //MessageBox.Show("bound::down!", nOutBound.ToString());
+                nOutBoundY = nOutBound;
+                bOutBound = true;
+            }
+            if (matrix.OffsetY > nUpperBound) // 최종 목적지 : 아래
+            {
+                double nOutBound = matrix.OffsetY - nUpperBound;
+                //MessageBox.Show("bound::up!", nOutBound.ToString());
+                nOutBoundY = nOutBound;
+                bOutBound = true;
+            }
+            if (matrix.OffsetX < nRightBound) // 최종 목적지 : 왼쪽
+            {
+                double nOutBound = matrix.OffsetX - nRightBound;
+                //MessageBox.Show("bound::right!", nOutBound.ToString());
+                nOutBoundX = nOutBound;
+                bOutBound = true;
+            }
+            if (matrix.OffsetX > nLeftBound) // 최종 목적지 : 오른쪽
+            {
+                double nOutBound = matrix.OffsetX - nLeftBound;
+                //MessageBox.Show("bound::left!", nOutBound.ToString());
+                nOutBoundX = nOutBound;
+                bOutBound = true;
+            }
+            //bOutBound= false;
+            if (bOutBound)
+            {
+
+                Matrix to = matrix;
+                to.Translate(-nOutBoundX, -nOutBoundY);
+
+                MatrixAnimation b = new MatrixAnimation()
+                {
+                    From = matrix,
+                    To = to,
+                    Duration = TimeSpan.FromMilliseconds(350),
+                    FillBehavior = FillBehavior.HoldEnd
+                };
+                (el.RenderTransform as MatrixTransform).BeginAnimation(MatrixTransform.MatrixProperty, b);
+            }
 
           //m_ptTranslate.X += e.TotalManipulation.Translation.X;
           //m_ptTranslate.Y += e.TotalManipulation.Translation.Y;
