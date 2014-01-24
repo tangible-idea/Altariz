@@ -658,8 +658,11 @@ namespace ManipulationModeDemo
         // 바깥 터치시 종료 애니메이션 [12/24/2013 Mark]
         private void onTouchFadeRect(object sender, TouchEventArgs e)
         {
-            Play_StoryBoard("hide");
-            Play_StoryBoard("hide_rail");
+            if (popup_image_spot.Visibility == Visibility.Visible)
+                Play_StoryBoard("hide");
+            
+            if(popup_image_rail.Visibility == Visibility.Visible)
+                Play_StoryBoard("hide_rail");
 
             Play_StoryBoard("fadeout");
 
@@ -670,8 +673,11 @@ namespace ManipulationModeDemo
         }
         private void onClickMouseFadeRect(object sender, MouseButtonEventArgs e)
         {
-            Play_StoryBoard("hide");
-            Play_StoryBoard("hide_rail");
+            if (popup_image_spot.Visibility == Visibility.Visible)
+                Play_StoryBoard("hide");
+
+            if (popup_image_rail.Visibility == Visibility.Visible)
+                Play_StoryBoard("hide_rail");
 
             Play_StoryBoard("fadeout");
         }
