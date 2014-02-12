@@ -26,6 +26,7 @@ namespace ManipulationModeDemo
             ManipulationModes currentMode = ManipulationModes.All;
             Point m_ptMouse = new Point();
             int nBeforeState = 0;
+            System.Media.SoundPlayer m_SP = null;
             //Point m_ptTranslate = new Point();  // total translate
         #endregion 
 
@@ -36,6 +37,7 @@ namespace ManipulationModeDemo
 
             currentMode = ManipulationModes.Scale | ManipulationModes.Translate;
 
+            m_SP = new System.Media.SoundPlayer(MapProject.Properties.Resources.water_bubble_high);
             //this.MouseMove += new MouseEventHandler(MyPage_MouseMove);
         }
 
@@ -116,8 +118,8 @@ namespace ManipulationModeDemo
 
 
 
-            tbTranslate.Text = string.Format("Translation: {0}, {1}", delta.Translation.X, delta.Translation.Y);
-            tbTranslate.Text += string.Format("\r\nTotal Translation: {0}, {1}", args.CumulativeManipulation.Translation.X, args.CumulativeManipulation.Translation.Y);
+            //tbTranslate.Text = string.Format("Translation: {0}, {1}", delta.Translation.X, delta.Translation.Y);
+            //tbTranslate.Text += string.Format("\r\nTotal Translation: {0}, {1}", args.CumulativeManipulation.Translation.X, args.CumulativeManipulation.Translation.Y);
 
             //double currTransX= m_ptTranslate.X + args.CumulativeManipulation.Translation.X;
             //if (currTransX > 1000)
@@ -144,6 +146,7 @@ namespace ManipulationModeDemo
         }
         #endregion 
 
+
         #region protected override void OnManipulationCompleted
         protected override void OnManipulationCompleted(ManipulationCompletedEventArgs e)
         {
@@ -153,8 +156,8 @@ namespace ManipulationModeDemo
 
             //m_ptTranslate += e.TotalManipulation.Translation;
 
-            tbCompleted.Text = string.Format("{0}", e.TotalManipulation.Translation);
-            tbCompleted.Text += string.Format("\r\nX: {0}, Y: {1}", matrix.OffsetX, matrix.OffsetY);
+            //tbCompleted.Text = string.Format("{0}", e.TotalManipulation.Translation);
+            //tbCompleted.Text += string.Format("\r\nX: {0}, Y: {1}", matrix.OffsetX, matrix.OffsetY);
 
 
 
@@ -303,6 +306,8 @@ namespace ManipulationModeDemo
         // 중앙 팝업 방식으로 해당 그림 띄움.
         private void SetPopupURI_Spot(String strPath, String strName)
         {
+            m_SP.Play();
+
             var strURI = "";
             
             try
@@ -322,6 +327,8 @@ namespace ManipulationModeDemo
         // 중앙 팝업 방식으로 해당 그림 띄움.
         private void SetPopupURI_Rail(String strPath, String strName)
         {
+            m_SP.Play();
+
             var strURI = "";
 
             try
@@ -341,6 +348,8 @@ namespace ManipulationModeDemo
         // 우측 상단 팝업 방식으로 해당 그림 띄움.
         private void SetPopupURI_Food(String strPath, List<String> lstName, Image selectedIcon)
         {
+            m_SP.Play();
+
             var strURI = "";
 
             popup_image_food1.Visibility = Visibility.Hidden;
@@ -809,6 +818,8 @@ namespace ManipulationModeDemo
         // 카테고리 클릭 부분.
         private void onTouchCategory1(object sender, TouchEventArgs e)
         {
+            m_SP.Play();
+
             grid_group_spot.Visibility = Visibility.Visible;
             grid_group_food.Visibility = Visibility.Hidden;
 
@@ -820,6 +831,8 @@ namespace ManipulationModeDemo
 
         private void onTouchCategory2(object sender, TouchEventArgs e)
         {
+            m_SP.Play();
+
             if (grid_group_spot.Visibility == Visibility.Visible)    // spot이 켜진 상태이면...
             {
                 nBeforeState = 1;
@@ -842,6 +855,8 @@ namespace ManipulationModeDemo
 
         private void onTouchCategory3(object sender, TouchEventArgs e)
         {
+            m_SP.Play();
+
             grid_group_spot.Visibility = Visibility.Hidden;
             grid_group_food.Visibility = Visibility.Visible;
 
