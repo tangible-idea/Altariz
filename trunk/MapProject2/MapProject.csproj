@@ -136,21 +136,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Icons\icon1.png" />
-    <Resource Include="Images\Icons\icon10.png" />
-    <Resource Include="Images\Icons\icon11.png" />
-    <Resource Include="Images\Icons\icon12.png" />
-    <Resource Include="Images\Icons\icon13.png" />
-    <Resource Include="Images\Icons\icon14.png" />
-    <Resource Include="Images\Icons\icon15.png" />
-    <Resource Include="Images\Icons\icon16.png" />
-    <Resource Include="Images\Icons\icon2.png" />
-    <Resource Include="Images\Icons\icon3.png" />
-    <Resource Include="Images\Icons\icon4.png" />
-    <Resource Include="Images\Icons\icon5.png" />
-    <Resource Include="Images\Icons\icon7.png" />
-    <Resource Include="Images\Icons\icon8.png" />
-    <Resource Include="Images\Icons\icon9.png" />
     <Resource Include="Images\map.png" />
   </ItemGroup>
   <ItemGroup>
@@ -159,15 +144,37 @@
     <Resource Include="Images\category\category3.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Icons\foodicon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\category\food.png" />
     <Resource Include="Images\category\rail.png" />
     <Resource Include="Images\category\tour.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\popup_rail\rail_info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\foodicon.png" />
+    <Resource Include="Images\Icons\icon1.png" />
+    <Resource Include="Images\Icons\icon10.png" />
+    <Resource Include="Images\Icons\icon11.png" />
+    <Resource Include="Images\Icons\icon12.png" />
+    <Resource Include="Images\Icons\icon13.png" />
+    <Resource Include="Images\Icons\icon14.png" />
+    <Resource Include="Images\Icons\icon15.png" />
+    <Resource Include="Images\Icons\icon16.png" />
+    <Resource Include="Images\Icons\icon3.png" />
+    <Resource Include="Images\Icons\icon4.png" />
+    <Resource Include="Images\Icons\icon5.png" />
+    <Resource Include="Images\Icons\icon6.png" />
+    <Resource Include="Images\Icons\icon7.png" />
+    <Resource Include="Images\Icons\icon8.png" />
+    <Resource Include="Images\Icons\icon9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\icon2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\water_bubble_high.wav" />
+    <Content Include="water_bubble_high.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

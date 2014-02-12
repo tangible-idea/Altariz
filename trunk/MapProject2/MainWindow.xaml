@@ -12,7 +12,8 @@ AllowsTransparency="True" ShowInTaskbar="False" BorderThickness="0,0,0,0"
           HorizontalAlignment="Left" VerticalAlignment="Top" 
           >
 
-        
+
+        <MediaElement Name="me_bubble" Source="water_bubble_high.mp3" LoadedBehavior="Manual"  UnloadedBehavior="Stop"/>
         
         <ScrollViewer 
             Background="Yellow"
@@ -70,11 +71,10 @@ AllowsTransparency="True" ShowInTaskbar="False" BorderThickness="0,0,0,0"
                 HorizontalAlignment="Left">
 
                     <Image Source="Images/Icons/icon1.png" Margin="79,2019,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"   TouchDown="onTouchImage1"/>
-                <Image Source="Images/Icons/icon2.png" Margin="28,2196,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"   TouchDown="onTouchImage2"/>
+                <Image Source="Images/Icons/icon2.png" Margin="28,2171,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"   TouchDown="onTouchImage2"/>
                 <Image Source="Images/Icons/icon3.png" Margin="182,2276,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"  TouchDown="onTouchImage3"/>
                 <Image Source="Images/Icons/icon4.png" Margin="72,2345,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"   TouchDown="onTouchImage4"/>
-                <Image Source="Images/Icons/icon5.png" Margin="317,2380,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"  TouchDown="onTouchImage5"    />
-                
+                <Image Source="Images/Icons/icon5.png" Margin="317,2380,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"  TouchDown="onTouchImage5"/>                
                 <Image Source="Images/Icons/icon6.png" Margin="1264,1275,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left" TouchDown="onTouchImage6" />
                 <Image Source="Images/Icons/icon7.png" Margin="1052,1367,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left" TouchDown="onTouchImage7" />
                 <Image Source="Images/Icons/icon8.png" Margin="163,2477,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"  TouchDown="onTouchImage8"/>
