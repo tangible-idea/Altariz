@@ -1,0 +1,13 @@
+c:\Users\MarkHome\Documents\Visual Studio 2010\Projects\songpa\songpa\obj\x86\Debug\MainWindow.baml
+c:\Users\MarkHome\Documents\Visual Studio 2010\Projects\songpa\songpa\obj\x86\Debug\MainWindow.g.cs
+c:\Users\MarkHome\Documents\Visual Studio 2010\Projects\songpa\songpa\obj\x86\Debug\App.g.cs
+c:\Users\MarkHome\Documents\Visual Studio 2010\Projects\songpa\songpa\obj\x86\Debug\songpa_MarkupCompile.cache
+c:\Users\MarkHome\Documents\Visual Studio 2010\Projects\songpa\songpa\obj\x86\Debug\songpa.g.resources
+c:\Users\MarkHome\Documents\Visual Studio 2010\Projects\songpa\songpa\obj\x86\Debug\songpa.Properties.Resources.resources
+c:\Users\MarkHome\Documents\Visual Studio 2010\Projects\songpa\songpa\obj\x86\Debug\songpa.csproj.GenerateResource.Cache
+C:\Users\MarkHome\documents\visual studio 2010\Projects\songpa\songpa\bin\Debug\songpa.exe
+C:\Users\MarkHome\documents\visual studio 2010\Projects\songpa\songpa\bin\Debug\songpa.pdb
+C:\Users\MarkHome\documents\visual studio 2010\Projects\songpa\songpa\obj\x86\Debug\songpa.exe
+C:\Users\MarkHome\documents\visual studio 2010\Projects\songpa\songpa\obj\x86\Debug\songpa.pdb
+C:\Users\MarkHome\documents\visual studio 2010\Projects\songpa\songpa\obj\x86\Debug\Connection.baml
+C:\Users\MarkHome\documents\visual studio 2010\Projects\songpa\songpa\obj\x86\Debug\Connection.g.cs
