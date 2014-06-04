@@ -14,8 +14,8 @@
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="{Binding Title}" />
                         <!--<ProgressBar Grid.Column="1" Minimum="0" Maximum="100" Value="{Binding Completion}" />-->
-                        <Button Grid.Column="1" Content="Modify" />
-                        <Button Grid.Column="2" Content="Delete" />
+                        <Button Grid.Column="1" Content="Modify" Click="OnBtnClick_board_modify" Tag="{Binding Number}"/>
+                        <Button Grid.Column="2" Content="Delete" Click="OnBtnClick_board_delete" Tag="{Binding Number}"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>

@@ -24,12 +24,10 @@ namespace manager_pc
             InitializeComponent();
 
             List<TodoItem> items = new List<TodoItem>();
-            items.Add(new TodoItem() { Title = "asjdksadjlskadjskld"});
-            items.Add(new TodoItem() { Title = "bgnbgngnfgnfn"});
 
             for (int i = 0; i < 100; ++i )
             {
-                items.Add(new TodoItem() { Title = "스팀펑크아트" });
+                items.Add(new TodoItem() { Title = "스팀펑크아트", Number= i });
             }
             
 
@@ -46,10 +44,22 @@ namespace manager_pc
         {
 
         }
+
+        private void OnBtnClick_board_modify(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            MessageBox.Show("modify : "+ btn.Tag);
+        }
+        private void OnBtnClick_board_delete(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            MessageBox.Show("delete : " + btn.Tag);
+        }
     }
 
     public class TodoItem
     {
+        public int Number { get; set; }
         public string Title { get; set; }
         public String ButtonLabel { get; set; }
     }
