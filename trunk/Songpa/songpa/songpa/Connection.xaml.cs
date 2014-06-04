@@ -25,7 +25,7 @@ namespace songpa
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            String strPath1 = @"\\192.168.0.14\all";
+            //String strPath1 = @"\\192.168.0.14\all";
             String strPath = "\\\\" + txt_IP.Text + "\\" + txt_Path.Text;
 
 
@@ -39,8 +39,13 @@ namespace songpa
             }
             MessageBox.Show(msg);
 
-            var newWindow = new MainWindow();
-            newWindow.Show();
+            if (msg == "Connection sucessfull!")
+            {
+                var newWindow = new MainWindow();
+                newWindow.Show();
+            }
+
+            
         }
     }
 }
