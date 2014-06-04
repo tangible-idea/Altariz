@@ -14,14 +14,21 @@ using System.Windows.Shapes;
 
 namespace songpa
 {
-    /// <summary>
-    /// MainWindow.xaml에 대한 상호 작용 논리
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            ImageRefresh();
+
+            string text = System.IO.File.ReadAllText(strPath + "\\text1.txt");
+            MessageBox.Show(text);
+
+            StartTimer();
         }
 
 
@@ -30,28 +37,48 @@ namespace songpa
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-
-
             //SharedAPI api = new SharedAPI();
             //int nRes= api.ConnectRemoteServer(strPath);
 
             //String str= nRes.ToString();
             //MessageBox.Show(str);
 
-            
-            BitmapImage img = new BitmapImage(new Uri(strPath+"\\sample.jpg"));
-            image1.Source = img;
+
+            ImageRefresh();
+
 
             //string text = System.IO.File.ReadAllText(@"\\192.168.0.14\all\");
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void ImageRefresh()
         {
+            MessageBox.Show("refresh!");
+
             BitmapImage img = new BitmapImage(new Uri(strPath + "\\sample.jpg"));
             image1.Source = img;
-
-            string text = System.IO.File.ReadAllText(strPath + "\\text1.txt");
-            MessageBox.Show(text);
         }
+
+
+        private void StartTimer()
+        {
+
+          System.Windows.Threading.DispatcherTimer TimerClock = new System.Windows.Threading.DispatcherTimer();
+          //TimerClock.Interval = new TimeSpan ( 0, 0, 0, 0, 200 ); // 200 milliseconds
+          TimerClock.Interval= TimeSpan.FromSeconds(30);
+
+          TimerClock.IsEnabled = true;
+
+          TimerClock.Tick += new EventHandler(TimerClock_Tick);
+
+        }
+
+
+
+        void TimerClock_Tick(object sender, EventArgs e)
+        {
+            ImageRefresh();
+        }
+
+
     }
 }
