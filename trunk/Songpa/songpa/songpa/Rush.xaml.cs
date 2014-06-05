@@ -25,14 +25,15 @@ namespace songpa
         {
             ImageRefresh();
 
-            string text = System.IO.File.ReadAllText(strPath + "\\text1.txt");
+            string text = System.IO.File.ReadAllText(strPath + "\\contents.txt");
             MessageBox.Show(text);
 
             StartTimer();
         }
 
 
-        public String strPath = @"\\192.168.0.14\all";
+        //public String strPath = @"\\192.168.0.14\all";
+        public String strPath = Connection.PATH;
 
 
         private void button1_Click(object sender, RoutedEventArgs e)
