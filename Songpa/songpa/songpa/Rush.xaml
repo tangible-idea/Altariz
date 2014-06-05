@@ -4,6 +4,10 @@
         Title="MainWindow" Height="648" Width="1110" Loaded="Window_Loaded">
     <Grid>
         <!--<Button Content="Refresh" Height="23" HorizontalAlignment="Left" Margin="0,422,0,0" Name="button1" VerticalAlignment="Top" Width="846" Click="button1_Click" />-->
-        <Image Height="619" HorizontalAlignment="Left" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="1100" />
+        <Image Height="619" HorizontalAlignment="Left" Name="img_BG" Stretch="Fill" VerticalAlignment="Top" Width="1100" Source="/songpa;component/res/bg.jpg" />
+        <Button Height="120" HorizontalAlignment="Left" Margin="39,251,0,0" Name="btn_Left" VerticalAlignment="Top" Width="38" Click="btn_Left_Click" />
+        <Button Height="120" HorizontalAlignment="Left" Margin="1025,251,0,0" Name="btn_Right" VerticalAlignment="Top" Width="38" Click="btn_Right_Click" />
+        <Image Height="495" HorizontalAlignment="Left" Margin="124,61,0,0" Name="img_Rush1" Stretch="Fill" VerticalAlignment="Top" Width="345" />
+        <Image Height="113" HorizontalAlignment="Left" Margin="500,443,0,0" Name="img_Rush2" Stretch="Fill" VerticalAlignment="Top" Width="492" />
     </Grid>
 </Window>
