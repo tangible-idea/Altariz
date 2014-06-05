@@ -30,6 +30,7 @@ namespace songpa
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            // 레지스트리 값 읽어오기 [6/5/2014 Mark]
             Registry.CurrentUser.CreateSubKey("SONGPA").CreateSubKey("connection");
             rkey = Registry.CurrentUser.OpenSubKey("SONGPA").OpenSubKey("connection", true);
 
@@ -59,6 +60,7 @@ namespace songpa
 
             if (msg == "Connection sucessfull!")
             {
+                // 접속 성공시 해당 값으로 접속정보를 레지스트리에 쓴다. [6/5/2014 Mark]
                 rkey.SetValue("IP", txt_IP.Text.ToString());
                 rkey.SetValue("ACCOUNT", txt_Account.Text.ToString());
                 rkey.SetValue("PASSWORD", txt_PW.Password.ToString());
@@ -66,6 +68,8 @@ namespace songpa
 
                 var newWindow = new MainWindow();
                 newWindow.Show();
+
+                this.Close();
             }
 
             
