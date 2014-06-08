@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using Microsoft.Win32;
 
 namespace manager_pc
 {
@@ -20,9 +21,20 @@ namespace manager_pc
     /// </summary>
     public partial class MainWindow : Window
     {
+        RegistryKey rkey;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            // 레지스트리 값 읽어오기 [6/5/2014 Mark]
+            Registry.CurrentUser.CreateSubKey("SONGPA").CreateSubKey("root_info");
+            rkey = Registry.CurrentUser.OpenSubKey("SONGPA").OpenSubKey("root_info", true);
+
+            if (rkey.GetValue("PATH") != null)
+            {
+                txt_RootPath.Text = rkey.GetValue("PATH").ToString();
+            }
             CheckFolderStructure();
         }
 
@@ -53,7 +65,7 @@ namespace manager_pc
                     di_SUB1.Create();       
                 //if (di_SUB2.Exists == false)
                   //  di_SUB2.Create();       
-
+                rkey.SetValue("PATH", txt_RootPath.Text.ToString());
                 MessageBox.Show("Initialize successful!");
             }
         }

@@ -45,7 +45,8 @@ namespace manager_pc
 
         private void btn_newBoard_Click(object sender, RoutedEventArgs e)
         {
-
+            var rushContentWindow = new RushTicketContent();
+            rushContentWindow.Show();
         }
 
         private void OnBtnClick_board_modify(object sender, RoutedEventArgs e)
