@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="RushTicketList" Height="501" Width="478" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <ListBox Name="lbTodoList" HorizontalContentAlignment="Stretch" Margin="12,56,12,12">
+        <ListBox Name="listSubProjects" HorizontalContentAlignment="Stretch" Margin="12,56,12,12">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="0,2">

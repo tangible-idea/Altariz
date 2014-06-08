@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.ComponentModel;
+using Microsoft.Win32;
+using System.IO;
 
 namespace manager_pc
 {
@@ -19,20 +21,42 @@ namespace manager_pc
     /// </summary>
     public partial class RushTicketList : Window
     {
+        RegistryKey rkey;
+        String pathRoot;
+        String pathRushRoot;
+
         public RushTicketList()
         {
             InitializeComponent();
 
-            List<TodoItem> items = new List<TodoItem>();
+            rkey = Registry.CurrentUser.OpenSubKey("SONGPA").OpenSubKey("root_info", true);
 
-            for (int i = 0; i < 100; ++i )
+            if (rkey.GetValue("PATH") != null)
             {
-                items.Add(new TodoItem() { Title = "스팀펑크아트", Number= i });
+                pathRoot = rkey.GetValue("PATH").ToString();
+                pathRushRoot = pathRoot + "\\rush_ticket_root";
             }
-            
 
-            lbTodoList.ItemsSource = items;
+            RefreshFolderList();
+        }
 
+        /// <summary>
+        /// 폴더 리스트를 다시 가져온다.
+        /// </summary>
+        private void RefreshFolderList()
+        {
+            DirectoryInfo di_RUSH_ROOT = new DirectoryInfo(pathRushRoot);
+            DirectoryInfo[] arrInfo = di_RUSH_ROOT.GetDirectories();
+
+            if (arrInfo.Length == 0)
+                return;
+
+            List<TodoItem> items = new List<TodoItem>();
+            for (int i = 0; i < arrInfo.Length; ++i)
+            {
+                items.Add(new TodoItem() { Title = arrInfo[i].Name, Number = i });
+            }
+            listSubProjects.ItemsSource = items;
         }
 
         private void btn_selPC_Click(object sender, RoutedEventArgs e)
@@ -45,19 +69,45 @@ namespace manager_pc
 
         private void btn_newBoard_Click(object sender, RoutedEventArgs e)
         {
-            var rushContentWindow = new RushTicketContent();
-            rushContentWindow.Show();
+            var rushContentWindow = new RushTicketContent("", true);
+            rushContentWindow.Owner = this;
+            if (rushContentWindow.ShowDialog() == false)
+            {
+                RefreshFolderList();
+            }
         }
 
         private void OnBtnClick_board_modify(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
-            MessageBox.Show("modify : "+ btn.Tag);
+            //MessageBox.Show("modify : "+ btn.Tag);
+
+            int currIdx= Int32.Parse(btn.Tag.ToString());
+            TodoItem currItem= (TodoItem)listSubProjects.Items[currIdx];
+
+            var rushContentWindow = new RushTicketContent(pathRushRoot +"\\"+ currItem.Title, false);
+            rushContentWindow.Owner = this;
+            if (rushContentWindow.ShowDialog() == false)
+            {
+                //MessageBox.Show("modify");
+                //RefreshFolderList();
+            }
         }
         private void OnBtnClick_board_delete(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
-            MessageBox.Show("delete : " + btn.Tag);
+            //MessageBox.Show("delete : " + btn.Tag);
+            int currIdx = Int32.Parse(btn.Tag.ToString());
+            TodoItem currItem = (TodoItem)listSubProjects.Items[currIdx];
+            MessageBoxResult res= MessageBox.Show("Are you sure?", "Delete", MessageBoxButton.YesNo);
+
+            if (res == MessageBoxResult.Yes)    // 해당 항목을 지우고 폴더들 리프레쉬 [6/8/2014 Mark]
+            {
+                //listSubProjects.Items.RemoveAt(currIdx);
+                Directory.Delete(pathRushRoot + "\\" + currItem.Title, true);
+                System.Threading.Thread.Sleep(100);
+                RefreshFolderList();
+            }
         }
     }
 
