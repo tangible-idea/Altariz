@@ -85,7 +85,7 @@ namespace manager_pc
             int currIdx= Int32.Parse(btn.Tag.ToString());
             TodoItem currItem= (TodoItem)listSubProjects.Items[currIdx];
 
-            var rushContentWindow = new RushTicketContent(pathRushRoot +"\\"+ currItem.Title, false);
+            var rushContentWindow = new RushTicketContent(currItem.Title, false);
             rushContentWindow.Owner = this;
             if (rushContentWindow.ShowDialog() == false)
             {
@@ -105,7 +105,7 @@ namespace manager_pc
             {
                 //listSubProjects.Items.RemoveAt(currIdx);
                 Directory.Delete(pathRushRoot + "\\" + currItem.Title, true);
-                System.Threading.Thread.Sleep(100);
+                System.Threading.Thread.Sleep(350);
                 RefreshFolderList();
             }
         }
