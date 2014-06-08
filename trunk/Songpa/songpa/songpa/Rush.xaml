@@ -9,5 +9,6 @@
         <Button Height="120" HorizontalAlignment="Left" Margin="1025,251,0,0" Name="btn_Right" VerticalAlignment="Top" Width="38" Click="btn_Right_Click" />
         <Image Height="495" HorizontalAlignment="Left" Margin="124,61,0,0" Name="img_Rush1" Stretch="Fill" VerticalAlignment="Top" Width="345" />
         <Image Height="113" HorizontalAlignment="Left" Margin="500,443,0,0" Name="img_Rush2" Stretch="Fill" VerticalAlignment="Top" Width="492" />
+        <Label Content="Title" Height="43" HorizontalAlignment="Left" Margin="527,96,0,0" Name="txt_Title" VerticalAlignment="Top" Foreground="#FFCCFF00" FontSize="16" FontFamily="NanumGothic" FontWeight="Bold" Width="371" />
     </Grid>
 </Window>

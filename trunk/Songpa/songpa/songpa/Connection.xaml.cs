@@ -34,10 +34,13 @@ namespace songpa
             Registry.CurrentUser.CreateSubKey("SONGPA").CreateSubKey("connection");
             rkey = Registry.CurrentUser.OpenSubKey("SONGPA").OpenSubKey("connection", true);
 
-            txt_IP.Text = rkey.GetValue("IP").ToString();
-            txt_Account.Text = rkey.GetValue("ACCOUNT").ToString();
-            txt_PW.Password = rkey.GetValue("PASSWORD").ToString();
-            txt_Path.Text = rkey.GetValue("PATH").ToString();
+            if (rkey.GetValue("IP") != null)
+            {
+                txt_IP.Text = rkey.GetValue("IP").ToString();
+                txt_Account.Text = rkey.GetValue("ACCOUNT").ToString();
+                txt_PW.Password = rkey.GetValue("PASSWORD").ToString();
+                txt_Path.Text = rkey.GetValue("PATH").ToString();
+            }            
 
 
         }
