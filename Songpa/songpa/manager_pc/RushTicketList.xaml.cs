@@ -37,7 +37,10 @@ namespace manager_pc
 
         private void btn_selPC_Click(object sender, RoutedEventArgs e)
         {
+            var newWindow = new MainWindow();
+            newWindow.Show();
 
+            this.Close();
         }
 
         private void btn_newBoard_Click(object sender, RoutedEventArgs e)
