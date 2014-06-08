@@ -53,6 +53,20 @@ namespace manager_pc
 
         private void btn_SelImage_Click(object sender, RoutedEventArgs e)
         {
+            OpenFileDialog oFileDlg = new OpenFileDialog();
+
+            oFileDlg.Filter = "JPG Files(*.jpg)|*.jpg";
+            if (oFileDlg.ShowDialog() == true)
+            {
+                String sour = oFileDlg.FileName;
+                String dest = pathRushRoot + "\\" + currentName + "\\" + "1.jpg";
+                File.Copy(sour, dest, true);
+
+                System.Threading.Thread.Sleep(150);
+
+                BitmapImage bitmap = new BitmapImage(new Uri( dest ));
+                img_Form1.Source = bitmap;
+            }
         }
 
         private void btn_Save_Click(object sender, RoutedEventArgs e)
@@ -113,6 +127,7 @@ namespace manager_pc
                 AddElement(textWriter, "price_eng", txt_EngPrice.Text);
                 AddElement(textWriter, "price_kor", txt_KorPrice.Text);
                 AddElement(textWriter, "contact", txt_Contact.Text);
+                AddElement(textWriter, "image1", img_Form1.Source.ToString());
             }
             textWriter.WriteEndElement();
 
@@ -170,6 +185,12 @@ namespace manager_pc
                         break;
                     case "contact":
                         txt_Contact.Text = node.InnerText;
+                        break;
+                    case "image1":
+                        {
+                            BitmapImage bitmap = new BitmapImage(new Uri(node.InnerText));
+                            img_Form1.Source = bitmap;
+                        }
                         break;
                 }
             }

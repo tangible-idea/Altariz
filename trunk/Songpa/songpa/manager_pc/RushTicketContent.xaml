@@ -31,5 +31,6 @@
         <Button Content="취소" Height="56" HorizontalAlignment="Left" Margin="846,462,0,0" Name="btn_Cancel" VerticalAlignment="Top" Width="112" Click="btn_Cancel_Click" />
         <ComboBox Height="23" HorizontalAlignment="Left" Margin="94,12,0,0" Name="cbo_SelPosition" VerticalAlignment="Top" Width="224" />
         <Label Content="위치 선택 : " Height="24" HorizontalAlignment="Left" Margin="12,12,0,0" Name="label12" VerticalAlignment="Top" Width="76" />
+        <Rectangle Height="399" HorizontalAlignment="Left" Margin="12,41,0,0" Name="rectangle1" Stroke="Black" VerticalAlignment="Top" Width="306" />
     </Grid>
 </Window>
