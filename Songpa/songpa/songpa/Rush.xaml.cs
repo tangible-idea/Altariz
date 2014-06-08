@@ -67,10 +67,13 @@ namespace songpa
                 BitmapImage img1 = new BitmapImage(new Uri(FILE_image1[0].FullName));
                 img_Rush1.Source = img1;
 
-                System.IO.DirectoryInfo DIR_rush_image2 = new System.IO.DirectoryInfo(d.FullName + "\\image1");
+                System.IO.DirectoryInfo DIR_rush_image2 = new System.IO.DirectoryInfo(d.FullName + "\\image2");
                 System.IO.FileInfo[] FILE_image2 = DIR_rush_image2.GetFiles();
                 BitmapImage img2 = new BitmapImage(new Uri(FILE_image2[0].FullName));
                 img_Rush2.Source = img2;
+
+                string text = System.IO.File.ReadAllText(d.FullName + "\\contents\\1.txt");
+                txt_Title.Content = text;
             }
 
             
