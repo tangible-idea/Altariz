@@ -11,11 +11,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
+using System.Xml;
 
 namespace songpa
 {
     public partial class MainWindow : Window
     {
+        int nCurrentPage = 0;   // 현재 표시 중인 페이지 [6/9/2014 Mark]
+
         public MainWindow()
         {
             InitializeComponent();
@@ -56,25 +60,29 @@ namespace songpa
             //MessageBox.Show("refresh!");
 
             // rush ticket root folder [6/5/2014 Mark]
-            System.IO.DirectoryInfo DIR_rush_root = new System.IO.DirectoryInfo(strPath + "\\rush_ticket_root\\");
+            DirectoryInfo DIR_rush_root = new DirectoryInfo(strPath + "\\rush_ticket_root\\");
 
-            System.IO.DirectoryInfo[] RushRootInfo = DIR_rush_root.GetDirectories("*.*");
-            foreach (System.IO.DirectoryInfo d in RushRootInfo)
-            {
+            DirectoryInfo[] RushRootInfo = DIR_rush_root.GetDirectories("*.*");
+
+            XMLLoad(RushRootInfo[nCurrentPage].FullName);
+
+            
+            //foreach (System.IO.DirectoryInfo d in RushRootInfo)
+            //{
                 //MessageBox.Show("rush_root : " + d.FullName);
-                System.IO.DirectoryInfo DIR_rush_image1 = new System.IO.DirectoryInfo(d.FullName+"\\image1");
-                System.IO.FileInfo[] FILE_image1= DIR_rush_image1.GetFiles();
-                BitmapImage img1 = new BitmapImage(new Uri(FILE_image1[0].FullName));
-                img_Rush1.Source = img1;
+                //System.IO.DirectoryInfo DIR_rush_image1 = new System.IO.DirectoryInfo(d.FullName+"\\image1");
+                //System.IO.FileInfo[] FILE_image1= DIR_rush_image1.GetFiles();
+                //BitmapImage img1 = new BitmapImage(new Uri(FILE_image1[0].FullName));
+                //img_Rush1.Source = img1;
 
-                System.IO.DirectoryInfo DIR_rush_image2 = new System.IO.DirectoryInfo(d.FullName + "\\image2");
-                System.IO.FileInfo[] FILE_image2 = DIR_rush_image2.GetFiles();
-                BitmapImage img2 = new BitmapImage(new Uri(FILE_image2[0].FullName));
-                img_Rush2.Source = img2;
+                //System.IO.DirectoryInfo DIR_rush_image2 = new System.IO.DirectoryInfo(d.FullName + "\\image2");
+                //System.IO.FileInfo[] FILE_image2 = DIR_rush_image2.GetFiles();
+                //BitmapImage img2 = new BitmapImage(new Uri(FILE_image2[0].FullName));
+                //img_Rush2.Source = img2;
 
-                string text = System.IO.File.ReadAllText(d.FullName + "\\contents\\1.txt");
-                txt_Title.Content = text;
-            }
+                //string text = System.IO.File.ReadAllText(d.FullName + "\\contents\\1.txt");
+                //txt_Title.Content = text;
+            //}
 
             
 
@@ -111,6 +119,78 @@ namespace songpa
         private void btn_Right_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+
+
+        private bool XMLLoad(String pathToLoad)
+        {
+            XmlDocument XmlDoc = new XmlDocument();
+
+            try
+            {
+                XmlDoc.Load(pathToLoad + "\\1.xml");
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show("저장된 파일의 형식이 올바르지 않습니다.\n정보를 정상적으로 불러오지 못했습니다.");
+                return false;
+            }
+
+            XmlNode root = XmlDoc.DocumentElement;
+            XmlNodeList list = root.ChildNodes;
+
+            foreach (XmlNode node in list)
+            {
+                switch (node.Name)
+                {
+                    case "title_eng":
+                        txt_EngTitle.Content = node.InnerText;
+                        break;
+                    case "title_kor":
+                        txt_KorTitle.Content = node.InnerText;
+                        break;
+                    case "pos_eng":
+                        txt_EngPlace.Content = node.InnerText;
+                        break;
+                    case "pos_kor":
+                        txt_KorPlace.Content = node.InnerText;
+                        break;
+                    case "period_eng":
+                        txt_EngPeriod.Content = node.InnerText;
+                        break;
+                    case "period_kor":
+                        txt_KorPeriod.Content = node.InnerText;
+                        break;
+                    case "time_eng":
+                        txt_EngTime.Content = node.InnerText;
+                        break;
+                    case "time_kor":
+                        txt_KorTime.Content = node.InnerText;
+                        break;
+                    case "price_eng":
+                        txt_EngPrices.Content = node.InnerText;
+                        break;
+                    case "price_kor":
+                        txt_KorPrices.Content = node.InnerText;
+                        break;
+                    case "contact":
+                        txt_Contact.Content = node.InnerText;
+                        break;
+                    case "image1":
+                        {
+                            if (node.InnerText.Trim() == "")
+                                break;
+
+                            String pathImage = pathToLoad +"\\"+node.InnerText;
+                            BitmapImage bitmap = new BitmapImage(new Uri(pathImage));
+                            if (bitmap != null)
+                                img_Rush1.Source = bitmap;
+                        }
+                        break;
+                }
+            }
+            return true;
         }
 
 
