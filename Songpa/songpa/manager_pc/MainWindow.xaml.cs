@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using Microsoft.Win32;
+using System.Management;
 
 namespace manager_pc
 {
@@ -55,6 +56,8 @@ namespace manager_pc
 
                 DirectoryInfo di_ROOT = new DirectoryInfo(txt_RootPath.Text);  //Create Directoryinfo value by sDirPath
 
+                ShareFolderPermission(di_ROOT.FullName);    // 공유 폴더로 만든다. [6/9/2014 Mark]
+
                 if (di_ROOT.Exists == false)   //If New Folder not exits
                     di_ROOT.Create();             //create Folder
 
@@ -67,6 +70,30 @@ namespace manager_pc
                   //  di_SUB2.Create();       
                 rkey.SetValue("PATH", txt_RootPath.Text.ToString());
                 MessageBox.Show("Initialize successful!");
+            }
+        }
+
+        private void ShareFolderPermission(String pathFolder)
+        {
+            String folderName = pathFolder.Substring(pathFolder.LastIndexOf("\\") + 1);
+            try
+            {
+                ManagementClass managementClass = new ManagementClass("Win32_Share");
+                ManagementBaseObject inParams = managementClass.GetMethodParameters("Create");
+                ManagementBaseObject outParams;
+                inParams["Description"] = "";
+                inParams["Name"] = folderName;
+                inParams["Path"] = pathFolder;
+                inParams["Type"] = 0x0;
+
+                outParams = managementClass.InvokeMethod("Create", inParams, null);
+
+                if ((uint)(outParams.Properties["ReturnValue"].Value) != 0)
+                    Console.WriteLine("Folder might be already in share or unable to share the directory");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
