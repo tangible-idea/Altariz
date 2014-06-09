@@ -7,8 +7,18 @@
         <Image Height="619" HorizontalAlignment="Left" Name="img_BG" Stretch="Fill" VerticalAlignment="Top" Width="1100" Source="/songpa;component/res/bg.jpg" />
         <Button Height="120" HorizontalAlignment="Left" Margin="39,251,0,0" Name="btn_Left" VerticalAlignment="Top" Width="38" Click="btn_Left_Click" />
         <Button Height="120" HorizontalAlignment="Left" Margin="1025,251,0,0" Name="btn_Right" VerticalAlignment="Top" Width="38" Click="btn_Right_Click" />
-        <Image Height="495" HorizontalAlignment="Left" Margin="124,61,0,0" Name="img_Rush1" Stretch="Fill" VerticalAlignment="Top" Width="345" />
-        <Image Height="113" HorizontalAlignment="Left" Margin="500,443,0,0" Name="img_Rush2" Stretch="Fill" VerticalAlignment="Top" Width="492" />
-        <Label Content="Title" Height="43" HorizontalAlignment="Left" Margin="527,96,0,0" Name="txt_Title" VerticalAlignment="Top" Foreground="#FFCCFF00" FontSize="16" FontFamily="NanumGothic" FontWeight="Bold" Width="371" />
+        <Image Height="492" HorizontalAlignment="Left" Margin="124,64,0,0" Name="img_Rush1" Stretch="Fill" VerticalAlignment="Top" Width="342" />
+        <Image Height="110" HorizontalAlignment="Left" Margin="502,446,0,0" Name="img_Rush2" Stretch="Fill" VerticalAlignment="Top" Width="490" />
+        <Label Content="title" Height="26" HorizontalAlignment="Left" Margin="527,75,0,0" Name="txt_engTitle" VerticalAlignment="Top" Foreground="#FFCCFF00" FontSize="16" FontFamily="NanumGothic" FontWeight="Bold" Width="457" />
+        <Label Content="제목" FontFamily="NanumGothic" FontSize="10" FontWeight="Normal" Foreground="#FFCCFF00" Height="24" HorizontalAlignment="Left" Margin="527,107,0,0" Name="txt_korTitle" VerticalAlignment="Top" Width="457" />
+        <Label Content="place" FontFamily="NanumGothic" FontSize="12" FontWeight="Normal" Foreground="White" Height="24" HorizontalAlignment="Left" Margin="527,129,0,0" Name="txt_engPlace" VerticalAlignment="Top" Width="439" />
+        <Label Content="장소" FontFamily="NanumGothic" FontSize="9" FontWeight="Normal" Foreground="#FF959595" Height="24" HorizontalAlignment="Left" Margin="527,149,0,0" Name="txt_korPlace" VerticalAlignment="Top" Width="439" />
+        <Label Content="period" FontFamily="NanumGothic" FontSize="12" FontWeight="Normal" Foreground="White" Height="24" HorizontalAlignment="Left" Margin="527,179,0,0" Name="txt_engPeriod" VerticalAlignment="Top" Width="439" />
+        <Label Content="기간" FontFamily="NanumGothic" FontSize="9" FontWeight="Normal" Foreground="#FF959595" Height="24" HorizontalAlignment="Left" Margin="527,199,0,0" Name="txt_korPeriod" VerticalAlignment="Top" Width="439" />
+        <Label Content="time" FontFamily="NanumGothic" FontSize="12" FontWeight="Normal" Foreground="White" Height="24" HorizontalAlignment="Left" Margin="527,231,0,0" Name="txt_engTime" VerticalAlignment="Top" Width="439" />
+        <Label Content="시간" FontFamily="NanumGothic" FontSize="9" FontWeight="Normal" Foreground="#FF959595" Height="24" HorizontalAlignment="Left" Margin="527,251,0,0" Name="txt_korTime" VerticalAlignment="Top" Width="439" />
+        <Label Content="prices" FontFamily="NanumGothic" FontSize="12" FontWeight="Normal" Foreground="White" Height="41" HorizontalAlignment="Left" Margin="527,285,0,0" Name="txt_engPrices" VerticalAlignment="Top" Width="439" />
+        <Label Content="가격" FontFamily="NanumGothic" FontSize="9" FontWeight="Normal" Foreground="#FF959595" Height="39" HorizontalAlignment="Left" Margin="527,332,0,0" Name="txt_korPrices" VerticalAlignment="Top" Width="439" />
+        <Label Content="contact" FontFamily="NanumGothic" FontSize="9" FontWeight="Normal" Foreground="#FF959595" Height="24" HorizontalAlignment="Left" Margin="527,377,0,0" Name="txt_Contact" VerticalAlignment="Top" Width="439" />
     </Grid>
 </Window>
