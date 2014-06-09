@@ -19,6 +19,7 @@ namespace songpa
     public partial class MainWindow : Window
     {
         int nCurrentPage = 0;   // 현재 표시 중인 페이지 [6/9/2014 Mark]
+        int nPageCount = 0; // 페이지 개수 [6/9/2014 Mark]
 
         public MainWindow()
         {
@@ -27,11 +28,8 @@ namespace songpa
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            ImageRefresh();
-
-            //string text = System.IO.File.ReadAllText(strPath + "\\contents.txt");
-            //MessageBox.Show(text);
-
+            BoardRefresh();
+                        
             StartTimer();
         }
 
@@ -49,45 +47,34 @@ namespace songpa
             //MessageBox.Show(str);
 
 
-            ImageRefresh();
+            BoardRefresh();
 
 
             //string text = System.IO.File.ReadAllText(@"\\192.168.0.14\all\");
         }
 
-        private void ImageRefresh()
+        private void BoardRefresh()
         {
             //MessageBox.Show("refresh!");
 
             // rush ticket root folder [6/5/2014 Mark]
             DirectoryInfo DIR_rush_root = new DirectoryInfo(strPath + "\\rush_ticket_root\\");
-
             DirectoryInfo[] RushRootInfo = DIR_rush_root.GetDirectories("*.*");
+            nPageCount = RushRootInfo.Length;
+
+            if (nCurrentPage + 1 >= nPageCount)
+                btn_Right.IsEnabled = false;
+            else
+                btn_Right.IsEnabled = true;
+
+            if (nCurrentPage == 0)
+                btn_Left.IsEnabled = false;
+            else
+                btn_Left.IsEnabled = true;
 
             XMLLoad(RushRootInfo[nCurrentPage].FullName);
 
             
-            //foreach (System.IO.DirectoryInfo d in RushRootInfo)
-            //{
-                //MessageBox.Show("rush_root : " + d.FullName);
-                //System.IO.DirectoryInfo DIR_rush_image1 = new System.IO.DirectoryInfo(d.FullName+"\\image1");
-                //System.IO.FileInfo[] FILE_image1= DIR_rush_image1.GetFiles();
-                //BitmapImage img1 = new BitmapImage(new Uri(FILE_image1[0].FullName));
-                //img_Rush1.Source = img1;
-
-                //System.IO.DirectoryInfo DIR_rush_image2 = new System.IO.DirectoryInfo(d.FullName + "\\image2");
-                //System.IO.FileInfo[] FILE_image2 = DIR_rush_image2.GetFiles();
-                //BitmapImage img2 = new BitmapImage(new Uri(FILE_image2[0].FullName));
-                //img_Rush2.Source = img2;
-
-                //string text = System.IO.File.ReadAllText(d.FullName + "\\contents\\1.txt");
-                //txt_Title.Content = text;
-            //}
-
-            
-
-            //BitmapImage img = new BitmapImage(new Uri(strPath + "\\rush_ticket_root\\image1\\1.jpg"));
-            //image1.Source = img;
         }
 
 
@@ -108,17 +95,19 @@ namespace songpa
 
         void TimerClock_Tick(object sender, EventArgs e)
         {
-            ImageRefresh();
+            BoardRefresh();
         }
 
         private void btn_Left_Click(object sender, RoutedEventArgs e)
         {
-
+            nCurrentPage--;
+            BoardRefresh();
         }
 
         private void btn_Right_Click(object sender, RoutedEventArgs e)
         {
-
+            nCurrentPage++;
+            BoardRefresh();
         }
 
 
@@ -180,7 +169,10 @@ namespace songpa
                     case "image1":
                         {
                             if (node.InnerText.Trim() == "")
+                            {
+                                img_Rush1.Source = null;
                                 break;
+                            }
 
                             String pathImage = pathToLoad +"\\"+node.InnerText;
                             BitmapImage bitmap = new BitmapImage(new Uri(pathImage));
