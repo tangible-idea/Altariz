@@ -131,7 +131,11 @@ namespace manager_pc
                 if (img_Form1.Source == null)
                     AddElement(textWriter, "image1", "");
                 else
-                    AddElement(textWriter, "image1", img_Form1.Source.ToString());
+                {
+                    String pathAbsolute= img_Form1.Source.ToString();
+                    String pathRelative = pathAbsolute.Substring(pathAbsolute.LastIndexOf("/") + 1);
+                    AddElement(textWriter, "image1", pathRelative);
+                }
             }
             textWriter.WriteEndElement();
 
@@ -202,13 +206,20 @@ namespace manager_pc
                         break;
                     case "image1":
                         {
-                            BitmapImage bitmap = new BitmapImage(new Uri(node.InnerText));
-                            img_Form1.Source = bitmap;
+                            if (node.InnerText.Trim() == "")
+                                break;
+
+                            String pathImage = pathToLoad + "\\" + node.InnerText;
+                            BitmapImage bitmap = new BitmapImage(new Uri(pathImage));
+                            if (bitmap != null)
+                                img_Form1.Source = bitmap;
                         }
                         break;
                 }
             }
             return true;
         }
+
+
     }
 }
