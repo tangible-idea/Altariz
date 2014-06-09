@@ -142,10 +142,20 @@ namespace manager_pc
             w.WriteEndElement();
         }
 
-        private void XMLLoad(String pathToLoad)
+        private bool XMLLoad(String pathToLoad)
         {
             XmlDocument XmlDoc = new XmlDocument();
-            XmlDoc.Load(pathToLoad + "\\1.xml");
+
+            try
+            {
+                XmlDoc.Load(pathToLoad + "\\1.xml");
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show("저장된 파일의 형식이 올바르지 않습니다.\n정보를 정상적으로 불러오지 못했습니다.");
+                return false;
+            }
+            
             XmlNode root= XmlDoc.DocumentElement;
             XmlNodeList list = root.ChildNodes;
 
@@ -194,6 +204,7 @@ namespace manager_pc
                         break;
                 }
             }
+            return true;
         }
     }
 }
