@@ -48,8 +48,8 @@ namespace manager_pc
             DirectoryInfo di_RUSH_ROOT = new DirectoryInfo(pathRushRoot);
             DirectoryInfo[] arrInfo = di_RUSH_ROOT.GetDirectories();
 
-            if (arrInfo.Length == 0)
-                return;
+            //if (arrInfo.Length == 0)
+            //    return;
 
             List<TodoItem> items = new List<TodoItem>();
             for (int i = 0; i < arrInfo.Length; ++i)
@@ -71,10 +71,13 @@ namespace manager_pc
         {
             var rushContentWindow = new RushTicketContent("", true);
             rushContentWindow.Owner = this;
-            if (rushContentWindow.ShowDialog() == false)
-            {
-                RefreshFolderList();
-            }
+
+            rushContentWindow.ShowDialog();
+            RefreshFolderList();
+            //if (rushContentWindow.ShowDialog() == false)
+            //{
+            //    RefreshFolderList();
+            //}
         }
 
         private void OnBtnClick_board_modify(object sender, RoutedEventArgs e)

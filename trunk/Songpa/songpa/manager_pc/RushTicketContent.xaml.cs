@@ -127,7 +127,11 @@ namespace manager_pc
                 AddElement(textWriter, "price_eng", txt_EngPrice.Text);
                 AddElement(textWriter, "price_kor", txt_KorPrice.Text);
                 AddElement(textWriter, "contact", txt_Contact.Text);
-                AddElement(textWriter, "image1", img_Form1.Source.ToString());
+
+                if (img_Form1.Source == null)
+                    AddElement(textWriter, "image1", "");
+                else
+                    AddElement(textWriter, "image1", img_Form1.Source.ToString());
             }
             textWriter.WriteEndElement();
 
