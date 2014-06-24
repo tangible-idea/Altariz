@@ -47,6 +47,23 @@ namespace manager_pc
             this.Close();
         }
 
+        private void btn_PC2_Click(object sender, RoutedEventArgs e)
+        {
+            var newWindow = new FestivalList();
+            newWindow.Show();
+
+            this.Close();
+        }
+
+        private void btn_PC3_Click(object sender, RoutedEventArgs e)
+        {
+            //var newWindow = new RushTicketList();
+            //newWindow.Show();
+
+            //this.Close();
+        }
+
+
         private void btn_SetFolder_Click(object sender, RoutedEventArgs e)
         {
             System.Windows.Forms.FolderBrowserDialog dialog = new System.Windows.Forms.FolderBrowserDialog();
@@ -62,12 +79,13 @@ namespace manager_pc
                     di_ROOT.Create();             //create Folder
 
                 DirectoryInfo di_SUB1 = new DirectoryInfo(txt_RootPath.Text+"\\rush_ticket_root");
-                //DirectoryInfo di_SUB2 = new DirectoryInfo(txt_RootPath.Text+"\\sub2");
+                DirectoryInfo di_SUB2 = new DirectoryInfo(txt_RootPath.Text+"\\festival_root");
 
                 if (di_SUB1.Exists == false)
                     di_SUB1.Create();       
-                //if (di_SUB2.Exists == false)
-                  //  di_SUB2.Create();       
+                if (di_SUB2.Exists == false)
+                    di_SUB2.Create();       
+
                 rkey.SetValue("PATH", txt_RootPath.Text.ToString());
                 MessageBox.Show("Initialize successful!");
             }
@@ -123,5 +141,7 @@ namespace manager_pc
                 btn_PC3.IsEnabled = true;
             }
         }
+
+
     }
 }
