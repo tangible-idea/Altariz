@@ -1,0 +1,39 @@
+﻿<Window x:Class="manager_pc.FestivalContent"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Rush Ticket Contents" Height="651" Width="992" ResizeMode="NoResize" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Image Height="399" HorizontalAlignment="Left" Margin="12,41,0,0" Name="img_Form1" Stretch="Fill" VerticalAlignment="Top" Width="306" />
+        <Rectangle Height="399" HorizontalAlignment="Left" Margin="12,41,0,0" Name="rectangle1" Stroke="Black" VerticalAlignment="Top" Width="306" />
+        <Button Content="..." Height="32" HorizontalAlignment="Left" Margin="286,408,0,0" Name="btn_SelImage" VerticalAlignment="Top" Width="32" Click="btn_SelImage_Click" />
+        
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="416,12,0,0" Name="txt_1" VerticalAlignment="Top" Width="542" Text="" MaxLength="43" MaxLines="1" />
+        <Label Content="텍스트1" Height="28" HorizontalAlignment="Left" Margin="335,12,0,0" Name="label1" VerticalAlignment="Top" Width="75" />
+        
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="416,41,0,0" MaxLength="43" MaxLines="1" Name="txt_2" Text="" VerticalAlignment="Top" Width="542" />
+        <Label Content="텍스트2" Height="28" HorizontalAlignment="Left" Margin="335,41,0,0" Name="label2" VerticalAlignment="Top" Width="75" />
+        
+        <TextBox Height="97" HorizontalAlignment="Left" Margin="416,70,0,0" MaxLength="43" MaxLines="1" Name="txt_3" Text="" VerticalAlignment="Top" Width="542" />
+        <Label Content="텍스트3" Height="28" HorizontalAlignment="Left" Margin="335,70,0,0" Name="label4" VerticalAlignment="Top" Width="75" />
+
+        <TextBox Height="97" HorizontalAlignment="Left" Margin="416,173,0,0" MaxLength="43" MaxLines="1" Name="txt_4" Text="" VerticalAlignment="Top" Width="542" />
+        <Label Content="텍스트4" Height="28" HorizontalAlignment="Left" Margin="335,173,0,0" Name="label5" VerticalAlignment="Top" Width="75" />
+       
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="94,12,0,0" Name="cbo_SelPosition" VerticalAlignment="Top" Width="224" />
+        <Label Content="위치 선택 : " Height="24" HorizontalAlignment="Left" Margin="12,12,0,0" Name="label12" VerticalAlignment="Top" Width="76" />
+      
+
+        <Image Height="176" HorizontalAlignment="Left" Margin="693,288,0,0" Name="img_Form2" Stretch="Fill" VerticalAlignment="Top" Width="265" />
+        <Button Content="..." Height="32" HorizontalAlignment="Left" Margin="649,432,0,0" Name="btn_Image2" VerticalAlignment="Top" Width="32" />
+
+        <Image Height="150" HorizontalAlignment="Left" Margin="531,450,0,0" Name="img_Form3" Stretch="Fill" VerticalAlignment="Top" Width="150" />
+        <Button Content="..." Height="32" HorizontalAlignment="Left" Margin="926,432,0,0" Name="btn_Image3" VerticalAlignment="Top" Width="32" />
+
+        <Image Height="176" HorizontalAlignment="Left" Margin="416,288,0,0" Name="img_ThumbNail" Stretch="Fill" VerticalAlignment="Top" Width="265" />
+        <Button Content="..." Height="32" HorizontalAlignment="Left" Margin="649,568,0,0" Name="btn_ThumbNail" VerticalAlignment="Top" Width="32" />
+
+
+        <Button Content="저장" Height="56" HorizontalAlignment="Left" Margin="724,544,0,0" Name="btn_Save" VerticalAlignment="Top" Width="112" Click="btn_Save_Click" />
+        <Button Content="취소" Height="56" HorizontalAlignment="Left" Margin="846,544,0,0" Name="btn_Cancel" VerticalAlignment="Top" Width="112" Click="btn_Cancel_Click" />
+    </Grid>
+</Window>

@@ -58,12 +58,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ContentsItem.cs" />
+    <Compile Include="FestivalContent.xaml.cs">
+      <DependentUpon>FestivalContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FestivalList.xaml.cs">
+      <DependentUpon>FestivalList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RushTicketContent.xaml.cs">
       <DependentUpon>RushTicketContent.xaml</DependentUpon>
     </Compile>
     <Compile Include="RushTicketList.xaml.cs">
       <DependentUpon>RushTicketList.xaml</DependentUpon>
     </Compile>
+    <Page Include="FestivalContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FestivalList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

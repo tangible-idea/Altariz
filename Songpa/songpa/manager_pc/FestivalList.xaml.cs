@@ -17,15 +17,15 @@ using System.IO;
 namespace manager_pc
 {
     /// <summary>
-    /// RushTicketList.xaml에 대한 상호 작용 논리
+    /// FestivalList.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class RushTicketList : Window
+    public partial class FestivalList : Window
     {
         RegistryKey rkey;
         String pathRoot;
-        String pathRushRoot;
+        String pathFestivalRoot;
 
-        public RushTicketList()
+        public FestivalList()
         {
             InitializeComponent();
 
@@ -34,19 +34,20 @@ namespace manager_pc
             if (rkey.GetValue("PATH") != null)
             {
                 pathRoot = rkey.GetValue("PATH").ToString();
-                pathRushRoot = pathRoot + "\\rush_ticket_root";
+                pathFestivalRoot = pathRoot + "\\festival_root";
             }
 
             RefreshFolderList();
         }
+
 
         /// <summary>
         /// 폴더 리스트를 다시 가져온다.
         /// </summary>
         private void RefreshFolderList()
         {
-            DirectoryInfo di_RUSH_ROOT = new DirectoryInfo(pathRushRoot);
-            DirectoryInfo[] arrInfo = di_RUSH_ROOT.GetDirectories();
+            DirectoryInfo di_FESTIVAL_ROOT = new DirectoryInfo(pathFestivalRoot);
+            DirectoryInfo[] arrInfo = di_FESTIVAL_ROOT.GetDirectories();
 
             //if (arrInfo.Length == 0)
             //    return;
@@ -69,10 +70,10 @@ namespace manager_pc
 
         private void btn_newBoard_Click(object sender, RoutedEventArgs e)
         {
-            var rushContentWindow = new RushTicketContent("", true);
-            rushContentWindow.Owner = this;
+            var festivalContentWindow = new FestivalContent("", true);
+            festivalContentWindow.Owner = this;
 
-            rushContentWindow.ShowDialog();
+            festivalContentWindow.ShowDialog();
             RefreshFolderList();
             //if (rushContentWindow.ShowDialog() == false)
             //{
@@ -85,12 +86,12 @@ namespace manager_pc
             Button btn = (Button)sender;
             //MessageBox.Show("modify : "+ btn.Tag);
 
-            int currIdx= Int32.Parse(btn.Tag.ToString());
-            ContentItem currItem= (ContentItem)listSubProjects.Items[currIdx];
+            int currIdx = Int32.Parse(btn.Tag.ToString());
+            ContentItem currItem = (ContentItem)listSubProjects.Items[currIdx];
 
-            var rushContentWindow = new RushTicketContent(currItem.Title, false);
-            rushContentWindow.Owner = this;
-            if (rushContentWindow.ShowDialog() == false)
+            var festivalContentWindow = new FestivalContent(currItem.Title, false);
+            festivalContentWindow.Owner = this;
+            if (festivalContentWindow.ShowDialog() == false)
             {
                 //MessageBox.Show("modify");
                 //RefreshFolderList();
@@ -102,12 +103,12 @@ namespace manager_pc
             //MessageBox.Show("delete : " + btn.Tag);
             int currIdx = Int32.Parse(btn.Tag.ToString());
             ContentItem currItem = (ContentItem)listSubProjects.Items[currIdx];
-            MessageBoxResult res= MessageBox.Show("Are you sure?", "Delete", MessageBoxButton.YesNo);
+            MessageBoxResult res = MessageBox.Show("Are you sure?", "Delete", MessageBoxButton.YesNo);
 
             if (res == MessageBoxResult.Yes)    // 해당 항목을 지우고 폴더들 리프레쉬 [6/8/2014 Mark]
             {
                 //listSubProjects.Items.RemoveAt(currIdx);
-                Directory.Delete(pathRushRoot + "\\" + currItem.Title, true);
+                Directory.Delete(pathFestivalRoot + "\\" + currItem.Title, true);
                 System.Threading.Thread.Sleep(350);
                 RefreshFolderList();
             }
@@ -115,6 +116,5 @@ namespace manager_pc
 
 
     }
-
 
 }
