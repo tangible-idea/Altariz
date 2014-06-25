@@ -1,7 +1,7 @@
 ﻿<Window x:Class="manager_pc.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="289" Width="600" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen" Topmost="True" ResizeMode="NoResize">
+        Title="MainWindow" Height="289" Width="600" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen" Topmost="False" ResizeMode="NoResize">
     <Grid>
         <Button Content="PC1" Height="171" HorizontalAlignment="Left" Margin="11,44,0,0" Name="btn_PC1" VerticalAlignment="Top" Width="185" Click="btn_PC1_Click" FontWeight="Bold" FontSize="20" />
         <Button Content="PC2" Height="171" HorizontalAlignment="Left" Margin="202,44,0,0" Name="btn_PC2" VerticalAlignment="Top" Width="185" FontWeight="Bold" FontSize="20" Click="btn_PC2_Click" />

@@ -21,10 +21,10 @@
         <Label Content="시간(영문)" HorizontalAlignment="Left" Margin="335,228,0,0" Name="label7" Width="75" Height="28" VerticalAlignment="Top" />
         <TextBox Height="23" HorizontalAlignment="Left" Margin="416,257,0,0" MaxLength="43" MaxLines="1" Name="txt_KorTime" Text="" VerticalAlignment="Top" Width="542" />
         <Label Content="시간(한글)" Height="28" HorizontalAlignment="Left" Margin="335,257,0,0" Name="label8" VerticalAlignment="Top" Width="75" />
-        <TextBox Height="42" HorizontalAlignment="Left" Margin="416,300,0,0" MaxLength="43" MaxLines="2" Name="txt_EngPrice" Text="" VerticalAlignment="Top" Width="542" MinLines="2" />
+        <TextBox Height="38" HorizontalAlignment="Left" Margin="416,300,0,0" MaxLength="43" MaxLines="2" Name="txt_EngPrice" Text="" VerticalAlignment="Top" Width="542" TextWrapping="WrapWithOverflow" AcceptsReturn="True"/>
         <Label Content="가격(영문)" Height="28" HorizontalAlignment="Left" Margin="335,300,0,0" Name="label9" VerticalAlignment="Top" Width="75" />
         <Label Content="가격(한글)" Height="28" HorizontalAlignment="Left" Margin="335,352,0,0" Name="label10" VerticalAlignment="Top" Width="75" />
-        <TextBox Height="42" HorizontalAlignment="Left" Margin="416,352,0,0" MaxLength="43" MaxLines="2" Name="txt_KorPrice" Text="" VerticalAlignment="Top" Width="542" />
+        <TextBox Height="42" HorizontalAlignment="Left" Margin="416,352,0,0" MaxLength="43" MaxLines="2" Name="txt_KorPrice" Text="" VerticalAlignment="Top" Width="542" TextWrapping="WrapWithOverflow" AcceptsReturn="True"/>
         <Label Content="문의" Height="28" HorizontalAlignment="Left" Margin="335,417,0,0" Name="label11" VerticalAlignment="Top" Width="75" />
         <TextBox Height="23" HorizontalAlignment="Left" Margin="416,417,0,0" MaxLength="43" MaxLines="1" Name="txt_Contact" Text="" VerticalAlignment="Top" Width="542" />
         <Button Content="저장" Height="56" HorizontalAlignment="Left" Margin="728,462,0,0" Name="btn_Save" VerticalAlignment="Top" Width="112" Click="btn_Save_Click" />
