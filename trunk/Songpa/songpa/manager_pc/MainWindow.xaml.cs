@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.IO;
 using Microsoft.Win32;
 using System.Management;
+using System.Net;
 
 namespace manager_pc
 {
@@ -37,6 +38,8 @@ namespace manager_pc
                 txt_RootPath.Text = rkey.GetValue("PATH").ToString();
             }
             CheckFolderStructure();
+
+            Title = getMyIP();  // window title을 ip로 변경. [6/10/2014 Mark]
         }
 
         private void btn_PC1_Click(object sender, RoutedEventArgs e)
@@ -107,7 +110,7 @@ namespace manager_pc
                 outParams = managementClass.InvokeMethod("Create", inParams, null);
 
                 if ((uint)(outParams.Properties["ReturnValue"].Value) != 0)
-                    Console.WriteLine("Folder might be already in share or unable to share the directory");
+                    MessageBox.Show("Folder might be already in share or unable to share the directory");
             }
             catch (Exception ex)
             {
@@ -142,6 +145,11 @@ namespace manager_pc
             }
         }
 
-
+        public string getMyIP()
+        {
+            IPHostEntry host = Dns.GetHostByName(Dns.GetHostName());
+            string myip = host.AddressList[0].ToString();
+            return myip;
+        }
     }
 }
