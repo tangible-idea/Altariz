@@ -175,6 +175,13 @@ namespace songpa
                             }
 
                             String pathImage = pathToLoad +"\\"+node.InnerText;
+
+                            if (!File.Exists(pathImage))
+                            {
+                                MessageBox.Show("이미지 경로가 잘못되어 불러올 수 없습니다.");
+                                return false;
+                            }
+
                             BitmapImage bitmap = new BitmapImage(new Uri(pathImage));
                             if (bitmap != null)
                                 img_Rush1.Source = bitmap;
