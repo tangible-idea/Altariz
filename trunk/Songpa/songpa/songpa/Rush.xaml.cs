@@ -16,12 +16,12 @@ using System.Xml;
 
 namespace songpa
 {
-    public partial class MainWindow : Window
+    public partial class Rush : Window
     {
         int nCurrentPage = 0;   // 현재 표시 중인 페이지 [6/9/2014 Mark]
         int nPageCount = 0; // 페이지 개수 [6/9/2014 Mark]
 
-        public MainWindow()
+        public Rush()
         {
             InitializeComponent();
         }
@@ -35,7 +35,8 @@ namespace songpa
 
 
         //public String strPath = @"\\192.168.0.14\all";
-        public String strPath = Connection.PATH;
+        //public String strPath = Connection.PATH;
+        public String strPath = Connection.PATHlocal;
 
 
         private void button1_Click(object sender, RoutedEventArgs e)
