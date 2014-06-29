@@ -60,7 +60,8 @@ namespace manager_pc
             {
                 String sour = oFileDlg.FileName;
                 String dest = pathFestivalRoot + "\\" + currentName + "\\" + "1.jpg";
-                File.Copy(sour, dest, true);
+                if (sour != dest)    // 경로가 같으면 복사 안해도 된다.
+                    File.Copy(sour, dest, true);
 
                 System.Threading.Thread.Sleep(150);
 
@@ -68,6 +69,70 @@ namespace manager_pc
                 img_Form1.Source = bitmap;
             }
         }
+
+
+        private void btn_Image2_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog oFileDlg = new OpenFileDialog();
+
+            oFileDlg.Filter = "JPG Files(*.jpg)|*.jpg";
+            if (oFileDlg.ShowDialog() == true)
+            {
+                String sour = oFileDlg.FileName;
+                String dest = pathFestivalRoot + "\\" + currentName + "\\" + "2.jpg";
+
+                MessageBox.Show(img_Form2.Source.IsFrozen.ToString());
+
+                File.Delete(dest);
+
+                if (sour != dest)    // 경로가 같으면 복사 안해도 된다.
+                    File.Copy(sour, dest, true);
+
+                System.Threading.Thread.Sleep(150);
+
+                BitmapImage bitmap = new BitmapImage(new Uri(dest));
+                img_Form2.Source = bitmap;
+            }
+        }
+
+        private void btn_Image3_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog oFileDlg = new OpenFileDialog();
+
+            oFileDlg.Filter = "JPG Files(*.jpg)|*.jpg";
+            if (oFileDlg.ShowDialog() == true)
+            {
+                String sour = oFileDlg.FileName;
+                String dest = pathFestivalRoot + "\\" + currentName + "\\" + "3.jpg";
+                if (sour != dest)    // 경로가 같으면 복사 안해도 된다.
+                    File.Copy(sour, dest, true);
+
+                System.Threading.Thread.Sleep(150);
+
+                BitmapImage bitmap = new BitmapImage(new Uri(dest));
+                img_Form3.Source = bitmap;
+            }
+        }
+
+        private void btn_ThumbNail_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog oFileDlg = new OpenFileDialog();
+
+            oFileDlg.Filter = "JPG Files(*.jpg)|*.jpg";
+            if (oFileDlg.ShowDialog() == true)
+            {
+                String sour = oFileDlg.FileName;
+                String dest = pathFestivalRoot + "\\" + currentName + "\\" + "thumb.jpg";
+                if (sour != dest)    // 경로가 같으면 복사 안해도 된다.
+                    File.Copy(sour, dest, true);
+
+                System.Threading.Thread.Sleep(150);
+
+                BitmapImage bitmap = new BitmapImage(new Uri(dest));
+                img_ThumbNail.Source = bitmap;
+            }
+        }
+
 
         private void btn_Save_Click(object sender, RoutedEventArgs e)
         {
@@ -116,6 +181,8 @@ namespace manager_pc
             textWriter.WriteStartElement("root");
             {
                 // 노드와 값 설정
+                AddElement(textWriter, "tabs", cbo_SelPosition.SelectedIndex.ToString());
+
                 AddElement(textWriter, "txt1", txt_1.Text);
                 AddElement(textWriter, "txt2", txt_2.Text);
                 AddElement(textWriter, "txt3", txt_3.Text);
@@ -191,6 +258,9 @@ namespace manager_pc
             {
                 switch (node.Name)
                 {
+                    case "tabs":
+                        cbo_SelPosition.SelectedIndex = Int32.Parse(node.InnerText);
+                        break;
                     case "txt1":
                         txt_1.Text = node.InnerText;
                         break;
@@ -236,7 +306,7 @@ namespace manager_pc
                                 img_Form3.Source = bitmap;
                         }
                         break;
-                    case "image_thumb":
+                    case "img_thumb":
                         {
                             if (node.InnerText.Trim() == "")
                                 break;

@@ -106,10 +106,20 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="res\bg.jpg" />
+    <Resource Include="res\bg_1.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="res\Bar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\bg_2.jpg" />
+    <Resource Include="res\Faestival Off button.jpg" />
+    <Resource Include="res\Faestival On button.jpg" />
+    <Resource Include="res\Left Next Boutton.jpg" />
+    <Resource Include="res\Musical Off button.jpg" />
+    <Resource Include="res\Musical On button.jpg" />
+    <Resource Include="res\Right Next Boutton.jpg" />
+    <Resource Include="res\Select box.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
