@@ -60,7 +60,9 @@ namespace manager_pc
             {
                 String sour = oFileDlg.FileName;
                 String dest = pathRushRoot + "\\" + currentName + "\\" + "1.jpg";
-                File.Copy(sour, dest, true);
+                
+                if(sour != dest)    // 경로가 같으면 복사 안해도 된다.
+                    File.Copy(sour, dest, true);
 
                 System.Threading.Thread.Sleep(150);
 
@@ -210,7 +212,15 @@ namespace manager_pc
                                 break;
 
                             String pathImage = pathToLoad + "\\" + node.InnerText;
+
+                            if (!File.Exists(pathImage))
+                            {
+                                MessageBox.Show("이미지 경로가 잘못되어 불러올 수 없습니다.\n해당 파일이 삭제되었거나 옮겨진 것으로 판단됩니다.\n다른 파일로 변경해주세요.");
+                                return false;
+                            }
+
                             BitmapImage bitmap = new BitmapImage(new Uri(pathImage));
+                            
                             if (bitmap != null)
                                 img_Form1.Source = bitmap;
                         }
