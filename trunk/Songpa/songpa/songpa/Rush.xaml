@@ -20,5 +20,6 @@
         <Label Content="prices" Width="678" Height="53" FontFamily="NanumGothic" FontSize="16" FontWeight="Normal" Foreground="White" HorizontalAlignment="Left" Margin="1031,496,0,0" Name="txt_EngPrices" VerticalAlignment="Top"  />
         <Label Content="가격" Width="678"  Height="58" FontFamily="NanumGothic" FontSize="14" FontWeight="Normal" Foreground="#FF959595" HorizontalAlignment="Left" Margin="1031,569,0,0" Name="txt_KorPrices" VerticalAlignment="Top" />
         <Label Content="contact" Width="678" Height="39" FontFamily="NanumGothic" FontSize="14" FontWeight="Normal" Foreground="#FF959595" HorizontalAlignment="Left" Margin="1031,659,0,0" Name="txt_Contact" VerticalAlignment="Top" />
+        <Image Height="114" HorizontalAlignment="Left" Margin="216,107,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="16" Source="/songpa;component/res/Bar.png" />
     </Grid>
 </Window>
