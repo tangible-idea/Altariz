@@ -33,9 +33,9 @@ namespace songpa
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             cbo_connection_target.Items.Clear();
-            cbo_connection_target.Items.Add("1");
-            cbo_connection_target.Items.Add("2");
-            cbo_connection_target.Items.Add("3");
+            cbo_connection_target.Items.Add("Rush ticket");
+            cbo_connection_target.Items.Add("Concert & Festival");
+            cbo_connection_target.Items.Add("History & culture");
 
             // 레지스트리 값 읽어오기 [6/5/2014 Mark]
             Registry.CurrentUser.CreateSubKey("SONGPA").CreateSubKey("connection");
