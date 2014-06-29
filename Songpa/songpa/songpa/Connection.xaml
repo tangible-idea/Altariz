@@ -12,5 +12,7 @@
         <Label Content="Root Path" Height="28" HorizontalAlignment="Left" Margin="12,102,0,0" Name="label4" VerticalAlignment="Top" />
         <TextBox Height="23" Margin="116,104,0,0" Name="txt_Path" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" Text="" />
         <PasswordBox Height="23" HorizontalAlignment="Left" Margin="116,73,0,0" Name="txt_PW" VerticalAlignment="Top" Width="200" Password="" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="116,133,0,0" Name="cbo_connection_target" VerticalAlignment="Top" Width="200" />
+        <Label Content="Target" Height="28" HorizontalAlignment="Left" Margin="12,132,0,0" Name="label5" VerticalAlignment="Top" />
     </Grid>
 </Window>
