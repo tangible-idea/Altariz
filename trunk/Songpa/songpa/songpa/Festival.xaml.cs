@@ -311,12 +311,22 @@ namespace songpa
 
         private void btn_Left_Click(object sender, RoutedEventArgs e)
         {
+            if (nCurrentTap == TAP_FESTIVAL)
+                --nFestivalCurrPage;
+            else
+                --nMusicalCurrPage;
 
+            BoardRefresh();
         }
 
         private void btn_Right_Click(object sender, RoutedEventArgs e)
         {
+            if (nCurrentTap == TAP_FESTIVAL)
+                ++nFestivalCurrPage;
+            else
+                ++nMusicalCurrPage;
 
+            BoardRefresh();
         }
 
 

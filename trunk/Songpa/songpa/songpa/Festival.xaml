@@ -7,11 +7,11 @@
         <Image  Width="270" Height="65" HorizontalAlignment="Left" Margin="147,78,0,0" Name="image_tap1" Stretch="Fill" VerticalAlignment="Top" Source="/songpa;component/res/Faestival Off button.jpg" MouseDown="onClickTap1" />
         <Image  Width="270" Height="65" HorizontalAlignment="Left" Margin="417,76,0,0" Name="image_tap2" Stretch="Fill" VerticalAlignment="Top" Source="/songpa;component/res/Musical Off button.jpg" MouseDown="onClickTap2" />        
         <Image  Width="288" Height="250" HorizontalAlignment="Left" Margin="153,222,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top"/>
-        <Image  Width="288" Height="250" HorizontalAlignment="Left" Margin="490,222,0,0" Name="image2" Stretch="Fill" VerticalAlignment="Top"/>
-        <Image  Width="288" Height="250" HorizontalAlignment="Left" Margin="828,222,0,0" Name="image3" Stretch="Fill" VerticalAlignment="Top"/>
-        <Image  Width="288" Height="250" HorizontalAlignment="Left" Margin="153,543,0,0" Name="image4" Stretch="Fill" VerticalAlignment="Top"/>
-        <Image  Width="288" Height="250" HorizontalAlignment="Left" Margin="490,543,0,0" Name="image5" Stretch="Fill" VerticalAlignment="Top"/>
-        <Image  Width="288" Height="250" HorizontalAlignment="Left" Margin="828,543,0,0" Name="image6" Stretch="Fill" VerticalAlignment="Top"/>
+        <Image  Width="288" Height="250" HorizontalAlignment="Left" Margin="485,222,0,0" Name="image2" Stretch="Fill" VerticalAlignment="Top"/>
+        <Image  Width="288" Height="250" HorizontalAlignment="Left" Margin="820,222,0,0" Name="image3" Stretch="Fill" VerticalAlignment="Top"/>
+        <Image  Width="288" Height="250" HorizontalAlignment="Left" Margin="153,533,0,0" Name="image4" Stretch="Fill" VerticalAlignment="Top"/>
+        <Image  Width="288" Height="250" HorizontalAlignment="Left" Margin="485,533,0,0" Name="image5" Stretch="Fill" VerticalAlignment="Top"/>
+        <Image  Width="288" Height="250" HorizontalAlignment="Left" Margin="820,533,0,0" Name="image6" Stretch="Fill" VerticalAlignment="Top"/>
         <Button Content="btn_Left" Height="172" HorizontalAlignment="Left" Margin="40,428,0,0" Name="btn_Left" VerticalAlignment="Top" Width="62" Opacity="0.01" Click="btn_Left_Click" />
         <Button Content="btn_Right" Height="172" HorizontalAlignment="Left" Margin="1166,428,0,0" Name="btn_Right" VerticalAlignment="Top" Width="62" Opacity="0.01" Click="btn_Right_Click" />
     </Grid>
