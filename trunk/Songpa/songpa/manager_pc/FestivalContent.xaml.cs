@@ -28,6 +28,11 @@ namespace manager_pc
         String currentName;
         bool isNewBoard;
 
+        String imgPath1 = "";
+        String imgPath2 = "";
+        String imgPath3 = "";
+        String imgPathThumb = "";
+
         public FestivalContent(String _currentName, bool _isNewBoard)
         {
             InitializeComponent();
@@ -58,13 +63,14 @@ namespace manager_pc
             oFileDlg.Filter = "JPG Files(*.jpg)|*.jpg";
             if (oFileDlg.ShowDialog() == true)
             {
-                String sour = oFileDlg.FileName;
-                String dest = pathFestivalRoot + "\\" + currentName;
-                dest = MakeNameString(dest, "image1");
+                imgPath1 = oFileDlg.FileName;
+                img_Form1.Tag = oFileDlg.FileName;
+                //String dest = pathFestivalRoot + "\\" + currentName;
+                //dest = MakeNameString(dest, "image1");
 
-                File.Copy(sour, dest, true);
+                //File.Copy(sour, dest, true);
 
-                BitmapImage bitmap = new BitmapImage(new Uri(dest));
+                BitmapImage bitmap = new BitmapImage(new Uri(imgPath1));
                 img_Form1.Source = bitmap;
             }
         }
@@ -77,13 +83,14 @@ namespace manager_pc
             oFileDlg.Filter = "JPG Files(*.jpg)|*.jpg";
             if (oFileDlg.ShowDialog() == true)
             {
-                String sour = oFileDlg.FileName;
-                String dest = pathFestivalRoot + "\\" + currentName;
-                dest = MakeNameString(dest, "image2");
+                imgPath2 = oFileDlg.FileName;
+                img_Form2.Tag = oFileDlg.FileName;
+                //String dest = pathFestivalRoot + "\\" + currentName;
+                //dest = MakeNameString(dest, "image2");
 
-                File.Copy(sour, dest, true);
-                
-                BitmapImage bitmap = new BitmapImage(new Uri(dest));
+                //File.Copy(sour, dest, true);
+
+                BitmapImage bitmap = new BitmapImage(new Uri(imgPath2));
                 img_Form2.Source = bitmap;
             }
         }
@@ -95,13 +102,14 @@ namespace manager_pc
             oFileDlg.Filter = "JPG Files(*.jpg)|*.jpg";
             if (oFileDlg.ShowDialog() == true)
             {
-                String sour = oFileDlg.FileName;
-                String dest = pathFestivalRoot + "\\" + currentName;
-                dest = MakeNameString(dest, "image3");
+                imgPath3 = oFileDlg.FileName;
+                img_Form3.Tag = oFileDlg.FileName;
+                //String dest = pathFestivalRoot + "\\" + currentName;
+                //dest = MakeNameString(dest, "image3");
 
-                File.Copy(sour, dest, true);
+                //File.Copy(sour, dest, true);
 
-                BitmapImage bitmap = new BitmapImage(new Uri(dest));
+                BitmapImage bitmap = new BitmapImage(new Uri(imgPath3));
                 img_Form3.Source = bitmap;
             }
         }
@@ -113,13 +121,14 @@ namespace manager_pc
             oFileDlg.Filter = "JPG Files(*.jpg)|*.jpg";
             if (oFileDlg.ShowDialog() == true)
             {
-                String sour = oFileDlg.FileName;
-                String dest = pathFestivalRoot + "\\" + currentName;
-                dest = MakeNameString(dest, "imageThumb");
+                imgPathThumb = oFileDlg.FileName;
+                img_ThumbNail.Tag= oFileDlg.FileName;
+                //String dest = pathFestivalRoot + "\\" + currentName;
+                //dest = MakeNameString(dest, "imageThumb");
 
-                File.Copy(sour, dest, true);
+                //File.Copy(sour, dest, true);
 
-                BitmapImage bitmap = new BitmapImage(new Uri(dest));
+                BitmapImage bitmap = new BitmapImage(new Uri(imgPathThumb));
                 img_ThumbNail.Source = bitmap;
             }
         }
@@ -198,7 +207,21 @@ namespace manager_pc
                     AddElement(textWriter, "image1", "");
                 else
                 {
-                    String pathAbsolute = img_Form1.Source.ToString();
+                    String pathAbsolute = "";
+                    if (imgPath1 != "")
+                    {
+                        String sour = imgPath1;
+                        String dest = pathFestivalRoot + "\\" + currentName;
+                        dest = MakeNameString(dest, "image1");
+
+                        File.Copy(sour, dest, true);
+                        pathAbsolute = dest;
+                    }
+                    else    // 안바뀌었으면 그대로 가져감. [7/2/2014 Mark]
+                    {
+                        pathAbsolute = (String)img_Form1.Tag;
+                    }
+                    pathAbsolute = pathAbsolute.Replace("\\", "/");
                     String pathRelative = pathAbsolute.Substring(pathAbsolute.LastIndexOf("/") + 1);
                     AddElement(textWriter, "image1", pathRelative);
                 }
@@ -207,7 +230,21 @@ namespace manager_pc
                     AddElement(textWriter, "image2", "");
                 else
                 {
-                    String pathAbsolute = img_Form2.Source.ToString();
+                    String pathAbsolute = "";
+                    if (imgPath2 != "")
+                    {
+                        String sour = imgPath2;
+                        String dest = pathFestivalRoot + "\\" + currentName;
+                        dest = MakeNameString(dest, "image2");
+
+                        File.Copy(sour, dest, true);
+                        pathAbsolute = dest;
+                    }
+                    else    // 안바뀌었으면 그대로 가져감. [7/2/2014 Mark]
+                    {
+                        pathAbsolute = (String)img_Form2.Tag;
+                    }
+                    pathAbsolute = pathAbsolute.Replace("\\", "/");
                     String pathRelative = pathAbsolute.Substring(pathAbsolute.LastIndexOf("/") + 1);
                     AddElement(textWriter, "image2", pathRelative);
                 }
@@ -216,7 +253,21 @@ namespace manager_pc
                     AddElement(textWriter, "image3", "");
                 else
                 {
-                    String pathAbsolute = img_Form3.Source.ToString();
+                    String pathAbsolute = "";
+                    if (imgPath3 != "")
+                    {
+                        String sour = imgPath3;
+                        String dest = pathFestivalRoot + "\\" + currentName;
+                        dest = MakeNameString(dest, "image3");
+
+                        File.Copy(sour, dest, true);
+                        pathAbsolute = dest;
+                    }
+                    else    // 안바뀌었으면 그대로 가져감. [7/2/2014 Mark]
+                    {
+                        pathAbsolute = (String)img_Form3.Tag;
+                    }
+                    pathAbsolute = pathAbsolute.Replace("\\", "/");
                     String pathRelative = pathAbsolute.Substring(pathAbsolute.LastIndexOf("/") + 1);
                     AddElement(textWriter, "image3", pathRelative);
                 }
@@ -225,7 +276,22 @@ namespace manager_pc
                     AddElement(textWriter, "img_thumb", "");
                 else
                 {
-                    String pathAbsolute = img_ThumbNail.Source.ToString();
+                    String pathAbsolute = "";
+                    if (imgPathThumb != "")
+                    {
+                        String sour = imgPathThumb;
+                        String dest = pathFestivalRoot + "\\" + currentName;
+                        dest = MakeNameString(dest, "imageThumb");
+
+                        File.Copy(sour, dest, true);
+                        pathAbsolute = dest;
+                    }
+                    else    // 안바뀌었으면 그대로 가져감. [7/2/2014 Mark]
+                    {
+                        pathAbsolute = (String)img_ThumbNail.Tag;
+                    }
+
+                    pathAbsolute= pathAbsolute.Replace("\\", "/");
                     String pathRelative = pathAbsolute.Substring(pathAbsolute.LastIndexOf("/") + 1);
                     AddElement(textWriter, "img_thumb", pathRelative);
                 }
@@ -287,7 +353,10 @@ namespace manager_pc
                             String pathImage = pathToLoad + "\\" + node.InnerText;
                             BitmapImage bitmap = new BitmapImage(new Uri(pathImage));
                             if (bitmap != null)
+                            {
                                 img_Form1.Source = bitmap;
+                                img_Form1.Tag = pathImage;
+                            }
                         }
                         break;
                     case "image2":
@@ -298,7 +367,10 @@ namespace manager_pc
                             String pathImage = pathToLoad + "\\" + node.InnerText;
                             BitmapImage bitmap = new BitmapImage(new Uri(pathImage));
                             if (bitmap != null)
+                            {
                                 img_Form2.Source = bitmap;
+                                img_Form2.Tag = pathImage;
+                            }
                         }
                         break;
                     case "image3":
@@ -309,7 +381,10 @@ namespace manager_pc
                             String pathImage = pathToLoad + "\\" + node.InnerText;
                             BitmapImage bitmap = new BitmapImage(new Uri(pathImage));
                             if (bitmap != null)
+                            {
                                 img_Form3.Source = bitmap;
+                                img_Form3.Tag = pathImage;
+                            }
                         }
                         break;
                     case "img_thumb":
@@ -320,7 +395,10 @@ namespace manager_pc
                             String pathImage = pathToLoad + "\\" + node.InnerText;
                             BitmapImage bitmap = new BitmapImage(new Uri(pathImage));
                             if (bitmap != null)
+                            {
                                 img_ThumbNail.Source = bitmap;
+                                img_ThumbNail.Tag = pathImage;
+                            }
                         }
                         break;
                 }
