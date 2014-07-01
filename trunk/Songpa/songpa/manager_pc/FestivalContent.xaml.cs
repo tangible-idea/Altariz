@@ -59,11 +59,10 @@ namespace manager_pc
             if (oFileDlg.ShowDialog() == true)
             {
                 String sour = oFileDlg.FileName;
-                String dest = pathFestivalRoot + "\\" + currentName + "\\" + "1.jpg";
-                if (sour != dest)    // 경로가 같으면 복사 안해도 된다.
-                    File.Copy(sour, dest, true);
+                String dest = pathFestivalRoot + "\\" + currentName;
+                dest = MakeNameString(dest, "image1");
 
-                System.Threading.Thread.Sleep(150);
+                File.Copy(sour, dest, true);
 
                 BitmapImage bitmap = new BitmapImage(new Uri(dest));
                 img_Form1.Source = bitmap;
@@ -79,17 +78,11 @@ namespace manager_pc
             if (oFileDlg.ShowDialog() == true)
             {
                 String sour = oFileDlg.FileName;
-                String dest = pathFestivalRoot + "\\" + currentName + "\\" + "2.jpg";
+                String dest = pathFestivalRoot + "\\" + currentName;
+                dest = MakeNameString(dest, "image2");
 
-                MessageBox.Show(img_Form2.Source.IsFrozen.ToString());
-
-                File.Delete(dest);
-
-                if (sour != dest)    // 경로가 같으면 복사 안해도 된다.
-                    File.Copy(sour, dest, true);
-
-                System.Threading.Thread.Sleep(150);
-
+                File.Copy(sour, dest, true);
+                
                 BitmapImage bitmap = new BitmapImage(new Uri(dest));
                 img_Form2.Source = bitmap;
             }
@@ -103,11 +96,10 @@ namespace manager_pc
             if (oFileDlg.ShowDialog() == true)
             {
                 String sour = oFileDlg.FileName;
-                String dest = pathFestivalRoot + "\\" + currentName + "\\" + "3.jpg";
-                if (sour != dest)    // 경로가 같으면 복사 안해도 된다.
-                    File.Copy(sour, dest, true);
+                String dest = pathFestivalRoot + "\\" + currentName;
+                dest = MakeNameString(dest, "image3");
 
-                System.Threading.Thread.Sleep(150);
+                File.Copy(sour, dest, true);
 
                 BitmapImage bitmap = new BitmapImage(new Uri(dest));
                 img_Form3.Source = bitmap;
@@ -122,17 +114,31 @@ namespace manager_pc
             if (oFileDlg.ShowDialog() == true)
             {
                 String sour = oFileDlg.FileName;
-                String dest = pathFestivalRoot + "\\" + currentName + "\\" + "thumb.jpg";
-                if (sour != dest)    // 경로가 같으면 복사 안해도 된다.
-                    File.Copy(sour, dest, true);
+                String dest = pathFestivalRoot + "\\" + currentName;
+                dest = MakeNameString(dest, "imageThumb");
 
-                System.Threading.Thread.Sleep(150);
+                File.Copy(sour, dest, true);
 
                 BitmapImage bitmap = new BitmapImage(new Uri(dest));
                 img_ThumbNail.Source = bitmap;
             }
         }
 
+
+        // 이름을 만들어주는 함수 [7/1/2014 Mark]
+        private String MakeNameString(String path, String prefixName)
+        {
+            int nCount= 0;
+            while(true)
+            {
+                String pathFile = path + "\\" + prefixName + "_" + ++nCount + ".jpg";
+                if (!File.Exists(pathFile))  // 해당 파일이 있으면
+                {
+                    return pathFile;
+                }
+            }
+            
+        }
 
         private void btn_Save_Click(object sender, RoutedEventArgs e)
         {
