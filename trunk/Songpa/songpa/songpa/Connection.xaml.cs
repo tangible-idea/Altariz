@@ -84,6 +84,12 @@ namespace songpa
                     newWindow.Show();
                     this.Close();
                 }
+                else if (cbo_connection_target.SelectedIndex == 1)
+                {
+                    var newWindow = new Festival();
+                    newWindow.Show();
+                    this.Close();
+                }
                 else
                 {
                     MessageBox.Show("Wrong connection target or in construction page.");

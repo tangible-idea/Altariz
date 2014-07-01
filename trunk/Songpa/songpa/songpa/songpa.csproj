@@ -63,8 +63,15 @@
     <Compile Include="Connection.xaml.cs">
       <DependentUpon>Connection.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Festival.xaml.cs">
+      <DependentUpon>Festival.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SharedAPI.cs" />
     <Page Include="Connection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Festival.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
