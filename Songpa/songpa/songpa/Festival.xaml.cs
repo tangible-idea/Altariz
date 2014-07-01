@@ -78,6 +78,8 @@ namespace songpa
         
         private void BoardRefresh()
         {
+            arrFestivalInfo.Clear();
+            arrMusicalInfo.Clear();
             //MessageBox.Show("refresh!");
 
             // rush ticket root folder [6/5/2014 Mark]
@@ -192,8 +194,7 @@ namespace songpa
 
         private bool XMLLoad(String pathToLoad)
         {
-            arrFestivalInfo.Clear();
-            arrMusicalInfo.Clear();
+
 
             XmlDocument XmlDoc = new XmlDocument();
             FestivalInfo info = new FestivalInfo();
