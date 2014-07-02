@@ -66,12 +66,19 @@
     <Compile Include="Festival.xaml.cs">
       <DependentUpon>Festival.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Festival2.xaml.cs">
+      <DependentUpon>Festival2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SharedAPI.cs" />
     <Page Include="Connection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Festival.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Festival2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -126,7 +133,10 @@
     <EmbeddedResource Include="res\tap_musical_off.jpg" />
     <EmbeddedResource Include="res\tap_musical_on.jpg" />
     <Resource Include="res\Right Next Boutton.jpg" />
-    <Resource Include="res\Select box.png" />
+    <Resource Include="res\Select_box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\bg_3.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
