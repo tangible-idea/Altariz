@@ -1,0 +1,16 @@
+﻿<Window x:Class="songpa.Festival2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Festival2" Height="1080" Width="1920">
+    <Grid>
+        <Image  HorizontalAlignment="Left" Name="img_BG" Stretch="Fill" VerticalAlignment="Top" Source="/songpa;component/res/bg_3.jpg" />
+        <Image Height="815" HorizontalAlignment="Left" Margin="216,104,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="590" />
+        <Image Height="228" HorizontalAlignment="Left" Margin="868,692,0,0" Name="image2" Stretch="Fill" VerticalAlignment="Top" Width="385" />
+        <Image Height="228" HorizontalAlignment="Left" Margin="1322,692,0,0" Name="image3" Stretch="Fill" VerticalAlignment="Top" Width="385" />
+        <Label Content="txt1" Height="65" HorizontalAlignment="Left" Margin="883,121,0,0" Name="txt1" VerticalAlignment="Top" Width="818" Foreground="#FFCCFF00" FontFamily="NanumGothic" FontSize="28" />
+        <Label Content="txt2" FontFamily="NanumGothic" FontSize="24" Foreground="#FFCCFF00" Height="65" HorizontalAlignment="Left" Margin="889,192,0,0" Name="txt2" VerticalAlignment="Top" Width="818" />
+        <Label Content="txt3" FontFamily="NanumGothic" FontSize="24" Foreground="#ffffff" Height="159" HorizontalAlignment="Left" Margin="889,263,0,0" Name="txt3" VerticalAlignment="Top" Width="818" />
+        <Label Content="txt4" FontFamily="NanumGothic" FontSize="24" Foreground="#959595" Height="159" HorizontalAlignment="Left" Margin="889,458,0,0" Name="txt4" VerticalAlignment="Top" Width="818" />
+        <Image Height="114" HorizontalAlignment="Left" Margin="214,102,0,0" Name="image4" Source="/songpa;component/res/Bar.png" Stretch="Fill" VerticalAlignment="Top" Width="16" />
+    </Grid>
+</Window>

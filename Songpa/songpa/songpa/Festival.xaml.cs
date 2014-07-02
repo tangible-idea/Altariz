@@ -29,14 +29,18 @@ namespace songpa
         
         //int nFestivalCount = 0, nMusicalCount = 0;  // 각 항목 개수 [7/2/2014 Mark]
         int nFestivalCurrPage = 0, nMusicalCurrPage = 0;    // 각 탭의 현재 페이지 [7/2/2014 Mark]
-        int nCurrentTap = 0;
-        BitmapImage img_Tap1_off;
+        int nCurrentTap = 0;    // 현재 선택한 탭. [7/1/2014 Mark]
+        int nCurrSel = 0;       // 현재 선택한 이미지 [7/2/2014 Mark]
+        BitmapImage img_Tap1_off;  
         BitmapImage img_Tap1_on;
         BitmapImage img_Tap2_off;
-        BitmapImage img_Tap2_on;
+        BitmapImage img_Tap2_on;        // 이미지들 [7/1/2014 Mark]
 
-        const int TAP_FESTIVAL=0;
+        const int TAP_FESTIVAL= 0;      // enumulation [7/1/2014 Mark]
         const int TAP_MUSICAL = 1;
+        const int ICON_COUNT_EACH_PAGE = 6;
+
+        Festival2 topWindow;    // 상단 윈도우 [7/2/2014 Mark]
 
         public Festival()
         {
@@ -45,6 +49,9 @@ namespace songpa
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            topWindow = new Festival2();    // 상단 윈도우 출력 [7/2/2014 Mark]
+            topWindow.Show();
+
             Assembly executingAssembly = Assembly.GetExecutingAssembly();
 
             string filename1 = string.Format("{0}{1}", this.GetType().Namespace, ".res.tap_festival_off.jpg");
@@ -188,6 +195,37 @@ namespace songpa
             }
 
             
+            //nCurrSel
+
+            try
+            {
+                if (nCurrentTap == TAP_FESTIVAL)
+                {   // 선택한 것에 맞는 화면 띄움. [7/2/2014 Mark]
+                    topWindow.txt1.Content = arrFestivalInfo[nCurrSel].txt1;
+                    topWindow.txt2.Content = arrFestivalInfo[nCurrSel].txt2;
+                    topWindow.txt3.Content = arrFestivalInfo[nCurrSel].txt3;
+                    topWindow.txt4.Content = arrFestivalInfo[nCurrSel].txt4;
+                    topWindow.image1.Source = new BitmapImage(new Uri(arrFestivalInfo[nCurrSel].img1_path));
+                    topWindow.image2.Source = new BitmapImage(new Uri(arrFestivalInfo[nCurrSel].img2_path));
+                    topWindow.image3.Source = new BitmapImage(new Uri(arrFestivalInfo[nCurrSel].img3_path));
+                }
+                else
+                {
+                    topWindow.txt1.Content = arrMusicalInfo[nCurrSel].txt1;
+                    topWindow.txt2.Content = arrMusicalInfo[nCurrSel].txt2;
+                    topWindow.txt3.Content = arrMusicalInfo[nCurrSel].txt3;
+                    topWindow.txt4.Content = arrMusicalInfo[nCurrSel].txt4;
+                    topWindow.image1.Source = new BitmapImage(new Uri(arrMusicalInfo[nCurrSel].img1_path));
+                    topWindow.image2.Source = new BitmapImage(new Uri(arrMusicalInfo[nCurrSel].img2_path));
+                    topWindow.image3.Source = new BitmapImage(new Uri(arrMusicalInfo[nCurrSel].img3_path));
+                }
+            }
+            catch (System.Exception ex)
+            {
+            	
+            }
+
+            
 
         }
 
@@ -326,6 +364,88 @@ namespace songpa
             else
                 ++nMusicalCurrPage;
 
+            BoardRefresh();
+        }
+
+        private void onClickImage1(object sender, MouseButtonEventArgs e)
+        {
+            img_selected.Margin = new Thickness(135,208,0,0);
+            if (nCurrentTap == TAP_FESTIVAL)
+            {
+                nCurrSel = (nFestivalCurrPage*ICON_COUNT_EACH_PAGE) + 0;
+            }
+            else
+            {
+                nCurrSel = (nFestivalCurrPage * ICON_COUNT_EACH_PAGE) + 0;
+            }
+            BoardRefresh();
+        }
+
+        private void onClickImage2(object sender, MouseButtonEventArgs e)
+        {
+            img_selected.Margin = new Thickness(470, 208, 0, 0);
+            if (nCurrentTap == TAP_FESTIVAL)
+            {
+                nCurrSel = (nFestivalCurrPage * ICON_COUNT_EACH_PAGE) + 1;
+            }
+            else
+            {
+                nCurrSel = (nFestivalCurrPage * ICON_COUNT_EACH_PAGE) + 1;
+            }
+            BoardRefresh();
+        }
+
+        private void onClickImage3(object sender, MouseButtonEventArgs e)
+        {
+            img_selected.Margin = new Thickness(800, 208, 0, 0);
+            if (nCurrentTap == TAP_FESTIVAL)
+            {
+                nCurrSel = (nFestivalCurrPage * ICON_COUNT_EACH_PAGE) + 2;
+            }
+            else
+            {
+                nCurrSel = (nFestivalCurrPage * ICON_COUNT_EACH_PAGE) + 2;
+            }
+            BoardRefresh();
+        }
+        private void onClickImage4(object sender, MouseButtonEventArgs e)
+        {
+            img_selected.Margin = new Thickness(135, 515, 0, 0);
+            if (nCurrentTap == TAP_FESTIVAL)
+            {
+                nCurrSel = (nFestivalCurrPage * ICON_COUNT_EACH_PAGE) + 3;
+            }
+            else
+            {
+                nCurrSel = (nFestivalCurrPage * ICON_COUNT_EACH_PAGE) + 3;
+            }
+            BoardRefresh();
+        }
+        private void onClickImage5(object sender, MouseButtonEventArgs e)
+        {
+            img_selected.Margin = new Thickness(470, 515, 0, 0);
+            if (nCurrentTap == TAP_FESTIVAL)
+            {
+                nCurrSel = (nFestivalCurrPage * ICON_COUNT_EACH_PAGE) + 4;
+            }
+            else
+            {
+                nCurrSel = (nFestivalCurrPage * ICON_COUNT_EACH_PAGE) + 4;
+            }
+            BoardRefresh();
+        }
+
+        private void onClickImage6(object sender, MouseButtonEventArgs e)
+        {
+            img_selected.Margin = new Thickness(800, 515, 0, 0);
+            if (nCurrentTap == TAP_FESTIVAL)
+            {
+                nCurrSel = (nFestivalCurrPage * ICON_COUNT_EACH_PAGE) + 5;
+            }
+            else
+            {
+                nCurrSel = (nFestivalCurrPage * ICON_COUNT_EACH_PAGE) + 5;
+            }
             BoardRefresh();
         }
 
