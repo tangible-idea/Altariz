@@ -197,6 +197,7 @@ namespace songpa
             
             //nCurrSel
 
+            string pathImg1 = "", pathImg2 = "", pathImg3 = "";
             try
             {
                 if (nCurrentTap == TAP_FESTIVAL)
@@ -205,9 +206,9 @@ namespace songpa
                     topWindow.txt2.Content = arrFestivalInfo[nCurrSel].txt2;
                     topWindow.txt3.Content = arrFestivalInfo[nCurrSel].txt3;
                     topWindow.txt4.Content = arrFestivalInfo[nCurrSel].txt4;
-                    topWindow.image1.Source = new BitmapImage(new Uri(arrFestivalInfo[nCurrSel].img1_path));
-                    topWindow.image2.Source = new BitmapImage(new Uri(arrFestivalInfo[nCurrSel].img2_path));
-                    topWindow.image3.Source = new BitmapImage(new Uri(arrFestivalInfo[nCurrSel].img3_path));
+                    pathImg1= arrFestivalInfo[nCurrSel].img1_path;
+                    pathImg2= arrFestivalInfo[nCurrSel].img2_path;
+                    pathImg3= arrFestivalInfo[nCurrSel].img3_path;
                 }
                 else
                 {
@@ -215,9 +216,9 @@ namespace songpa
                     topWindow.txt2.Content = arrMusicalInfo[nCurrSel].txt2;
                     topWindow.txt3.Content = arrMusicalInfo[nCurrSel].txt3;
                     topWindow.txt4.Content = arrMusicalInfo[nCurrSel].txt4;
-                    topWindow.image1.Source = new BitmapImage(new Uri(arrMusicalInfo[nCurrSel].img1_path));
-                    topWindow.image2.Source = new BitmapImage(new Uri(arrMusicalInfo[nCurrSel].img2_path));
-                    topWindow.image3.Source = new BitmapImage(new Uri(arrMusicalInfo[nCurrSel].img3_path));
+                    pathImg1 = arrMusicalInfo[nCurrSel].img1_path;
+                    pathImg2 = arrMusicalInfo[nCurrSel].img2_path;
+                    pathImg3 = arrMusicalInfo[nCurrSel].img3_path;
                 }
             }
             catch (System.Exception ex)
@@ -225,7 +226,21 @@ namespace songpa
             	
             }
 
-            
+            if(pathImg1==null)
+                topWindow.image1.Source= null;
+            else
+                topWindow.image1.Source = new BitmapImage(new Uri(pathImg1));
+
+            if(pathImg2==null)
+                topWindow.image2.Source= null;
+            else
+                topWindow.image2.Source = new BitmapImage(new Uri(pathImg2));
+
+            if(pathImg3==null)
+                topWindow.image3.Source= null;
+            else
+                topWindow.image3.Source = new BitmapImage(new Uri(pathImg3));
+
 
         }
 
@@ -447,6 +462,11 @@ namespace songpa
                 nCurrSel = (nFestivalCurrPage * ICON_COUNT_EACH_PAGE) + 5;
             }
             BoardRefresh();
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            topWindow.Close();
         }
 
 
