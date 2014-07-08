@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using System.Xml;
+using System.Reflection;
 
 namespace songpa
 {
@@ -20,6 +21,12 @@ namespace songpa
     {
         int nCurrentPage = 0;   // 현재 표시 중인 페이지 [6/9/2014 Mark]
         int nPageCount = 0; // 페이지 개수 [6/9/2014 Mark]
+        BitmapImage imgRushTap1;
+        BitmapImage imgRushTap2;
+        BitmapImage imgRushTap3;
+        BitmapImage imgRushTap4;
+        BitmapImage imgRushTap5;
+        BitmapImage imgRushTap6;
 
         public Rush()
         {
@@ -28,9 +35,39 @@ namespace songpa
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            Assembly executingAssembly = Assembly.GetExecutingAssembly();
+
+            string filename1 = string.Format("{0}{1}", this.GetType().Namespace, ".res.rush_tag_01.gif");
+            string filename2 = string.Format("{0}{1}", this.GetType().Namespace, ".res.rush_tag_02.gif");
+            string filename3 = string.Format("{0}{1}", this.GetType().Namespace, ".res.rush_tag_03.gif");
+            string filename4 = string.Format("{0}{1}", this.GetType().Namespace, ".res.rush_tag_04.gif");
+            string filename5 = string.Format("{0}{1}", this.GetType().Namespace, ".res.rush_tag_05.gif");
+            string filename6 = string.Format("{0}{1}", this.GetType().Namespace, ".res.rush_tag_06.gif");
+
+            imgRushTap1 = MakeBitmap(executingAssembly, filename1);
+            imgRushTap2 = MakeBitmap(executingAssembly, filename2);
+            imgRushTap3 = MakeBitmap(executingAssembly, filename3);
+            imgRushTap4 = MakeBitmap(executingAssembly, filename4);
+            imgRushTap5 = MakeBitmap(executingAssembly, filename5);
+            imgRushTap6 = MakeBitmap(executingAssembly, filename6);
+            
             BoardRefresh();
                         
             StartTimer();
+        }
+
+
+        private BitmapImage MakeBitmap(Assembly executingAssembly, string filename)
+        {
+            BitmapImage item = new BitmapImage();
+            item.BeginInit();
+            item.StreamSource = executingAssembly.GetManifestResourceStream(filename);
+            item.CacheOption = BitmapCacheOption.OnLoad;
+            item.CreateOptions = BitmapCreateOptions.None;
+            item.EndInit();
+            item.Freeze();
+
+            return item;
         }
 
 
@@ -186,6 +223,38 @@ namespace songpa
                             BitmapImage bitmap = new BitmapImage(new Uri(pathImage));
                             if (bitmap != null)
                                 img_Rush1.Source = bitmap;
+                        }
+                        break;
+                    case "image2":
+                        {
+                            string image2= node.InnerText.Trim();
+                            if (image2 == "-1")  // -1 이면 아무것도 선택 안된 것임. [7/8/2014 Mark]
+                            {
+                                img_Rush2.Source = null;
+                                break;
+                            }
+
+                            switch (image2)
+                            {
+                                case "0":
+                                    img_Rush2.Source = imgRushTap1;
+                                    break;
+                                case "1":
+                                    img_Rush2.Source = imgRushTap2;
+                                    break;
+                                case "2":
+                                    img_Rush2.Source = imgRushTap3;
+                                    break;
+                                case "3":
+                                    img_Rush2.Source = imgRushTap4;
+                                    break;
+                                case "4":
+                                    img_Rush2.Source = imgRushTap5;
+                                    break;
+                                case "5":
+                                    img_Rush2.Source = imgRushTap6;
+                                    break;
+                            }
                         }
                         break;
                 }

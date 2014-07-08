@@ -29,7 +29,14 @@
         <TextBox Height="23" HorizontalAlignment="Left" Margin="416,417,0,0" MaxLength="43" MaxLines="1" Name="txt_Contact" Text="" VerticalAlignment="Top" Width="542" />
         <Button Content="저장" Height="56" HorizontalAlignment="Left" Margin="728,462,0,0" Name="btn_Save" VerticalAlignment="Top" Width="112" Click="btn_Save_Click" />
         <Button Content="취소" Height="56" HorizontalAlignment="Left" Margin="846,462,0,0" Name="btn_Cancel" VerticalAlignment="Top" Width="112" Click="btn_Cancel_Click" />
-        <ComboBox Height="23" HorizontalAlignment="Left" Margin="94,12,0,0" Name="cbo_SelPosition" VerticalAlignment="Top" Width="224" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="94,12,0,0" Name="cbo_SelPosition" VerticalAlignment="Top" Width="224" SelectionChanged="cbo_SelPosition_SelectionChanged">
+            <ComboBoxItem Content="샤롯데 씨어터" />
+            <ComboBoxItem Content="우리금융아트홀" />
+            <ComboBoxItem Content="올림픽홀" />
+            <ComboBoxItem Content="뮤즈 라이브" />
+            <ComboBoxItem Content="엔씨소극장" />
+            <ComboBoxItem Content="K-아트홀(태권도공연장)" />
+        </ComboBox>
         <Label Content="위치 선택 : " Height="24" HorizontalAlignment="Left" Margin="12,12,0,0" Name="label12" VerticalAlignment="Top" Width="76" />
         <Rectangle Height="399" HorizontalAlignment="Left" Margin="12,41,0,0" Name="rectangle1" Stroke="Black" VerticalAlignment="Top" Width="306" />
     </Grid>
