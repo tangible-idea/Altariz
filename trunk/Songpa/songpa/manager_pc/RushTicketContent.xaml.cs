@@ -138,6 +138,8 @@ namespace manager_pc
                     String pathRelative = pathAbsolute.Substring(pathAbsolute.LastIndexOf("/") + 1);
                     AddElement(textWriter, "image1", pathRelative);
                 }
+
+                AddElement(textWriter, "image2", cbo_SelPosition.SelectedIndex.ToString());
             }
             textWriter.WriteEndElement();
 
@@ -208,7 +210,7 @@ namespace manager_pc
                         break;
                     case "image1":
                         {
-                            if (node.InnerText.Trim() == "")
+                            if (node.InnerText.Trim() == "")    // 경로가 없으면 저장 안함.
                                 break;
 
                             String pathImage = pathToLoad + "\\" + node.InnerText;
@@ -225,9 +227,17 @@ namespace manager_pc
                                 img_Form1.Source = bitmap;
                         }
                         break;
+                    case "image2":
+                        cbo_SelPosition.SelectedIndex = int.Parse(node.InnerText);  // 불러와서 콤보 박스 선택. [7/8/2014 Mark]
+                        break;
                 }
             }
             return true;
+        }
+
+        private void cbo_SelPosition_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
 
 

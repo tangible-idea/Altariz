@@ -8,7 +8,7 @@
         <Button Height="207" HorizontalAlignment="Left" Margin="70,420,0,0" Name="btn_Left" VerticalAlignment="Top" Width="60" Click="btn_Left_Click" Visibility="Visible" Opacity="0.01" />
         <Button Height="207" HorizontalAlignment="Left" Margin="1780,420,0,0" Name="btn_Right" VerticalAlignment="Top" Width="60" Click="btn_Right_Click" Visibility="Visible" Opacity="0.01" />
         <Image Width="604" Height="864" HorizontalAlignment="Left" Margin="216,107,0,0" Name="img_Rush1" Stretch="Fill" VerticalAlignment="Top"  />
-        <Image Width="856" Height="198" HorizontalAlignment="Left" Margin="866,751,0,0" Name="img_Rush2" Stretch="Fill" VerticalAlignment="Top" />
+        <Image Width="856" Height="196" HorizontalAlignment="Left" Margin="872,775,0,0" Name="img_Rush2" Stretch="Fill" VerticalAlignment="Top" />
         <Label Content="title" Height="58" Width="837" HorizontalAlignment="Left" Margin="903,119,0,0" Name="txt_EngTitle" VerticalAlignment="Top" Foreground="#FFCCFF00" FontSize="24" FontFamily="NanumGothic" FontWeight="Bold" Padding="10" />
         <Label Content="제목"  Width="837" Height="50" FontFamily="NanumGothic" FontSize="16" FontWeight="Normal" Foreground="#FFCCFF00"  HorizontalAlignment="Left" Margin="897,152,0,0" Name="txt_KorTitle" VerticalAlignment="Top" Padding="15" />
         <Label Content="place" Width="678" Height="40" FontFamily="NanumGothic" FontSize="16" FontWeight="Normal" Foreground="White" HorizontalAlignment="Left" Margin="1031,223,0,0" Name="txt_EngPlace" VerticalAlignment="Top"  />
