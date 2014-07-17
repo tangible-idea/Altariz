@@ -226,17 +226,17 @@ namespace songpa
             	
             }
 
-            if(pathImg1==null)
+            if(pathImg1==null || pathImg1=="")
                 topWindow.image1.Source= null;
             else
                 topWindow.image1.Source = new BitmapImage(new Uri(pathImg1));
 
-            if(pathImg2==null)
+            if (pathImg2 == null || pathImg2 == "")
                 topWindow.image2.Source= null;
             else
                 topWindow.image2.Source = new BitmapImage(new Uri(pathImg2));
 
-            if(pathImg3==null)
+            if (pathImg3 == null || pathImg3 == "")
                 topWindow.image3.Source= null;
             else
                 topWindow.image3.Source = new BitmapImage(new Uri(pathImg3));

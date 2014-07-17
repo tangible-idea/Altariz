@@ -70,7 +70,8 @@ namespace songpa
 
             if (msg == "Connection sucessfull!")
             {
-                CopyFolder(PATH, PATHlocal);
+                RemoveExists();
+                CopyFolder(PATH, PATHlocal);    // 접속한 pc로부터 컨텐츠들을 가져온다.
 
                 // 접속 성공시 해당 값으로 접속정보를 레지스트리에 쓴다. [6/5/2014 Mark]
                 rkey.SetValue("IP", txt_IP.Text.ToString());
@@ -125,7 +126,32 @@ namespace songpa
                 string dest = System.IO.Path.Combine(destFolder, name);
                 CopyFolder(folder, dest);
             }
-        }  
+        }
 
+        public void RemoveExists()
+        {
+
+            // ...or with DirectoryInfo instance method.
+            System.IO.DirectoryInfo di1 = new System.IO.DirectoryInfo(PATHlocal + @"\\rush_ticket_root");
+            System.IO.DirectoryInfo di2 = new System.IO.DirectoryInfo(PATHlocal + @"\\festival_root");
+            System.IO.DirectoryInfo di3 = new System.IO.DirectoryInfo(PATHlocal + @"\\festival2_root");
+            // Delete this dir and all subdirs.
+            try
+            {
+                if(di1.Exists)
+                    di1.Delete(true);
+
+                if (di2.Exists)
+                    di2.Delete(true);
+                
+                if (di3.Exists)
+                    di3.Delete(true);
+            }
+            catch (System.IO.IOException e)
+            {
+                Console.WriteLine(e.Message);
+                MessageBox.Show("기존의 컨텐츠들을 삭제할 수 없었습니다.");
+            }
+        }
     }
 }
