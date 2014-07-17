@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Festival2" Height="1080" Width="1920">
     <Grid>
-        <Image  HorizontalAlignment="Left" Name="img_BG" Stretch="Fill" VerticalAlignment="Top" Source="/songpa;component/res/bg_3.jpg" />
+        <Image  HorizontalAlignment="Left" Name="img_BG" Stretch="Fill" VerticalAlignment="Top" Source="/songpa;component/res/bg_3.jpg" Height="1080" Width="1920" />
         <Image Height="815" HorizontalAlignment="Left" Margin="216,104,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="590" />
         <Image Height="228" HorizontalAlignment="Left" Margin="868,692,0,0" Name="image2" Stretch="Fill" VerticalAlignment="Top" Width="385" />
         <Image Height="228" HorizontalAlignment="Left" Margin="1322,692,0,0" Name="image3" Stretch="Fill" VerticalAlignment="Top" Width="385" />

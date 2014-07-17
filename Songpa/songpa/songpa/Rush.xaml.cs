@@ -262,6 +262,28 @@ namespace songpa
             return true;
         }
 
+        // 테스트용 좌우 키 이벤트 추가. [7/17/2014 Mark_laptap]
+        private void OnKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Right)
+            {
+                if (btn_Right.IsEnabled)
+                {
+                    nCurrentPage++;
+                    BoardRefresh();
+                }
+                
+            }
+            else if (e.Key == Key.Left)
+            {
+                if (btn_Left.IsEnabled)
+                {
+                    nCurrentPage--;
+                    BoardRefresh();
+                }
+            }
+        }
+
 
     }
 }

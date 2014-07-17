@@ -1,10 +1,10 @@
 ﻿<Window x:Class="songpa.Rush"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="1080" Width="1920" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" WindowState="Maximized" WindowStyle="None">
+        Title="MainWindow" Height="1080" Width="1920" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" WindowState="Maximized" WindowStyle="None" KeyDown="OnKeyDown">
     <Grid>
         <!--<Button Content="Refresh" Height="23" HorizontalAlignment="Left" Margin="0,422,0,0" Name="button1" VerticalAlignment="Top" Width="846" Click="button1_Click" />-->
-        <Image  HorizontalAlignment="Left" Name="img_BG" Stretch="Fill" VerticalAlignment="Top" Source="/songpa;component/res/bg_1.jpg" />
+        <Image  HorizontalAlignment="Left" Name="img_BG" Stretch="Fill" VerticalAlignment="Top" Source="/songpa;component/res/bg_1.jpg"  Height="1080" Width="1920" />
         <Button Height="207" HorizontalAlignment="Left" Margin="70,420,0,0" Name="btn_Left" VerticalAlignment="Top" Width="60" Click="btn_Left_Click" Visibility="Visible" Opacity="0.01" />
         <Button Height="207" HorizontalAlignment="Left" Margin="1780,420,0,0" Name="btn_Right" VerticalAlignment="Top" Width="60" Click="btn_Right_Click" Visibility="Visible" Opacity="0.01" />
         <Image Width="604" Height="864" HorizontalAlignment="Left" Margin="216,107,0,0" Name="img_Rush1" Stretch="Fill" VerticalAlignment="Top"  />

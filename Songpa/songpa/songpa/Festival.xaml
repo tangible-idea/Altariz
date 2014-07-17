@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Festival" Height="1024" Width="1280" Loaded="Window_Loaded" Closed="Window_Closed">
     <Grid>
-        <Image  HorizontalAlignment="Left" Name="img_BG" Stretch="Fill" VerticalAlignment="Top" Source="/songpa;component/res/bg_2.jpg" />
+        <Image  HorizontalAlignment="Left" Name="img_BG" Stretch="Fill" VerticalAlignment="Top" Source="/songpa;component/res/bg_2.jpg" Height="1024" Width="1280"/>
         <Image  Width="270" Height="65" HorizontalAlignment="Left" Margin="147,78,0,0" Name="image_tap1" Stretch="Fill" VerticalAlignment="Top" Source="/songpa;component/res/tap_festival_off.jpg" MouseDown="onClickTap1" />
         <Image  Width="270" Height="65" HorizontalAlignment="Left" Margin="417,76,0,0" Name="image_tap2" Stretch="Fill" VerticalAlignment="Top" Source="/songpa;component/res/tap_musical_off.jpg" MouseDown="onClickTap2" />
         <Image  Width="288" Height="250" HorizontalAlignment="Left" Margin="153,222,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" MouseDown="onClickImage1"  />
