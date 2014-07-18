@@ -5,7 +5,7 @@
     <Grid>
         <Button Content="PC1" Height="171" HorizontalAlignment="Left" Margin="11,44,0,0" Name="btn_PC1" VerticalAlignment="Top" Width="185" Click="btn_PC1_Click" FontWeight="Bold" FontSize="20" />
         <Button Content="PC2" Height="171" HorizontalAlignment="Left" Margin="202,44,0,0" Name="btn_PC2" VerticalAlignment="Top" Width="185" FontWeight="Bold" FontSize="20" Click="btn_PC2_Click" />
-        <Button Content="PC3" Height="171" HorizontalAlignment="Left" Margin="393,44,0,0" Name="btn_PC3" VerticalAlignment="Top" Width="185" FontWeight="Bold" FontSize="20" />
+        <Button Content="PC3" Height="171" HorizontalAlignment="Left" Margin="393,44,0,0" Name="btn_PC3" VerticalAlignment="Top" Width="185" FontWeight="Bold" FontSize="20" Click="btn_PC3_Click_1" />
         <Button Content="Exit" Height="29" HorizontalAlignment="Left" Margin="11,221,0,0" Name="btn_Exit" VerticalAlignment="Top" Width="567" FontWeight="Bold" FontSize="20" Click="btn_Exit_Click" />
         <TextBox Height="23" HorizontalAlignment="Left" Margin="98,15,0,0" Name="txt_RootPath" VerticalAlignment="Top" Width="388" ToolTip="구조를 생성할 곳을 추가합니다." IsReadOnly="True" TextChanged="txt_RootPath_TextChanged" />
         <Label Content="Root Path : " Height="26" HorizontalAlignment="Left" Margin="12,12,0,0" Name="label1" VerticalAlignment="Top" Width="80" FontSize="14" />

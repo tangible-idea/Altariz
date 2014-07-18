@@ -37,7 +37,7 @@ namespace manager_pc
             {
                 txt_RootPath.Text = rkey.GetValue("PATH").ToString();
             }
-            CheckFolderStructure();
+            CheckFolderStructure(); // 각 폴더 구조 만들기
 
             Title = getMyIP();  // window title을 ip로 변경. [6/10/2014 Mark]
         }
@@ -53,6 +53,15 @@ namespace manager_pc
         private void btn_PC2_Click(object sender, RoutedEventArgs e)
         {
             var newWindow = new FestivalList();
+            newWindow.Show();
+
+            this.Close();
+        }
+
+
+        private void btn_PC3_Click_1(object sender, RoutedEventArgs e)
+        {
+            var newWindow = new HistoryList();
             newWindow.Show();
 
             this.Close();
@@ -80,19 +89,14 @@ namespace manager_pc
 
                 if (di_ROOT.Exists == false)   //If New Folder not exits
                     di_ROOT.Create();             //create Folder
+                CreateFolderStructure();    // 각 서브 폴더 구조 만들기 [7/18/2014 Mark_laptap]
 
-                DirectoryInfo di_SUB1 = new DirectoryInfo(txt_RootPath.Text+"\\rush_ticket_root");
-                DirectoryInfo di_SUB2 = new DirectoryInfo(txt_RootPath.Text+"\\festival_root");
-
-                if (di_SUB1.Exists == false)
-                    di_SUB1.Create();       
-                if (di_SUB2.Exists == false)
-                    di_SUB2.Create();       
 
                 rkey.SetValue("PATH", txt_RootPath.Text.ToString());
                 MessageBox.Show("Initialize successful!");
             }
         }
+
 
         private void ShareFolderPermission(String pathFolder)
         {
@@ -129,6 +133,23 @@ namespace manager_pc
 
         }
 
+        // 각 서브 폴더 구조 만들기
+        private void CreateFolderStructure()
+        {
+
+            DirectoryInfo di_SUB1 = new DirectoryInfo(txt_RootPath.Text + "\\rush_ticket_root");
+            DirectoryInfo di_SUB2 = new DirectoryInfo(txt_RootPath.Text + "\\festival_root");
+            DirectoryInfo di_SUB3 = new DirectoryInfo(txt_RootPath.Text + "\\history_root");
+
+            if (di_SUB1.Exists == false)
+                di_SUB1.Create();
+            if (di_SUB2.Exists == false)
+                di_SUB2.Create();
+            if (di_SUB3.Exists == false)
+                di_SUB3.Create();
+        }
+
+        // 각 폴더 체크하기
         private void CheckFolderStructure()
         {
             if (txt_RootPath.Text == "")
@@ -151,5 +172,6 @@ namespace manager_pc
             string myip = host.AddressList[0].ToString();
             return myip;
         }
+
     }
 }

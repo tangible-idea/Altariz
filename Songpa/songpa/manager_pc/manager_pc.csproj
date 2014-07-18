@@ -71,6 +71,12 @@
     <Compile Include="RushTicketList.xaml.cs">
       <DependentUpon>RushTicketList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HistoryList.xaml.cs">
+      <DependentUpon>HistoryList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HistoryContent.xaml.cs">
+      <DependentUpon>HistoryContent.xaml</DependentUpon>
+    </Compile>
     <Page Include="FestivalContent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -98,6 +104,14 @@
     <Page Include="RushTicketList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HistoryList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="HistoryContent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
