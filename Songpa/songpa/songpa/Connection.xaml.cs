@@ -61,12 +61,12 @@ namespace songpa
             SharedAPI api = new SharedAPI();
             int nRes = api.ConnectRemoteServer(PATH, txt_Account.Text, txt_PW.Password);
 
-            String msg = "Connection failed.";
+            String msg = "Connection error code : ";
             if (nRes == 0)
             {
                 msg = "Connection sucessfull!";
             }
-            MessageBox.Show(msg);
+            MessageBox.Show(msg + nRes);
 
             if (msg == "Connection sucessfull!")
             {
