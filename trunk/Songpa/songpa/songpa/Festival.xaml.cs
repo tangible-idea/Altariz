@@ -384,7 +384,7 @@ namespace songpa
 
         private void onClickImage1(object sender, MouseButtonEventArgs e)
         {
-            img_selected.Margin = new Thickness(135,208,0,0);
+            img_selected.Margin = new Thickness(140,220,0,0);
             if (nCurrentTap == TAP_FESTIVAL)
             {
                 nCurrSel = (nFestivalCurrPage*ICON_COUNT_EACH_PAGE) + 0;
@@ -398,7 +398,7 @@ namespace songpa
 
         private void onClickImage2(object sender, MouseButtonEventArgs e)
         {
-            img_selected.Margin = new Thickness(470, 208, 0, 0);
+            img_selected.Margin = new Thickness(475, 220, 0, 0);
             if (nCurrentTap == TAP_FESTIVAL)
             {
                 nCurrSel = (nFestivalCurrPage * ICON_COUNT_EACH_PAGE) + 1;
@@ -412,7 +412,7 @@ namespace songpa
 
         private void onClickImage3(object sender, MouseButtonEventArgs e)
         {
-            img_selected.Margin = new Thickness(800, 208, 0, 0);
+            img_selected.Margin = new Thickness(815, 220, 0, 0);
             if (nCurrentTap == TAP_FESTIVAL)
             {
                 nCurrSel = (nFestivalCurrPage * ICON_COUNT_EACH_PAGE) + 2;
@@ -425,7 +425,7 @@ namespace songpa
         }
         private void onClickImage4(object sender, MouseButtonEventArgs e)
         {
-            img_selected.Margin = new Thickness(135, 515, 0, 0);
+            img_selected.Margin = new Thickness(140, 540, 0, 0);
             if (nCurrentTap == TAP_FESTIVAL)
             {
                 nCurrSel = (nFestivalCurrPage * ICON_COUNT_EACH_PAGE) + 3;
@@ -438,7 +438,7 @@ namespace songpa
         }
         private void onClickImage5(object sender, MouseButtonEventArgs e)
         {
-            img_selected.Margin = new Thickness(470, 515, 0, 0);
+            img_selected.Margin = new Thickness(475, 540, 0, 0);
             if (nCurrentTap == TAP_FESTIVAL)
             {
                 nCurrSel = (nFestivalCurrPage * ICON_COUNT_EACH_PAGE) + 4;
@@ -452,7 +452,7 @@ namespace songpa
 
         private void onClickImage6(object sender, MouseButtonEventArgs e)
         {
-            img_selected.Margin = new Thickness(800, 515, 0, 0);
+            img_selected.Margin = new Thickness(815, 540, 0, 0);
             if (nCurrentTap == TAP_FESTIVAL)
             {
                 nCurrSel = (nFestivalCurrPage * ICON_COUNT_EACH_PAGE) + 5;
