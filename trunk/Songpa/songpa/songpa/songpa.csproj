@@ -70,6 +70,12 @@
       <DependentUpon>Festival2.xaml</DependentUpon>
     </Compile>
     <Compile Include="SharedAPI.cs" />
+    <Compile Include="History.xaml.cs">
+      <DependentUpon>History.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HIstory2.xaml.cs">
+      <DependentUpon>HIstory2.xaml</DependentUpon>
+    </Compile>
     <Page Include="Connection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -94,6 +100,14 @@
       <DependentUpon>Rush.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="History.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="HIstory2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

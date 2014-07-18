@@ -91,6 +91,12 @@ namespace songpa
                     newWindow.Show();
                     this.Close();
                 }
+                else if (cbo_connection_target.SelectedIndex == 2)
+                {
+                    var newWindow = new History();
+                    newWindow.Show();
+                    this.Close();
+                }
                 else
                 {
                     MessageBox.Show("Wrong connection target or in construction page.");
@@ -134,7 +140,7 @@ namespace songpa
             // ...or with DirectoryInfo instance method.
             System.IO.DirectoryInfo di1 = new System.IO.DirectoryInfo(PATHlocal + @"\\rush_ticket_root");
             System.IO.DirectoryInfo di2 = new System.IO.DirectoryInfo(PATHlocal + @"\\festival_root");
-            System.IO.DirectoryInfo di3 = new System.IO.DirectoryInfo(PATHlocal + @"\\festival2_root");
+            System.IO.DirectoryInfo di3 = new System.IO.DirectoryInfo(PATHlocal + @"\\history_root");
             // Delete this dir and all subdirs.
             try
             {
