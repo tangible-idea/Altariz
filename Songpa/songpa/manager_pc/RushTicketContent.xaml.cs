@@ -27,6 +27,8 @@ namespace manager_pc
         String currentName;
         bool isNewBoard;
 
+        String imgPath1 = "";
+
         // 현재 sub folder 명과 새로운 보드인지 판단. [6/8/2014 Mark]
         public RushTicketContent(String _currentName, bool _isNewBoard)
         {
@@ -58,15 +60,10 @@ namespace manager_pc
             oFileDlg.Filter = "JPG Files(*.jpg)|*.jpg";
             if (oFileDlg.ShowDialog() == true)
             {
-                String sour = oFileDlg.FileName;
-                String dest = pathRushRoot + "\\" + currentName + "\\" + "1.jpg";
-                
-                if(sour != dest)    // 경로가 같으면 복사 안해도 된다.
-                    File.Copy(sour, dest, true);
+                imgPath1 = oFileDlg.FileName;       // path에 넣는다.
+                img_Form1.Tag = oFileDlg.FileName;  // 태그에도 불러온 파일의 경로를 넣는다.
 
-                System.Threading.Thread.Sleep(150);
-
-                BitmapImage bitmap = new BitmapImage(new Uri( dest ));
+                BitmapImage bitmap = new BitmapImage(new Uri(imgPath1));
                 img_Form1.Source = bitmap;
             }
         }
@@ -130,14 +127,38 @@ namespace manager_pc
                 AddElement(textWriter, "price_kor", txt_KorPrice.Text);
                 AddElement(textWriter, "contact", txt_Contact.Text);
 
+                //if (img_Form1.Source == null)
+                //    AddElement(textWriter, "image1", "");
+                //else
+                //{
+                //    String pathAbsolute= img_Form1.Source.ToString();
+                //    String pathRelative = pathAbsolute.Substring(pathAbsolute.LastIndexOf("/") + 1);
+                //    AddElement(textWriter, "image1", pathRelative);
+                //}
+
                 if (img_Form1.Source == null)
                     AddElement(textWriter, "image1", "");
                 else
                 {
-                    String pathAbsolute= img_Form1.Source.ToString();
+                    String pathAbsolute = "";
+                    if (imgPath1 != "")
+                    {
+                        String sour = imgPath1;
+                        String dest = pathRushRoot + "\\" + currentName;
+                        dest = MakeNameString(dest, "image1");
+
+                        File.Copy(sour, dest, true);
+                        pathAbsolute = dest;
+                    }
+                    else    // 안바뀌었으면 그대로 가져감. [7/2/2014 Mark]
+                    {
+                        pathAbsolute = (String)img_Form1.Tag;
+                    }
+                    pathAbsolute = pathAbsolute.Replace("\\", "/");
                     String pathRelative = pathAbsolute.Substring(pathAbsolute.LastIndexOf("/") + 1);
                     AddElement(textWriter, "image1", pathRelative);
                 }
+
 
                 AddElement(textWriter, "image2", cbo_SelPosition.SelectedIndex.ToString());
             }
@@ -210,22 +231,34 @@ namespace manager_pc
                         break;
                     case "image1":
                         {
-                            if (node.InnerText.Trim() == "")    // 경로가 없으면 저장 안함.
+                            if (node.InnerText.Trim() == "")
                                 break;
 
                             String pathImage = pathToLoad + "\\" + node.InnerText;
-
-                            if (!File.Exists(pathImage))
-                            {
-                                MessageBox.Show("이미지 경로가 잘못되어 불러올 수 없습니다.\n해당 파일이 삭제되었거나 옮겨진 것으로 판단됩니다.\n다른 파일로 변경해주세요.");
-                                return false;
-                            }
-
                             BitmapImage bitmap = new BitmapImage(new Uri(pathImage));
-                            
                             if (bitmap != null)
+                            {
                                 img_Form1.Source = bitmap;
+                                img_Form1.Tag = pathImage;
+                            }
                         }
+                        //{
+                        //    if (node.InnerText.Trim() == "")    // 경로가 없으면 저장 안함.
+                        //        break;
+
+                        //    String pathImage = pathToLoad + "\\" + node.InnerText;
+
+                        //    if (!File.Exists(pathImage))
+                        //    {
+                        //        MessageBox.Show("이미지 경로가 잘못되어 불러올 수 없습니다.\n해당 파일이 삭제되었거나 옮겨진 것으로 판단됩니다.\n다른 파일로 변경해주세요.");
+                        //        return false;
+                        //    }
+
+                        //    BitmapImage bitmap = new BitmapImage(new Uri(pathImage));
+                            
+                        //    if (bitmap != null)
+                        //        img_Form1.Source = bitmap;
+                        //}
                         break;
                     case "image2":
                         cbo_SelPosition.SelectedIndex = int.Parse(node.InnerText);  // 불러와서 콤보 박스 선택. [7/8/2014 Mark]
@@ -241,5 +274,19 @@ namespace manager_pc
         }
 
 
+        // 이름을 만들어주는 함수 [7/1/2014 Mark]
+        private String MakeNameString(String path, String prefixName)
+        {
+            int nCount = 0;
+            while (true)
+            {
+                String pathFile = path + "\\" + prefixName + "_" + ++nCount + ".jpg";
+                if (!File.Exists(pathFile))  // 해당 파일이 있으면
+                {
+                    return pathFile;
+                }
+            }
+
+        }
     }
 }
