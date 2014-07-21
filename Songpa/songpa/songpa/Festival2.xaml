@@ -3,14 +3,19 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Festival2" Height="1080" Width="1920">
     <Grid>
-        <Image  HorizontalAlignment="Left" Name="img_BG" Stretch="Fill" VerticalAlignment="Top" Source="/songpa;component/res/bg_3.jpg" Height="1080" Width="1920" />
-        <Image Height="859" HorizontalAlignment="Left" Margin="216,110,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="600" />
-        <Image Height="259" HorizontalAlignment="Left" Margin="872,710,0,0" Name="image2" Stretch="Fill" VerticalAlignment="Top" Width="395" />
-        <Image Height="260" HorizontalAlignment="Left" Margin="1331,709,0,0" Name="image3" Stretch="Fill" VerticalAlignment="Top" Width="395" />
-        <Label Content="txt1" Height="65" HorizontalAlignment="Left" Margin="897,121,0,0" Name="txt1" VerticalAlignment="Top" Width="818" Foreground="#FFCCFF00" FontFamily="NanumGothic" FontSize="28" />
-        <Label Content="txt2" FontFamily="NanumGothic" FontSize="24" Foreground="#FFCCFF00" Height="65" HorizontalAlignment="Left" Margin="897,192,0,0" Name="txt2" VerticalAlignment="Top" Width="818" />
-        <Label Content="txt3" FontFamily="NanumGothic" FontSize="24" Foreground="#ffffff" Height="142" HorizontalAlignment="Left" Margin="897,280,0,0" Name="txt3" VerticalAlignment="Top" Width="818" />
-        <Label Content="txt4" FontFamily="NanumGothic" FontSize="24" Foreground="#959595" Height="153" HorizontalAlignment="Left" Margin="889,464,0,0" Name="txt4" VerticalAlignment="Top" Width="818" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="915*" />
+            <ColumnDefinition Width="773*" />
+            <ColumnDefinition Width="210*" />
+        </Grid.ColumnDefinitions>
+        <Image  HorizontalAlignment="Left" Name="img_BG" Stretch="Fill" VerticalAlignment="Top" Source="/songpa;component/res/bg_3.jpg" Height="1080" Width="1920" Grid.ColumnSpan="3" />
+        <Image Height="864" HorizontalAlignment="Left" Margin="215,108,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="604" />
+        <Image Height="264" HorizontalAlignment="Left" Margin="871,708,0,0" Name="image2" Stretch="Fill" VerticalAlignment="Top" Width="397" Grid.ColumnSpan="2" />
+        <Image Height="264" HorizontalAlignment="Left" Margin="412,708,0,0" Name="image3" Stretch="Fill" VerticalAlignment="Top" Width="397" Grid.Column="1" Grid.ColumnSpan="2" />
+        <Label Content="Loadng..." Height="65" HorizontalAlignment="Left" Margin="0,121,0,0" Name="txt1" VerticalAlignment="Top" Width="773" Foreground="#FFCCFF00" FontFamily="NanumGothic" FontSize="35" FontWeight="Bold" Grid.Column="1" />
+        <Label Content="" FontFamily="NanumGothic" FontSize="20" Foreground="#FFCCFF00" Height="65" HorizontalAlignment="Left" Margin="0,187,0,0" Name="txt2" VerticalAlignment="Top" Width="773" Grid.Column="1" />
+        <Label Content="" FontFamily="NanumGothic" FontSize="25"  Foreground="#ffffff" Height="188" HorizontalAlignment="Left" Margin="0,262,0,0" Name="txt3" VerticalAlignment="Top" Width="773" Grid.Column="1" FontWeight="Bold" />
+        <Label Content="" FontFamily="NanumGothic" FontSize="18"  Foreground="#959595" Height="194" HorizontalAlignment="Left" Margin="0,457,0,0" Name="txt4" VerticalAlignment="Top" Width="773" FontWeight="Bold" Grid.Column="1" />
         <Image Height="114" HorizontalAlignment="Left" Margin="214,109,0,0" Name="image4" Source="/songpa;component/res/Bar.png" Stretch="Fill" VerticalAlignment="Top" Width="16" />
     </Grid>
 </Window>
