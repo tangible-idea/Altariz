@@ -93,12 +93,17 @@ namespace songpa
 
         private void BoardRefresh()
         {
-            //MessageBox.Show("refresh!");
-
             // rush ticket root folder [6/5/2014 Mark]
             DirectoryInfo DIR_rush_root = new DirectoryInfo(strPath + "\\rush_ticket_root\\");
             DirectoryInfo[] RushRootInfo = DIR_rush_root.GetDirectories("*.*");
             nPageCount = RushRootInfo.Length;
+
+            if (nPageCount == 0)    // 컨텐츠가 없을 때 종료함. [7/22/2014 Mark]
+            {
+                MessageBox.Show("컨텐츠가 하나도 없습니다.");
+                this.Close();
+                return;
+            }
 
             if (nCurrentPage + 1 >= nPageCount)
                 btn_Right.IsEnabled = false;
