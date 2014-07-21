@@ -386,9 +386,18 @@ namespace songpa
             BoardRefresh();
         }
 
+
+        private void onClickImage1(object sender, MouseButtonEventArgs e)
+        {
+            Position0();
+
+            BoardRefresh();
+        }
+
         private void Position0()
         {
             img_selected.Margin = new Thickness(140, 220, 0, 0);
+            rct_mask.Margin = new Thickness(153, 232, 0, 0);
             if (nCurrentTap == TAP_HISTORY)
             {
                 nCurrSel = (nHistoryCurrPage * ICON_COUNT_EACH_PAGE) + 0;
@@ -399,16 +408,11 @@ namespace songpa
             }
         }
 
-        private void onClickImage1(object sender, MouseButtonEventArgs e)
-        {
-            Position0();
-
-            BoardRefresh();
-        }
 
         private void onClickImage2(object sender, MouseButtonEventArgs e)
         {
             img_selected.Margin = new Thickness(475, 220, 0, 0);
+            rct_mask.Margin = new Thickness(490, 232, 0, 0);
             if (nCurrentTap == TAP_HISTORY)
             {
                 nCurrSel = (nHistoryCurrPage * ICON_COUNT_EACH_PAGE) + 1;
@@ -423,6 +427,7 @@ namespace songpa
         private void onClickImage3(object sender, MouseButtonEventArgs e)
         {
             img_selected.Margin = new Thickness(815, 220, 0, 0);
+            rct_mask.Margin = new Thickness(827, 232, 0, 0);
             if (nCurrentTap == TAP_HISTORY)
             {
                 nCurrSel = (nHistoryCurrPage * ICON_COUNT_EACH_PAGE) + 2;
@@ -436,6 +441,7 @@ namespace songpa
         private void onClickImage4(object sender, MouseButtonEventArgs e)
         {
             img_selected.Margin = new Thickness(140, 540, 0, 0);
+            rct_mask.Margin = new Thickness(153, 552, 0, 0);
             if (nCurrentTap == TAP_HISTORY)
             {
                 nCurrSel = (nHistoryCurrPage * ICON_COUNT_EACH_PAGE) + 3;
@@ -449,6 +455,7 @@ namespace songpa
         private void onClickImage5(object sender, MouseButtonEventArgs e)
         {
             img_selected.Margin = new Thickness(475, 540, 0, 0);
+            rct_mask.Margin = new Thickness(490, 552, 0, 0);
             if (nCurrentTap == TAP_HISTORY)
             {
                 nCurrSel = (nHistoryCurrPage * ICON_COUNT_EACH_PAGE) + 4;
@@ -463,6 +470,7 @@ namespace songpa
         private void onClickImage6(object sender, MouseButtonEventArgs e)
         {
             img_selected.Margin = new Thickness(815, 540, 0, 0);
+            rct_mask.Margin = new Thickness(827, 552, 0, 0);
             if (nCurrentTap == TAP_HISTORY)
             {
                 nCurrSel = (nHistoryCurrPage * ICON_COUNT_EACH_PAGE) + 5;
