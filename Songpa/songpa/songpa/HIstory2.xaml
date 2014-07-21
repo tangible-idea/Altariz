@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="History2" Height="1080" Width="1920">
     <Grid>
-        <Image  HorizontalAlignment="Left" Name="img_BG" Stretch="Fill" VerticalAlignment="Top" Source="/songpa;component/res/bg_3.jpg" Height="1080" Width="1920" />
+        <Image  HorizontalAlignment="Left" Name="img_BG" Stretch="Fill" VerticalAlignment="Top" Source="/songpa;component/res/bg_3.jpg" Height="1080" Width="1920" Margin="95,16,0,0" />
         <Image Height="859" HorizontalAlignment="Left" Margin="216,110,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="600" />
         <Image Height="259" HorizontalAlignment="Left" Margin="872,710,0,0" Name="image2" Stretch="Fill" VerticalAlignment="Top" Width="395" />
         <Image Height="260" HorizontalAlignment="Left" Margin="1331,709,0,0" Name="image3" Stretch="Fill" VerticalAlignment="Top" Width="395" />
