@@ -19,10 +19,10 @@
         <TextBox Height="23" HorizontalAlignment="Left" Margin="416,41,0,0" MaxLength="43" MaxLines="1" Name="txt_2" Text="" VerticalAlignment="Top" Width="542" />
         <Label Content="텍스트2" Height="28" HorizontalAlignment="Left" Margin="335,41,0,0" Name="label2" VerticalAlignment="Top" Width="75" />
         
-        <TextBox Height="97" HorizontalAlignment="Left" Margin="416,70,0,0" MaxLength="43" MaxLines="1" Name="txt_3" Text="" VerticalAlignment="Top" Width="542" />
+        <TextBox Height="97" HorizontalAlignment="Left" Margin="416,70,0,0" MaxLines="1" Name="txt_3" Text="" VerticalAlignment="Top" Width="542" AcceptsReturn="True" />
         <Label Content="텍스트3" Height="28" HorizontalAlignment="Left" Margin="335,70,0,0" Name="label4" VerticalAlignment="Top" Width="75" />
 
-        <TextBox Height="97" HorizontalAlignment="Left" Margin="416,173,0,0" MaxLength="43" MaxLines="1" Name="txt_4" Text="" VerticalAlignment="Top" Width="542" />
+        <TextBox Height="97" HorizontalAlignment="Left" Margin="416,173,0,0" MaxLines="1" Name="txt_4" Text="" VerticalAlignment="Top" Width="542" AcceptsReturn="True" />
         <Label Content="텍스트4" Height="28" HorizontalAlignment="Left" Margin="335,173,0,0" Name="label5" VerticalAlignment="Top" Width="75" />
        
         <ComboBox Height="23" HorizontalAlignment="Left" Margin="94,12,0,0" Name="cbo_SelPosition" VerticalAlignment="Top" Width="224" SelectedIndex="0">

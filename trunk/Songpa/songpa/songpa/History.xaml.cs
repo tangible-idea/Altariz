@@ -345,6 +345,7 @@ namespace songpa
             image_tap1.Source = img_Tap1_on;
             image_tap2.Source = img_Tap2_off;
             nCurrentTap = 0;
+            nCurrSel = 0;   // 탭이 변경될 때, 선택이 초기화됨. [7/21/2014 Mark_laptap]
 
             BoardRefresh();
         }
@@ -357,6 +358,7 @@ namespace songpa
             image_tap1.Source = img_Tap1_off;
             image_tap2.Source = img_Tap2_on;
             nCurrentTap = 1;
+            nCurrSel = 0;   // 탭이 변경될 때, 선택이 초기화됨. [7/21/2014 Mark_laptap]
 
             BoardRefresh();
         }

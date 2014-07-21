@@ -390,6 +390,11 @@ namespace manager_pc
             return true;
         }
 
+        private void txt_3_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
 
     }
 }
