@@ -88,21 +88,24 @@ namespace songpa
             arrCultureInfo.Clear();
             //MessageBox.Show("refresh!");
 
-            // rush ticket root folder [6/5/2014 Mark]
-            DirectoryInfo DIR_history_root = new DirectoryInfo(strPath + "\\history_root\\");
-            DirectoryInfo[] DirInfoArr_HistoryInfo = DIR_history_root.GetDirectories("*.*");
-            //int nPageCount = RushFestivalInfo.Length;
+            try
+            {
+                // rush ticket root folder [6/5/2014 Mark]
+                DirectoryInfo DIR_history_root = new DirectoryInfo(strPath + "\\history_root\\");
+                DirectoryInfo[] DirInfoArr_HistoryInfo = DIR_history_root.GetDirectories("*.*");
+                //int nPageCount = RushFestivalInfo.Length;
 
-            // 탭 정리를 위해 전부 한꺼번에 가져오자 [7/1/2014 Mark]
-            for (int i = 0; i < DirInfoArr_HistoryInfo.Length; ++i )
-            {
-                XMLLoad(DirInfoArr_HistoryInfo[i].FullName);
+                // 탭 정리를 위해 전부 한꺼번에 가져오자 [7/1/2014 Mark]
+                for (int i = 0; i < DirInfoArr_HistoryInfo.Length; ++i)
+                {
+                    XMLLoad(DirInfoArr_HistoryInfo[i].FullName);
+                }
             }
-            
-            
-            foreach (HistoryInfo HI in arrHistoryInfo)
+            catch
             {
-                
+                MessageBox.Show("데이터를 찾을 수 없습니다. 서버 PC에서 폴더 세팅을 확인해주세요.");
+                this.Close();
+                return;
             }
 
             String path1="", path2="", path3="", path4="", path5="", path6="";
@@ -158,32 +161,32 @@ namespace songpa
 
             try
             {
-                if (path1 == "")
+                if ((path1 == null) || (path1 == ""))
                     image1.Source = null;
                 else
                     image1.Source = new BitmapImage(new Uri(path1));
 
-                if (path2 == "")
+                if ((path2 == null) || (path2 == ""))
                     image2.Source = null;
                 else
                     image2.Source = new BitmapImage(new Uri(path2));
 
-                if (path3 == "")
+                if ((path3 == null) || (path3 == ""))
                     image3.Source = null;
                 else
                     image3.Source = new BitmapImage(new Uri(path3));
 
-                if (path4 == "")
+                if ((path4 == null) || (path4 == ""))
                     image4.Source = null;
                 else
                     image4.Source = new BitmapImage(new Uri(path4));
 
-                if (path5 == "")
+                if ((path5 == null) || (path5 == ""))
                     image5.Source = null;
                 else
                     image5.Source = new BitmapImage(new Uri(path5));
 
-                if (path6 == "")
+                if ((path6 == null) || (path6 == ""))
                     image6.Source = null;
                 else
                     image6.Source = new BitmapImage(new Uri(path6));
@@ -345,7 +348,7 @@ namespace songpa
             image_tap1.Source = img_Tap1_on;
             image_tap2.Source = img_Tap2_off;
             nCurrentTap = 0;
-            nCurrSel = 0;   // 탭이 변경될 때, 선택이 초기화됨. [7/21/2014 Mark_laptap]
+            Position0();  // 탭이 변경될 때, 선택이 초기화됨. [7/21/2014 Mark_laptap]
 
             BoardRefresh();
         }
@@ -358,7 +361,7 @@ namespace songpa
             image_tap1.Source = img_Tap1_off;
             image_tap2.Source = img_Tap2_on;
             nCurrentTap = 1;
-            nCurrSel = 0;   // 탭이 변경될 때, 선택이 초기화됨. [7/21/2014 Mark_laptap]
+            Position0();  // 탭이 변경될 때, 선택이 초기화됨. [7/21/2014 Mark_laptap]
 
             BoardRefresh();
         }
@@ -383,17 +386,23 @@ namespace songpa
             BoardRefresh();
         }
 
-        private void onClickImage1(object sender, MouseButtonEventArgs e)
+        private void Position0()
         {
-            img_selected.Margin = new Thickness(140,220,0,0);
+            img_selected.Margin = new Thickness(140, 220, 0, 0);
             if (nCurrentTap == TAP_HISTORY)
             {
-                nCurrSel = (nHistoryCurrPage*ICON_COUNT_EACH_PAGE) + 0;
+                nCurrSel = (nHistoryCurrPage * ICON_COUNT_EACH_PAGE) + 0;
             }
             else
             {
                 nCurrSel = (nHistoryCurrPage * ICON_COUNT_EACH_PAGE) + 0;
             }
+        }
+
+        private void onClickImage1(object sender, MouseButtonEventArgs e)
+        {
+            Position0();
+
             BoardRefresh();
         }
 
