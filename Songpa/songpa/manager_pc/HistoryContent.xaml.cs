@@ -164,6 +164,32 @@ namespace manager_pc
             Close();
         }
 
+        // 보기 좋게 줄 바꿈 해주는 함수.
+        private String TextChanger(String str, int nWordPerLine)
+        {
+            str= str.Replace("\r", "");
+            char[] delimiterChars= { '\n' };
+            String[] words= str.Split(delimiterChars);
+
+            String strRes = "";
+
+            foreach (string s in words)
+            {
+                strRes += InsertCRLFinside(s, nWordPerLine);
+            }
+            return strRes;
+        }
+
+        // 각 위치에 삽입함. [7/24/2014 Mark]
+        private String InsertCRLFinside(String strOriginal, int nMaxlen)
+        {
+            int nCount= strOriginal.Length / nMaxlen;   // 나누게 될 줄 개수 [7/24/2014 Mark]
+            for (int i = 1; i <= nCount; ++i)
+            {
+                strOriginal= strOriginal.Insert(nMaxlen * i, "\r\n");
+            }
+            return strOriginal + "\r\n";
+        }
 
         private void XMLCreate(String pathToSave)
         {
@@ -184,8 +210,8 @@ namespace manager_pc
 
                 AddElement(textWriter, "txt1", txt_1.Text);
                 AddElement(textWriter, "txt2", txt_2.Text);
-                AddElement(textWriter, "txt3", txt_3.Text);
-                AddElement(textWriter, "txt4", txt_4.Text);
+                AddElement(textWriter, "txt3", TextChanger(txt_3.Text, 32));
+                AddElement(textWriter, "txt4", TextChanger(txt_4.Text, 45));
 
                 if (img_Form1.Source == null)
                     AddElement(textWriter, "image1", "");
