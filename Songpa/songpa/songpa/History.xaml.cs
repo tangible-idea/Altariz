@@ -81,7 +81,33 @@ namespace songpa
 
             return item;
         }
-        
+
+
+
+        // 각 위치에 삽입함. [7/24/2014 Mark]
+        private String InsertCRLFinside(String strOriginal)
+        {
+            char[] split = { ' ' };
+            String[] words = strOriginal.Split(split);
+            String strRes = "";
+
+            for (int i = 0; i < words.Length; ++i)
+            {
+                if (i == words.Length - 1)
+                {
+                    strRes += words[i];
+                }
+                else
+                {
+                    strRes += words[i];
+                    strRes += "\r\n";
+                }
+            }
+
+            return strRes;
+        }
+
+
         private void BoardRefresh()
         {
             arrHistoryInfo.Clear();
@@ -158,6 +184,33 @@ namespace songpa
             {
             }
 
+            try
+            {
+                if (nCurrentTap == TAP_HISTORY)
+                {
+                    int idxStart = nHistoryCurrPage * 6;
+                    TB1.Text = InsertCRLFinside(arrHistoryInfo[idxStart + 0].txt1);
+                    TB2.Text = InsertCRLFinside(arrHistoryInfo[idxStart + 1].txt1);
+                    TB3.Text = InsertCRLFinside(arrHistoryInfo[idxStart + 2].txt1);
+                    TB4.Text = InsertCRLFinside(arrHistoryInfo[idxStart + 3].txt1);
+                    TB5.Text = InsertCRLFinside(arrHistoryInfo[idxStart + 4].txt1);
+                    TB6.Text = InsertCRLFinside(arrHistoryInfo[idxStart + 5].txt1);
+                }
+                if (nCurrentTap == TAP_CULTURE)
+                {
+                    int idxStart = nCultureCurrPage * 6;
+                    TB1.Text = InsertCRLFinside(arrCultureInfo[idxStart + 0].txt1);
+                    TB2.Text = InsertCRLFinside(arrCultureInfo[idxStart + 1].txt1);
+                    TB3.Text = InsertCRLFinside(arrCultureInfo[idxStart + 2].txt1);
+                    TB4.Text = InsertCRLFinside(arrCultureInfo[idxStart + 3].txt1);
+                    TB5.Text = InsertCRLFinside(arrCultureInfo[idxStart + 4].txt1);
+                    TB6.Text = InsertCRLFinside(arrCultureInfo[idxStart + 5].txt1);
+                }
+            }
+            catch
+            {
+            }
+
 
             try
             {
@@ -206,8 +259,8 @@ namespace songpa
                 {   // 선택한 것에 맞는 화면 띄움. [7/2/2014 Mark]
                     topWindow.txt1.Content = arrHistoryInfo[nCurrSel].txt1;
                     topWindow.txt2.Content = arrHistoryInfo[nCurrSel].txt2;
-                    topWindow.txt3.Content = arrHistoryInfo[nCurrSel].txt3;
-                    topWindow.txt4.Content = arrHistoryInfo[nCurrSel].txt4;
+                    topWindow.txt_TB_3.Text = arrHistoryInfo[nCurrSel].txt3;
+                    topWindow.txt_TB_4.Text = arrHistoryInfo[nCurrSel].txt4;
                     pathImg1= arrHistoryInfo[nCurrSel].img1_path;
                     pathImg2= arrHistoryInfo[nCurrSel].img2_path;
                     pathImg3= arrHistoryInfo[nCurrSel].img3_path;
@@ -216,8 +269,8 @@ namespace songpa
                 {
                     topWindow.txt1.Content = arrCultureInfo[nCurrSel].txt1;
                     topWindow.txt2.Content = arrCultureInfo[nCurrSel].txt2;
-                    topWindow.txt3.Content = arrCultureInfo[nCurrSel].txt3;
-                    topWindow.txt4.Content = arrCultureInfo[nCurrSel].txt4;
+                    topWindow.txt_TB_3.Text = arrCultureInfo[nCurrSel].txt3;
+                    topWindow.txt_TB_4.Text = arrCultureInfo[nCurrSel].txt4;
                     pathImg1 = arrCultureInfo[nCurrSel].img1_path;
                     pathImg2 = arrCultureInfo[nCurrSel].img2_path;
                     pathImg3 = arrCultureInfo[nCurrSel].img3_path;
