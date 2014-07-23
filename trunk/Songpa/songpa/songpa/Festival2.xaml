@@ -12,10 +12,17 @@
         <Image Height="864" HorizontalAlignment="Left" Margin="215,108,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="604" />
         <Image Height="264" HorizontalAlignment="Left" Margin="871,708,0,0" Name="image2" Stretch="Fill" VerticalAlignment="Top" Width="397" Grid.ColumnSpan="2" />
         <Image Height="264" HorizontalAlignment="Left" Margin="412,708,0,0" Name="image3" Stretch="Fill" VerticalAlignment="Top" Width="397" Grid.Column="1" Grid.ColumnSpan="2" />
-        <Label Content="Loadng..." Height="65" HorizontalAlignment="Left" Margin="0,119,0,0" Name="txt1" VerticalAlignment="Top" Width="773" Foreground="#FFCCFF00" FontFamily="NanumGothic" FontSize="35" FontWeight="Bold" Grid.Column="1" />
+        
+        <Label Content="Loadng..." Height="65" HorizontalAlignment="Left" Margin="0,119,0,0" Name="txt1" VerticalAlignment="Top" Width="773" Foreground="#FFCCFF00" FontFamily="NanumGothic" FontSize="35" FontWeight="Bold" Grid.Column="1" />        
         <Label Content="" FontFamily="NanumGothic" FontSize="20" Foreground="#FFCCFF00" Height="47" HorizontalAlignment="Left" Margin="0,171,0,0" Name="txt2" VerticalAlignment="Top" Width="773" Grid.Column="1" />
-        <Label Content="" FontFamily="NanumGothic" FontSize="25"  Foreground="#ffffff" HorizontalAlignment="Left" Margin="0,229,0,0" Name="txt3" Width="773" Grid.Column="1" FontWeight="Bold" Height="243" VerticalAlignment="Top" Target="{Binding}" />
-        <Label Content="" FontFamily="NanumGothic" FontSize="18"  Foreground="#959595" Height="156" HorizontalAlignment="Left" Margin="0,487,0,0" Name="txt4" VerticalAlignment="Top" Width="773" FontWeight="Bold" Grid.Column="1" />
+        
+        <Label FontFamily="NanumGothic" FontSize="25"  Foreground="#ffffff" HorizontalAlignment="Left" Margin="0,229,0,0" Name="txt3" Width="773" Grid.Column="1" FontWeight="Bold" Height="243" VerticalAlignment="Top" Target="{Binding}" FontStretch="Normal">
+            <TextBlock Name="txt_TB_3" TextWrapping="Wrap"></TextBlock> 
+        </Label>
+        
+        <Label FontFamily="NanumGothic" FontSize="18"  Foreground="#959595" Height="156" HorizontalAlignment="Left" Margin="0,487,0,0" Name="txt4" VerticalAlignment="Top" Width="773" FontWeight="Bold" Grid.Column="1">
+            <TextBlock Name="txt_TB_4" TextWrapping="Wrap"></TextBlock>
+        </Label>
         <Image Height="114" HorizontalAlignment="Left" Margin="214,109,0,0" Name="image4" Source="/songpa;component/res/Bar.png" Stretch="Fill" VerticalAlignment="Top" Width="16" />
     </Grid>
 </Window>

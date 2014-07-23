@@ -82,7 +82,35 @@ namespace songpa
 
             return item;
         }
-        
+
+
+
+
+        // 각 위치에 삽입함. [7/24/2014 Mark]
+        private String InsertCRLFinside(String strOriginal)
+        {
+            char[] split= {' '};
+            String[] words= strOriginal.Split(split);
+            String strRes = "";
+
+            for (int i = 0; i < words.Length; ++i)
+            {
+                if (i == words.Length - 1)
+                {
+                    strRes += words[i];
+                }
+                else
+                {
+                    strRes += words[i];
+                    strRes += "\r\n";
+                }                
+            }
+
+            return strRes;
+        }
+
+
+
         private void BoardRefresh()
         {
             arrFestivalInfo.Clear();
@@ -132,6 +160,8 @@ namespace songpa
                     path4= arrFestivalInfo[idxStart + 3].imgThumb_path;
                     path5= arrFestivalInfo[idxStart + 4].imgThumb_path;
                     path6= arrFestivalInfo[idxStart + 5].imgThumb_path;
+
+
                 }
                 if (nCurrentTap == TAP_MUSICAL)
                 {
@@ -153,12 +183,40 @@ namespace songpa
                     path4 = arrMusicalInfo[idxStart + 3].imgThumb_path;
                     path5 = arrMusicalInfo[idxStart + 4].imgThumb_path;
                     path6 = arrMusicalInfo[idxStart + 5].imgThumb_path;
+
                 }
             }
             catch
             {
             }
 
+
+            try
+            {
+                if (nCurrentTap == TAP_FESTIVAL)
+                {
+                    int idxStart = nFestivalCurrPage * 6;
+                    TB1.Text = InsertCRLFinside(arrFestivalInfo[idxStart + 0].txt1);
+                    TB2.Text = InsertCRLFinside(arrFestivalInfo[idxStart + 1].txt1);
+                    TB3.Text = InsertCRLFinside(arrFestivalInfo[idxStart + 2].txt1);
+                    TB4.Text = InsertCRLFinside(arrFestivalInfo[idxStart + 3].txt1);
+                    TB5.Text = InsertCRLFinside(arrFestivalInfo[idxStart + 4].txt1);
+                    TB6.Text = InsertCRLFinside(arrFestivalInfo[idxStart + 5].txt1);
+                }
+                if (nCurrentTap == TAP_MUSICAL)
+                {
+                    int idxStart = nFestivalCurrPage * 6;
+                    TB1.Text = InsertCRLFinside(arrMusicalInfo[idxStart + 0].txt1);
+                    TB2.Text = InsertCRLFinside(arrMusicalInfo[idxStart + 1].txt1);
+                    TB3.Text = InsertCRLFinside(arrMusicalInfo[idxStart + 2].txt1);
+                    TB4.Text = InsertCRLFinside(arrMusicalInfo[idxStart + 3].txt1);
+                    TB5.Text = InsertCRLFinside(arrMusicalInfo[idxStart + 4].txt1);
+                    TB6.Text = InsertCRLFinside(arrMusicalInfo[idxStart + 5].txt1);
+                }
+            }
+            catch
+            {
+            }
 
             try
             {
@@ -207,18 +265,19 @@ namespace songpa
                 {   // 선택한 것에 맞는 화면 띄움. [7/2/2014 Mark]
                     topWindow.txt1.Content = arrFestivalInfo[nCurrSel].txt1;
                     topWindow.txt2.Content = arrFestivalInfo[nCurrSel].txt2;
-                    topWindow.txt3.Content = arrFestivalInfo[nCurrSel].txt3;
-                    topWindow.txt4.Content = arrFestivalInfo[nCurrSel].txt4;
+                    topWindow.txt_TB_3.Text = arrFestivalInfo[nCurrSel].txt3;
+                    topWindow.txt_TB_4.Text = arrFestivalInfo[nCurrSel].txt4;
                     pathImg1= arrFestivalInfo[nCurrSel].img1_path;
                     pathImg2= arrFestivalInfo[nCurrSel].img2_path;
                     pathImg3= arrFestivalInfo[nCurrSel].img3_path;
+
                 }
                 else
                 {
                     topWindow.txt1.Content = arrMusicalInfo[nCurrSel].txt1;
                     topWindow.txt2.Content = arrMusicalInfo[nCurrSel].txt2;
-                    topWindow.txt3.Content = arrMusicalInfo[nCurrSel].txt3;
-                    topWindow.txt4.Content = arrMusicalInfo[nCurrSel].txt4;
+                    topWindow.txt_TB_3.Text = arrMusicalInfo[nCurrSel].txt3;
+                    topWindow.txt_TB_4.Text = arrMusicalInfo[nCurrSel].txt4;
                     pathImg1 = arrMusicalInfo[nCurrSel].img1_path;
                     pathImg2 = arrMusicalInfo[nCurrSel].img2_path;
                     pathImg3 = arrMusicalInfo[nCurrSel].img3_path;
