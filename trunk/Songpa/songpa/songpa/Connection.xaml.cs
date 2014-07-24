@@ -41,18 +41,34 @@ namespace songpa
             Registry.CurrentUser.CreateSubKey("SONGPA").CreateSubKey("connection");
             rkey = Registry.CurrentUser.OpenSubKey("SONGPA").OpenSubKey("connection", true);
 
-            if (rkey.GetValue("IP") != null)    // 값이 있으면 [6/25/2014 Mark]
+            try
             {
-                txt_IP.Text = rkey.GetValue("IP").ToString();
-                txt_Account.Text = rkey.GetValue("ACCOUNT").ToString();
-                txt_PW.Password = rkey.GetValue("PASSWORD").ToString();
-                txt_Path.Text = rkey.GetValue("PATH").ToString();
-            }            
+                if (rkey.GetValue("IP") != null)    // 값이 있으면 [6/25/2014 Mark]
+                {
+                    txt_IP.Text = rkey.GetValue("IP").ToString();
+                    txt_Account.Text = rkey.GetValue("ACCOUNT").ToString();
+                    txt_PW.Password = rkey.GetValue("PASSWORD").ToString();
+                    txt_Path.Text = rkey.GetValue("PATH").ToString();
+                    cbo_connection_target.SelectedIndex = (int)rkey.GetValue("TARGET");
 
-
+                    TryConnection();
+                }   
+            }
+            catch
+            {
+                MessageBox.Show("접속 정보 레지스트리를 초기화해주세요.");
+                return;
+            }
+         
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            TryConnection();            
+        }
+
+        // 연결 시도... [7/25/2014 Mark]
+        private void TryConnection()
         {
             //String strPath1 = @"\\192.168.0.14\all";
             PATH = "\\\\" + txt_IP.Text + "\\" + txt_Path.Text;
@@ -66,7 +82,7 @@ namespace songpa
             {
                 msg = "Connection sucessfull!";
             }
-            MessageBox.Show(msg + nRes);
+            //MessageBox.Show(msg + nRes);
 
             if (msg == "Connection sucessfull!")
             {
@@ -78,6 +94,7 @@ namespace songpa
                 rkey.SetValue("ACCOUNT", txt_Account.Text.ToString());
                 rkey.SetValue("PASSWORD", txt_PW.Password.ToString());
                 rkey.SetValue("PATH", txt_Path.Text.ToString());
+                rkey.SetValue("TARGET", cbo_connection_target.SelectedIndex);   // target도 저장 [7/25/2014 Mark]
 
                 if (cbo_connection_target.SelectedIndex == 0)
                 {
@@ -101,14 +118,12 @@ namespace songpa
                 {
                     MessageBox.Show("Wrong connection target or in construction page.");
                 }
-                
-
-                
             }
-
-            
+            else // 실패일 경우에만 메시지 띄우자 자동 넘김을 위해서... [7/25/2014 Mark]
+            {
+                MessageBox.Show(msg + nRes);
+            }
         }
-
         // 원본과, 목적지를 같이 대입  
         public void CopyFolder(string sourceFolder, string destFolder)
         {

@@ -186,6 +186,7 @@ namespace songpa
 
             try
             {
+                TB1.Text = TB2.Text = TB3.Text = TB4.Text = TB5.Text = TB6.Text = "";
                 if (nCurrentTap == TAP_HISTORY)
                 {
                     int idxStart = nHistoryCurrPage * 6;

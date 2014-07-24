@@ -100,8 +100,8 @@ namespace songpa
 
             if (nPageCount == 0)    // 컨텐츠가 없을 때 종료함. [7/22/2014 Mark]
             {
-                MessageBox.Show("컨텐츠가 하나도 없습니다.");
-                this.Close();
+                //MessageBox.Show("컨텐츠가 하나도 없습니다.");
+                //this.Close();
                 return;
             }
 
