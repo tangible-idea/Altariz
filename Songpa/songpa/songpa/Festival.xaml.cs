@@ -193,8 +193,9 @@ namespace songpa
 
             try
             {
+                TB1.Text = TB2.Text = TB3.Text = TB4.Text = TB5.Text = TB6.Text = "";
                 if (nCurrentTap == TAP_FESTIVAL)
-                {
+                {                    
                     int idxStart = nFestivalCurrPage * 6;
                     TB1.Text = InsertCRLFinside(arrFestivalInfo[idxStart + 0].txt1);
                     TB2.Text = InsertCRLFinside(arrFestivalInfo[idxStart + 1].txt1);

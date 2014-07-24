@@ -21,6 +21,25 @@ namespace songpa
         public History2()
         {
             InitializeComponent();
+
+            int nWidth = 1920;
+            int nHeight = 1080;
+
+            this.WindowStartupLocation = WindowStartupLocation.Manual;
+            this.Left = 0;
+            this.Top = -1 * nHeight;
+            //this.Width = SystemParameters.VirtualScreenWidth;
+            //this.Height = SystemParameters.VirtualScreenHeight;
+            this.Width = nWidth;
+            this.Height = nHeight;
+
+            my_windows.Width = nWidth;
+            my_windows.Height = nHeight;
+            //this.WindowState = WindowState.Maximized;
+            this.WindowStyle = WindowStyle.None;
+            this.ResizeMode = ResizeMode.NoResize;
+            this.Topmost = true;
+            this.Show();
         }
     }
 }
