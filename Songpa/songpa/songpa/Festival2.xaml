@@ -17,7 +17,18 @@
         <Label Content="" FontFamily="NanumGothic" FontSize="20" Foreground="#FFCCFF00" Height="47" HorizontalAlignment="Left" Margin="915,171,0,0" Name="txt2" VerticalAlignment="Top" Width="773" />
         
         <Label FontFamily="NanumGothic" FontSize="25"  Foreground="#ffffff" HorizontalAlignment="Left" Margin="915,229,0,0" Name="txt3" Width="773" FontWeight="Bold" Height="243" VerticalAlignment="Top" Target="{Binding}" FontStretch="Normal">
-            <TextBlock Name="txt_TB_3" TextWrapping="Wrap"></TextBlock> 
+            <TextBlock TextWrapping="Wrap">
+                 <RichTextBox Name="txt_RT_3" Background="#00000000" BorderBrush="#00000000" Foreground="White" SelectionBrush="{x:Null}" Focusable="False" IsHitTestVisible="False">
+                        <RichTextBox.Resources>
+                            <Style TargetType="{x:Type Paragraph}">
+                                <Setter Property="Margin" Value="5"/>  
+                            </Style>
+                        </RichTextBox.Resources>
+                     <FlowDocument LineHeight="25" >
+                        <Paragraph LineStackingStrategy="BlockLineHeight"></Paragraph>
+                    </FlowDocument>
+                </RichTextBox>
+            </TextBlock> 
         </Label>
         
         <Label FontFamily="NanumGothic" FontSize="18"  Foreground="#959595" Height="156" HorizontalAlignment="Left" Margin="915,487,0,0" Name="txt4" VerticalAlignment="Top" Width="773" FontWeight="Bold">

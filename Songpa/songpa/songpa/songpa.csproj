@@ -161,6 +161,14 @@
     <EmbeddedResource Include="res\rush_tag_05.gif" />
     <EmbeddedResource Include="res\rush_tag_06.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\tap_concert1.jpg" />
+    <Resource Include="res\tap_concert2.jpg" />
+    <Resource Include="res\tap_relic1.jpg" />
+    <Resource Include="res\tap_relic2.jpg" />
+    <Resource Include="res\tap_remains1.jpg" />
+    <Resource Include="res\tap_remains2.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
