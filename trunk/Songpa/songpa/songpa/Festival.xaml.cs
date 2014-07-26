@@ -56,8 +56,8 @@ namespace songpa
 
             string filename1 = string.Format("{0}{1}", this.GetType().Namespace, ".res.tap_festival_off.jpg");
             string filename2 = string.Format("{0}{1}", this.GetType().Namespace, ".res.tap_festival_on.jpg");
-            string filename3 = string.Format("{0}{1}", this.GetType().Namespace, ".res.tap_musical_off.jpg");
-            string filename4 = string.Format("{0}{1}", this.GetType().Namespace, ".res.tap_musical_on.jpg");
+            string filename3 = string.Format("{0}{1}", this.GetType().Namespace, ".res.tap_concert1.jpg");
+            string filename4 = string.Format("{0}{1}", this.GetType().Namespace, ".res.tap_concert2.jpg");
 
             img_Tap1_off= MakeBitmap(executingAssembly, filename1);
             img_Tap1_on= MakeBitmap(executingAssembly, filename2);
@@ -266,7 +266,10 @@ namespace songpa
                 {   // 선택한 것에 맞는 화면 띄움. [7/2/2014 Mark]
                     topWindow.txt1.Content = arrFestivalInfo[nCurrSel].txt1;
                     topWindow.txt2.Content = arrFestivalInfo[nCurrSel].txt2;
-                    topWindow.txt_TB_3.Text = arrFestivalInfo[nCurrSel].txt3;
+
+                    TextRange textRange = new TextRange(topWindow.txt_RT_3.Document.ContentStart, topWindow.txt_RT_3.Document.ContentEnd);
+                    textRange.Text = arrFestivalInfo[nCurrSel].txt3;
+
                     topWindow.txt_TB_4.Text = arrFestivalInfo[nCurrSel].txt4;
                     pathImg1= arrFestivalInfo[nCurrSel].img1_path;
                     pathImg2= arrFestivalInfo[nCurrSel].img2_path;
@@ -277,7 +280,10 @@ namespace songpa
                 {
                     topWindow.txt1.Content = arrMusicalInfo[nCurrSel].txt1;
                     topWindow.txt2.Content = arrMusicalInfo[nCurrSel].txt2;
-                    topWindow.txt_TB_3.Text = arrMusicalInfo[nCurrSel].txt3;
+
+                    TextRange textRange = new TextRange(topWindow.txt_RT_3.Document.ContentStart, topWindow.txt_RT_3.Document.ContentEnd);
+                    textRange.Text = arrMusicalInfo[nCurrSel].txt3;
+
                     topWindow.txt_TB_4.Text = arrMusicalInfo[nCurrSel].txt4;
                     pathImg1 = arrMusicalInfo[nCurrSel].img1_path;
                     pathImg2 = arrMusicalInfo[nCurrSel].img2_path;

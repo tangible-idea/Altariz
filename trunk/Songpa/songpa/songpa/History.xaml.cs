@@ -260,7 +260,10 @@ namespace songpa
                 {   // 선택한 것에 맞는 화면 띄움. [7/2/2014 Mark]
                     topWindow.txt1.Content = arrHistoryInfo[nCurrSel].txt1;
                     topWindow.txt2.Content = arrHistoryInfo[nCurrSel].txt2;
-                    topWindow.txt_TB_3.Text = arrHistoryInfo[nCurrSel].txt3;
+
+                    TextRange textRange = new TextRange(topWindow.txt_RT_3.Document.ContentStart, topWindow.txt_RT_3.Document.ContentEnd);
+                    textRange.Text= arrHistoryInfo[nCurrSel].txt3;
+
                     topWindow.txt_TB_4.Text = arrHistoryInfo[nCurrSel].txt4;
                     pathImg1= arrHistoryInfo[nCurrSel].img1_path;
                     pathImg2= arrHistoryInfo[nCurrSel].img2_path;
@@ -270,7 +273,10 @@ namespace songpa
                 {
                     topWindow.txt1.Content = arrCultureInfo[nCurrSel].txt1;
                     topWindow.txt2.Content = arrCultureInfo[nCurrSel].txt2;
-                    topWindow.txt_TB_3.Text = arrCultureInfo[nCurrSel].txt3;
+
+                    TextRange textRange = new TextRange(topWindow.txt_RT_3.Document.ContentStart, topWindow.txt_RT_3.Document.ContentEnd);
+                    textRange.Text = arrCultureInfo[nCurrSel].txt3;
+
                     topWindow.txt_TB_4.Text = arrCultureInfo[nCurrSel].txt4;
                     pathImg1 = arrCultureInfo[nCurrSel].img1_path;
                     pathImg2 = arrCultureInfo[nCurrSel].img2_path;
