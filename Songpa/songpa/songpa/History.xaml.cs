@@ -261,10 +261,12 @@ namespace songpa
                     topWindow.txt1.Content = arrHistoryInfo[nCurrSel].txt1;
                     topWindow.txt2.Content = arrHistoryInfo[nCurrSel].txt2;
 
-                    TextRange textRange = new TextRange(topWindow.txt_RT_3.Document.ContentStart, topWindow.txt_RT_3.Document.ContentEnd);
-                    textRange.Text= arrHistoryInfo[nCurrSel].txt3;
+                    TextRange textRange3 = new TextRange(topWindow.txt_RT_3.Document.ContentStart, topWindow.txt_RT_3.Document.ContentEnd);
+                    textRange3.Text= arrHistoryInfo[nCurrSel].txt3;
 
-                    topWindow.txt_TB_4.Text = arrHistoryInfo[nCurrSel].txt4;
+                    TextRange textRange4 = new TextRange(topWindow.txt_RT_4.Document.ContentStart, topWindow.txt_RT_4.Document.ContentEnd);
+                    textRange4.Text = arrHistoryInfo[nCurrSel].txt4;
+
                     pathImg1= arrHistoryInfo[nCurrSel].img1_path;
                     pathImg2= arrHistoryInfo[nCurrSel].img2_path;
                     pathImg3= arrHistoryInfo[nCurrSel].img3_path;
@@ -277,7 +279,9 @@ namespace songpa
                     TextRange textRange = new TextRange(topWindow.txt_RT_3.Document.ContentStart, topWindow.txt_RT_3.Document.ContentEnd);
                     textRange.Text = arrCultureInfo[nCurrSel].txt3;
 
-                    topWindow.txt_TB_4.Text = arrCultureInfo[nCurrSel].txt4;
+                    TextRange textRange4 = new TextRange(topWindow.txt_RT_4.Document.ContentStart, topWindow.txt_RT_4.Document.ContentEnd);
+                    textRange4.Text = arrHistoryInfo[nCurrSel].txt4;
+
                     pathImg1 = arrCultureInfo[nCurrSel].img1_path;
                     pathImg2 = arrCultureInfo[nCurrSel].img2_path;
                     pathImg3 = arrCultureInfo[nCurrSel].img3_path;
