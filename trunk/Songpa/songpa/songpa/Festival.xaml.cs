@@ -270,7 +270,9 @@ namespace songpa
                     TextRange textRange = new TextRange(topWindow.txt_RT_3.Document.ContentStart, topWindow.txt_RT_3.Document.ContentEnd);
                     textRange.Text = arrFestivalInfo[nCurrSel].txt3;
 
-                    topWindow.txt_TB_4.Text = arrFestivalInfo[nCurrSel].txt4;
+                    TextRange textRange4 = new TextRange(topWindow.txt_RT_4.Document.ContentStart, topWindow.txt_RT_4.Document.ContentEnd);
+                    textRange4.Text = arrFestivalInfo[nCurrSel].txt4;
+
                     pathImg1= arrFestivalInfo[nCurrSel].img1_path;
                     pathImg2= arrFestivalInfo[nCurrSel].img2_path;
                     pathImg3= arrFestivalInfo[nCurrSel].img3_path;
@@ -284,7 +286,9 @@ namespace songpa
                     TextRange textRange = new TextRange(topWindow.txt_RT_3.Document.ContentStart, topWindow.txt_RT_3.Document.ContentEnd);
                     textRange.Text = arrMusicalInfo[nCurrSel].txt3;
 
-                    topWindow.txt_TB_4.Text = arrMusicalInfo[nCurrSel].txt4;
+                    TextRange textRange4 = new TextRange(topWindow.txt_RT_4.Document.ContentStart, topWindow.txt_RT_4.Document.ContentEnd);
+                    textRange4.Text = arrFestivalInfo[nCurrSel].txt4;
+
                     pathImg1 = arrMusicalInfo[nCurrSel].img1_path;
                     pathImg2 = arrMusicalInfo[nCurrSel].img2_path;
                     pathImg3 = arrMusicalInfo[nCurrSel].img3_path;
