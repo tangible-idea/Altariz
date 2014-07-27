@@ -5,8 +5,8 @@
     <Grid>
         <!--<Button Content="Refresh" Height="23" HorizontalAlignment="Left" Margin="0,422,0,0" Name="button1" VerticalAlignment="Top" Width="846" Click="button1_Click" />-->
         <Image  HorizontalAlignment="Left" Name="img_BG" Stretch="Fill" VerticalAlignment="Top" Source="/songpa;component/res/bg_1.jpg"  Height="1080" Width="1920" />
-        <Button Height="207" HorizontalAlignment="Left" Margin="70,420,0,0" Name="btn_Left" VerticalAlignment="Top" Width="60" Click="btn_Left_Click" Visibility="Visible" Opacity="0.01" />
-        <Button Height="207" HorizontalAlignment="Left" Margin="1780,420,0,0" Name="btn_Right" VerticalAlignment="Top" Width="60" Click="btn_Right_Click" Visibility="Visible" Opacity="0.01" />
+        <Button Height="278" HorizontalAlignment="Left" Margin="0,400,0,0" Name="btn_Left" VerticalAlignment="Top" Width="210" Click="btn_Left_Click" Visibility="Visible" Opacity="0" />
+        <Button Height="278" HorizontalAlignment="Left" Margin="1732,400,0,0" Name="btn_Right" VerticalAlignment="Top" Width="200" Click="btn_Right_Click" Visibility="Visible" Opacity="0" />
         <Image Width="604" Height="864" HorizontalAlignment="Left" Margin="216,107,0,0" Name="img_Rush1" Stretch="Fill" VerticalAlignment="Top"  />
         <Image Width="856" Height="196" HorizontalAlignment="Left" Margin="872,775,0,0" Name="img_Rush2" Stretch="Fill" VerticalAlignment="Top" />
         <Label Content="Loading..." Height="58" Width="837" HorizontalAlignment="Left" Margin="903,119,0,0" Name="txt_EngTitle" VerticalAlignment="Top" Foreground="#FFCCFF00" FontSize="24" FontFamily="NanumGothic" FontWeight="Bold" Padding="10" />

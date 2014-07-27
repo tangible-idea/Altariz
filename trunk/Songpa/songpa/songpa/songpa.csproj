@@ -171,6 +171,9 @@
     <EmbeddedResource Include="res\tap_remains1.jpg" />
     <EmbeddedResource Include="res\tap_remains2.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\background.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
