@@ -53,10 +53,10 @@ namespace songpa
 
             Assembly executingAssembly = Assembly.GetExecutingAssembly();
 
-            string filename1 = string.Format("{0}{1}", this.GetType().Namespace, ".res.tap_festival_off.jpg");
-            string filename2 = string.Format("{0}{1}", this.GetType().Namespace, ".res.tap_festival_on.jpg");
-            string filename3 = string.Format("{0}{1}", this.GetType().Namespace, ".res.tap_musical_off.jpg");
-            string filename4 = string.Format("{0}{1}", this.GetType().Namespace, ".res.tap_musical_on.jpg");
+            string filename1 = string.Format("{0}{1}", this.GetType().Namespace, ".res.tap_remains2.jpg");
+            string filename2 = string.Format("{0}{1}", this.GetType().Namespace, ".res.tap_remains1.jpg");
+            string filename3 = string.Format("{0}{1}", this.GetType().Namespace, ".res.tap_relic2.jpg");
+            string filename4 = string.Format("{0}{1}", this.GetType().Namespace, ".res.tap_relic1.jpg");
 
             img_Tap1_off= MakeBitmap(executingAssembly, filename1);
             img_Tap1_on= MakeBitmap(executingAssembly, filename2);
@@ -134,9 +134,23 @@ namespace songpa
                 return;
             }
 
+            {   // 전부 초기화 [7/27/2014 Mark_laptap]
+                TB1.Text = TB2.Text = TB3.Text = TB4.Text = TB5.Text = TB6.Text = "";
+                image1.Source = image2.Source = image3.Source = image4.Source = image5.Source = image6.Source = null;
+                topWindow.image1.Source = topWindow.image2.Source = topWindow.image3.Source = null;
+
+                topWindow.txt1.Content = "";
+                topWindow.txt2.Content = "";
+                TextRange textRange3 = new TextRange(topWindow.txt_RT_3.Document.ContentStart, topWindow.txt_RT_3.Document.ContentEnd);
+                textRange3.Text = "";
+
+                TextRange textRange4 = new TextRange(topWindow.txt_RT_4.Document.ContentStart, topWindow.txt_RT_4.Document.ContentEnd);
+                textRange4.Text = "";
+            }
+
             String path1="", path2="", path3="", path4="", path5="", path6="";
             try
-            {
+            {   //   image path를 데이터로 부터 가져오는 부분.
                 if (nCurrentTap == TAP_HISTORY)
                 {
                     int nHistoryMaxPage = (int)arrHistoryInfo.Count / 6;
@@ -171,7 +185,7 @@ namespace songpa
                     else
                         btn_Left.IsEnabled = true;
 
-                    int idxStart = nHistoryCurrPage * 6;
+                    int idxStart = nCultureCurrPage * 6;
                     path1 = arrCultureInfo[idxStart + 0].imgThumb_path;
                     path2 = arrCultureInfo[idxStart + 1].imgThumb_path;
                     path3 = arrCultureInfo[idxStart + 2].imgThumb_path;
@@ -185,36 +199,7 @@ namespace songpa
             }
 
             try
-            {
-                TB1.Text = TB2.Text = TB3.Text = TB4.Text = TB5.Text = TB6.Text = "";
-                if (nCurrentTap == TAP_HISTORY)
-                {
-                    int idxStart = nHistoryCurrPage * 6;
-                    TB1.Text = InsertCRLFinside(arrHistoryInfo[idxStart + 0].txt1);
-                    TB2.Text = InsertCRLFinside(arrHistoryInfo[idxStart + 1].txt1);
-                    TB3.Text = InsertCRLFinside(arrHistoryInfo[idxStart + 2].txt1);
-                    TB4.Text = InsertCRLFinside(arrHistoryInfo[idxStart + 3].txt1);
-                    TB5.Text = InsertCRLFinside(arrHistoryInfo[idxStart + 4].txt1);
-                    TB6.Text = InsertCRLFinside(arrHistoryInfo[idxStart + 5].txt1);
-                }
-                if (nCurrentTap == TAP_CULTURE)
-                {
-                    int idxStart = nCultureCurrPage * 6;
-                    TB1.Text = InsertCRLFinside(arrCultureInfo[idxStart + 0].txt1);
-                    TB2.Text = InsertCRLFinside(arrCultureInfo[idxStart + 1].txt1);
-                    TB3.Text = InsertCRLFinside(arrCultureInfo[idxStart + 2].txt1);
-                    TB4.Text = InsertCRLFinside(arrCultureInfo[idxStart + 3].txt1);
-                    TB5.Text = InsertCRLFinside(arrCultureInfo[idxStart + 4].txt1);
-                    TB6.Text = InsertCRLFinside(arrCultureInfo[idxStart + 5].txt1);
-                }
-            }
-            catch
-            {
-            }
-
-
-            try
-            {
+            {   // 가져온 path를 이미지 컨트롤에 입력하는 부분.
                 if ((path1 == null) || (path1 == ""))
                     image1.Source = null;
                 else
@@ -250,9 +235,36 @@ namespace songpa
 
             }
 
-            
-            //nCurrSel
+            try
+            {   // 썸네일 타이틀 텍스트를 입력하는 부분.
+                TB1.Text = TB2.Text = TB3.Text = TB4.Text = TB5.Text = TB6.Text = "";
+                if (nCurrentTap == TAP_HISTORY)
+                {
+                    int idxStart = nHistoryCurrPage * 6;
+                    TB1.Text = InsertCRLFinside(arrHistoryInfo[idxStart + 0].txt1);
+                    TB2.Text = InsertCRLFinside(arrHistoryInfo[idxStart + 1].txt1);
+                    TB3.Text = InsertCRLFinside(arrHistoryInfo[idxStart + 2].txt1);
+                    TB4.Text = InsertCRLFinside(arrHistoryInfo[idxStart + 3].txt1);
+                    TB5.Text = InsertCRLFinside(arrHistoryInfo[idxStart + 4].txt1);
+                    TB6.Text = InsertCRLFinside(arrHistoryInfo[idxStart + 5].txt1);
+                }
+                if (nCurrentTap == TAP_CULTURE)
+                {
+                    int idxStart = nCultureCurrPage * 6;
+                    TB1.Text = InsertCRLFinside(arrCultureInfo[idxStart + 0].txt1);
+                    TB2.Text = InsertCRLFinside(arrCultureInfo[idxStart + 1].txt1);
+                    TB3.Text = InsertCRLFinside(arrCultureInfo[idxStart + 2].txt1);
+                    TB4.Text = InsertCRLFinside(arrCultureInfo[idxStart + 3].txt1);
+                    TB5.Text = InsertCRLFinside(arrCultureInfo[idxStart + 4].txt1);
+                    TB6.Text = InsertCRLFinside(arrCultureInfo[idxStart + 5].txt1);
+                }
+            }
+            catch
+            {
+            }
 
+
+            /// 여기서 부터 다른 페이지 (History2)
             string pathImg1 = "", pathImg2 = "", pathImg3 = "";
             try
             {
@@ -276,11 +288,11 @@ namespace songpa
                     topWindow.txt1.Content = arrCultureInfo[nCurrSel].txt1;
                     topWindow.txt2.Content = arrCultureInfo[nCurrSel].txt2;
 
-                    TextRange textRange = new TextRange(topWindow.txt_RT_3.Document.ContentStart, topWindow.txt_RT_3.Document.ContentEnd);
-                    textRange.Text = arrCultureInfo[nCurrSel].txt3;
+                    TextRange textRange3 = new TextRange(topWindow.txt_RT_3.Document.ContentStart, topWindow.txt_RT_3.Document.ContentEnd);
+                    textRange3.Text = arrCultureInfo[nCurrSel].txt3;
 
                     TextRange textRange4 = new TextRange(topWindow.txt_RT_4.Document.ContentStart, topWindow.txt_RT_4.Document.ContentEnd);
-                    textRange4.Text = arrHistoryInfo[nCurrSel].txt4;
+                    textRange4.Text = arrCultureInfo[nCurrSel].txt4;
 
                     pathImg1 = arrCultureInfo[nCurrSel].img1_path;
                     pathImg2 = arrCultureInfo[nCurrSel].img2_path;
@@ -412,6 +424,8 @@ namespace songpa
             image_tap1.Source = img_Tap1_on;
             image_tap2.Source = img_Tap2_off;
             nCurrentTap = 0;
+            nHistoryCurrPage = 0;
+            nCultureCurrPage = 0;
             Position0();  // 탭이 변경될 때, 선택이 초기화됨. [7/21/2014 Mark_laptap]
 
             BoardRefresh();
@@ -424,6 +438,8 @@ namespace songpa
 
             image_tap1.Source = img_Tap1_off;
             image_tap2.Source = img_Tap2_on;
+            nHistoryCurrPage = 0;
+            nCultureCurrPage = 0;
             nCurrentTap = 1;
             Position0();  // 탭이 변경될 때, 선택이 초기화됨. [7/21/2014 Mark_laptap]
 

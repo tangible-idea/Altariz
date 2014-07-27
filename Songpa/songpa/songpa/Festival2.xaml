@@ -2,8 +2,8 @@
         Name="my_windows"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Festival2" Height="1080" Width="1920" ResizeMode="NoResize" WindowState="Maximized" WindowStyle="None">
-    <Grid >
+        Title="Festival2" Height="1080" Width="1920" ResizeMode="NoResize" WindowStyle="None" Background="Black">
+    <Grid Name="grid_top" Height="1080" Width="1920" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1688*" />
             <ColumnDefinition Width="210*" />

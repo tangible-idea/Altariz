@@ -45,19 +45,21 @@ namespace songpa
         public Festival()
         {
             InitializeComponent();
+
+            topWindow = new Festival2();    // 상단 윈도우 출력 [7/2/2014 Mark]
+            topWindow.Show();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            topWindow = new Festival2();    // 상단 윈도우 출력 [7/2/2014 Mark]
-            topWindow.Show();
+
 
             Assembly executingAssembly = Assembly.GetExecutingAssembly();
 
             string filename1 = string.Format("{0}{1}", this.GetType().Namespace, ".res.tap_festival_off.jpg");
             string filename2 = string.Format("{0}{1}", this.GetType().Namespace, ".res.tap_festival_on.jpg");
-            string filename3 = string.Format("{0}{1}", this.GetType().Namespace, ".res.tap_concert1.jpg");
-            string filename4 = string.Format("{0}{1}", this.GetType().Namespace, ".res.tap_concert2.jpg");
+            string filename3 = string.Format("{0}{1}", this.GetType().Namespace, ".res.tap_concert2.jpg");
+            string filename4 = string.Format("{0}{1}", this.GetType().Namespace, ".res.tap_concert1.jpg");
 
             img_Tap1_off= MakeBitmap(executingAssembly, filename1);
             img_Tap1_on= MakeBitmap(executingAssembly, filename2);
@@ -135,6 +137,20 @@ namespace songpa
                 MessageBox.Show("데이터를 찾을 수 없습니다. 서버 PC에서 폴더 세팅을 확인해주세요.");
                 this.Close();
                 return;
+            }
+
+            {   // 전부 초기화 [7/27/2014 Mark_laptap]
+                TB1.Text = TB2.Text = TB3.Text = TB4.Text = TB5.Text = TB6.Text = "";
+                image1.Source = image2.Source = image3.Source = image4.Source = image5.Source = image6.Source = null;
+                topWindow.image1.Source = topWindow.image2.Source = topWindow.image3.Source = null;
+
+                topWindow.txt1.Content= "";
+                topWindow.txt2.Content = "";
+                TextRange textRange3 = new TextRange(topWindow.txt_RT_3.Document.ContentStart, topWindow.txt_RT_3.Document.ContentEnd);
+                textRange3.Text = "";
+
+                TextRange textRange4 = new TextRange(topWindow.txt_RT_4.Document.ContentStart, topWindow.txt_RT_4.Document.ContentEnd);
+                textRange4.Text = "";
             }
 
             String path1="", path2="", path3="", path4="", path5="", path6="";
@@ -267,8 +283,8 @@ namespace songpa
                     topWindow.txt1.Content = arrFestivalInfo[nCurrSel].txt1;
                     topWindow.txt2.Content = arrFestivalInfo[nCurrSel].txt2;
 
-                    TextRange textRange = new TextRange(topWindow.txt_RT_3.Document.ContentStart, topWindow.txt_RT_3.Document.ContentEnd);
-                    textRange.Text = arrFestivalInfo[nCurrSel].txt3;
+                    TextRange textRange3 = new TextRange(topWindow.txt_RT_3.Document.ContentStart, topWindow.txt_RT_3.Document.ContentEnd);
+                    textRange3.Text = arrFestivalInfo[nCurrSel].txt3;
 
                     TextRange textRange4 = new TextRange(topWindow.txt_RT_4.Document.ContentStart, topWindow.txt_RT_4.Document.ContentEnd);
                     textRange4.Text = arrFestivalInfo[nCurrSel].txt4;
@@ -283,11 +299,11 @@ namespace songpa
                     topWindow.txt1.Content = arrMusicalInfo[nCurrSel].txt1;
                     topWindow.txt2.Content = arrMusicalInfo[nCurrSel].txt2;
 
-                    TextRange textRange = new TextRange(topWindow.txt_RT_3.Document.ContentStart, topWindow.txt_RT_3.Document.ContentEnd);
-                    textRange.Text = arrMusicalInfo[nCurrSel].txt3;
+                    TextRange textRange3 = new TextRange(topWindow.txt_RT_3.Document.ContentStart, topWindow.txt_RT_3.Document.ContentEnd);
+                    textRange3.Text = arrMusicalInfo[nCurrSel].txt3;
 
                     TextRange textRange4 = new TextRange(topWindow.txt_RT_4.Document.ContentStart, topWindow.txt_RT_4.Document.ContentEnd);
-                    textRange4.Text = arrFestivalInfo[nCurrSel].txt4;
+                    textRange4.Text = arrMusicalInfo[nCurrSel].txt4;
 
                     pathImg1 = arrMusicalInfo[nCurrSel].img1_path;
                     pathImg2 = arrMusicalInfo[nCurrSel].img2_path;
@@ -419,6 +435,8 @@ namespace songpa
             image_tap1.Source = img_Tap1_on;
             image_tap2.Source = img_Tap2_off;
             nCurrentTap = 0;
+            nFestivalCurrPage = 0;
+            nMusicalCurrPage = 0;
             Position0();  // 탭이 변경될 때, 선택이 초기화됨. [7/21/2014 Mark_laptap]
 
             BoardRefresh();
@@ -432,6 +450,8 @@ namespace songpa
             image_tap1.Source = img_Tap1_off;
             image_tap2.Source = img_Tap2_on;
             nCurrentTap = 1;
+            nFestivalCurrPage = 0;
+            nMusicalCurrPage = 0;
             Position0();   // 탭이 변경될 때, 선택이 초기화됨. [7/21/2014 Mark_laptap]
 
             BoardRefresh();
