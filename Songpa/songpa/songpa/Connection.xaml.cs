@@ -116,7 +116,7 @@ namespace songpa
                 }
                 else
                 {
-                    MessageBox.Show("Wrong connection target or in construction page.");
+                    MessageBox.Show("접속 정보가 잘못되었거나, 만들어지지 않은 페이지 입니다.");
                 }
             }
             else // 실패일 경우에만 메시지 띄우자 자동 넘김을 위해서... [7/25/2014 Mark]

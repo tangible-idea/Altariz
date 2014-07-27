@@ -1,9 +1,9 @@
 ﻿<Window x:Class="songpa.History"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="History" Height="1024" Width="1280" Loaded="Window_Loaded" Closed="Window_Closed" ResizeMode="NoResize" WindowStyle="None" Background="Black">
+        Title="History" Height="1024" Width="1280" Loaded="Window_Loaded" Closed="Window_Closed" ResizeMode="NoResize" WindowStyle="None" Background="Black" WindowState="Maximized">
     <Grid>
-        <Image  HorizontalAlignment="Left" Name="img_BG" Stretch="Fill" VerticalAlignment="Top" Source="/songpa;component/res/bg_2.jpg" Height="1024" Width="1280"/>
+        <Image  HorizontalAlignment="Left" Name="img_BG" Stretch="Fill" VerticalAlignment="Top" Source="/songpa;component/res/background.jpg" Height="1024" Width="1280"/>
         <Image  Width="270" Height="65" HorizontalAlignment="Left" Margin="151,82,0,0" Name="image_tap1" Stretch="Fill" VerticalAlignment="Top" Source="/songpa;component/res/tap_festival_off.jpg" MouseDown="onClickTap1" />
         <Image  Width="270" Height="65" HorizontalAlignment="Left" Margin="421,82,0,0" Name="image_tap2" Stretch="Fill" VerticalAlignment="Top" Source="/songpa;component/res/tap_musical_off.jpg" MouseDown="onClickTap2" />
         <Image  Width="295" Height="260" HorizontalAlignment="Left" Margin="153,232,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" MouseDown="onClickImage1"  />
@@ -12,8 +12,8 @@
         <Image  Width="295" Height="260" HorizontalAlignment="Left" Margin="153,552,0,0" Name="image4" Stretch="Fill" VerticalAlignment="Top" MouseDown="onClickImage4" />
         <Image  Width="295" Height="260" HorizontalAlignment="Left" Margin="490,552,0,0" Name="image5" Stretch="Fill" VerticalAlignment="Top" MouseDown="onClickImage5" />
         <Image  Width="295" Height="260" HorizontalAlignment="Left" Margin="827,552,0,0" Name="image6" Stretch="Fill" VerticalAlignment="Top" MouseDown="onClickImage6" />
-        <Button Content="btn_Left" Height="279" HorizontalAlignment="Left" Margin="12,402,0,0" Name="btn_Left" VerticalAlignment="Top" Width="112" Opacity="0.01" Click="btn_Left_Click" />
-        <Button Content="btn_Right" Height="265" HorizontalAlignment="Left" Margin="1138,402,0,0" Name="btn_Right" VerticalAlignment="Top" Width="120" Opacity="0.01" Click="btn_Right_Click" />
+        <Button Content="btn_Left" Height="280" HorizontalAlignment="Left" Margin="12,402,0,0" Name="btn_Left" VerticalAlignment="Top" Width="125" Opacity="0" Click="btn_Left_Click" />
+        <Button Content="btn_Right" Height="280" HorizontalAlignment="Left" Margin="1138,402,0,0" Name="btn_Right" VerticalAlignment="Top" Width="125" Opacity="0" Click="btn_Right_Click" />
         <Image Height="288" HorizontalAlignment="Left" Margin="140,220,0,0" Name="img_selected" Stretch="Fill" VerticalAlignment="Top" Width="325" Source="/songpa;component/res/Select_box.png" />
         <Rectangle Height="260" HorizontalAlignment="Left" Margin="153,232,0,0" Name="rct_mask" Stroke="{x:Null}" VerticalAlignment="Top" Width="295" Fill="Black" Opacity="0.5" />
         <Label FontSize="30" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="232" HorizontalAlignment="Left" Margin="183,245,0,0" Name="label1" VerticalAlignment="Top" Width="233" FontFamily="NanumGothic" FontWeight="Bold" Foreground="White" FontStretch="Normal" Opacity="1" IsHitTestVisible="False">
