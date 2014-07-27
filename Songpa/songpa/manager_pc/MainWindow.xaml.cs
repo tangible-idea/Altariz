@@ -93,7 +93,7 @@ namespace manager_pc
 
 
                 rkey.SetValue("PATH", txt_RootPath.Text.ToString());
-                MessageBox.Show("Initialize successful!");
+                MessageBox.Show("초기화 성공.");
             }
         }
 
@@ -114,7 +114,7 @@ namespace manager_pc
                 outParams = managementClass.InvokeMethod("Create", inParams, null);
 
                 if ((uint)(outParams.Properties["ReturnValue"].Value) != 0)
-                    MessageBox.Show("Folder might be already in share or unable to share the directory");
+                    MessageBox.Show("폴더가 이미 공유 완료 되어있습니다. \n정상적으로 리스트가 출력되지 않는다면 수동으로 해당 폴더를 공유 해주세요.");
             }
             catch (Exception ex)
             {
@@ -167,7 +167,7 @@ namespace manager_pc
         }
 
         public string getMyIP()
-        {
+        {       
             IPHostEntry host = Dns.GetHostByName(Dns.GetHostName());
             string myip = host.AddressList[0].ToString();
             return myip;
