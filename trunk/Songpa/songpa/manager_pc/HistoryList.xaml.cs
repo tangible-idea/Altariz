@@ -103,7 +103,7 @@ namespace manager_pc
             //MessageBox.Show("delete : " + btn.Tag);
             int currIdx = Int32.Parse(btn.Tag.ToString());
             ContentItem currItem = (ContentItem)listSubProjects.Items[currIdx];
-            MessageBoxResult res = MessageBox.Show("Are you sure?", "Delete", MessageBoxButton.YesNo);
+            MessageBoxResult res = MessageBox.Show("삭제하시겠습니까?", "삭제", MessageBoxButton.YesNo);
 
             if (res == MessageBoxResult.Yes)    // 해당 항목을 지우고 폴더들 리프레쉬 [6/8/2014 Mark]
             {
