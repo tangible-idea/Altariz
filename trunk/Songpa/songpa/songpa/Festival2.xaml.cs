@@ -33,13 +33,12 @@ namespace songpa
             this.Width = nWidth;
             this.Height = nHeight;
 
-            my_windows.Width = nWidth;
-            my_windows.Height = nHeight;
+            grid_top.Width = nWidth;
+            grid_top.Height = nHeight;
             //this.WindowState = WindowState.Maximized;
-            this.WindowStyle = WindowStyle.None;
-            this.ResizeMode = ResizeMode.NoResize;
-            this.Topmost = true;
-            this.Show();
+            //this.WindowStyle = WindowStyle.None;
+            //this.ResizeMode = ResizeMode.NoResize;
+            //this.Show();
         }
     }
 }

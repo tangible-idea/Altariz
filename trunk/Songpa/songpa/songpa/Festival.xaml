@@ -1,7 +1,7 @@
 ﻿<Window x:Class="songpa.Festival"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Festival" Height="1024" Width="1280" Loaded="Window_Loaded" Closed="Window_Closed" ResizeMode="NoResize" Topmost="False" WindowState="Maximized" WindowStyle="None">
+        Title="Festival" Height="1024" Width="1280" Loaded="Window_Loaded" Closed="Window_Closed" ResizeMode="NoResize" WindowStyle="None" Background="Black">
     <Grid>
         <Image  HorizontalAlignment="Left" Name="img_BG" Stretch="Fill" VerticalAlignment="Top" Source="/songpa;component/res/bg_2.jpg" Height="1024" Width="1280"/>
         <Image  Width="270" Height="65" HorizontalAlignment="Left" Margin="151,82,0,0" Name="image_tap1" Stretch="Fill" VerticalAlignment="Top" Source="/songpa;component/res/tap_festival_off.jpg" MouseDown="onClickTap1" />
