@@ -32,6 +32,13 @@ namespace songpa
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            if (this.CheckLisence() == false)
+            {   // license expired [7/31/2014 Mark]
+                MessageBox.Show("license expired.");
+                this.Close();
+                return;
+            }
+
             cbo_connection_target.Items.Clear();
             cbo_connection_target.Items.Add("Rush ticket");
             cbo_connection_target.Items.Add("Concert & Festival");
@@ -178,21 +185,30 @@ namespace songpa
 
         private bool CheckLisence()
         {
-            if (rkey.GetValue("LISENCE") == null)  // 라이선스 등록이 안되어 있음. [7/31/2014 Mark]
+            if (rkey.GetValue("LICENSE") == null)  // 라이선스 등록이 안되어 있음. [7/31/2014 Mark]
             {
                 DateTime currDate = DateTime.Now;
-                currDate.AddDays(20);
+                currDate = currDate.AddDays(20);
                 rkey.SetValue("LICENSE", currDate);
                 return true;
             }
             else       // 라이선스 등체크 [7/31/2014 Mark]
             {
-                string LIC= rkey.GetValue("LISENCE").ToString();
-                MessageBox.Show("lisence expired date : " + LIC);
+                string LIC = rkey.GetValue("LICENSE").ToString();
+                DateTime expiredDate = DateTime.Parse(LIC);
+                //MessageBox.Show("lisence expired date : " + expiredDate.ToString());
+
+                DateTime currDate = DateTime.Now;
+                TimeSpan tDiff = expiredDate - currDate;
+
+                //MessageBox.Show("remaining date : " + tDiff.TotalDays);
+
+                if (tDiff.TotalDays < 0)
+                {
+                    return false;
+                }
                 return true;
-                //DateTime currDate = new DateTime(LIC);
             }
-                
         }
     }
 }
