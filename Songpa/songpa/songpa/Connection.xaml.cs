@@ -95,6 +95,7 @@ namespace songpa
                 rkey.SetValue("PASSWORD", txt_PW.Password.ToString());
                 rkey.SetValue("PATH", txt_Path.Text.ToString());
                 rkey.SetValue("TARGET", cbo_connection_target.SelectedIndex);   // target도 저장 [7/25/2014 Mark]
+    
 
                 if (cbo_connection_target.SelectedIndex == 0)
                 {
@@ -173,6 +174,25 @@ namespace songpa
                 Console.WriteLine(e.Message);
                 MessageBox.Show("기존의 컨텐츠들을 삭제할 수 없었습니다.");
             }
+        }
+
+        private bool CheckLisence()
+        {
+            if (rkey.GetValue("LISENCE") == null)  // 라이선스 등록이 안되어 있음. [7/31/2014 Mark]
+            {
+                DateTime currDate = DateTime.Now;
+                currDate.AddDays(20);
+                rkey.SetValue("LICENSE", currDate);
+                return true;
+            }
+            else       // 라이선스 등체크 [7/31/2014 Mark]
+            {
+                string LIC= rkey.GetValue("LISENCE").ToString();
+                MessageBox.Show("lisence expired date : " + LIC);
+                return true;
+                //DateTime currDate = new DateTime(LIC);
+            }
+                
         }
     }
 }
