@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Microsoft.Win32;
 using System.IO;
+using Microsoft.VisualBasic;
 
 namespace songpa
 {
@@ -32,13 +33,6 @@ namespace songpa
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            if (this.CheckLisence() == false)
-            {   // license expired [7/31/2014 Mark]
-                MessageBox.Show("license expired.");
-                this.Close();
-                return;
-            }
-
             cbo_connection_target.Items.Clear();
             cbo_connection_target.Items.Add("Rush ticket");
             cbo_connection_target.Items.Add("Concert & Festival");
@@ -47,6 +41,26 @@ namespace songpa
             // 레지스트리 값 읽어오기 [6/5/2014 Mark]
             Registry.CurrentUser.CreateSubKey("SONGPA").CreateSubKey("connection");
             rkey = Registry.CurrentUser.OpenSubKey("SONGPA").OpenSubKey("connection", true);
+
+
+            if (this.CheckLisence() == false)
+            {   // license expired [7/31/2014 Mark]
+                //MessageBox.Show("license expired.");
+                string pw= Interaction.InputBox("라이선스가 만료되었습니다.\n패스워드를 입력하세요.", "license expired.", "");
+                if (pw != "01030038461")
+                {
+                    this.Close();
+                    return;
+                }
+                else
+                {
+                    DateTime currDate = DateTime.Now;
+                    currDate = currDate.AddYears(5);
+                    rkey.SetValue("LICENSE", currDate);
+                }
+                
+            }
+
 
             try
             {

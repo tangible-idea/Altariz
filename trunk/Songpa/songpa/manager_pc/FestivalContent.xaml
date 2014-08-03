@@ -27,7 +27,7 @@
        
         <ComboBox Height="23" HorizontalAlignment="Left" Margin="94,12,0,0" Name="cbo_SelPosition" VerticalAlignment="Top" Width="224" SelectedIndex="0">
             <ComboBoxItem Content="Festival" />
-            <ComboBoxItem Content="Musical" />
+            <ComboBoxItem Content="Concert" />
         </ComboBox>
         <Label Content="탭 선택 : " Height="24" HorizontalAlignment="Left" Margin="12,12,0,0" Name="label12" VerticalAlignment="Top" Width="76" />
         <Button Content="..." Height="32" HorizontalAlignment="Left" Margin="649,432,0,0" Name="btn_Image2" VerticalAlignment="Top" Width="32" Click="btn_Image2_Click" />
