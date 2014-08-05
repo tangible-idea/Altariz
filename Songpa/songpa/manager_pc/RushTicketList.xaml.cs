@@ -91,7 +91,23 @@ namespace manager_pc
             var rushContentWindow = new RushTicketContent(currItem.Title, false);
             rushContentWindow.Owner = this;
             if (rushContentWindow.ShowDialog() == false)
-            {
+            {   // 창 닫음
+
+                if (rushContentWindow.pathForDelete != "")
+                {
+                    try
+                    {
+                        System.Threading.Thread.Sleep(550);
+                        Directory.Delete(rushContentWindow.pathForDelete, true);
+                        
+                    }
+                    catch (System.Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                }
+
+                RefreshFolderList();
                 //MessageBox.Show("modify");
                 //RefreshFolderList();
             }

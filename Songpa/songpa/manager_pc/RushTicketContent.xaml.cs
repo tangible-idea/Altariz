@@ -27,6 +27,8 @@ namespace manager_pc
         String currentName;
         bool isNewBoard;
 
+        public String pathForDelete = "";  // 이 작업이 끝나면 삭제할 폴더 경로 [8/6/2014 Mark_laptap]
+
         String imgPath1 = "";
 
         // 현재 sub folder 명과 새로운 보드인지 판단. [6/8/2014 Mark]
@@ -44,11 +46,11 @@ namespace manager_pc
 
             if (isNewBoard) // 영문제목을 폴더명으로 쓰기 떄문에 수정시 변경 할 수 없다. [6/8/2014 Mark]
             {
-                txt_EngTitle.IsEnabled = true;
+                //txt_EngTitle.IsEnabled = true;
             }
             else
             {
-                txt_EngTitle.IsEnabled = false;
+                //txt_EngTitle.IsEnabled = false;
                 XMLLoad(pathRushRoot + "\\" + currentName);
             }
         }
@@ -79,8 +81,24 @@ namespace manager_pc
             //    Close();
             //}
 
-            currentName = txt_EngTitle.Text;
+            //DirectoryInfo di_OLD = new DirectoryInfo(pathRushRoot + "\\" + currentName);  //Create Directoryinfo value by sDirPath
+            String pathOld= pathRushRoot + "\\" + currentName;
+            bool bTitleChanged = false; // 폴더명이 바뀌엇는지? [8/6/2014 Mark_laptap]
+
+            if (currentName == txt_EngTitle.Text)    // 이전 이름과 같으면 바뀐게 아님 [8/5/2014 Mark_laptap]
+            {
+                pathForDelete = "";
+                bTitleChanged = false;
+            }
+            else
+            {
+                pathForDelete = pathOld;    // 삭제할 경로 추가 [8/6/2014 Mark_laptap]
+                currentName = txt_EngTitle.Text;    // 다르니까 새로 넣어주자.
+                bTitleChanged = true;
+            }
+
             DirectoryInfo di_SUB = new DirectoryInfo(pathRushRoot + "\\" + currentName);  //Create Directoryinfo value by sDirPath
+            
 
             if (di_SUB.Exists == false) // 해당 이름의 폴더가 존재하지 않으면... [6/8/2014 Mark]
             {
@@ -91,6 +109,7 @@ namespace manager_pc
             {
                 XMLCreate(di_SUB.FullName);
             }
+
             Close();
         }
 
@@ -234,13 +253,26 @@ namespace manager_pc
                             if (node.InnerText.Trim() == "")
                                 break;
 
-                            String pathImage = pathToLoad + "\\" + node.InnerText;
-                            BitmapImage bitmap = new BitmapImage(new Uri(pathImage));
-                            if (bitmap != null)
+                            try
                             {
-                                img_Form1.Source = bitmap;
-                                img_Form1.Tag = pathImage;
+                                String pathImage = pathToLoad + "\\" + node.InnerText;
+                                if (pathImage != "")
+                                {
+                                    BitmapImage bitmap = new BitmapImage();
+                                    bitmap.BeginInit();
+                                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                                    bitmap.UriSource = new Uri(pathImage);
+                                    bitmap.EndInit();
+
+                                    img_Form1.Source = bitmap;
+                                    img_Form1.Tag = pathImage;
+                                }
                             }
+                            catch (System.Exception ex)
+                            {
+                                MessageBox.Show("잘못된 이미지 경로입니다.");
+                            }
+                            
                         }
                         //{
                         //    if (node.InnerText.Trim() == "")    // 경로가 없으면 저장 안함.
