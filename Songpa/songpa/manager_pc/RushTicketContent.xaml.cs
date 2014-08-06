@@ -83,6 +83,7 @@ namespace manager_pc
 
             //DirectoryInfo di_OLD = new DirectoryInfo(pathRushRoot + "\\" + currentName);  //Create Directoryinfo value by sDirPath
             String pathOld= pathRushRoot + "\\" + currentName;
+            String pathNew= pathRushRoot + "\\"+ txt_EngTitle.Text;
             bool bTitleChanged = false; // 폴더명이 바뀌엇는지? [8/6/2014 Mark_laptap]
 
             if (currentName == txt_EngTitle.Text)    // 이전 이름과 같으면 바뀐게 아님 [8/5/2014 Mark_laptap]
@@ -97,8 +98,10 @@ namespace manager_pc
                 bTitleChanged = true;
             }
 
-            DirectoryInfo di_SUB = new DirectoryInfo(pathRushRoot + "\\" + currentName);  //Create Directoryinfo value by sDirPath
             
+            DirectoryInfo di_SUB = new DirectoryInfo(pathRushRoot + "\\" + currentName);  //Create Directoryinfo value by sDirPath
+
+            DirectoryCopy(pathOld, pathNew, true);
 
             if (di_SUB.Exists == false) // 해당 이름의 폴더가 존재하지 않으면... [6/8/2014 Mark]
             {
@@ -320,5 +323,46 @@ namespace manager_pc
             }
 
         }
+
+
+        private static void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs)
+        {
+            // Get the subdirectories for the specified directory.
+            DirectoryInfo dir = new DirectoryInfo(sourceDirName);
+            DirectoryInfo[] dirs = dir.GetDirectories();
+
+            if (!dir.Exists)
+            {
+                throw new DirectoryNotFoundException(
+                    "Source directory does not exist or could not be found: "
+                    + sourceDirName);
+            }
+
+            // If the destination directory doesn't exist, create it. 
+            if (!Directory.Exists(destDirName))
+            {
+                Directory.CreateDirectory(destDirName);
+            }
+
+            // Get the files in the directory and copy them to the new location.
+            FileInfo[] files = dir.GetFiles();
+            foreach (FileInfo file in files)
+            {
+                string temppath = System.IO.Path.Combine(destDirName, file.Name);
+                file.CopyTo(temppath, false);
+            }
+
+            // If copying subdirectories, copy them and their contents to new location. 
+            if (copySubDirs)
+            {
+                foreach (DirectoryInfo subdir in dirs)
+                {
+                    string temppath = System.IO.Path.Combine(destDirName, subdir.Name);
+                    DirectoryCopy(subdir.FullName, temppath, copySubDirs);
+                }
+            }
+        }
+
+
     }
 }
