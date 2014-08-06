@@ -74,6 +74,9 @@ namespace manager_pc
             festivalContentWindow.Owner = this;
 
             festivalContentWindow.ShowDialog();
+
+
+
             RefreshFolderList();
             //if (rushContentWindow.ShowDialog() == false)
             //{
@@ -93,6 +96,21 @@ namespace manager_pc
             festivalContentWindow.Owner = this;
             if (festivalContentWindow.ShowDialog() == false)
             {
+                if (festivalContentWindow.pathForDelete != "")
+                {
+                    try
+                    {
+                        System.Threading.Thread.Sleep(50);
+                        Directory.Delete(festivalContentWindow.pathForDelete, true);
+                        System.Threading.Thread.Sleep(50);
+                        RefreshFolderList();
+
+                    }
+                    catch (System.Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                }
                 //MessageBox.Show("modify");
                 //RefreshFolderList();
             }

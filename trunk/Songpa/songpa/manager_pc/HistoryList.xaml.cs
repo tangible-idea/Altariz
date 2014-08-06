@@ -93,6 +93,21 @@ namespace manager_pc
             historyContentWindow.Owner = this;
             if (historyContentWindow.ShowDialog() == false)
             {
+                if (historyContentWindow.pathForDelete != "")
+                {
+                    try
+                    {
+                        System.Threading.Thread.Sleep(50);
+                        Directory.Delete(historyContentWindow.pathForDelete, true);
+                        System.Threading.Thread.Sleep(50);
+                        RefreshFolderList();
+
+                    }
+                    catch (System.Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                }
                 //MessageBox.Show("modify");
                 //RefreshFolderList();
             }
