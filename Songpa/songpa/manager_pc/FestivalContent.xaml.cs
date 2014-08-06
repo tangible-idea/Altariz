@@ -33,6 +33,8 @@ namespace manager_pc
         String imgPath3 = "";
         String imgPathThumb = "";
 
+        public String pathForDelete = "";
+
         public FestivalContent(String _currentName, bool _isNewBoard)
         {
             InitializeComponent();
@@ -47,11 +49,11 @@ namespace manager_pc
 
             if (isNewBoard) // 영문제목을 폴더명으로 쓰기 떄문에 수정시 변경 할 수 없다. [6/8/2014 Mark]
             {
-                txt_1.IsEnabled = true;
+                //txt_1.IsEnabled = true;
             }
             else
             {
-                txt_1.IsEnabled = false;
+                //txt_1.IsEnabled = false;
                 XMLLoad(pathFestivalRoot + "\\" + currentName);
             }
         }
@@ -160,8 +162,23 @@ namespace manager_pc
             //    Close();
             //}
 
-            currentName = txt_1.Text;
+            String pathOld = pathFestivalRoot + "\\" + currentName;
+            String pathNew = pathFestivalRoot + "\\" + txt_1.Text;
+
+            if (currentName == txt_1.Text)    // 이전 이름과 같으면 바뀐게 아님 [8/5/2014 Mark_laptap]
+            {
+                pathForDelete = "";
+            }
+            else
+            {
+                pathForDelete = pathOld;    // 삭제할 경로 추가 [8/6/2014 Mark_laptap]
+                currentName = txt_1.Text;    // 다르니까 새로 넣어주자.
+            }
+
+
             DirectoryInfo di_SUB = new DirectoryInfo(pathFestivalRoot + "\\" + currentName);  //Create Directoryinfo value by sDirPath
+
+            DirectoryCopy(pathOld, pathNew, true);
 
             if (di_SUB.Exists == false) // 해당 이름의 폴더가 존재하지 않으면... [6/8/2014 Mark]
             {
@@ -172,6 +189,7 @@ namespace manager_pc
             {
                 XMLCreate(di_SUB.FullName);
             }
+
             Close();
         }
 
@@ -351,9 +369,15 @@ namespace manager_pc
                                 break;
 
                             String pathImage = pathToLoad + "\\" + node.InnerText;
-                            BitmapImage bitmap = new BitmapImage(new Uri(pathImage));
-                            if (bitmap != null)
+                            if (pathImage != "")
                             {
+                                // 이미지 소스 삽입 방식 변경. [8/6/2014 Mark_laptap]
+                                BitmapImage bitmap = new BitmapImage();
+                                bitmap.BeginInit();
+                                bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                                bitmap.UriSource = new Uri(pathImage);
+                                bitmap.EndInit();
+
                                 img_Form1.Source = bitmap;
                                 img_Form1.Tag = pathImage;
                             }
@@ -365,9 +389,15 @@ namespace manager_pc
                                 break;
 
                             String pathImage = pathToLoad + "\\" + node.InnerText;
-                            BitmapImage bitmap = new BitmapImage(new Uri(pathImage));
-                            if (bitmap != null)
+                            if (pathImage != "")
                             {
+                                // 이미지 소스 삽입 방식 변경. [8/6/2014 Mark_laptap]
+                                BitmapImage bitmap = new BitmapImage();
+                                bitmap.BeginInit();
+                                bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                                bitmap.UriSource = new Uri(pathImage);
+                                bitmap.EndInit();
+
                                 img_Form2.Source = bitmap;
                                 img_Form2.Tag = pathImage;
                             }
@@ -379,9 +409,15 @@ namespace manager_pc
                                 break;
 
                             String pathImage = pathToLoad + "\\" + node.InnerText;
-                            BitmapImage bitmap = new BitmapImage(new Uri(pathImage));
-                            if (bitmap != null)
+                            if (pathImage != "")
                             {
+                                // 이미지 소스 삽입 방식 변경. [8/6/2014 Mark_laptap]
+                                BitmapImage bitmap = new BitmapImage();
+                                bitmap.BeginInit();
+                                bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                                bitmap.UriSource = new Uri(pathImage);
+                                bitmap.EndInit();
+
                                 img_Form3.Source = bitmap;
                                 img_Form3.Tag = pathImage;
                             }
@@ -393,9 +429,15 @@ namespace manager_pc
                                 break;
 
                             String pathImage = pathToLoad + "\\" + node.InnerText;
-                            BitmapImage bitmap = new BitmapImage(new Uri(pathImage));
-                            if (bitmap != null)
+                            if (pathImage != "")
                             {
+                                // 이미지 소스 삽입 방식 변경. [8/6/2014 Mark_laptap]
+                                BitmapImage bitmap = new BitmapImage();
+                                bitmap.BeginInit();
+                                bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                                bitmap.UriSource = new Uri(pathImage);
+                                bitmap.EndInit();
+
                                 img_ThumbNail.Source = bitmap;
                                 img_ThumbNail.Tag = pathImage;
                             }
@@ -404,6 +446,45 @@ namespace manager_pc
                 }
             }
             return true;
+        }
+
+
+        private static void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs)
+        {
+            // Get the subdirectories for the specified directory.
+            DirectoryInfo dir = new DirectoryInfo(sourceDirName);
+            DirectoryInfo[] dirs = dir.GetDirectories();
+
+            if (!dir.Exists)
+            {
+                throw new DirectoryNotFoundException(
+                    "Source directory does not exist or could not be found: "
+                    + sourceDirName);
+            }
+
+            // If the destination directory doesn't exist, create it. 
+            if (!Directory.Exists(destDirName))
+            {
+                Directory.CreateDirectory(destDirName);
+            }
+
+            // Get the files in the directory and copy them to the new location.
+            FileInfo[] files = dir.GetFiles();
+            foreach (FileInfo file in files)
+            {
+                string temppath = System.IO.Path.Combine(destDirName, file.Name);
+                file.CopyTo(temppath, false);
+            }
+
+            // If copying subdirectories, copy them and their contents to new location. 
+            if (copySubDirs)
+            {
+                foreach (DirectoryInfo subdir in dirs)
+                {
+                    string temppath = System.IO.Path.Combine(destDirName, subdir.Name);
+                    DirectoryCopy(subdir.FullName, temppath, copySubDirs);
+                }
+            }
         }
 
 

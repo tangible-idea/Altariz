@@ -84,18 +84,15 @@ namespace manager_pc
             //DirectoryInfo di_OLD = new DirectoryInfo(pathRushRoot + "\\" + currentName);  //Create Directoryinfo value by sDirPath
             String pathOld= pathRushRoot + "\\" + currentName;
             String pathNew= pathRushRoot + "\\"+ txt_EngTitle.Text;
-            bool bTitleChanged = false; // 폴더명이 바뀌엇는지? [8/6/2014 Mark_laptap]
 
             if (currentName == txt_EngTitle.Text)    // 이전 이름과 같으면 바뀐게 아님 [8/5/2014 Mark_laptap]
             {
                 pathForDelete = "";
-                bTitleChanged = false;
             }
             else
             {
                 pathForDelete = pathOld;    // 삭제할 경로 추가 [8/6/2014 Mark_laptap]
                 currentName = txt_EngTitle.Text;    // 다르니까 새로 넣어주자.
-                bTitleChanged = true;
             }
 
             
@@ -261,6 +258,7 @@ namespace manager_pc
                                 String pathImage = pathToLoad + "\\" + node.InnerText;
                                 if (pathImage != "")
                                 {
+                                    // 이미지 소스 삽입 방식 변경. [8/6/2014 Mark_laptap]
                                     BitmapImage bitmap = new BitmapImage();
                                     bitmap.BeginInit();
                                     bitmap.CacheOption = BitmapCacheOption.OnLoad;
