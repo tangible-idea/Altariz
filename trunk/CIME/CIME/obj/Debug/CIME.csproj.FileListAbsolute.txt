@@ -1,0 +1,7 @@
+C:\Users\Mark\documents\visual studio 2010\Projects\WindowsFormsApplication2\WindowsFormsApplication2\bin\Debug\ChineseIME.exe
+C:\Users\Mark\documents\visual studio 2010\Projects\WindowsFormsApplication2\WindowsFormsApplication2\bin\Debug\ChineseIME.pdb
+C:\Users\Mark\documents\visual studio 2010\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.Form1.resources
+C:\Users\Mark\documents\visual studio 2010\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\Debug\ChineseIME.Properties.Resources.resources
+C:\Users\Mark\documents\visual studio 2010\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\Debug\CIME.csproj.GenerateResource.Cache
+C:\Users\Mark\documents\visual studio 2010\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\Debug\ChineseIME.exe
+C:\Users\Mark\documents\visual studio 2010\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\Debug\ChineseIME.pdb

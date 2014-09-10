@@ -1,0 +1,8 @@
+c:\users\mark\documents\visual studio 2010\Projects\WindowsFormsApplication2\WindowsFormsApplication2\bin\Release\WindowsFormsApplication2.exe
+c:\users\mark\documents\visual studio 2010\Projects\WindowsFormsApplication2\WindowsFormsApplication2\bin\Release\WindowsFormsApplication2.pdb
+c:\users\mark\documents\visual studio 2010\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\x86\Release\WindowsFormsApplication2.Form1.resources
+c:\users\mark\documents\visual studio 2010\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\x86\Release\WindowsFormsApplication2.Properties.Resources.resources
+c:\users\mark\documents\visual studio 2010\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\x86\Release\WindowsFormsApplication2.csproj.GenerateResource.Cache
+c:\users\mark\documents\visual studio 2010\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\x86\Release\WindowsFormsApplication2.exe
+c:\users\mark\documents\visual studio 2010\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\x86\Release\WindowsFormsApplication2.pdb
+C:\Users\Mark\documents\visual studio 2010\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\x86\Release\WindowsFormsApplication2.csprojResolveAssemblyReference.cache
