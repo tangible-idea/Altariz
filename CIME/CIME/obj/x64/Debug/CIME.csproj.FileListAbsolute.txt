@@ -1,0 +1,14 @@
+C:\Users\Mark\documents\visual studio 2010\Projects\WindowsFormsApplication2\WindowsFormsApplication2\bin\x64\Debug\ChineseIME.exe
+C:\Users\Mark\documents\visual studio 2010\Projects\WindowsFormsApplication2\WindowsFormsApplication2\bin\x64\Debug\ChineseIME.pdb
+C:\Users\Mark\documents\visual studio 2010\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\x64\Debug\WindowsFormsApplication2.Form1.resources
+C:\Users\Mark\documents\visual studio 2010\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\x64\Debug\ChineseIME.Properties.Resources.resources
+C:\Users\Mark\documents\visual studio 2010\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\x64\Debug\CIME.csproj.GenerateResource.Cache
+C:\Users\Mark\documents\visual studio 2010\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\x64\Debug\ChineseIME.exe
+C:\Users\Mark\documents\visual studio 2010\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\x64\Debug\ChineseIME.pdb
+F:\0.WORKS\PARTJOB_WORK\altariz\CIME\CIME\bin\x64\Debug\ChineseIME.exe
+F:\0.WORKS\PARTJOB_WORK\altariz\CIME\CIME\bin\x64\Debug\ChineseIME.pdb
+F:\0.WORKS\PARTJOB_WORK\altariz\CIME\CIME\obj\x64\Debug\WindowsFormsApplication2.Form1.resources
+F:\0.WORKS\PARTJOB_WORK\altariz\CIME\CIME\obj\x64\Debug\ChineseIME.Properties.Resources.resources
+F:\0.WORKS\PARTJOB_WORK\altariz\CIME\CIME\obj\x64\Debug\CIME.csproj.GenerateResource.Cache
+F:\0.WORKS\PARTJOB_WORK\altariz\CIME\CIME\obj\x64\Debug\ChineseIME.exe
+F:\0.WORKS\PARTJOB_WORK\altariz\CIME\CIME\obj\x64\Debug\ChineseIME.pdb
