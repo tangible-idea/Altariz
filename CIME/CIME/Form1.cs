@@ -38,7 +38,7 @@ namespace WindowsFormsApplication2
 
         private void richTextBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 32)   // 스페이스 || 엔터
+            if (e.KeyChar == 32)   // 스페이스
             {
                 //MessageBox.Show(word);
                 word_completed += FindChineseWord();
@@ -47,26 +47,88 @@ namespace WindowsFormsApplication2
                 richTextBox1.Text = word_completed;
                 e.KeyChar = Convert.ToChar(0);
                 richTextBox1.Select(richTextBox1.Text.Length, 0);
+
+                lst_retrieving.Items.Clear();
             }
-            else if (e.KeyChar == 8 || e.KeyChar == 13 || e.KeyChar == 27)    // 백스페이스
+            else if (e.KeyChar == 8 || e.KeyChar == 27)    // 백스페이스, esc
             {
-                    e.KeyChar = Convert.ToChar(0);
-                    richTextBox1.Text = word_completed;
-                    richTextBox1.Select(richTextBox1.Text.Length, 0);
-                    word = "";
+                e.KeyChar = Convert.ToChar(0);
+                richTextBox1.Text = word_completed;
+                richTextBox1.Select(richTextBox1.Text.Length, 0);
+                word = "";
             }
-            else if (e.KeyChar >= 65 || e.KeyChar <= 90)
+            else if (e.KeyChar == 13)   // 엔터
+            {
+                String selectedText = lst_retrieving.GetItemText(lst_retrieving.SelectedItem);
+
+                word_completed += selectedText;
+
+                e.KeyChar = Convert.ToChar(0);
+                richTextBox1.Text = word_completed;
+                richTextBox1.Select(richTextBox1.Text.Length, 0);
+                word = "";
+
+                lst_retrieving.Items.Clear();
+            }
+            else if (e.KeyChar >= 65 || e.KeyChar <= 90)    // a~Z
             {        
-                if (!bCtrl)
+                if (!bCtrl) // ctrl 안눌려져있다면
                 {
-                word += e.KeyChar;
-                e.KeyChar = Convert.ToChar(46);
+                    word += e.KeyChar;
+                    e.KeyChar = Convert.ToChar(46);
+
+                    PrintRecommendList();                 
                 }
             }
             else
             {
                 e.KeyChar = Convert.ToChar(0);
             }
+        }
+
+        private void PrintRecommendList()
+        {
+            lst_retrieving.Items.Clear();
+            List<String> arrResult = RetriveStartingIndex();
+            foreach (String str in arrResult)
+            {
+                lst_retrieving.Items.Add(str);
+            }
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            int nCurrSel= lst_retrieving.SelectedIndex;
+            int nCount = lst_retrieving.Items.Count;
+            switch (keyData)
+            {
+                case Keys.Up:
+                    if (lst_retrieving.Items.Count == 0)
+                        return true;
+
+                    if(nCurrSel >= nCount)
+                        break;
+                    else if (nCurrSel != 0)
+                        lst_retrieving.SelectedIndex = nCurrSel - 1;
+                    return true;                  
+                case Keys.Down:
+                    if (lst_retrieving.Items.Count == 0)
+                        return true;
+
+                    if (nCurrSel != nCount-1)
+                        lst_retrieving.SelectedIndex = nCurrSel + 1;
+                    return true;
+                case Keys.Right:
+                case Keys.Left:
+                    break;
+
+                case Keys.Enter:
+                    break;
+                    //MessageBox.Show("방향키");
+                    
+            }
+            
+            return base.ProcessCmdKey(ref msg, keyData);
         }
 
 
@@ -79,11 +141,22 @@ namespace WindowsFormsApplication2
                     return arrData[i];
                 }
             }
-
             return "";
-
         }
 
+        // 입력한 문자로 시작되는 것들을 찾음. [9/12/2014 Mark]
+        private List<String> RetriveStartingIndex()
+        {
+            List<String> arrResults = new List<String>();
+            for (int i = 0; i < arrCode.Count; ++i)
+            {
+                if ( arrCode[i].ToUpper().StartsWith( word.ToUpper() ))   // 입력한 문자로 시작되는거면
+                {
+                    arrResults.Add(arrData[i]);
+                }
+            }
+            return arrResults;
+        }
 
         private void ReadExcelfile(String strFilePath)
         {
@@ -128,6 +201,7 @@ namespace WindowsFormsApplication2
 
         private void richTextBox1_KeyDown(object sender, KeyEventArgs e)
         {
+            
             if (e.Control)
             {
                 bCtrl = true;
