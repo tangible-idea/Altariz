@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.lst_retrieving = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // richTextBox1
@@ -43,16 +44,27 @@
             this.richTextBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.richTextBox1_KeyPress);
             this.richTextBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.richTextBox1_KeyUp);
             // 
+            // lst_retrieving
+            // 
+            this.lst_retrieving.Font = new System.Drawing.Font("새굴림", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lst_retrieving.FormattingEnabled = true;
+            this.lst_retrieving.ItemHeight = 37;
+            this.lst_retrieving.Location = new System.Drawing.Point(582, 12);
+            this.lst_retrieving.Name = "lst_retrieving";
+            this.lst_retrieving.Size = new System.Drawing.Size(70, 374);
+            this.lst_retrieving.TabIndex = 1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 421);
+            this.ClientSize = new System.Drawing.Size(664, 422);
+            this.Controls.Add(this.lst_retrieving);
             this.Controls.Add(this.richTextBox1);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(600, 460);
+            this.MaximumSize = new System.Drawing.Size(680, 460);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(600, 460);
+            this.MinimumSize = new System.Drawing.Size(680, 460);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chinese IME Prototype";
@@ -63,6 +75,7 @@
         #endregion
 
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.ListBox lst_retrieving;
 
 
     }
