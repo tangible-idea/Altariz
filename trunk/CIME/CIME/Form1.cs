@@ -56,6 +56,8 @@ namespace WindowsFormsApplication2
                 richTextBox1.Text = word_completed;
                 richTextBox1.Select(richTextBox1.Text.Length, 0);
                 word = "";
+
+                lst_retrieving.Items.Clear();
             }
             else if (e.KeyChar == 13)   // 엔터
             {
@@ -69,6 +71,16 @@ namespace WindowsFormsApplication2
                 word = "";
 
                 lst_retrieving.Items.Clear();
+            }
+            else if (e.KeyChar >= 48 || e.KeyChar <= 57)    // 0~9
+            {
+                if (!bCtrl) // ctrl 안눌려져있다면
+                {
+                    word += e.KeyChar;
+                    e.KeyChar = Convert.ToChar(46);
+
+                    PrintRecommendList();
+                }
             }
             else if (e.KeyChar >= 65 || e.KeyChar <= 90)    // a~Z
             {        
@@ -176,13 +188,13 @@ namespace WindowsFormsApplication2
 
             
                 foreach (DataRow dr in ds.Tables[0].Rows)
-                {
+                {                    
                     if(dr[2] == DBNull.Value)
                         break;
 
                     String code = (String)dr[2];
                     String data = (String)dr[3];
-                    if (code.Trim() == "")
+                    if (code.Trim() == "" || code.Trim() == "CODE")
                         continue;
 
 
