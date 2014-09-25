@@ -36,10 +36,9 @@
             // richTextBox1
             // 
             this.richTextBox1.Font = new System.Drawing.Font("새굴림", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.richTextBox1.Location = new System.Drawing.Point(14, 15);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.richTextBox1.Location = new System.Drawing.Point(12, 12);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(644, 455);
+            this.richTextBox1.Size = new System.Drawing.Size(564, 365);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             this.richTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richTextBox1_KeyDown);
@@ -50,38 +49,36 @@
             // 
             this.lst_retrieving.Font = new System.Drawing.Font("새굴림", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lst_retrieving.FormattingEnabled = true;
-            this.lst_retrieving.ItemHeight = 46;
-            this.lst_retrieving.Location = new System.Drawing.Point(665, 48);
-            this.lst_retrieving.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.lst_retrieving.MaximumSize = new System.Drawing.Size(79, 464);
-            this.lst_retrieving.MinimumSize = new System.Drawing.Size(79, 464);
+            this.lst_retrieving.ItemHeight = 37;
+            this.lst_retrieving.Location = new System.Drawing.Point(582, 38);
+            this.lst_retrieving.MaximumSize = new System.Drawing.Size(70, 372);
+            this.lst_retrieving.MinimumSize = new System.Drawing.Size(70, 372);
             this.lst_retrieving.Name = "lst_retrieving";
-            this.lst_retrieving.Size = new System.Drawing.Size(79, 464);
+            this.lst_retrieving.Size = new System.Drawing.Size(70, 337);
             this.lst_retrieving.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("돋움", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(669, 19);
+            this.label1.Location = new System.Drawing.Point(585, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 15);
+            this.label1.Size = new System.Drawing.Size(57, 12);
             this.label1.TabIndex = 2;
             this.label1.Text = "빠른 입력";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(757, 478);
+            this.ClientSize = new System.Drawing.Size(664, 389);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lst_retrieving);
             this.Controls.Add(this.richTextBox1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(775, 525);
+            this.MaximumSize = new System.Drawing.Size(680, 428);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(775, 525);
+            this.MinimumSize = new System.Drawing.Size(680, 428);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chinese IME Prototype";

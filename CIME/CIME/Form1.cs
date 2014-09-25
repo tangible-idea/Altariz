@@ -148,7 +148,7 @@ namespace WindowsFormsApplication2
         {
             for (int i = 0; i < arrCode.Count; ++i )
             {
-                if (word.ToUpper() == arrCode[i].ToUpper())   // 맞는 코드를 찾으면...
+                if (word == arrCode[i])   // 맞는 코드를 찾으면...
                 {
                     return arrData[i];
                 }
@@ -162,7 +162,7 @@ namespace WindowsFormsApplication2
             List<String> arrResults = new List<String>();
             for (int i = 0; i < arrCode.Count; ++i)
             {
-                if ( arrCode[i].ToUpper().StartsWith( word.ToUpper() ))   // 입력한 문자로 시작되는거면
+                if ( arrCode[i].StartsWith( word ))   // 입력한 문자로 시작되는거면
                 {
                     arrResults.Add(arrData[i]);
                 }
@@ -194,8 +194,8 @@ namespace WindowsFormsApplication2
 
                     String code = (String)dr[2];
                     String data = (String)dr[3];
-                    if (code.Trim() == "" || code.Trim() == "CODE")
-                        continue;
+                    //if (code.Trim() == "" || code.Trim() == "CODE")
+                      //  continue;
 
 
                     arrCode.Add(code);
