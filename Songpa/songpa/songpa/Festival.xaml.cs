@@ -158,7 +158,15 @@ namespace songpa
             {
                 if (nCurrentTap == TAP_FESTIVAL)
                 {
+                    
+                    //double pageCount= arrFestivalInfo.Count / 6;
+                    //double pageCount2 = Math.Ceiling(pageCount);
+
                     int nFestivalMaxPage = (int)arrFestivalInfo.Count / 6;
+
+                    if (arrFestivalInfo.Count % 6 == 0)
+                        --nFestivalMaxPage;
+
                     if (nFestivalCurrPage + 1 > nFestivalMaxPage)
                         btn_Right.IsEnabled = false;
                     else
@@ -182,6 +190,10 @@ namespace songpa
                 if (nCurrentTap == TAP_MUSICAL)
                 {
                     int nMusicalMaxPage = (int)arrMusicalInfo.Count / 6;
+
+                    if (arrMusicalInfo.Count % 6 == 0)
+                        --nMusicalMaxPage;
+
                     if (nMusicalCurrPage + 1 > nMusicalMaxPage)
                         btn_Right.IsEnabled = false;
                     else
@@ -192,7 +204,7 @@ namespace songpa
                     else
                         btn_Left.IsEnabled = true;
 
-                    int idxStart = nFestivalCurrPage * 6;
+                    int idxStart = nMusicalCurrPage * 6;
                     path1 = arrMusicalInfo[idxStart + 0].imgThumb_path;
                     path2 = arrMusicalInfo[idxStart + 1].imgThumb_path;
                     path3 = arrMusicalInfo[idxStart + 2].imgThumb_path;
@@ -222,7 +234,7 @@ namespace songpa
                 }
                 if (nCurrentTap == TAP_MUSICAL)
                 {
-                    int idxStart = nFestivalCurrPage * 6;
+                    int idxStart = nMusicalCurrPage * 6;
                     TB1.Text = InsertCRLFinside(arrMusicalInfo[idxStart + 0].txt1);
                     TB2.Text = InsertCRLFinside(arrMusicalInfo[idxStart + 1].txt1);
                     TB3.Text = InsertCRLFinside(arrMusicalInfo[idxStart + 2].txt1);
