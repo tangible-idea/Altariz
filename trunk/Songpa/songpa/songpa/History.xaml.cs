@@ -154,6 +154,10 @@ namespace songpa
                 if (nCurrentTap == TAP_HISTORY)
                 {
                     int nHistoryMaxPage = (int)arrHistoryInfo.Count / 6;
+
+                    if (arrHistoryInfo.Count % 6 == 0)
+                        --nHistoryMaxPage;
+
                     if (nHistoryCurrPage + 1 > nHistoryMaxPage)
                         btn_Right.IsEnabled = false;
                     else
@@ -175,6 +179,10 @@ namespace songpa
                 if (nCurrentTap == TAP_CULTURE)
                 {
                     int nCultureMaxPage = (int)arrCultureInfo.Count / 6;
+
+                    if (arrCultureInfo.Count % 6 == 0)
+                        --nCultureMaxPage;
+
                     if (nCultureCurrPage + 1 > nCultureMaxPage)
                         btn_Right.IsEnabled = false;
                     else
