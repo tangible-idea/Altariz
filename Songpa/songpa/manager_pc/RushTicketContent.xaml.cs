@@ -93,12 +93,13 @@ namespace manager_pc
             {
                 pathForDelete = pathOld;    // 삭제할 경로 추가 [8/6/2014 Mark_laptap]
                 currentName = txt_EngTitle.Text;    // 다르니까 새로 넣어주자.
+                DirectoryCopy(pathOld, pathNew, true);    // 제목 바뀌었을 때 새로움 폴더에 사진 같이 복사해줌.
             }
 
             
             DirectoryInfo di_SUB = new DirectoryInfo(pathRushRoot + "\\" + currentName);  //Create Directoryinfo value by sDirPath
 
-            DirectoryCopy(pathOld, pathNew, true);
+            
 
             if (di_SUB.Exists == false) // 해당 이름의 폴더가 존재하지 않으면... [6/8/2014 Mark]
             {

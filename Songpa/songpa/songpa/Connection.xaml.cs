@@ -23,6 +23,7 @@ namespace songpa
     {
         static public String PATH = "";
         static public String PATHlocal = Directory.GetCurrentDirectory();
+        //static public String PATHlocal = @"C:\";
         RegistryKey rkey;
 
         public Connection()
