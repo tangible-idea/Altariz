@@ -72,28 +72,59 @@ namespace manager_pc
 
         private void btn_Save_Click(object sender, RoutedEventArgs e)
         {
-            //if (isNewBoard) // new or modify? [6/8/2014 Mark]
-            //{
+            String pathOld = pathRushRoot + "\\" + currentName;
+            String pathNew = pathRushRoot + "\\" + txt_EngTitle.Text;
 
-            //}
-            //else // modify [6/8/2014 Mark]
-            //{
-            //    Close();
-            //}
+            bool bModify = (currentName == "") ? false : true;  // 수정인가 신규인가
 
-            //DirectoryInfo di_OLD = new DirectoryInfo(pathRushRoot + "\\" + currentName);  //Create Directoryinfo value by sDirPath
-            String pathOld= pathRushRoot + "\\" + currentName;
-            String pathNew= pathRushRoot + "\\"+ txt_EngTitle.Text;
-
-            if (currentName == txt_EngTitle.Text)    // 이전 이름과 같으면 바뀐게 아님 [8/5/2014 Mark_laptap]
+            if (bModify)    // 수정
             {
-                pathForDelete = "";
+                if (currentName == txt_EngTitle.Text)    // 수정인데 이름 안바꿨음 [8/5/2014 Mark_laptap]
+                {
+                    pathForDelete = "";
+                    //
+                }
+                else // 수정- 이름 바꿈
+                {
+                    {   // 이미 같은 이름이 존재하면 안됨.
+                        bool bAlreadyExist = false;
+                        DirectoryInfo di_Exist = new DirectoryInfo(pathRushRoot);
+                        foreach (System.IO.DirectoryInfo d in di_Exist.GetDirectories())
+                        {
+                            if (d.Name == txt_EngTitle.Text)
+                                bAlreadyExist = true;
+                        }
+                        if (bAlreadyExist)
+                        {
+                            MessageBox.Show("이미 같은 이름의 컨텐츠가 존재합니다.");
+                            return;
+                        }
+                    }
+
+                    pathForDelete = pathOld;    // 삭제할 경로 추가 [8/6/2014 Mark_laptap]
+                    currentName = txt_EngTitle.Text;    // 다르니까 새로 넣어주자.
+                    DirectoryCopy(pathOld, pathNew, true);// 제목 바뀌었을 때 새로움 폴더에 사진 같이 복사해줌.
+                }
             }
-            else
+            else // 신규
             {
+                {   // 이미 같은 이름이 존재하면 안됨.
+                    bool bAlreadyExist = false;
+                    DirectoryInfo di_Exist = new DirectoryInfo(pathRushRoot);
+                    foreach (System.IO.DirectoryInfo d in di_Exist.GetDirectories())
+                    {
+                        if (d.Name == txt_EngTitle.Text)
+                            bAlreadyExist = true;
+                    }
+                    if (bAlreadyExist)
+                    {
+                        MessageBox.Show("이미 같은 이름의 컨텐츠가 존재합니다.");
+                        return;
+                    }
+                }
+
                 pathForDelete = pathOld;    // 삭제할 경로 추가 [8/6/2014 Mark_laptap]
                 currentName = txt_EngTitle.Text;    // 다르니까 새로 넣어주자.
-                DirectoryCopy(pathOld, pathNew, true);    // 제목 바뀌었을 때 새로움 폴더에 사진 같이 복사해줌.
             }
 
             
