@@ -472,9 +472,16 @@ namespace songpa
         private void btn_Left_Click(object sender, RoutedEventArgs e)
         {
             if (nCurrentTap == TAP_FESTIVAL)
+            {
                 --nFestivalCurrPage;
+                
+            }
             else
+            {
                 --nMusicalCurrPage;
+            }
+
+            Position0();
 
             BoardRefresh();
         }
@@ -482,10 +489,17 @@ namespace songpa
         private void btn_Right_Click(object sender, RoutedEventArgs e)
         {
             if (nCurrentTap == TAP_FESTIVAL)
+            {
                 ++nFestivalCurrPage;
+                nCurrSel = (nFestivalCurrPage * ICON_COUNT_EACH_PAGE);
+            }
             else
+            {
                 ++nMusicalCurrPage;
+                nCurrSel = (nMusicalCurrPage * ICON_COUNT_EACH_PAGE);
+            }
 
+            Position0();
             BoardRefresh();
         }
 
@@ -506,7 +520,7 @@ namespace songpa
             }
             else
             {
-                nCurrSel = (nFestivalCurrPage * ICON_COUNT_EACH_PAGE) + 0;
+                nCurrSel = (nMusicalCurrPage * ICON_COUNT_EACH_PAGE) + 0;
             }
         }
         private void onClickImage2(object sender, MouseButtonEventArgs e)
@@ -519,7 +533,7 @@ namespace songpa
             }
             else
             {
-                nCurrSel = (nFestivalCurrPage * ICON_COUNT_EACH_PAGE) + 1;
+                nCurrSel = (nMusicalCurrPage * ICON_COUNT_EACH_PAGE) + 1;
             }
             BoardRefresh();
         }
@@ -534,7 +548,7 @@ namespace songpa
             }
             else
             {
-                nCurrSel = (nFestivalCurrPage * ICON_COUNT_EACH_PAGE) + 2;
+                nCurrSel = (nMusicalCurrPage * ICON_COUNT_EACH_PAGE) + 2;
             }
             BoardRefresh();
         }
@@ -548,7 +562,7 @@ namespace songpa
             }
             else
             {
-                nCurrSel = (nFestivalCurrPage * ICON_COUNT_EACH_PAGE) + 3;
+                nCurrSel = (nMusicalCurrPage * ICON_COUNT_EACH_PAGE) + 3;
             }
             BoardRefresh();
         }
@@ -562,7 +576,7 @@ namespace songpa
             }
             else
             {
-                nCurrSel = (nFestivalCurrPage * ICON_COUNT_EACH_PAGE) + 4;
+                nCurrSel = (nMusicalCurrPage * ICON_COUNT_EACH_PAGE) + 4;
             }
             BoardRefresh();
         }
@@ -577,7 +591,7 @@ namespace songpa
             }
             else
             {
-                nCurrSel = (nFestivalCurrPage * ICON_COUNT_EACH_PAGE) + 5;
+                nCurrSel = (nMusicalCurrPage * ICON_COUNT_EACH_PAGE) + 5;
             }
             BoardRefresh();
         }

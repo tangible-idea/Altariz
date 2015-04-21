@@ -461,6 +461,8 @@ namespace songpa
             else
                 --nCultureCurrPage;
 
+            Position0();
+
             BoardRefresh();
         }
 
@@ -470,6 +472,8 @@ namespace songpa
                 ++nHistoryCurrPage;
             else
                 ++nCultureCurrPage;
+
+            Position0();
 
             BoardRefresh();
         }
